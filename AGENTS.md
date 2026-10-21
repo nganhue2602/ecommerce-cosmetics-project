@@ -1,12 +1,12 @@
-# AGENTS.md – Hướng dẫn AI hỗ trợ dự án WASHUP
+# Project Instructions for AI
 
-## 1. Project context – Thông tin dự án
+## 1. Project context
 
 WASHUP là website đặt dịch vụ giặt ủi trực tuyến do nhóm 6 thực hiện. Website cung cấp các dịch vụ như giặt sấy, giặt hấp và là ủi. Khách hàng có thể xem dịch vụ và bảng giá, chọn dịch vụ, nhập khối lượng hoặc số lượng quần áo, chọn mùi hương nếu có, đặt lịch nhận/giao trả, xem chi phí dự kiến, áp dụng voucher, thanh toán trực tuyến và theo dõi trạng thái đơn hàng.
 
 Dự án hướng đến sinh viên và người đi làm tại khu vực thử nghiệm. Trong phiên bản đầu tiên, hệ thống mô phỏng hoạt động của một trung tâm giặt ủi; chưa triển khai điều phối tài xế hoặc theo dõi vị trí giao nhận theo thời gian thực. Vì thời gian thực hiện đồ án khoảng 8 tuần, nhóm ưu tiên những chức năng cần thiết, dễ sử dụng, dễ kiểm thử và phù hợp với khả năng triển khai.
 
-## 2. Scope – Phạm vi triển khai
+## 2. Scope 
 
 Chỉ phát triển các chức năng đã được nhóm thống nhất và ghi trong `REQUIREMENTS.md`. Không tự ý mở rộng phạm vi hoặc thêm chức năng lớn khi chưa được nhóm đồng ý.
 
@@ -41,7 +41,7 @@ Các chức năng chưa thuộc phạm vi MVP, trừ khi nhóm có quyết đị
 
 Nếu `AGENTS.md` và `REQUIREMENTS.md` có điểm chưa thống nhất, không tự chọn một phương án để triển khai. Hãy chỉ ra nội dung mâu thuẫn và hỏi nhóm xác nhận.
 
-## 3. Coding principles – Nguyên tắc lập trình
+## 3. Coding principles 
 
 - Đọc mã nguồn và tài liệu hiện có trước khi đề xuất hoặc thực hiện thay đổi.
 - Giữ mã nguồn dễ đọc, dễ hiểu và dễ bảo trì; ưu tiên giải pháp phù hợp với trình độ và thời gian của nhóm sinh viên.
@@ -53,7 +53,7 @@ Nếu `AGENTS.md` và `REQUIREMENTS.md` có điểm chưa thống nhất, không
 - Không tự đặt ra quy tắc nghiệp vụ hoặc coi dữ liệu mẫu là thông tin chính thức của nhóm.
 - Không thay đổi giao diện hoặc quy trình nghiệp vụ theo ý riêng nếu điều đó làm sai lệch yêu cầu đã thống nhất.
 
-## 4. Workflow – Quy trình làm việc
+## 4. Workflow
 
 ### Trước khi sửa mã nguồn
 
@@ -72,7 +72,7 @@ Nếu `AGENTS.md` và `REQUIREMENTS.md` có điểm chưa thống nhất, không
 
 Không khẳng định chức năng đã hoạt động đúng nếu chưa có kết quả kiểm tra tương ứng. Nếu không thể chạy thử trong môi trường hiện tại, cần nói rõ điều đó.
 
-## 5. Security – Bảo mật và quyền riêng tư
+## 5. Security
 
 - Không đưa mật khẩu, API key, token hoặc thông tin bí mật vào mã nguồn, tài liệu công khai hay Git.
 - Sử dụng biến môi trường hoặc cách quản lý cấu hình phù hợp để lưu thông tin bí mật.
@@ -85,7 +85,7 @@ Không khẳng định chức năng đã hoạt động đúng nếu chưa có k
 
 Với chức năng thanh toán, ưu tiên dùng môi trường thử nghiệm (sandbox) trong quá trình phát triển. Không lưu thông tin thẻ hoặc thông tin xác thực thanh toán nhạy cảm trong cơ sở dữ liệu của WASHUP. Không coi giao dịch là thành công chỉ vì người dùng được chuyển hướng trở lại website; cần xác minh kết quả theo cơ chế của cổng thanh toán.
 
-## 6. Communication – Trao đổi và làm rõ yêu cầu
+## 6. Communication
 
 - Nếu yêu cầu chưa rõ hoặc các tài liệu có nội dung mâu thuẫn, hãy hỏi nhóm trước khi triển khai.
 - Khi phát hiện điểm chưa thống nhất giữa `AGENTS.md`, `REQUIREMENTS.md`, `README.md` hoặc tài liệu quy trình, hãy nêu rõ điểm mâu thuẫn và đề nghị nhóm xác nhận; không tự quyết định thay nhóm.
