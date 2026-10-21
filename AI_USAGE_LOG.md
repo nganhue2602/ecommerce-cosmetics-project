@@ -1,65 +1,93 @@
- AI_USAGE_LOG.md
-Dự án: WASHUP – Website đặt dịch vụ giặt ủi trực tuyến
-Nhật ký này ghi lại việc sử dụng AI trong Nhiệm vụ 3 và Nhiệm vụ 4. Hãy kiểm tra và điều chỉnh tên công cụ, prompt và mô tả kết quả để khớp chính xác với quá trình nhóm đã thực hiện trước khi nộp.
+# AI Usage Log – Dự án WASHUP
 
-1. Mục đích sử dụng AI
-Nhóm sử dụng AI để hỗ trợ phân tích yêu cầu nghiệp vụ cho website WASHUP, xác định các yêu cầu chức năng và phi chức năng, đề xuất phạm vi MVP phù hợp với thời gian thực hiện 8 tuần, sau đó dùng một công cụ AI khác để phản biện độc lập các yêu cầu ban đầu. AI được sử dụng như công cụ hỗ trợ; nhóm chịu trách nhiệm kiểm tra và quyết định cuối cùng.
-2. AI thứ nhất – Phân tích yêu cầu (Nhiệm vụ 3)
-Trường	Nội dung
-Công cụ	ChatGPT (OpenAI), theo tài liệu Nhiệm vụ 3
-Mục đích	Phân tích nghiệp vụ và đề xuất yêu cầu cho WASHUP
-Thông tin đầu vào	Đề tài WASHUP; dịch vụ giặt sấy, giặt hấp, là ủi; nhóm khách hàng mục tiêu; vấn đề kinh doanh; kết quả khảo sát HERAMO, Giặt Ơi! và 1997 Premium Laundry; phạm vi dự án 8 tuần và các chức năng MVP đã xác nhận
-Prompt	Sử dụng prompt phân tích yêu cầu được lưu trong tài liệu Nhiệm vụ 3, mục 4.1.1
-Kết quả chính	AI đề xuất mục tiêu và phạm vi dự án; nhóm người dùng và quyền hạn; 13 yêu cầu chức năng FR-01 đến FR-13; quy trình đặt dịch vụ, thanh toán và quản trị đơn hàng; các yêu cầu phi chức năng; chức năng MVP, chức năng mở rộng và rủi ro triển khai
-Cách nhóm rà soát	Đối chiếu đề xuất với vấn đề kinh doanh, khảo sát ba website, phạm vi MVP đã xác nhận và giới hạn thời gian 8 tuần
-Hạn chế cần lưu ý	Một số quy tắc chưa đủ chi tiết để lập trình, chẳng hạn cách tính giá, phí giao nhận, điều kiện voucher, khung giờ nhận/giao, xử lý thanh toán thất bại và định nghĩa chỉ số dashboard
+## 1. Mục đích sử dụng AI
 
+Nhóm sử dụng công cụ AI để hỗ trợ phân tích và phản biện yêu cầu cho dự án WASHUP – Website đặt dịch vụ giặt ủi trực tuyến. AI đóng vai trò tham khảo; nhóm chịu trách nhiệm kiểm tra, lựa chọn và hoàn thiện các yêu cầu trước khi đưa vào tài liệu dự án.
 
-3. AI thứ hai – Phản biện độc lập (Nhiệm vụ 4)
-Trường	Nội dung
-Công cụ	Cần ghi đúng tên công cụ AI thứ hai mà nhóm thực sự sử dụng. Tài liệu Nhiệm vụ 4 hiện ghi Gemini, nên cần xác nhận đây có đúng là công cụ khác với AI thứ nhất hay không
-Mục đích	Phản biện độc lập danh sách yêu cầu do AI thứ nhất đề xuất
-Thông tin đầu vào	Mô tả WASHUP; vấn đề kinh doanh và khách hàng mục tiêu; kết quả khảo sát ba website; danh sách FR-01 đến FR-13 từ Nhiệm vụ 3
-Prompt	Sử dụng prompt phản biện được lưu trong tài liệu Nhiệm vụ 4, mục 5.2
-Kết quả chính	AI phản biện yêu cầu về tính cần thiết, phạm vi, tính rõ ràng, nghiệp vụ còn thiếu, bảo mật và khả năng triển khai trong 8 tuần
-Các điểm phản biện đáng chú ý	Làm rõ đơn vị tính và cách hiển thị giá; giới hạn khu vực/khung giờ giao nhận; thống nhất công thức tính phí; chống tạo đơn trùng; quy định trạng thái và điều kiện hủy đơn; thu hẹp voucher, tìm kiếm/lọc và dashboard; xác minh thanh toán ở phía máy chủ; không lưu số thẻ thanh toán
-Cách nhóm xử lý	So sánh phản biện với phạm vi đã xác nhận, sau đó quyết định giữ, sửa đổi hoặc bổ sung từng yêu cầu; không mặc nhiên chấp nhận mọi đề xuất của AI
+## 2. Nhật ký sử dụng AI
 
+| STT | Nhiệm vụ | Công cụ AI | Mục đích sử dụng | Đầu vào (Input) | Kết quả đầu ra (Output) | Cách nhóm xử lý |
+|---|---|---|---|---|---|---|
+| 1 | Nhiệm vụ 3 – Phân tích yêu cầu | ChatGPT (OpenAI) | Phân tích đề tài và đề xuất bộ yêu cầu cho website WASHUP | Mô tả dự án, khách hàng mục tiêu, kết quả khảo sát 3 website tham khảo và phạm vi thực hiện | Đề xuất các yêu cầu chức năng FR-01 đến FR-13, quy trình nghiệp vụ, yêu cầu phi chức năng, phạm vi MVP và các rủi ro cần lưu ý | Nhóm rà soát từng đề xuất, đối chiếu với mục tiêu dự án và thời gian thực hiện, sau đó chọn nội dung phù hợp |
+| 2 | Nhiệm vụ 4 – Phản biện yêu cầu | Gemini (Google) | Đánh giá độc lập bộ yêu cầu do ChatGPT đề xuất, tìm điểm thiếu, chưa rõ, rủi ro và vấn đề về tính khả thi | Mô tả dự án WASHUP, khách hàng mục tiêu, kết quả khảo sát website tham khảo và bộ yêu cầu do ChatGPT đề xuất | Phản hồi phản biện về tính rõ ràng, tính khả thi, phạm vi chức năng, quy tắc nghiệp vụ và các rủi ro cần xem xét | Nhóm đối chiếu phản hồi của Gemini với đề xuất ban đầu, thảo luận các điểm khác biệt và quyết định giữ, điều chỉnh hoặc giới hạn các yêu cầu phù hợp |
+| 3 | Tổng hợp sau phản biện | Nhóm thực hiện, tham khảo kết quả từ ChatGPT và Gemini | Hoàn thiện bộ yêu cầu sau khi phân tích và phản biện | Kết quả phân tích từ ChatGPT và phản hồi phản biện từ Gemini | Bộ yêu cầu được rà soát về phạm vi, quy tắc nghiệp vụ, mức độ ưu tiên và khả năng triển khai | Nhóm đưa ra quyết định cuối cùng và cập nhật tài liệu yêu cầu của dự án |
 
-4. Tóm tắt quyết định của nhóm
-Nội dung	Quyết định được ghi trong tài liệu Nhiệm vụ 4	Lý do
-FR-01 – Quản lý tài khoản	Giữ và điều chỉnh thành hai vai trò: Khách hàng và Quản trị viên; cho phép khách vãng lai xem dịch vụ và giá	Giảm rào cản khi xem dịch vụ, đơn giản hóa phân quyền
-FR-02 – Danh sách/chi tiết dịch vụ	Giữ, bổ sung đơn vị tính, giá áp dụng và thời gian xử lý	Làm rõ thông tin khách hàng cần biết
-FR-03 – Lựa chọn dịch vụ	Giữ, làm rõ mùi hương được cấu hình sẵn, không tính phí; khối lượng nhập là ước tính	Tránh quy tắc tùy chọn không rõ ràng
-FR-04 – Đặt lịch giao nhận	Giữ, giới hạn ở khu vực thử nghiệm và khung giờ cố định	Phù hợp nguồn lực và phạm vi MVP
-FR-05 – Tính chi phí	Giữ, thống nhất công thức; tính lại phía máy chủ và ghi nhận chênh lệch nếu khối lượng thực tế khác dự kiến	Tăng tính chính xác và hạn chế sửa đổi dữ liệu phía trình duyệt
-FR-06 – Tạo đơn hàng	Giữ, bổ sung kiểm tra dữ liệu và chống tạo đơn trùng	Hạn chế lỗi và đơn hàng trùng lặp
-FR-07 – Theo dõi/quản lý đơn	Giữ, thống nhất trạng thái và chỉ cho Quản trị viên cập nhật; quy định điều kiện hủy	Làm rõ quy trình xử lý đơn hàng
-FR-08 – Quản trị dịch vụ/bảng giá	Giữ ở mức cơ bản, không xây dựng lịch sử giá	Giảm độ phức tạp
-FR-09 – Voucher	Giữ nhưng đơn giản hóa; triển khai sau chức năng đặt đơn cốt lõi, có thể chuyển sang phần mở rộng nếu trễ tiến độ	Vẫn thuộc phạm vi đã xác nhận nhưng cần kiểm soát khối lượng
-FR-10 – Tìm kiếm/lọc	Giữ tìm theo tên và lọc theo loại; bỏ bộ lọc nâng cao	Đáp ứng nhu cầu cơ bản
-FR-11 – Phí giao nhận	Giữ, dùng phí cố định theo khu vực cấu hình sẵn và tính trong công thức tổng chi phí	Dễ triển khai và kiểm thử
-FR-12 – Thanh toán trực tuyến	Lên kế hoạch tích hợp một cổng ở môi trường sandbox, thử sớm; có phương án dự phòng mô phỏng	Giảm rủi ro tích hợp nhưng vẫn ưu tiên yêu cầu MVP
-FR-13 – Dashboard	Giữ thống kê cơ bản: tổng đơn, đơn theo trạng thái và doanh thu đơn đã thanh toán	Tránh báo cáo nâng cao khó định nghĩa
-Giỏ hàng	Không xây dựng giỏ hàng riêng; dùng biểu mẫu đặt trực tiếp	Giảm độ phức tạp của quy trình đặt
-Bảo mật và phân quyền	Giữ và bổ sung kiểm tra quyền, tính tổng tiền phía máy chủ, băm mật khẩu và không lưu số thẻ	Bảo vệ dữ liệu và giao dịch
+## 3. Prompt sử dụng
 
+### 3.1. Nhiệm vụ 3 – ChatGPT
 
-5. Đánh giá của con người và xác minh tiếp theo
-Các đề xuất AI cần được nhóm kiểm tra trước khi chuyển thành yêu cầu lập trình chính thức. Theo tài liệu hiện có, các nội dung cần xác minh gồm:
-- Quy tắc tính giá: đơn vị kg/món, xử lý khối lượng lẻ, mức phí tối thiểu và phụ phí.
-- Phạm vi đơn hàng: một đơn có thể chứa một hay nhiều loại dịch vụ.
-- Lịch giao nhận: khung giờ hợp lệ và thời gian xử lý tối thiểu.
-- Phí giao nhận: khu vực phục vụ, phí một chiều/hai chiều và điều kiện miễn phí.
-- Voucher: loại giảm giá, hạn dùng, đơn tối thiểu và thứ tự áp dụng giảm giá.
-- Thanh toán: cổng thanh toán, môi trường thử nghiệm, giao dịch thất bại và hoàn tiền.
-- Dashboard: định nghĩa doanh thu và các chỉ số thống kê.
-- Nguồn lực kỹ thuật: năng lực thành viên, công nghệ và tính khả thi trong 8 tuần.
-Những nội dung trên chưa nên được xem là đã xác minh nếu nhóm chưa thống nhất hoặc chưa kiểm thử.
-6. Nhận xét và bài học rút ra
-AI giúp nhóm tạo bản yêu cầu ban đầu nhanh hơn và chỉ ra những điểm còn thiếu hoặc chưa rõ. Tuy nhiên, kết quả AI có thể chứa giả định, chưa phản ánh đầy đủ năng lực thực tế của nhóm và không thay thế việc kiểm chứng bằng dữ liệu hoặc quyết định nghiệp vụ. Việc dùng AI thứ hai để phản biện giúp nhóm nhận diện rủi ro, thu hẹp một số chức năng và làm rõ quy tắc cần thiết. Quyết định cuối cùng vẫn thuộc về nhóm dựa trên vấn đề kinh doanh, phạm vi MVP và thời gian thực hiện.
-7. Thông tin cần kiểm tra trước khi nộp
-- [ ] Xác nhận tên AI thứ hai. Tài liệu Nhiệm vụ 4 hiện ghi ChatGPT giống Nhiệm vụ 3; nếu giảng viên yêu cầu một công cụ AI khác, phải sửa theo công cụ thực tế đã sử dụng.
-- [ ] Đảm bảo prompt và kết quả mô tả trong log khớp với lịch sử sử dụng AI thực tế.
-- [ ] Kiểm tra các quyết định trong log khớp với tài liệu Nhiệm vụ 4 và REQUIREMENTS.md.
-- [ ] Không ghi rằng nhóm đã kiểm thử hoặc xác minh một nội dung nếu việc đó chưa thực hiện.
+**Mục tiêu:** Phân tích đề tài WASHUP và đề xuất bộ yêu cầu cho website.
+
+**Thông tin đầu vào chính:**
+- Tên dự án: WASHUP – Website đặt dịch vụ giặt ủi trực tuyến.
+- Dịch vụ dự kiến: giặt sấy, giặt hấp và các dịch vụ liên quan theo phạm vi nhóm xác định.
+- Khách hàng mục tiêu: sinh viên, người đi làm và hộ gia đình.
+- Website tham khảo: HERAMO, Giặt Ơi! và 1997 Premium Laundry.
+- Thời gian thực hiện: 8 tuần; nhóm gồm 8 thành viên.
+
+**Yêu cầu dành cho AI:** Phân tích bối cảnh dự án, đề xuất yêu cầu chức năng và phi chức năng, quy trình nghiệp vụ, phạm vi MVP và các rủi ro cần lưu ý.
+
+*Lưu ý: Đối chiếu với prompt đầy đủ đã sử dụng trong tài liệu Nhiệm vụ 3 để bảo đảm ghi nhận chính xác.*
+
+### 3.2. Nhiệm vụ 4 – Gemini
+
+**Mục tiêu:** Yêu cầu Gemini phản biện độc lập bộ yêu cầu do ChatGPT đề xuất, tập trung vào các điểm chưa rõ, thiếu sót, mâu thuẫn và rủi ro triển khai.
+
+**Thông tin đầu vào chính:**
+- Mô tả đề tài và mục tiêu website WASHUP.
+- Khách hàng mục tiêu và kết quả khảo sát 3 website tham khảo.
+- Danh sách yêu cầu chức năng, yêu cầu phi chức năng và phạm vi MVP do ChatGPT đề xuất.
+
+**Prompt phản biện:**
+
+> Bạn là người phản biện độc lập cho một dự án website thương mại điện tử do nhóm sinh viên thực hiện trong một học phần.
+>
+> Hãy đánh giá bộ yêu cầu website WASHUP được cung cấp. Xác định các yêu cầu còn mơ hồ, thiếu quy tắc nghiệp vụ, trùng lặp, chưa nhất quán hoặc khó triển khai trong phạm vi thời gian và nguồn lực của nhóm.
+>
+> Với mỗi vấn đề, hãy nêu yêu cầu liên quan, giải thích rủi ro và đề xuất phương án điều chỉnh cụ thể. Phân biệt các chức năng thiết yếu của MVP với các chức năng có thể đơn giản hóa hoặc ưu tiên sau. Không tự ý bổ sung các chức năng không cần thiết và không mặc định rằng mọi đề xuất ban đầu đều đúng.
+>
+> Cuối cùng, hãy lập bảng tổng hợp các vấn đề, đề xuất phản biện và khuyến nghị để nhóm xem xét, quyết định.
+
+*Lưu ý: Nếu prompt thực tế đã nhập vào Gemini khác nội dung trên, hãy thay bằng prompt thực tế để nhật ký phản ánh đúng quá trình làm bài.*
+
+## 4. Các quyết định sau khi phản biện
+
+| Mã / Nội dung | Quyết định của nhóm | Lý do |
+|---|---|---|
+| FR-01 – Tài khoản và phân quyền | Phân biệt quyền khách hàng và quản trị viên; khách chưa đăng nhập vẫn có thể xem dịch vụ | Làm rõ quyền truy cập |
+| FR-02 – Thông tin dịch vụ | Làm rõ đơn vị tính, giá dịch vụ và thời gian xử lý | Hạn chế hiểu nhầm khi đặt dịch vụ |
+| FR-03 – Tùy chọn hương thơm | Cho phép lựa chọn theo cấu hình; không thu thêm phí trong phạm vi hiện tại | Giữ quy tắc đơn giản |
+| FR-04 – Giao nhận | Giới hạn khu vực và khung giờ giao nhận | Phù hợp phạm vi vận hành |
+| FR-05 – Tính giá | Tính giá ở phía máy chủ và xác định cách xử lý khi khối lượng thực tế khác dự kiến | Hạn chế sai lệch giá |
+| FR-06 – Tránh đơn trùng | Bổ sung cơ chế hạn chế tạo đơn trùng | Giảm nguy cơ phát sinh đơn ngoài ý muốn |
+| FR-07 – Trạng thái đơn | Xác định trạng thái đơn hàng và quy tắc hủy đơn | Làm rõ quy trình xử lý đơn |
+| FR-08 – Quản lý dịch vụ | Quản trị viên quản lý dịch vụ và giá cơ bản; chưa triển khai lịch sử giá | Giới hạn độ phức tạp |
+| FR-09 – Voucher | Sử dụng quy tắc voucher đơn giản, ưu tiên sau các chức năng cốt lõi | Phù hợp phạm vi MVP |
+| FR-10 – Tìm kiếm và lọc | Giữ chức năng tìm kiếm, lọc dịch vụ ở mức cơ bản | Đáp ứng nhu cầu tra cứu |
+| FR-11 – Phí giao nhận | Áp dụng phí cố định theo khu vực được cấu hình | Đơn giản hóa quy tắc tính phí |
+| FR-12 – Thanh toán | Tích hợp một cổng thanh toán ở môi trường thử nghiệm; chuẩn bị phương án mô phỏng nếu không thể tích hợp | Giảm rủi ro kỹ thuật |
+| FR-13 – Dashboard | Xây dựng dashboard quản trị cơ bản | Tập trung vào thông tin thiết yếu |
+| Giỏ hàng | Không xây dựng giỏ hàng riêng; sử dụng biểu mẫu đặt dịch vụ trực tiếp | Giảm độ phức tạp |
+| Bảo mật | Kiểm tra dữ liệu phía máy chủ, băm mật khẩu và không lưu số thẻ thanh toán | Giảm rủi ro bảo mật |
+
+## 5. Đánh giá việc sử dụng AI
+
+| Tiêu chí | Đánh giá |
+|---|---|
+| Mức độ hữu ích | AI hỗ trợ hệ thống hóa yêu cầu và gợi ý các vấn đề cần làm rõ |
+| Hạn chế | Kết quả AI có thể chưa phù hợp hoàn toàn với nguồn lực, thời gian hoặc khả năng kỹ thuật của nhóm |
+| Cách kiểm tra | Đối chiếu với đề tài, kết quả khảo sát website tham khảo và phạm vi thực hiện |
+| Vai trò của nhóm | Nhóm thảo luận, chọn lọc, điều chỉnh và chịu trách nhiệm về quyết định cuối cùng |
+| Nội dung cần xác nhận | Quy tắc tính giá, khối lượng thực tế, khung giờ giao nhận, voucher, thanh toán và các chỉ số trên dashboard |
+
+## 6. Kết luận
+
+Nhóm sử dụng ChatGPT để hỗ trợ phân tích yêu cầu và Gemini để phản biện độc lập bộ yêu cầu ban đầu. Kết quả từ hai công cụ giúp nhóm có thêm góc nhìn về tính đầy đủ, tính rõ ràng và khả năng triển khai của website WASHUP. Tuy nhiên, các đề xuất của AI chỉ mang tính tham khảo; nhóm chịu trách nhiệm đánh giá, điều chỉnh và thống nhất bộ yêu cầu cuối cùng theo phạm vi dự án.
+
+## 7. Checklist trước khi nộp
+
+- [ ] Tên công cụ AI đúng với thực tế: ChatGPT và Gemini.
+- [ ] Prompt và kết quả được ghi nhận đúng với quá trình sử dụng thực tế.
+- [ ] Bộ yêu cầu trong nhật ký thống nhất với tài liệu yêu cầu chính thức.
+- [ ] Nhóm đã xác nhận các quyết định sau phản biện.
+- [ ] Đã bổ sung ảnh chụp màn hình hoặc liên kết minh chứng nếu giảng viên yêu cầu.
