@@ -146,26 +146,28 @@ Phân công trong giai đoạn khởi tạo dự án:
 
 Phân công phát triển giao diện, backend, cơ sở dữ liệu, kiểm thử và tích hợp sẽ được bổ sung vào PROJECT_PLAN.md.
 
-
 ## 5. Công nghệ dự kiến
 
-Để triển khai dự án WASHUP trong thời gian 8 tuần, nhóm thống nhất lựa chọn các công nghệ phổ biến, dễ tiếp cận, hỗ trợ xây dựng website thương mại điện tử và thuận tiện cho quá trình phối hợp phát triển.
+Để triển khai dự án WASHUP trong thời gian 8 tuần, ngoài việc sử dụng các công nghệ phổ biến, dễ tiếp cận để xây dựng website thương mại điện tử cốt lõi, nhóm còn tích hợp thêm một số API và thư viện chuyên dụng nhằm đáp ứng các chức năng đặc thù của mô hình Marketplace đa nhà cung cấp.
 
 **Bảng 5. Các hạng mục công nghệ được nhóm thống nhất**
 
 | Hạng mục | Công nghệ / Công cụ đã thống nhất | Mục đích sử dụng |
 |---|---|---|
-| **Frontend** | HTML5, CSS3, JavaScript, Bootstrap 5 | Xây dựng giao diện website, xử lý tương tác và thiết kế responsive trên máy tính, điện thoại. |
-| **Backend** | PHP 8.4 | Xử lý đăng nhập, đặt dịch vụ, quản lý đơn hàng, tính phí, voucher và kết nối thanh toán. |
-| **Cơ sở dữ liệu** | MySQL | Lưu trữ thông tin người dùng, dịch vụ, bảng giá, đơn hàng và lịch giao nhận. |
+| **Frontend** | HTML5, CSS3, JavaScript, Bootstrap 5, AJAX/Fetch API | Xây dựng giao diện responsive. Sử dụng AJAX/Fetch API để xử lý tương tác mượt mà (lọc dịch vụ, cập nhật giỏ hàng đa cửa hàng) mà không cần tải lại trang. |
+| **Backend** | PHP 8.4 | Xử lý đăng nhập, quản lý giỏ hàng đa cửa hàng, tự động tách đơn, phân quyền hệ thống và kết nối thanh toán. |
+| **Cơ sở dữ liệu & Lưu trữ** | MySQL, Cloudinary (hoặc Imgur API) | MySQL dùng để lưu trữ dữ liệu hệ thống (người dùng, đơn hàng). Cloudinary/Imgur API hỗ trợ lưu trữ và quản lý hình ảnh dịch vụ của các gian hàng tối ưu. |
+| **API & Thư viện bổ trợ** | Google Maps API (hoặc Leaflet.js), Chart.js, PHPMailer | **Google Maps:** Tính toán khoảng cách và phí vận chuyển theo cửa hàng.<br>**Chart.js:** Trực quan hóa dữ liệu thống kê doanh thu.<br>**PHPMailer:** Gửi email thông báo tự động (đơn hàng, duyệt gian hàng). |
 | **Môi trường phát triển** | XAMPP | Chạy thử website và cơ sở dữ liệu trên máy tính. |
 | **Trình soạn thảo mã nguồn** | Visual Studio Code | Viết và chỉnh sửa mã nguồn dự án. |
 | **Cổng thanh toán** | VNPay Sandbox | Tích hợp và kiểm thử giao dịch thanh toán trực tuyến trong môi trường thử nghiệm. |
 | **Thiết kế giao diện** | Figma | Thiết kế bố cục và giao diện website trước khi lập trình. |
-| **Quản lý mã nguồn và công việc** | GitHub, GitHub Issues | Lưu trữ mã nguồn, quản lý tài liệu, phân công và theo dõi tiến độ thực hiện. |
+| **Quản lý mã nguồn & tiến độ** | GitHub, GitHub Issues | Lưu trữ mã nguồn, quản lý tài liệu, phân công và theo dõi tiến độ thực hiện. |
 
-Nhóm lựa chọn **HTML5, CSS3, JavaScript kết hợp Bootstrap 5** để phát triển giao diện, giúp tận dụng các thành phần thiết kế có sẵn và giảm thời gian xây dựng website. **PHP và MySQL** được sử dụng để xử lý nghiệp vụ và lưu trữ dữ liệu. Các công cụ hỗ trợ được lựa chọn nhằm tạo điều kiện thuận lợi cho nhóm trong quá trình phát triển, kiểm thử và hoàn thiện dự án.
+**Định hướng công nghệ:** 
+Nhóm lựa chọn **HTML5, CSS3, JavaScript kết hợp Bootstrap 5** để phát triển giao diện, giúp tận dụng các thành phần thiết kế có sẵn và giảm thời gian xây dựng. Việc bổ sung **AJAX** là cần thiết để mang lại trải nghiệm liền mạch cho tính năng giỏ hàng tổng và tự động tách đơn. 
 
+Ở phía hệ thống, **PHP và MySQL** đóng vai trò xử lý nghiệp vụ phức tạp của mô hình Marketplace. Thay vì tự xây dựng từ đầu, nhóm quyết định tích hợp các công cụ hỗ trợ như **Google Maps API, Chart.js và PHPMailer** để giải quyết nhanh chóng bài toán tính phí vận chuyển, báo cáo thống kê và gửi thông báo tự động. Các công nghệ này được lựa chọn nhằm tối ưu hóa thời gian phát triển, đảm bảo dự án WASHUP ra mắt phiên bản MVP đúng tiến độ 8 tuần với chất lượng tốt nhất.
 
 ## 6. Kế hoạch thực hiện
 
