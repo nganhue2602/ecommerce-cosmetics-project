@@ -1,287 +1,283 @@
-# Requirements
 
+# REQUIREMENTS – WASHUP
 
 ## 1. Mục tiêu dự án
 
 ### 1.1. Mục tiêu tổng quát
 
-**WASHUP** là dự án xây dựng website thương mại điện tử hỗ trợ khách hàng tìm hiểu, lựa chọn và đặt dịch vụ giặt ủi trực tuyến thông qua một quy trình thống nhất, thuận tiện và minh bạch.
+**WASHUP** là sàn thương mại điện tử kết nối khách hàng với nhiều tiệm giặt ủi độc lập trên cùng một nền tảng. Website cho phép khách hàng tìm kiếm, xem thông tin, so sánh giá cả và lựa chọn dịch vụ từ các tiệm khác nhau; đồng thời hỗ trợ đặt dịch vụ, thanh toán, theo dõi đơn hàng và quản lý thông tin giao nhận trực tuyến.
 
-Website hướng đến việc giải quyết những bất tiện của dịch vụ giặt ủi truyền thống như mất thời gian di chuyển, khó tiếp cận bảng giá tập trung, hạn chế trong việc sắp xếp lịch giao nhận và thiếu công cụ theo dõi tình trạng đơn hàng.
+Dự án hướng đến giải quyết những bất tiện khi khách hàng phải tìm kiếm từng tiệm giặt ủi, liên hệ hỏi giá, sắp xếp lịch giao nhận và theo dõi tình trạng quần áo qua nhiều kênh riêng lẻ. Đồng thời, WASHUP tạo thêm kênh kinh doanh trực tuyến cho các tiệm giặt ủi, giúp họ giới thiệu dịch vụ, tiếp cận khách hàng và quản lý đơn hàng của tiệm mình.
 
 ### 1.2. Mục tiêu cụ thể
 
-- **Đơn giản hóa quy trình đặt dịch vụ:** Cho phép khách hàng xem danh mục, lựa chọn dịch vụ và đặt lịch nhận/giao quần áo trực tiếp trên website.
-
-- **Minh bạch thông tin và chi phí:** Hiển thị bảng giá, phí giao nhận, khuyến mãi và tổng chi phí dự kiến trước khi khách hàng xác nhận đơn hàng.
-
-- **Tăng tính linh hoạt:** Hỗ trợ lựa chọn loại dịch vụ, khối lượng hoặc số lượng quần áo, mùi hương được cung cấp và khung giờ giao nhận phù hợp.
-
-- **Hỗ trợ thanh toán trực tuyến:** Tích hợp tối thiểu một cổng thanh toán trong môi trường thử nghiệm nhằm hoàn thiện quy trình giao dịch.
-
-- **Nâng cao khả năng theo dõi:** Cho phép khách hàng xem lịch sử, thông tin chi tiết và trạng thái xử lý đơn hàng của mình.
-
-- **Hỗ trợ quản lý vận hành:** Cho phép quản trị viên quản lý dịch vụ, bảng giá, voucher, đơn hàng và theo dõi các chỉ số thống kê cơ bản thông qua dashboard.
+- **Tập trung thông tin dịch vụ:** Cho phép khách hàng xem danh sách nhiều tiệm giặt ủi, thông tin dịch vụ, bảng giá, thời gian xử lý và khu vực phục vụ trên cùng một website.
+- **Hỗ trợ lựa chọn dịch vụ:** Cung cấp chức năng tìm kiếm, lọc và so sánh dịch vụ giữa các tiệm để khách hàng lựa chọn phù hợp với nhu cầu và ngân sách.
+- **Đơn giản hóa quy trình đặt hàng:** Hỗ trợ khách hàng chọn dịch vụ từ một hoặc nhiều tiệm, nhập thông tin giao nhận, chọn khung giờ và xác nhận đơn hàng.
+- **Quản lý đơn hàng đa tiệm:** Tự động tách đơn hàng thành các đơn thành phần theo từng tiệm khi khách hàng đặt dịch vụ từ nhiều tiệm trong cùng một lần.
+- **Minh bạch chi phí:** Hiển thị giá dịch vụ, phí giao nhận, khoản giảm giá và tổng chi phí dự kiến trước khi khách hàng xác nhận đơn.
+- **Hỗ trợ kinh doanh cho tiệm giặt ủi:** Cho phép chủ tiệm đăng ký tham gia sàn, quản lý hồ sơ tiệm, dịch vụ, bảng giá và đơn hàng thuộc tiệm mình.
+- **Tăng tính minh bạch trong quá trình xử lý:** Cho phép chủ tiệm ghi nhận tình trạng quần áo trước và sau khi giặt, kèm hình ảnh khi cần, để khách hàng theo dõi và gửi phản hồi.
+- **Hỗ trợ quản trị hệ thống:** Cho phép quản trị viên xét duyệt tiệm, quản lý tài khoản, giám sát đơn hàng và theo dõi các chỉ số thống kê cơ bản.
 
 ### 1.3. Giá trị mang lại
 
 **Đối với khách hàng:**
-- Tiết kiệm thời gian tìm kiếm và đặt dịch vụ.
-- Chủ động lựa chọn lịch nhận/giao quần áo.
-- Dễ dàng tham khảo bảng giá và kiểm tra tổng chi phí.
-- Theo dõi trạng thái đơn hàng trực tuyến.
 
-**Đối với đơn vị vận hành:**
-- Tập trung quản lý thông tin dịch vụ và đơn hàng.
-- Giảm thao tác ghi nhận đơn hàng thủ công.
-- Hỗ trợ quản lý bảng giá, khuyến mãi và phí giao nhận.
-- Theo dõi số lượng đơn hàng, trạng thái xử lý và doanh thu thông qua dashboard.
+- Tiết kiệm thời gian tìm kiếm và liên hệ nhiều tiệm giặt ủi.
+- Dễ dàng so sánh giá cả, dịch vụ và thời gian xử lý trước khi đặt hàng.
+- Chủ động lựa chọn dịch vụ, địa chỉ và khung giờ giao nhận phù hợp.
+- Theo dõi đơn hàng và thông tin tình trạng quần áo trên cùng một nền tảng.
 
+**Đối với chủ tiệm giặt ủi:**
+
+- Có thêm kênh giới thiệu dịch vụ và tiếp cận khách hàng trực tuyến.
+- Chủ động quản lý thông tin tiệm, bảng giá và dịch vụ của mình.
+- Tiếp nhận, cập nhật và theo dõi các đơn hàng thuộc tiệm.
+- Có cơ sở ghi nhận tình trạng quần áo để tăng tính minh bạch khi cung cấp dịch vụ.
+
+**Đối với quản trị viên:**
+
+- Quản lý tập trung tài khoản và các tiệm tham gia sàn.
+- Giám sát hoạt động đặt hàng, thanh toán và xử lý đơn.
+- Theo dõi số lượng đơn hàng, doanh thu ghi nhận và các chỉ số hoạt động cơ bản.
 
 ## 2. Phạm vi
 
-### Trong phạm vi
-*(Hệ thống sẽ thực hiện các chức năng cốt lõi của dịch vụ giặt ủi và đáp ứng đầy đủ yêu cầu bắt buộc của môn học)*
+### 2.1. Trong phạm vi
 
-- **Trải nghiệm khách hàng (Customer & Public Website):** Cho phép người dùng đăng ký/đăng nhập, xem danh mục dịch vụ (giặt sấy, giặt hấp...), tìm kiếm, lọc, xem chi tiết dịch vụ và quản lý hồ sơ cá nhân[cite: 29].
-- **Đặt lịch & Cá nhân hóa (Cart/Checkout):** Chọn dịch vụ, chọn mùi hương, nhập khối lượng, chọn khung giờ lấy đồ (pick up) và giao đồ tận nơi, theo dõi trạng thái đơn hàng[cite: 29, 31].
-- **Thanh toán trực tuyến (Payment):** Tích hợp tối thiểu 01 cổng thanh toán (như VNPay, MoMo, hoặc PayPal...) để xử lý giao dịch, nhận kết quả và cập nhật trạng thái đơn[cite: 29, 30].
-- **Vận chuyển (Shipping):** Hệ thống tự động tính phí giao nhận tận nơi và quản lý thông tin địa chỉ giao hàng[cite: 30].
-- **Khuyến mãi (Voucher):** Áp dụng mã giảm giá, kiểm tra điều kiện, thời hạn và tự động tính lại tổng tiền thanh toán[cite: 30].
-- **Hệ thống Quản trị (Admin):** Cung cấp giao diện Dashboard thống kê doanh thu, số đơn hàng. Cho phép Admin quản lý (CRUD) dịch vụ, danh mục, đơn hàng, khách hàng và mã khuyến mãi[cite: 30].
-- **Yêu cầu kỹ thuật:** Giao diện tương thích đa thiết bị (Responsive), xử lý bảo mật cơ bản (chống XSS, SQLi...) và thực hiện kiểm thử (Testing)[cite: 31].
+WASHUP tập trung triển khai các chức năng cốt lõi của sàn thương mại điện tử đa nhà cung cấp dịch vụ giặt ủi trong giai đoạn MVP.
 
-### Ngoài phạm vi
-*(Hệ thống sẽ KHÔNG thực hiện các chức năng này trong khuôn khổ đồ án)*
+- **Website công khai:** Hiển thị trang chủ, danh sách tiệm giặt ủi, danh sách dịch vụ, bảng giá và thông tin chi tiết của từng tiệm.
+- **Tìm kiếm và so sánh dịch vụ:** Hỗ trợ tìm kiếm, lọc và so sánh các dịch vụ theo loại dịch vụ, giá cả, thời gian xử lý và thông tin tiệm.
+- **Quản lý tài khoản:** Hỗ trợ đăng ký, đăng nhập, đăng xuất và phân quyền cho khách hàng, chủ tiệm và quản trị viên.
+- **Đăng ký và quản lý tiệm:** Cho phép chủ tiệm gửi thông tin đăng ký; quản trị viên xét duyệt trước khi tiệm được kinh doanh trên nền tảng.
+- **Quản lý dịch vụ:** Cho phép mỗi chủ tiệm thêm, sửa, ẩn dịch vụ và cập nhật mô tả, đơn giá, đơn vị tính, thời gian xử lý và khu vực phục vụ.
+- **Giỏ hàng và đặt hàng:** Cho phép khách hàng chọn dịch vụ từ một hoặc nhiều tiệm, nhập thông tin giao nhận và lựa chọn khung giờ được thiết lập sẵn.
+- **Tách đơn hàng theo tiệm:** Khi giỏ hàng có dịch vụ từ nhiều tiệm, hệ thống tạo đơn hàng tổng và các đơn hàng thành phần tương ứng với từng tiệm. Mỗi tiệm quản lý trạng thái đơn hàng thành phần của mình.
+- **Tính chi phí:** Tính tiền dịch vụ, phí giao nhận và khoản giảm giá theo các quy tắc đã cấu hình.
+- **Voucher và khuyến mãi:** Hỗ trợ nhập mã giảm giá, kiểm tra điều kiện và tính lại tổng chi phí.
+- **Thanh toán:** Hỗ trợ phương thức thanh toán phù hợp với phạm vi đồ án, chẳng hạn thanh toán khi nhận hàng và một phương thức thanh toán thử nghiệm.
+- **Theo dõi và quản lý đơn hàng:** Cho phép khách hàng xem lịch sử, chi tiết và trạng thái đơn; chủ tiệm xử lý đơn thuộc tiệm mình; quản trị viên giám sát đơn hàng trên toàn hệ thống.
+- **Ghi nhận tình trạng quần áo:** Cho phép chủ tiệm ghi nhận số lượng, loại quần áo và tình trạng cần lưu ý trước khi giặt; cập nhật tình trạng sau khi giặt; đính kèm hình ảnh khi cần để khách hàng xem và phản hồi.
+- **Đánh giá dịch vụ:** Cho phép khách hàng đánh giá tiệm sau khi đơn hàng hoàn thành theo điều kiện của hệ thống.
+- **Quản trị hệ thống:** Hỗ trợ quản lý tài khoản, xét duyệt tiệm, quản lý danh mục dịch vụ, voucher và theo dõi đơn hàng.
+- **Dashboard thống kê:** Hiển thị các chỉ số cơ bản như số lượng đơn hàng, trạng thái đơn và doanh thu ghi nhận.
+- **Yêu cầu kỹ thuật:** Giao diện đáp ứng nhiều kích thước màn hình, kiểm tra dữ liệu đầu vào, phân quyền truy cập và tổ chức mã nguồn rõ ràng.
 
-- **Mô hình kết nối đa đối tác (Marketplace):** Hệ thống hiện tại vận hành tập trung cho một trung tâm giặt ủi duy nhất, chưa mở rộng kết nối với nhiều tiệm giặt địa phương trong phạm vi 5km.
-- **Gói dịch vụ định kỳ (Subscription):** Chưa hỗ trợ tính năng tự động thanh toán và đăng ký gói giặt ủi lặp lại theo tuần/tháng.
-- **Ứng dụng di động (Mobile App):** Dự án chỉ tập trung phát triển trên nền tảng Web, chưa xây dựng ứng dụng riêng cho iOS/Android.
-- **Innovation & Trải nghiệm nâng cao:** Hệ thống tạm thời chưa tích hợp hệ thống tích điểm đổi thưởng (Loyalty), AI Chatbot tự động trả lời hay thuật toán gợi ý dịch vụ thông minh (Recommendation)[cite: 32].
+### 2.2. Ngoài phạm vi
 
+Các chức năng sau chưa được triển khai trong MVP và chỉ được xem xét khi các chức năng cốt lõi đã hoàn thiện:
+
+- **Gói giặt ủi định kỳ:** Đăng ký gói theo tuần/tháng, tự động gia hạn và thanh toán định kỳ.
+- **Tích điểm và chương trình thành viên:** Tích lũy điểm, đổi thưởng, giới thiệu bạn bè và các chương trình khách hàng thân thiết nâng cao.
+- **AI nhận diện và tư vấn:** Nhận diện vết bẩn qua hình ảnh, ước tính khối lượng quần áo bằng AI hoặc chatbot tư vấn tự động.
+- **Mã QR theo từng công đoạn:** Quét mã để theo dõi quần áo qua từng bước xử lý.
+- **Định giá linh hoạt:** Tự động thay đổi giá theo giờ cao điểm, nhu cầu hoặc năng lực xử lý của tiệm.
+- **Tích hợp đơn vị giao hàng bên ngoài:** Kết nối API với các đơn vị giao hàng, phân công tài xế và theo dõi vị trí theo thời gian thực.
+- **Thông báo nâng cao:** Gửi SMS, thông báo đẩy hoặc các loại thông báo cần dịch vụ bên ngoài nếu chưa đủ nguồn lực triển khai.
+- **Ứng dụng di động riêng:** Phát triển ứng dụng độc lập cho iOS hoặc Android.
+- **Phân tích marketing nâng cao:** Triển khai hệ thống phân tích hành vi, phễu chuyển đổi và các công cụ marketing chuyên sâu.
+- **Quy trình xử lý khiếu nại phức tạp:** Bồi thường, hoàn tiền theo nhiều cấp độ hoặc giải quyết tranh chấp giữa khách hàng và tiệm.
+
+Các chức năng ngoài MVP không thuộc yêu cầu bắt buộc của phiên bản đầu tiên.
 
 ## 3. Người dùng
 
 ### 3.1. Các vai trò người dùng
 
-Để đáp ứng quy trình vận hành và đặt dịch vụ giặt ủi trong phạm vi MVP, hệ thống **WASHUP** xác định ba vai trò người dùng chính:
+WASHUP xác định bốn vai trò người dùng chính:
 
-- **Khách chưa đăng nhập (Guest)**
-- **Khách hàng (Customer)**
-- **Quản trị viên (Admin)**
+1. **Khách chưa đăng nhập (Guest).**
+2. **Khách hàng (Customer).**
+3. **Chủ tiệm giặt ủi (Seller).**
+4. **Quản trị viên (Admin).**
 
-Mỗi vai trò được phân quyền phù hợp với nhiệm vụ và phạm vi sử dụng nhằm bảo đảm hệ thống hoạt động đúng quy trình và hạn chế truy cập trái phép.
+Mỗi vai trò được cấp quyền phù hợp với nhiệm vụ và phạm vi quản lý nhằm bảo đảm dữ liệu được truy cập đúng đối tượng.
 
-### 3.2. Nhiệm vụ và quyền hạn của từng vai trò
+### 3.2. Nhiệm vụ và quyền hạn
 
-**Bảng 3. Vai trò và quyền hạn người dùng trong hệ thống WASHUP**
+**Bảng 3.1. Vai trò và quyền hạn người dùng**
 
-| Vai trò | Nhiệm vụ chính | Quyền hạn dự kiến |
+| Vai trò | Nhiệm vụ chính | Quyền hạn |
 |---|---|---|
-| **Khách chưa đăng nhập (Guest)** | Tìm hiểu dịch vụ, bảng giá và quy trình đặt giặt. | Xem trang chủ, danh mục dịch vụ, bảng giá; tìm kiếm, lọc và xem chi tiết dịch vụ; đăng ký và đăng nhập. |
-| **Khách hàng (Customer)** | Đặt dịch vụ giặt ủi, thanh toán và theo dõi đơn hàng. | Quản lý hồ sơ và địa chỉ; chọn dịch vụ, đặt lịch nhận/giao; áp dụng voucher; tạo đơn và thanh toán trực tuyến; xem lịch sử, trạng thái và hủy đơn hợp lệ của chính mình; đăng xuất. |
-| **Quản trị viên (Admin)** | Vận hành website và xử lý đơn hàng. | Quản lý dịch vụ, bảng giá, mùi hương, voucher, quy tắc phí giao nhận, khách hàng và đơn hàng; cập nhật trạng thái xử lý; xem dashboard thống kê; đăng xuất. |
+| **Guest** | Tìm hiểu các tiệm và dịch vụ trên sàn. | Xem trang chủ, danh sách tiệm, danh sách dịch vụ, bảng giá và chi tiết dịch vụ; tìm kiếm, lọc và so sánh; đăng ký hoặc đăng nhập. |
+| **Customer** | Lựa chọn dịch vụ, đặt hàng và theo dõi đơn hàng. | Quản lý hồ sơ và địa chỉ; sử dụng giỏ hàng; đặt dịch vụ từ một hoặc nhiều tiệm; áp dụng voucher; thanh toán; xem lịch sử và trạng thái đơn của mình; hủy đơn theo điều kiện; xem ghi nhận tình trạng quần áo và gửi phản hồi; đánh giá sau khi đơn hoàn thành. |
+| **Seller** | Kinh doanh dịch vụ và xử lý đơn hàng của tiệm mình. | Đăng ký tiệm; quản lý hồ sơ, dịch vụ, bảng giá và khu vực phục vụ; xem và cập nhật đơn hàng thuộc tiệm; ghi nhận tình trạng quần áo trước và sau khi giặt; xem đánh giá liên quan đến tiệm theo chức năng được cung cấp. |
+| **Admin** | Quản lý và giám sát toàn bộ sàn. | Quản lý tài khoản; duyệt, từ chối hoặc khóa tiệm; quản lý danh mục, voucher và quy tắc chung; giám sát đơn hàng và thanh toán; xử lý phản hồi theo phạm vi hệ thống; xem dashboard thống kê. |
 
 *Nguồn: Nhóm tác giả tự tổng hợp.*
 
-### 3.3. Giới hạn phân quyền trong MVP
+### 3.3. Quy tắc phân quyền
 
-Trong phiên bản đầu tiên, WASHUP chỉ triển khai ba vai trò trên nhằm bảo đảm phạm vi phù hợp với thời gian thực hiện đồ án.
-
-- **Khách chưa đăng nhập:** Chỉ được truy cập những thông tin công khai về dịch vụ và bảng giá.
-- **Khách hàng:** Được quản lý thông tin cá nhân và các đơn hàng thuộc tài khoản của mình, không được truy cập dữ liệu của khách hàng khác.
-- **Quản trị viên:** Được truy cập các chức năng quản trị để quản lý dịch vụ và xử lý đơn hàng theo quyền được cấp.
-
-Hoạt động giao nhận thực tế được mô phỏng nên **chưa cần bổ sung vai trò tài xế hoặc nhân viên giao nhận**. Hệ thống chỉ vận hành theo mô hình một trung tâm giặt ủi nên **chưa cần vai trò đối tác tiệm giặt**.
-
-Trong MVP, quản trị viên đồng thời đảm nhiệm việc xử lý đơn hàng. Vai trò tài xế và đối tác tiệm giặt sẽ được xem xét khi dự án mở rộng.
-
+- **Guest:** Chỉ được xem thông tin công khai; không được tạo đơn hàng hoặc truy cập thông tin cá nhân của người khác.
+- **Customer:** Chỉ được xem và quản lý hồ sơ, địa chỉ và đơn hàng thuộc tài khoản của mình.
+- **Seller:** Chỉ được chỉnh sửa thông tin, dịch vụ và xử lý đơn hàng thuộc tiệm mình quản lý; không được truy cập dữ liệu riêng của tiệm khác.
+- **Admin:** Được truy cập các chức năng quản trị và giám sát toàn hệ thống theo quyền được cấp.
+- **Trạng thái tiệm:** Chỉ các tiệm đã được phê duyệt mới được hiển thị như nhà cung cấp đang hoạt động và tiếp nhận đơn hàng.
+- **Trạng thái đơn hàng:** Mỗi đơn hàng thành phần được xử lý theo tiệm tương ứng. Chủ tiệm không được tự ý thay đổi đơn hàng thuộc tiệm khác.
+- **Giao nhận:** Trong MVP, việc giao nhận được mô phỏng bằng thông tin địa chỉ, khung giờ và trạng thái; chưa bắt buộc triển khai tài khoản tài xế riêng.
 
 ## 4. Yêu cầu chức năng
 
-### 4.1. Tổng quan yêu cầu chức năng
+### 4.1. Quy ước
 
-Các yêu cầu chức năng của WASHUP được xây dựng dựa trên phạm vi MVP, vai trò người dùng và quy trình nghiệp vụ mà nhóm đã xác định.
+Mỗi yêu cầu chức năng được xác định bằng mã, tên chức năng, mô tả, người sử dụng, mức độ ưu tiên và tiêu chí nghiệm thu.
 
-Hệ thống có tổng cộng **27 chức năng dự kiến**, được phân thành:
+- **Bắt buộc:** Cần triển khai để hoàn thiện quy trình cốt lõi của MVP.
+- **Tùy chọn:** Chỉ triển khai sau khi các chức năng bắt buộc đã hoạt động ổn định.
+- **Nâng cao:** Chưa triển khai trong MVP, định hướng phát triển sau.
 
-- **F01–F18:** 18 chức năng bắt buộc trong MVP.
-- **F19:** 1 chức năng tùy chọn, triển khai sau các chức năng cốt lõi nếu đủ nguồn lực.
-- **F20–F27:** 8 chức năng nâng cao, định hướng phát triển sau MVP.
+Tiêu chí nghiệm thu dưới đây là cơ sở để nhóm kiểm thử chức năng trước khi xác nhận hoàn thành.
 
-Mỗi chức năng được mô tả bằng mã yêu cầu, tên chức năng, nội dung, người sử dụng, mức độ ưu tiên và tiêu chí nghiệm thu.
-
-Các tiêu chí nghiệm thu dưới đây là đề xuất cụ thể hóa yêu cầu để phục vụ phát triển và kiểm thử; nhóm cần rà soát, xác nhận trước khi xem là tiêu chí chính thức.
-
-### 4.2. Các yêu cầu chức năng thuộc MVP
+### 4.2. Yêu cầu tài khoản và tra cứu dịch vụ
 
 **Bảng 4.1. Yêu cầu chức năng tài khoản và tra cứu dịch vụ**
 
-| Mã | Chức năng | Mô tả | Người sử dụng | Ưu tiên | Tiêu chí nghiệm thu đề xuất |
+| Mã | Tên chức năng | Mô tả | Người sử dụng | Ưu tiên | Tiêu chí nghiệm thu |
 |---|---|---|---|---|---|
-| **F01** | Đăng ký, đăng nhập, đăng xuất | Cho phép người dùng đăng ký tài khoản, đăng nhập và đăng xuất khỏi hệ thống. | Guest, Customer, Admin | Bắt buộc | Đăng ký hợp lệ thành công; thông báo khi thông tin không hợp lệ; đăng nhập đúng tài khoản; đăng xuất kết thúc phiên truy cập. |
-| **F02** | Xem danh sách dịch vụ và bảng giá | Hiển thị các dịch vụ giặt ủi cùng đơn giá tương ứng. | Guest, Customer | Bắt buộc | Danh sách hiển thị đúng dịch vụ đang được cung cấp và bảng giá đã cấu hình. |
-| **F03** | Xem chi tiết dịch vụ | Hiển thị tên, mô tả, đơn vị tính, giá và thời gian xử lý dự kiến. | Guest, Customer | Bắt buộc | Khi chọn dịch vụ, hệ thống hiển thị đúng thông tin chi tiết của dịch vụ đó. |
-| **F04** | Tìm kiếm và lọc dịch vụ | Cho phép tìm kiếm theo tên và lọc theo loại dịch vụ. | Guest, Customer | Bắt buộc | Kết quả tìm kiếm và lọc phù hợp với điều kiện đã nhập; hiển thị thông báo khi không tìm thấy dịch vụ. |
-| **F05** | Quản lý thông tin cá nhân và địa chỉ | Cho phép khách hàng xem và cập nhật thông tin cá nhân, địa chỉ nhận/giao. | Customer | Bắt buộc | Cập nhật thông tin hợp lệ thành công; dữ liệu được lưu và chỉ tài khoản có quyền mới được chỉnh sửa. |
+| F01 | Đăng ký, đăng nhập, đăng xuất | Cho phép người dùng tạo tài khoản và truy cập hệ thống theo vai trò được cấp. | Customer, Seller, Admin | Bắt buộc | Đăng ký hợp lệ thành công; thông tin không hợp lệ được thông báo; đăng nhập đúng tài khoản; đăng xuất kết thúc phiên truy cập. |
+| F02 | Xem danh sách tiệm | Hiển thị các tiệm đã được phê duyệt cùng thông tin cơ bản. | Guest, Customer | Bắt buộc | Chỉ các tiệm đủ điều kiện hoạt động được hiển thị trong danh sách công khai. |
+| F03 | Xem danh sách và chi tiết dịch vụ | Hiển thị tên dịch vụ, mô tả, đơn vị tính, giá, thời gian xử lý và tiệm cung cấp. | Guest, Customer | Bắt buộc | Thông tin dịch vụ và tiệm tương ứng được hiển thị chính xác; dịch vụ đã ẩn không được đặt mới. |
+| F04 | Tìm kiếm, lọc và so sánh dịch vụ | Cho phép tìm kiếm, lọc và đối chiếu dịch vụ của nhiều tiệm theo các tiêu chí được hỗ trợ. | Guest, Customer | Bắt buộc | Kết quả phù hợp với điều kiện tìm kiếm; thông tin so sánh thể hiện đúng giá, thời gian xử lý và tiệm cung cấp. |
+| F05 | Quản lý hồ sơ và địa chỉ | Cho phép khách hàng xem, cập nhật thông tin cá nhân và địa chỉ nhận/giao. | Customer | Bắt buộc | Dữ liệu hợp lệ được lưu; khách hàng không thể chỉnh sửa hồ sơ của tài khoản khác. |
 
-**Bảng 4.2. Yêu cầu chức năng đặt dịch vụ và tính chi phí**
+### 4.3. Yêu cầu quản lý tiệm và dịch vụ
 
-| Mã | Chức năng | Mô tả | Người sử dụng | Ưu tiên | Tiêu chí nghiệm thu đề xuất |
+**Bảng 4.2. Yêu cầu chức năng quản lý nhà cung cấp**
+
+| Mã | Tên chức năng | Mô tả | Người sử dụng | Ưu tiên | Tiêu chí nghiệm thu |
 |---|---|---|---|---|---|
-| **F06** | Lựa chọn dịch vụ | Cho phép chọn dịch vụ, nhập khối lượng hoặc số lượng quần áo và mùi hương được hỗ trợ. | Customer | Bắt buộc | Lưu đúng lựa chọn; từ chối khối lượng hoặc số lượng không hợp lệ; chỉ hiển thị tùy chọn được hỗ trợ. |
-| **F07** | Đặt lịch nhận và giao trả | Cho phép chọn ngày và khung giờ nhận/giao theo lịch được thiết lập sẵn. | Customer | Bắt buộc | Chỉ chấp nhận khung giờ hợp lệ; lưu chính xác ngày và thời gian giao nhận đã chọn. |
-| **F08** | Tính và hiển thị chi phí dự kiến | Tính tổng tiền dựa trên dịch vụ, đơn giá, khối lượng hoặc số lượng và các khoản điều chỉnh hợp lệ. | Customer, Hệ thống | Bắt buộc | Hiển thị đúng thành tiền, khoản phí và tổng chi phí theo công thức nhóm đã thống nhất. |
-| **F09** | Tự động tính phí giao nhận | Tính phí giao nhận dựa trên khu vực và quy tắc được cấu hình. | Hệ thống | Bắt buộc | Phí giao nhận được tính đúng theo khu vực, mức phí và điều kiện miễn phí đã thiết lập. |
-| **F10** | Nhập và áp dụng voucher | Kiểm tra mã giảm giá, điều kiện và thời hạn sử dụng; cập nhật tổng tiền. | Customer, Hệ thống | Bắt buộc | Chấp nhận mã đủ điều kiện, tính đúng số tiền giảm; từ chối mã hết hạn hoặc không hợp lệ. |
+| F06 | Đăng ký tiệm | Cho phép chủ tiệm gửi thông tin đăng ký tham gia sàn để quản trị viên xét duyệt. | Seller, Admin | Bắt buộc | Thông tin đăng ký được lưu; tiệm có trạng thái chờ duyệt; tiệm chưa được duyệt không thể tiếp nhận đơn mới. |
+| F07 | Quản lý hồ sơ tiệm | Cho phép chủ tiệm cập nhật tên, mô tả, thông tin liên hệ và khu vực phục vụ. | Seller | Bắt buộc | Thông tin hợp lệ được lưu và hiển thị đúng; chủ tiệm chỉ sửa được hồ sơ tiệm mình quản lý. |
+| F08 | Quản lý dịch vụ của tiệm | Cho phép chủ tiệm thêm, sửa, ẩn dịch vụ và cập nhật giá, mô tả, đơn vị tính, thời gian xử lý. | Seller | Bắt buộc | Thay đổi được lưu; dịch vụ gắn đúng tiệm; chủ tiệm không thể chỉnh sửa dịch vụ của tiệm khác. |
 
-**Bảng 4.3. Yêu cầu chức năng tạo đơn, thanh toán và theo dõi**
+### 4.4. Yêu cầu giỏ hàng, đặt hàng và chi phí
 
-| Mã | Chức năng | Mô tả | Người sử dụng | Ưu tiên | Tiêu chí nghiệm thu đề xuất |
+**Bảng 4.3. Yêu cầu chức năng đặt hàng**
+
+| Mã | Tên chức năng | Mô tả | Người sử dụng | Ưu tiên | Tiêu chí nghiệm thu |
 |---|---|---|---|---|---|
-| **F11** | Xác nhận và tạo đơn hàng | Kiểm tra thông tin đặt dịch vụ, tạo mã đơn duy nhất và lưu đơn hàng với trạng thái ban đầu "Chờ xác nhận". | Customer | Bắt buộc | Chỉ tạo đơn khi dữ liệu hợp lệ; mỗi đơn có mã duy nhất; thông tin đơn được lưu đầy đủ và có trạng thái ban đầu chính xác. |
-| **F12** | Thanh toán trực tuyến | Kết nối một cổng thanh toán trong môi trường thử nghiệm, xử lý và ghi nhận kết quả giao dịch. | Customer, Hệ thống | Bắt buộc | Giao dịch thử nghiệm được xử lý; hệ thống xác minh kết quả và ghi nhận đúng trạng thái thành công hoặc thất bại. |
-| **F13** | Xem và theo dõi đơn hàng | Cho phép khách hàng xem lịch sử, chi tiết, trạng thái và hủy đơn theo quy định. | Customer | Bắt buộc | Khách hàng chỉ xem được đơn của mình; trạng thái hiển thị chính xác; chỉ cho phép hủy đơn khi ở trạng thái "Chờ xác nhận". |
+| F09 | Quản lý giỏ hàng đa tiệm | Cho phép khách hàng thêm, sửa hoặc xóa dịch vụ từ một hoặc nhiều tiệm trong giỏ hàng. | Customer | Bắt buộc | Giỏ hàng hiển thị đúng dịch vụ, số lượng hoặc khối lượng, giá và tiệm tương ứng. |
+| F10 | Nhập thông tin giao nhận | Cho phép khách hàng chọn địa chỉ và khung giờ nhận/giao từ các lựa chọn được thiết lập sẵn. | Customer | Bắt buộc | Hệ thống lưu đúng địa chỉ và khung giờ hợp lệ; thông tin bắt buộc không được để trống. |
+| F11 | Tính chi phí | Tính tiền dịch vụ, phí giao nhận và khoản giảm giá theo quy tắc đã cấu hình. | Customer, Hệ thống | Bắt buộc | Thành tiền và tổng chi phí được tính chính xác; các khoản phí và giảm giá được hiển thị rõ ràng. |
+| F12 | Áp dụng voucher | Kiểm tra mã giảm giá, thời hạn và điều kiện sử dụng. | Customer, Hệ thống | Bắt buộc | Mã hợp lệ được áp dụng và tính đúng số tiền giảm; mã không hợp lệ hoặc hết hạn bị từ chối. |
+| F13 | Tạo và tách đơn hàng theo tiệm | Tạo đơn hàng tổng và các đơn hàng thành phần tương ứng với từng tiệm khi khách hàng đặt dịch vụ từ nhiều tiệm. | Customer, Hệ thống | Bắt buộc | Đơn hàng có mã duy nhất; mỗi đơn thành phần chỉ chứa dịch vụ của một tiệm; thông tin chi phí, địa chỉ và trạng thái được lưu chính xác. |
 
-**Bảng 4.4. Yêu cầu chức năng quản trị hệ thống**
+### 4.5. Yêu cầu thanh toán và quản lý đơn hàng
 
-| Mã | Chức năng | Mô tả | Người sử dụng | Ưu tiên | Tiêu chí nghiệm thu đề xuất |
+**Bảng 4.4. Yêu cầu chức năng thanh toán và theo dõi đơn**
+
+| Mã | Tên chức năng | Mô tả | Người sử dụng | Ưu tiên | Tiêu chí nghiệm thu |
 |---|---|---|---|---|---|
-| **F14** | Quản lý dịch vụ, bảng giá, mùi hương | Cho phép thêm, chỉnh sửa và ẩn dịch vụ, bảng giá và mùi hương được hỗ trợ. | Admin | Bắt buộc | Thông tin được cập nhật đúng; dịch vụ đã ẩn không xuất hiện trong danh sách đặt dịch vụ; dữ liệu đơn hàng cũ không bị thay đổi. |
-| **F15** | Quản lý voucher | Cho phép tạo, chỉnh sửa và vô hiệu hóa mã giảm giá. | Admin | Bắt buộc | Lưu chính xác điều kiện voucher; mã bị vô hiệu hóa không thể tiếp tục được áp dụng. |
-| **F16** | Cấu hình phí giao nhận | Quản lý khu vực giao nhận, mức phí và điều kiện miễn phí. | Admin | Bắt buộc | Thay đổi quy tắc phí được lưu; đơn hàng mới được tính phí theo cấu hình hợp lệ. |
-| **F17** | Quản lý đơn hàng | Xem danh sách đơn hàng, kiểm tra thanh toán và cập nhật trạng thái xử lý. | Admin | Bắt buộc | Admin xem được đơn hàng cần xử lý; trạng thái cập nhật theo quy trình hợp lệ và được lưu chính xác. |
-| **F18** | Dashboard quản trị | Hiển thị số lượng đơn hàng, đơn theo trạng thái và doanh thu cơ bản. | Admin | Bắt buộc | Dashboard hiển thị đúng số liệu từ dữ liệu đơn hàng theo quy tắc thống kê được nhóm thống nhất. |
+| F14 | Thanh toán | Hỗ trợ phương thức thanh toán được lựa chọn cho MVP, gồm thanh toán khi nhận hàng và/hoặc một phương thức thanh toán thử nghiệm. | Customer, Hệ thống | Bắt buộc | Phương thức thanh toán được lưu; kết quả giao dịch thử nghiệm được xác minh và ghi nhận đúng trạng thái. |
+| F15 | Xem và theo dõi đơn hàng | Cho phép khách hàng xem lịch sử, chi tiết, trạng thái và hủy đơn theo điều kiện. | Customer | Bắt buộc | Khách hàng chỉ xem được đơn của mình; trạng thái được cập nhật chính xác; chỉ cho phép hủy ở trạng thái được quy định. |
+| F16 | Quản lý đơn hàng của tiệm | Cho phép chủ tiệm xem, tiếp nhận và cập nhật trạng thái các đơn thành phần thuộc tiệm mình. | Seller | Bắt buộc | Chủ tiệm chỉ xem và xử lý đơn của tiệm mình; trạng thái được lưu theo quy trình hợp lệ. |
+| F17 | Ghi nhận tình trạng quần áo trước khi giặt | Cho phép chủ tiệm ghi nhận số lượng, loại quần áo và các tình trạng cần lưu ý; có thể đính kèm hình ảnh. | Seller | Bắt buộc | Thông tin được lưu gắn với đúng đơn hàng; hình ảnh hợp lệ có thể được tải lên và xem lại. |
+| F18 | Ghi nhận tình trạng sau khi giặt | Cho phép chủ tiệm cập nhật tình trạng quần áo sau khi xử lý; khách hàng có thể xem thông tin và gửi phản hồi. | Seller, Customer | Bắt buộc | Thông tin sau khi giặt được lưu đúng đơn; khách hàng xem được thông tin liên quan đến đơn của mình và gửi phản hồi. |
+| F19 | Đánh giá dịch vụ | Cho phép khách hàng đánh giá tiệm sau khi đơn hàng hoàn thành. | Customer | Bắt buộc | Chỉ khách hàng có đơn hoàn thành hợp lệ mới được đánh giá; đánh giá được lưu và gắn đúng tiệm. |
 
-*Nguồn nội dung chức năng: Nhóm tác giả tự tổng hợp. Mô tả và tiêu chí nghiệm thu được cụ thể hóa để nhóm rà soát.*
+### 4.6. Yêu cầu quản trị hệ thống
 
-### 4.3. Chức năng tùy chọn
+**Bảng 4.5. Yêu cầu chức năng quản trị**
 
-**Bảng 4.5. Chức năng tùy chọn trong giai đoạn MVP**
-
-| Mã | Chức năng | Mô tả | Người sử dụng | Ưu tiên | Tiêu chí nghiệm thu đề xuất |
+| Mã | Tên chức năng | Mô tả | Người sử dụng | Ưu tiên | Tiêu chí nghiệm thu |
 |---|---|---|---|---|---|
-| **F19** | Quản lý tài khoản khách hàng | Cho phép quản trị viên xem danh sách và khóa/mở khóa tài khoản khách hàng. | Admin | Tùy chọn | Admin xem đúng danh sách tài khoản; thao tác khóa/mở khóa được lưu và hệ thống áp dụng trạng thái tài khoản tương ứng. |
+| F20 | Quản lý tiệm tham gia sàn | Cho phép duyệt, từ chối hoặc khóa tiệm theo quy định. | Admin | Bắt buộc | Trạng thái duyệt được lưu; tiệm chưa duyệt hoặc bị khóa không thể tiếp nhận đơn mới. |
+| F21 | Quản lý tài khoản và phân quyền | Cho phép quản trị viên xem tài khoản và quản lý quyền truy cập theo vai trò. | Admin | Bắt buộc | Quyền được áp dụng đúng; người dùng không có quyền không thể truy cập chức năng quản trị. |
+| F22 | Quản lý danh mục và voucher | Cho phép quản lý danh mục dịch vụ, mã giảm giá và các quy tắc chung của hệ thống. | Admin | Bắt buộc | Dữ liệu được thêm, sửa hoặc vô hiệu hóa chính xác; voucher không hợp lệ không được áp dụng. |
+| F23 | Giám sát đơn hàng và thanh toán | Cho phép quản trị viên xem các đơn hàng trên toàn sàn, kiểm tra thông tin thanh toán và giám sát trạng thái xử lý. | Admin | Bắt buộc | Admin xem được đơn hàng của các tiệm; dữ liệu trạng thái và thanh toán hiển thị chính xác. |
+| F24 | Dashboard thống kê | Hiển thị số đơn hàng, đơn theo trạng thái và doanh thu ghi nhận. | Admin | Bắt buộc | Các số liệu được tổng hợp từ dữ liệu hệ thống theo quy tắc thống kê đã xác định. |
 
+### 4.7. Quy tắc nghiệp vụ quan trọng
 
-### 4.4. Các chức năng phát triển sau MVP
+Các quy tắc sau được áp dụng xuyên suốt những chức năng liên quan:
 
-**Bảng 4.6. Yêu cầu chức năng nâng cao ngoài phạm vi MVP**
-
-| Mã | Chức năng | Mô tả | Người sử dụng | Ưu tiên | Tiêu chí nghiệm thu dự kiến |
-|---|---|---|---|---|---|
-| **F20** | Gói giặt ủi định kỳ | Đăng ký gói giặt theo chu kỳ và hỗ trợ tự động gia hạn. | Customer | Nâng cao | Hệ thống quản lý được chu kỳ dịch vụ và trạng thái gia hạn theo quy tắc được xác định. |
-| **F21** | Tích điểm thành viên | Tích lũy và sử dụng điểm thưởng của khách hàng. | Customer | Nâng cao | Điểm được cộng, trừ và lưu lịch sử theo quy tắc hợp lệ. |
-| **F22** | Đánh giá và nhận xét dịch vụ | Cho phép khách hàng gửi đánh giá về dịch vụ đã sử dụng. | Customer | Nâng cao | Chỉ chấp nhận đánh giá theo điều kiện được thiết lập và lưu đúng nội dung hợp lệ. |
-| **F23** | Thông báo qua SMS/email | Tự động gửi thông báo khi trạng thái đơn hàng thay đổi. | Hệ thống | Nâng cao | Thông báo được tạo đúng khi xuất hiện sự kiện phù hợp và ghi nhận kết quả gửi. |
-| **F24** | Điều phối và định vị tài xế | Hỗ trợ phân công người giao nhận và theo dõi vị trí theo thời gian thực. | Tài xế, Admin | Nâng cao | Admin có thể phân công giao nhận và xem dữ liệu vị trí từ hệ thống được tích hợp. |
-| **F25** | Kết nối nhiều tiệm giặt | Cho phép kết nối và quản lý nhiều đối tác giặt ủi trong bán kính 5 km. | Đối tác, Admin | Nâng cao | Đối tác được quản lý riêng và đơn hàng được phân bổ theo quy tắc đã thiết lập. |
-| **F26** | Chatbot AI và gợi ý dịch vụ | Hỗ trợ trả lời câu hỏi và đề xuất dịch vụ phù hợp. | Customer | Nâng cao | Chatbot phản hồi được các câu hỏi trong phạm vi dữ liệu hỗ trợ và hiển thị gợi ý theo tiêu chí xác định. |
-| **F27** | Ứng dụng di động riêng | Phát triển ứng dụng đặt dịch vụ trên thiết bị di động. | Customer | Nâng cao | Các chức năng được lựa chọn hoạt động và được kiểm thử trên nền tảng di động mục tiêu. |
-
-
-### 4.5. Các quy tắc nghiệp vụ cần xác nhận
-
-Trước khi phát triển và kiểm thử, nhóm cần hoàn thiện một số quy tắc nghiệp vụ:
-
-1. **Phạm vi đơn hàng:** Mỗi đơn được chọn một hay nhiều loại dịch vụ.
-2. **Quy tắc tính giá:** Đơn vị tính theo kg/món, xử lý khối lượng lẻ, phụ phí và mức giá tối thiểu.
-3. **Lịch giao nhận:** Khung giờ hợp lệ, khu vực phục vụ và thời gian xử lý tối thiểu.
-4. **Phí giao nhận:** Mức phí theo khu vực, phí một chiều/hai chiều và điều kiện miễn phí.
-5. **Voucher:** Hình thức giảm giá, điều kiện áp dụng và thứ tự tính với phí giao nhận.
-6. **Thanh toán:** Cổng thanh toán cụ thể, cách xử lý giao dịch thất bại và hoàn tiền.
-7. **Điều chỉnh đơn hàng:** Xử lý khi khối lượng quần áo thực tế khác khối lượng dự kiến.
-8. **Dashboard:** Quy tắc xác định doanh thu, đơn đã thanh toán và thời gian thống kê.
-
-
+1. **Điều kiện hoạt động của tiệm:** Chỉ tiệm được quản trị viên phê duyệt và đang hoạt động mới được tiếp nhận đơn hàng mới.
+2. **Quyền quản lý dịch vụ:** Mỗi dịch vụ phải gắn với một tiệm cụ thể. Chủ tiệm chỉ được quản lý dịch vụ thuộc tiệm của mình.
+3. **Tách đơn hàng:** Khi giỏ hàng chứa dịch vụ từ nhiều tiệm, hệ thống tạo các đơn hàng thành phần theo từng tiệm. Mỗi đơn thành phần có trạng thái xử lý riêng.
+4. **Tính chi phí:** Giá dịch vụ được lấy từ dữ liệu hợp lệ tại thời điểm đặt hàng. Phí giao nhận và voucher được tính theo quy tắc đã cấu hình.
+5. **Phân quyền đơn hàng:** Khách hàng chỉ được xem đơn của mình; chủ tiệm chỉ được xử lý đơn thuộc tiệm mình; Admin được giám sát toàn bộ đơn hàng.
+6. **Ghi nhận tình trạng quần áo:** Thông tin trước và sau khi giặt phải được liên kết với đúng đơn hàng và chỉ hiển thị cho những người có quyền truy cập.
+7. **Đánh giá:** Khách hàng chỉ được đánh giá dịch vụ khi đơn hàng đáp ứng điều kiện hoàn thành.
+8. **Thanh toán:** Hệ thống phải ghi nhận rõ trạng thái thanh toán, tránh xác nhận giao dịch chỉ dựa trên thông báo do trình duyệt gửi lên.
 
 ## 5. Yêu cầu phi chức năng
 
-### 5.1. Tổng quan
+### 5.1. Danh sách yêu cầu phi chức năng
 
-Yêu cầu phi chức năng (Non-Functional Requirements – NFR) xác định các tiêu chuẩn về giao diện, tính chính xác của dữ liệu, bảo mật, tính ổn định, khả năng bảo trì và kiểm thử của hệ thống WASHUP.
+**Bảng 5.1. Yêu cầu phi chức năng của WASHUP**
 
-Các yêu cầu này được xây dựng nhằm hỗ trợ website vận hành an toàn, thuận tiện và phù hợp với quy trình đặt dịch vụ giặt ủi trực tuyến trong phạm vi MVP.
+| Mã | Nhóm yêu cầu | Nội dung yêu cầu | Tiêu chí kiểm tra |
+|---|---|---|---|
+| NFR-01 | Giao diện và khả năng sử dụng | Giao diện rõ ràng, thống nhất và phù hợp với hoạt động tìm kiếm, so sánh và đặt dịch vụ. | Các chức năng chính có thể thao tác trên trình duyệt máy tính và điện thoại; biểu mẫu có nhãn và thông báo lỗi dễ hiểu. |
+| NFR-02 | Tính tương thích | Website hỗ trợ các kích thước màn hình phổ biến. | Nội dung không bị tràn hoặc che khuất nghiêm trọng khi kiểm tra trên máy tính và điện thoại. |
+| NFR-03 | Tính chính xác của dữ liệu | Giá dịch vụ, phí giao nhận, voucher và tổng chi phí phải được tính nhất quán. | Kết quả tính tiền khớp với quy tắc đã thống nhất và dữ liệu đơn hàng được lưu. |
+| NFR-04 | Phân quyền | Chức năng và dữ liệu được giới hạn theo vai trò Guest, Customer, Seller và Admin. | Thử truy cập bằng tài khoản khác vai trò; hệ thống từ chối truy cập trái phép. |
+| NFR-05 | Bảo mật | Kiểm tra dữ liệu đầu vào, bảo vệ thông tin cá nhân, băm mật khẩu an toàn và hạn chế các lỗ hổng phổ biến. | Dữ liệu đầu vào được kiểm tra; mật khẩu không lưu dưới dạng văn bản thuần; các chức năng quản trị được bảo vệ. |
+| NFR-06 | Bảo vệ dữ liệu giữa các tiệm | Chủ tiệm không được truy cập hoặc chỉnh sửa dữ liệu riêng của tiệm khác. | Kiểm thử bằng tài khoản của hai tiệm khác nhau; thao tác trái quyền bị từ chối. |
+| NFR-07 | An toàn giao dịch | Trạng thái thanh toán phải được xác minh và lưu nhất quán. | Giao dịch thử nghiệm thành công, thất bại và gửi lại yêu cầu được xử lý theo quy tắc đã định. |
+| NFR-08 | Tính ổn định | Hệ thống hạn chế tạo đơn trùng và ghi nhận dữ liệu không nhất quán khi có lỗi. | Kiểm thử thao tác gửi lại yêu cầu và xác nhận dữ liệu không bị ghi nhận trùng ngoài quy tắc cho phép. |
+| NFR-09 | Khả năng bảo trì | Mã nguồn được tổ chức rõ ràng, tên biến và hàm dễ hiểu, các phần chức năng được phân chia hợp lý. | Thành viên có thể xác định vị trí mã nguồn của các chức năng chính và cập nhật mà không sửa trùng lặp không cần thiết. |
+| NFR-10 | Khả năng kiểm thử | Các chức năng cốt lõi có thể được kiểm tra bằng dữ liệu thử nghiệm. | Có thể kiểm thử luồng đăng nhập, tìm kiếm, so sánh, đặt hàng đa tiệm, tính phí, voucher, phân quyền và cập nhật trạng thái. |
+| NFR-11 | Bảo vệ thông tin bí mật | Không công khai mật khẩu, khóa API, thông tin thanh toán bí mật hoặc cấu hình nhạy cảm trong repository. | Mã nguồn công khai không chứa thông tin xác thực; thông tin nhạy cảm được lưu trong cấu hình phù hợp và không đưa vào Git. |
+| NFR-12 | Lưu trữ hình ảnh | Hình ảnh tình trạng quần áo phải được kiểm tra loại tệp và dung lượng trước khi lưu. | Tệp không hợp lệ bị từ chối; hình ảnh hợp lệ được liên kết đúng đơn hàng và chỉ người có quyền mới xem được. |
 
-### 5.2. Danh sách yêu cầu phi chức năng
+*Nguồn: Nhóm tác giả tự tổng hợp.*
 
-**Bảng 5.1. Các yêu cầu phi chức năng của hệ thống WASHUP**
+### 5.2. Nguyên tắc bảo mật và dữ liệu
 
-| Mã | Nhóm yêu cầu | Nội dung yêu cầu |
-|---|---|---|
-| **NFR-01** | Giao diện và khả năng sử dụng | Giao diện rõ ràng, thống nhất, dễ thao tác trên máy tính và điện thoại; biểu mẫu có nhãn và thông báo lỗi dễ hiểu. |
-| **NFR-02** | Tính chính xác của dữ liệu | Chi phí dịch vụ, phí giao nhận và khuyến mãi được tính nhất quán; lưu đơn giá áp dụng tại thời điểm đặt hàng. |
-| **NFR-03** | Bảo mật | Mật khẩu được băm an toàn; phân quyền khách hàng và quản trị viên; kiểm tra dữ liệu đầu vào và bảo vệ thông tin cá nhân. |
-| **NFR-04** | An toàn thanh toán | Kết quả thanh toán phải được xác minh từ phía hệ thống hoặc nhà cung cấp dịch vụ, không chỉ dựa vào thông báo trên trình duyệt. |
-| **NFR-05** | Tính ổn định | Không tạo đơn hoặc ghi nhận thanh toán trùng lặp khi người dùng gửi lại yêu cầu; xử lý lỗi có kiểm soát. |
-| **NFR-06** | Khả năng bảo trì | Mã nguồn được tổ chức rõ ràng, tách các chức năng nghiệp vụ và có thể kiểm thử từng phần. |
-| **NFR-07** | Khả năng kiểm thử | Kiểm tra các luồng đặt dịch vụ, thanh toán, áp dụng voucher, tính phí và phân quyền bằng dữ liệu thử nghiệm. |
+- Dữ liệu đầu vào từ biểu mẫu phải được kiểm tra trước khi lưu vào cơ sở dữ liệu.
+- Các truy vấn cơ sở dữ liệu cần sử dụng phương pháp phù hợp để hạn chế SQL Injection.
+- Nội dung do người dùng nhập phải được xử lý an toàn khi hiển thị nhằm hạn chế Cross-Site Scripting (XSS).
+- Các chức năng quản trị phải yêu cầu đăng nhập và kiểm tra quyền truy cập.
+- Dữ liệu đơn hàng, địa chỉ và hình ảnh chỉ được cung cấp cho người có quyền liên quan.
+- Không lưu mật khẩu dưới dạng văn bản thuần hoặc đưa khóa bí mật vào mã nguồn công khai.
+- Dữ liệu thử nghiệm không nên chứa thông tin cá nhân hoặc thông tin thanh toán thực tế không cần thiết.
 
-*Nguồn: Nhóm tác giả tổng hợp từ kết quả phân tích yêu cầu dự án WASHUP.*
+### 5.3. Giới hạn về chỉ tiêu kỹ thuật
 
-### 5.3. Cơ sở xác định yêu cầu
-
-WASHUP xử lý thông tin liên hệ, địa chỉ giao nhận, đơn hàng và giao dịch thanh toán. Vì vậy, bên cạnh việc xây dựng giao diện thuận tiện, hệ thống cần chú trọng tính chính xác, tính nhất quán và an toàn dữ liệu.
-
-Đặc biệt, các chức năng liên quan đến tính chi phí, áp dụng voucher và thanh toán trực tuyến cần được kiểm tra kỹ nhằm hạn chế sai lệch số tiền, ghi nhận giao dịch không chính xác hoặc tạo đơn hàng trùng lặp.
-
-### 5.4. Giới hạn về chỉ tiêu kỹ thuật
-
-Trong giai đoạn khởi tạo dự án, nhóm chưa xác định các chỉ tiêu định lượng cụ thể về hiệu năng, thời gian phản hồi và số lượng người dùng đồng thời.
-
-Các chỉ tiêu này cần được xem xét sau khi nhóm đánh giá môi trường triển khai và khả năng kỹ thuật thực tế, tránh đưa ra những cam kết vượt quá nguồn lực của đồ án.
-
----
+Trong giai đoạn đầu, nhóm chưa xác định các chỉ tiêu định lượng cụ thể về thời gian phản hồi, số lượng người dùng đồng thời hoặc mức độ sẵn sàng của hệ thống. Các chỉ tiêu này sẽ được cân nhắc dựa trên môi trường triển khai và nguồn lực thực tế của đồ án.
 
 ## 6. Giới hạn và giả định
 
 ### 6.1. Giới hạn của dự án
 
-WASHUP được thực hiện trong khuôn khổ học phần với thời gian và nguồn lực giới hạn. Vì vậy, nhóm tập trung phát triển các chức năng cốt lõi của website đặt dịch vụ giặt ủi trực tuyến, bảo đảm phù hợp với khả năng triển khai và kiểm thử.
-
-**Bảng 6.1. Các giới hạn trong quá trình phát triển WASHUP**
-
-| Yếu tố | Giới hạn của dự án |
+| Yếu tố | Giới hạn dự kiến |
 |---|---|
-| **Thời gian thực hiện** | Dự án được triển khai trong 8 tuần, bao gồm khảo sát, thiết kế, lập trình, tích hợp, kiểm thử và hoàn thiện. |
-| **Nguồn nhân lực** | Nhóm gồm 8 thành viên; năng lực lập trình cụ thể của từng thành viên chưa được đánh giá đầy đủ. |
-| **Công nghệ phát triển** | Nhóm lựa chọn HTML5, CSS3, JavaScript, Bootstrap 5, PHP 8.4 và MySQL để phát triển website. |
-| **Môi trường phát triển** | Sử dụng Visual Studio Code và XAMPP để viết mã nguồn, quản lý cơ sở dữ liệu và chạy thử hệ thống. |
-| **Phạm vi kinh doanh** | MVP chỉ mô phỏng hoạt động của một trung tâm giặt ủi, chưa triển khai mô hình kết nối nhiều tiệm giặt độc lập. |
-| **Hoạt động giao nhận** | Sử dụng lịch nhận/giao và trạng thái đơn hàng để mô phỏng; chưa tích hợp điều phối tài xế hoặc định vị theo thời gian thực. |
-| **Thanh toán trực tuyến** | Tích hợp một cổng thanh toán trong môi trường thử nghiệm; chưa triển khai giao dịch thanh toán thực tế. |
-| **Dữ liệu** | Sử dụng dữ liệu thử nghiệm về dịch vụ, bảng giá, khách hàng, đơn hàng và lịch giao nhận. |
-| **Chức năng nâng cao** | Các chức năng F20–F27 không thuộc phạm vi MVP và sẽ được xem xét phát triển trong giai đoạn sau. |
+| **Thời gian** | Dự án được thực hiện trong khoảng 8 tuần, bao gồm phân tích yêu cầu, thiết kế, lập trình, tích hợp, kiểm thử và hoàn thiện. |
+| **Nhân lực** | Nhóm gồm 8 thành viên; công việc được phân chia theo năng lực và tiến độ thực tế. |
+| **Công nghệ** | Theo kế hoạch hiện tại, nhóm dự kiến sử dụng HTML5, CSS3, JavaScript, Bootstrap 5, PHP và MySQL. Phiên bản cụ thể sẽ được thống nhất trong quá trình thiết lập môi trường. |
+| **Môi trường phát triển** | Dự kiến sử dụng Visual Studio Code, XAMPP và GitHub để phát triển, chạy thử và quản lý mã nguồn. |
+| **Mô hình kinh doanh** | Website được xây dựng theo mô hình sàn kết nối nhiều tiệm giặt ủi, không giới hạn ở một trung tâm giặt duy nhất. |
+| **Phạm vi địa lý** | Trong giai đoạn thử nghiệm, các tiệm phục vụ những khu vực được cấu hình sẵn; chưa bắt buộc sử dụng GPS để tìm tiệm theo bán kính thực tế. |
+| **Giao nhận** | Khách hàng lựa chọn địa chỉ và khung giờ được thiết lập sẵn; chưa tích hợp hệ thống điều phối tài xế hoặc theo dõi vị trí theo thời gian thực. |
+| **Thanh toán** | Ưu tiên phương thức thanh toán phù hợp với đồ án, có thể sử dụng thanh toán khi nhận hàng và môi trường thanh toán thử nghiệm; không mặc định triển khai nhiều cổng thanh toán thật. |
+| **Dữ liệu** | Có thể sử dụng dữ liệu mẫu về tiệm, dịch vụ, giá, khách hàng và đơn hàng để kiểm thử các quy trình nghiệp vụ. |
+| **Tính năng nâng cao** | AI, QR theo từng công đoạn, gói định kỳ, định giá linh hoạt và tích hợp giao hàng bên ngoài nằm ngoài phạm vi MVP. |
 
 ### 6.2. Các giả định triển khai
 
-Dựa trên phạm vi đã xác định, nhóm sử dụng một số giả định ban đầu để xây dựng kế hoạch phát triển WASHUP:
+1. **Thông tin tiệm:** Các tiệm tham gia cung cấp thông tin cơ bản, dịch vụ, bảng giá, thời gian xử lý và khu vực phục vụ để quản trị viên kiểm tra trước khi phê duyệt.
+2. **Thông tin dịch vụ:** Mỗi dịch vụ được gắn với một tiệm cụ thể và có đơn vị tính, giá cùng các thông tin cần thiết để khách hàng lựa chọn.
+3. **Đặt hàng đa tiệm:** Hệ thống hỗ trợ khách hàng chọn dịch vụ từ nhiều tiệm trong cùng một lần đặt hàng; các dịch vụ được tách thành đơn hàng thành phần theo từng tiệm.
+4. **Giá và phí:** Giá dịch vụ, phí giao nhận và voucher được tính theo các quy tắc được nhóm xác định trước. Các quy tắc này có thể được đơn giản hóa để phù hợp với phạm vi đồ án.
+5. **Khung giờ giao nhận:** Các khung giờ được thiết lập sẵn để mô phỏng quy trình đặt dịch vụ; chưa yêu cầu thuật toán tối ưu lịch giao nhận phức tạp.
+6. **Thanh toán:** Nhóm sử dụng phương thức thanh toán phù hợp với môi trường thử nghiệm và không xử lý thông tin thẻ thanh toán thực tế trực tiếp trên website.
+7. **Tình trạng quần áo:** Chủ tiệm ghi nhận tình trạng quần áo bằng biểu mẫu và hình ảnh tùy chọn; hệ thống lưu thông tin theo đơn hàng để khách hàng có thể xem lại.
+8. **Đánh giá:** Chỉ các đơn hàng đáp ứng điều kiện hoàn thành mới được phép đánh giá theo quy tắc của hệ thống.
+9. **Nguồn lực:** Các chức năng được ưu tiên theo mức độ quan trọng; nếu thời gian hạn chế, nhóm hoàn thiện quy trình cốt lõi trước khi triển khai các phần tùy chọn.
 
-1. **Mô hình vận hành:** WASHUP được phát triển theo mô hình một trung tâm giặt ủi duy nhất trong khu vực thử nghiệm.
+### 6.3. Các nội dung cần thống nhất trước khi phát triển
 
-2. **Thông tin dịch vụ:** Danh sách dịch vụ, bảng giá, mùi hương và thời gian xử lý được thiết lập bằng dữ liệu thử nghiệm để mô phỏng hoạt động thực tế.
+Để tránh khác biệt trong cách triển khai giữa các thành viên, nhóm cần thống nhất các quy tắc sau:
 
-3. **Quy trình giao nhận:** Khách hàng lựa chọn lịch nhận/giao theo các khung giờ được cấu hình sẵn. Việc giao nhận thực tế chưa được triển khai trong MVP.
-
-4. **Quy tắc tính phí:** Chi phí dịch vụ được xác định dựa trên đơn giá và khối lượng hoặc số lượng quần áo. Phí giao nhận được tính theo khu vực hoặc quy tắc đã cấu hình.
-
-5. **Khuyến mãi:** Hệ thống kiểm tra điều kiện và thời hạn voucher trước khi áp dụng giảm giá vào đơn hàng.
-
-6. **Thanh toán:** Nhóm lựa chọn tích hợp một cổng thanh toán trong môi trường thử nghiệm. Nhà cung cấp, phương án tích hợp và cách xử lý giao dịch cần được kiểm tra trong quá trình triển khai.
-
-7. **Quản lý đơn hàng:** Quản trị viên chịu trách nhiệm kiểm tra, xác nhận và cập nhật trạng thái xử lý đơn hàng. Khách hàng chỉ được xem và quản lý các đơn hàng thuộc tài khoản của mình.
-
-8. **Nguồn lực thực hiện:** Các thành viên phối hợp theo kế hoạch phân công. Công việc có thể được điều chỉnh khi nhóm đánh giá năng lực kỹ thuật và tiến độ thực tế.
-
-### 6.3. Các nội dung cần tiếp tục xác minh
-
-Trước khi triển khai các chức năng liên quan, nhóm cần thống nhất:
-
-- Quy tắc tính giá theo kg hoặc theo món, cách xử lý khối lượng lẻ và mức phí tối thiểu.
-- Số loại dịch vụ được phép lựa chọn trong cùng một đơn hàng.
-- Khu vực phục vụ, khung giờ nhận/giao và điều kiện đặt lịch.
-- Cách tính phí giao nhận và điều kiện miễn phí.
-- Hình thức voucher và thứ tự áp dụng giảm giá.
-- Cổng thanh toán, cách xử lý giao dịch thất bại và hoàn tiền.
-- Cách xử lý khi khối lượng thực tế khác khối lượng dự kiến.
-- Quy tắc thống kê doanh thu và trạng thái đơn hàng trên dashboard.
+- Đơn vị tính và cách tính giá cho từng loại dịch vụ, bao gồm cách xử lý khối lượng lẻ hoặc mức giá tối thiểu.
+- Cách tính phí giao nhận theo tiệm, khu vực và số lượt giao nhận.
+- Quy tắc áp dụng voucher và cách phân bổ khoản giảm giá khi đơn hàng có dịch vụ từ nhiều tiệm.
+- Cách quản lý đơn hàng tổng, đơn hàng thành phần và trạng thái của từng đơn.
+- Điều kiện hủy đơn và cách xử lý khi giao dịch thanh toán thất bại.
+- Các trạng thái xử lý đơn hàng được phép chuyển đổi.
+- Thông tin bắt buộc trong biên bản ghi nhận tình trạng quần áo trước và sau khi giặt.
+- Điều kiện đánh giá tiệm và cách tính các chỉ số trên dashboard.
+- Công nghệ, cấu trúc cơ sở dữ liệu và quy trình phối hợp mã nguồn được sử dụng thống nhất trong nhóm.
