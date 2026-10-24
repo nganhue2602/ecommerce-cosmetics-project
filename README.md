@@ -171,20 +171,18 @@ Nhóm lựa chọn **HTML5, CSS3, JavaScript kết hợp Bootstrap 5** để ph�
 
 ## 6. Kế hoạch thực hiện
 
-Dự án WASHUP dự kiến được triển khai trong **8 tuần**, chia thành 6 giai đoạn chính theo định hướng phát triển ứng dụng thương mại điện tử của học phần.
-
 **Bảng 6. Kế hoạch thực hiện**
 
 | Giai đoạn | Nội dung thực hiện | Kết quả dự kiến |
 |---|---|---|
 | **Giai đoạn 1: Khảo sát và xác định yêu cầu** | Xác định vấn đề kinh doanh, khách hàng mục tiêu; khảo sát các website tương tự; phân tích yêu cầu bằng AI, phản biện và thống nhất phạm vi MVP. | Hoàn thiện tài liệu giới thiệu dự án, phân tích website, yêu cầu chức năng và quy trình nghiệp vụ. |
-| **Giai đoạn 2: Thiết kế giao diện** | Xây dựng bố cục và thiết kế giao diện trang chủ, danh sách dịch vụ, chi tiết dịch vụ, đặt lịch, quản lý đơn hàng và trang quản trị bằng Figma. | Bộ thiết kế giao diện và cấu trúc điều hướng của WASHUP. |
-| **Giai đoạn 3: Xây dựng các chức năng Frontend** | Sử dụng HTML5, CSS3, JavaScript và Bootstrap 5 để xây dựng giao diện, biểu mẫu đặt dịch vụ, tìm kiếm, lựa chọn dịch vụ và các tương tác cơ bản. | Giao diện website có thể thao tác và hiển thị phù hợp trên máy tính, điện thoại. |
-| **Giai đoạn 4: Phát triển Backend và cơ sở dữ liệu** | Sử dụng PHP và MySQL để xây dựng chức năng tài khoản, quản lý dịch vụ, đặt lịch, lưu đơn hàng, tính phí giao nhận, voucher, thanh toán trực tuyến và dashboard quản trị. | Các chức năng nghiệp vụ và cơ sở dữ liệu được xây dựng, sẵn sàng tích hợp với giao diện. |
-| **Giai đoạn 5: Tích hợp và kiểm thử** | Kết nối Frontend, Backend và cơ sở dữ liệu; kiểm tra quy trình đặt dịch vụ, tính chi phí, áp dụng voucher, thanh toán, phân quyền và cập nhật trạng thái đơn hàng. | Website hoạt động theo các quy trình chính, các lỗi được ghi nhận và xử lý. |
-| **Giai đoạn 6: Triển khai và hoàn thiện** | Triển khai phiên bản thử nghiệm, hoàn thiện giao diện, kiểm tra các chức năng và bổ sung tài liệu hướng dẫn, báo cáo dự án. | Website WASHUP phiên bản MVP và bộ tài liệu phục vụ đánh giá cuối học phần. |
+| **Giai đoạn 2: Thiết kế giao diện** | Xây dựng bố cục và thiết kế giao diện bằng Figma cho: trang chủ, danh sách/chi tiết dịch vụ, giỏ hàng, trang quản lý của khách hàng, **trang quản lý gian hàng (người bán)** và trang quản trị (Admin). | Bộ thiết kế giao diện và cấu trúc điều hướng hoàn chỉnh của mô hình WASHUP Marketplace. |
+| **Giai đoạn 3: Xây dựng các chức năng Frontend** | Sử dụng HTML5, CSS3, JavaScript và Bootstrap 5 xây dựng giao diện. **Tích hợp AJAX/Fetch API** cho bộ lọc tìm kiếm và cập nhật giỏ hàng đa cửa hàng mượt mà. | Giao diện website hiển thị responsive, các tương tác người dùng hoạt động trơn tru mà không cần tải lại trang. |
+| **Giai đoạn 4: Phát triển Backend và cơ sở dữ liệu** | Sử dụng PHP, MySQL xây dựng hệ thống: tài khoản (3 vai trò), quản lý gian hàng, **giỏ hàng tổng, tự động tách đơn**, voucher, thanh toán. **Tích hợp các API (Google Maps, Chart.js, PHPMailer)**. | Hệ thống Backend vững chắc, các API được kết nối sẵn sàng để ráp nối với Frontend. |
+| **Giai đoạn 5: Tích hợp và kiểm thử** | Kết nối Frontend, Backend và CSDL; kiểm tra luồng đặt hàng từ nhiều cửa hàng, **thuật toán tách đơn, tính phí vận chuyển theo khoảng cách**, áp dụng voucher, thanh toán và phân quyền. | Website hoạt động ổn định theo các quy trình Marketplace, các lỗi (bug) được ghi nhận và xử lý. |
+| **Giai đoạn 6: Triển khai và hoàn thiện** | Triển khai phiên bản thử nghiệm, hoàn thiện UI/UX, kiểm tra các tính năng và bổ sung tài liệu hướng dẫn, báo cáo dự án. | Website WASHUP phiên bản MVP và bộ tài liệu phục vụ đánh giá cuối học phần. |
 
-**Định hướng triển khai:** Nhóm ưu tiên hoàn thiện quy trình đặt dịch vụ giặt ủi trực tuyến từ lựa chọn dịch vụ, đặt lịch, tính chi phí, thanh toán đến theo dõi trạng thái đơn hàng. Các chức năng nâng cao ngoài phạm vi MVP sẽ được xem xét phát triển sau.
+**Định hướng triển khai:** Nhóm ưu tiên hoàn thiện luồng nghiệp vụ cốt lõi của mô hình Marketplace: khách hàng có thể tìm kiếm, chọn dịch vụ từ **nhiều cửa hàng khác nhau**, hệ thống **tự động tính phí vận chuyển và tách đơn hàng**, thanh toán thành công và theo dõi tiến độ. Các chức năng nâng cao khác ngoài phạm vi MVP sẽ được xem xét phát triển ở giai đoạn sau.
 
 Kế hoạch chi tiết về công việc, người phụ trách, thời hạn và trạng thái thực hiện sẽ được cập nhật trong tài liệu PROJECT_PLAN.md.
 
