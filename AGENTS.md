@@ -1,120 +1,130 @@
-Project Instructions for AI
-1. Project context
+# Project Instructions for AI
 
-WASHUP là nền tảng trung gian trực tuyến kết nối khách hàng với các tiệm giặt ủi, do nhóm 6 thực hiện. WASHUP không trực tiếp giặt ủi. Việc giặt, sấy, hấp, là do các tiệm giặt đối tác thực hiện. WASHUP cung cấp nơi để:
+## 1. Project Context
 
-Khách hàng tìm tiệm giặt và dịch vụ, xem bảng giá, đặt lịch nhận/giao trả, thanh toán trực tuyến và theo dõi đơn hàng.
-Tiệm giặt (đối tác) đăng và quản lý dịch vụ, bảng giá của mình, nhận đơn và cập nhật tiến trình xử lý.
-Quản trị viên WASHUP quản lý tiệm giặt đối tác, giám sát đơn hàng, thanh toán và vận hành chung của nền tảng.
+WASHUP là nền tảng trực tuyến đóng vai trò sàn trung gian kết nối Khách hàng (sinh viên, người đi làm) với Các tiệm giặt ủi đối tác tại khu vực thử nghiệm, do Nhóm 6 thực hiện. WASHUP không trực tiếp cung cấp dịch vụ giặt ủi. Các công việc giặt, sấy, hấp, là ủi đều do các tiệm giặt đối tác đảm nhận.
 
-Dịch vụ gồm giặt sấy, giặt hấp và là ủi. Dự án hướng đến sinh viên và người đi làm tại khu vực thử nghiệm. Thời gian thực hiện khoảng 8 tuần, nên nhóm ưu tiên các chức năng cần thiết, dễ dùng, dễ kiểm thử và vừa sức triển khai.
+Hệ thống được thiết kế với 3 vai trò người dùng chính:
 
-Ba vai trò chính: Khách hàng, Tiệm giặt, Quản trị viên.
+* **Khách hàng (Customer):** Tìm kiếm tiệm giặt và dịch vụ, xem bảng giá công khai, đặt lịch nhận/giao trả, áp dụng voucher, thanh toán trực tuyến và theo dõi trạng thái đơn hàng.
+* **Tiệm giặt (Partner/Store):** Đăng tải và quản lý hồ sơ tiệm, danh mục dịch vụ, bảng giá, cấu hình mùi hương/yêu cầu riêng; tiếp nhận đơn hàng và cập nhật tiến trình xử lý.
+* **Quản trị viên (Admin):** Quản lý/duyệt danh sách tiệm giặt đối tác, giám sát toàn bộ đơn hàng, quản lý voucher chung, cấu hình hệ thống và theo dõi thống kê vận hành của nền tảng.
 
-2. Scope
+Dự án có thời gian thực hiện khoảng 8 tuần, vì vậy nhóm ưu tiên các chức năng thiết yếu, dễ sử dụng, dễ kiểm thử và phù hợp với năng lực triển khai đồ án.
 
-Chỉ phát triển các chức năng đã được nhóm thống nhất và ghi trong REQUIREMENTS.md. Không tự ý mở rộng phạm vi hoặc thêm chức năng lớn khi chưa được nhóm đồng ý.
+---
 
-Chức năng dự kiến
+## 2. Scope & Boundaries
 
-Phía khách hàng
+Chỉ phát triển các chức năng đã được nhóm thống nhất và ghi rõ trong REQUIREMENTS.md. Tuyệt đối không tự ý mở rộng phạm vi hoặc thêm tính năng lớn khi chưa có sự đồng ý của nhóm.
 
-Đăng ký, đăng nhập, quản lý thông tin cá nhân và địa chỉ nhận/giao.
-Xem danh sách tiệm giặt; xem dịch vụ, chi tiết và bảng giá của từng tiệm.
-Tìm kiếm theo tên tiệm/dịch vụ và lọc theo loại dịch vụ.
-Chọn tiệm và dịch vụ, nhập khối lượng hoặc số lượng, chọn mùi hương nếu tiệm hỗ trợ.
-Đặt lịch nhận và giao trả theo các khung giờ đã thiết lập.
-Xem chi phí dự kiến (phí dịch vụ + phí giao nhận), áp dụng voucher theo điều kiện đã cấu hình.
-Tạo đơn hàng với mã đơn duy nhất; thanh toán trực tuyến qua một cổng thanh toán do nhóm lựa chọn.
-Xem lịch sử, chi tiết và trạng thái đơn hàng; hủy đơn theo quy định.
+### Chức năng theo vai trò người dùng
 
-Phía tiệm giặt
+#### Phía Khách hàng (Customer)
+* Đăng ký, đăng nhập, quản lý hồ sơ cá nhân và danh sách địa chỉ nhận/giao.
+* Tìm kiếm tiệm giặt theo tên, khu vực; xem chi tiết dịch vụ, tùy chọn và bảng giá của từng tiệm.
+* Lọc dịch vụ theo loại (Giặt sấy, Giặt hấp, Là ủi...).
+* Lựa chọn tiệm và dịch vụ, nhập số lượng/khối lượng, chọn tùy chọn mùi hương (nếu tiệm hỗ trợ).
+* Đặt lịch hẹn nhận đồ và giao trả theo các khung giờ tiệm phục vụ.
+* Xem chi phí dự kiến (Phí dịch vụ + Phí giao nhận), áp dụng mã giảm giá (voucher).
+* Tạo đơn hàng với mã đơn duy nhất (Order ID); thanh toán trực tuyến qua cổng thanh toán thử nghiệm.
+* Xem lịch sử đơn hàng, chi tiết đơn hàng, tiến trình xử lý và thực hiện hủy đơn theo quy định.
 
-Quản lý hồ sơ tiệm, dịch vụ, bảng giá và mùi hương của tiệm mình.
-Xem và xử lý các đơn thuộc tiệm mình; cập nhật tiến trình xử lý đơn.
-Chỉ được truy cập dữ liệu của chính tiệm mình.
+#### Phía Tiệm giặt đối tác (Partner/Store)
+* Quản lý hồ sơ tiệm, thời gian hoạt động, danh mục dịch vụ, bảng giá và các loại mùi hương do tiệm cung cấp.
+* Xem và xử lý danh sách đơn hàng thuộc tiệm mình; cập nhật tiến trình xử lý (Đã nhận -> Đang xử lý -> Đang giao -> Hoàn thành).
+* **Phân quyền dữ liệu strict:** Chỉ được phép xem và thao tác trên dữ liệu/đơn hàng thuộc sở hữu của tiệm mình.
 
-Phía quản trị viên
+#### Phía Quản trị viên (Admin)
+* Quản lý tiệm đối tác (tạo mới, duyệt đăng ký, khóa/mở khóa tài khoản tiệm) và quản lý danh mục dịch vụ dùng chung.
+* Quản lý mã giảm giá (voucher) và quy tắc cấu hình phí giao nhận.
+* Xem danh sách toàn bộ đơn hàng trên sàn và kiểm tra trạng thái thanh toán.
+* Xem Dashboard thống kê tổng quan (doanh thu sàn, tổng số đơn hàng, số lượng tiệm giặt...) theo quy tắc đã thống nhất.
+* Quản lý tài khoản khách hàng (ưu tiên thực hiện sau các chức năng cốt lõi nếu thiếu thời gian).
 
-Quản lý tiệm đối tác (tạo, duyệt, khóa/mở) và danh mục dịch vụ chung.
-Quản lý voucher và quy tắc phí giao nhận.
-Xem toàn bộ đơn hàng, kiểm tra trạng thái thanh toán.
-Xem dashboard với các thống kê cơ bản theo quy tắc nhóm đã thống nhất.
-Quản lý tài khoản khách hàng: ưu tiên sau các chức năng cốt lõi nếu thời gian có hạn.
+---
 
-Nhóm cần phân biệt rõ chức năng bắt buộc và tùy chọn trong REQUIREMENTS.md.
+### Các vấn đề nghiệp vụ Mô hình Sàn (Bắt buộc hỏi nhóm xác nhận trước khi triển khai)
 
-Các điểm nghiệp vụ của mô hình sàn trung gian, cần nhóm xác nhận trước khi triển khai
+> **LƯU Ý:** AI không được tự ý đưa ra quyết định đối với các câu hỏi nghiệp vụ sau:
 
-AI không tự quyết định các nội dung sau:
+- [ ] Quy trình đăng ký tiệm: Tiệm giặt tự đăng ký công khai hay Admin tạo tài khoản thủ công? Bắt buộc duyệt qua các bước nào?
+- [ ] Giới hạn đơn hàng: Một đơn hàng chỉ được chứa dịch vụ của 1 tiệm giặt hay cho phép đặt gộp dịch vụ từ nhiều tiệm giặt cùng lúc?
+- [ ] Đơn vị vận chuyển: Tiệm giặt tự chịu trách nhiệm giao nhận hay WASHUP đứng ra điều phối? Phí giao nhận do ai đặt và ai thu?
+- [ ] Dòng tiền & Hoa hồng: Cổng thanh toán chuyển tiền về đâu? WASHUP tính hoa hồng ra sao và cơ chế đối soát với tiệm giặt trong MVP như thế nào (hay chỉ mô tả trên tài liệu)?
+- [ ] Quy mô Voucher: Voucher do WASHUP phát hành áp dụng toàn sàn hay tiệm giặt tự phát hành voucher riêng?
+- [ ] Quy trình xử lý sự cố: Quy định hủy đơn và cơ chế xử lý khi tiệm giặt từ chối nhận đơn hoặc không phản hồi.
 
-Tiệm giặt tự đăng ký hay do quản trị viên tạo tài khoản? Có cần bước duyệt không?
-Một đơn hàng chỉ gồm dịch vụ của một tiệm hay được nhiều tiệm?
-Ai là bên nhận và giao đồ: tiệm giặt tự đảm nhận hay WASHUP tổ chức? Phí giao nhận do ai đặt và ai thu?
-Tiền khách thanh toán đi về đâu, WASHUP có thu hoa hồng và đối soát với tiệm như thế nào, trong MVP hay chỉ mô tả?
-Voucher do WASHUP hay do tiệm phát hành?
-Quy định hủy đơn và xử lý khi tiệm từ chối hoặc không nhận đơn.
-Chưa thuộc phạm vi MVP (trừ khi nhóm có quyết định mới)
-Gói giặt định kỳ hoặc tự động gia hạn.
-Tích điểm khách hàng thân thiết.
-Đánh giá và nhận xét dịch vụ/tiệm giặt.
-Thông báo tự động qua SMS hoặc email.
-Vai trò tài xế, điều phối giao nhận và định vị thời gian thực.
-Đối soát, chi trả tự động cho tiệm giặt và hệ thống hoa hồng phức tạp.
-Chatbot AI, gợi ý dịch vụ thông minh hoặc ứng dụng di động riêng.
+---
 
-Nếu AGENTS.md và REQUIREMENTS.md có điểm chưa thống nhất (ví dụ REQUIREMENTS.md vẫn mô tả mô hình một trung tâm giặt), không tự chọn một phương án. Hãy chỉ ra nội dung mâu thuẫn và hỏi nhóm xác nhận.
+### Chức năng NẰM NGOÀI PHẠM VI MVP (Không triển khai)
 
-3. Coding principles
-Đọc mã nguồn và tài liệu hiện có trước khi đề xuất hoặc thay đổi.
-Giữ mã dễ đọc, dễ bảo trì; ưu tiên giải pháp phù hợp với trình độ và thời gian của nhóm sinh viên.
-Tuân theo công nghệ, cấu trúc thư mục và quy ước đặt tên mà dự án đang dùng.
-Ưu tiên thay đổi nhỏ, tập trung vào yêu cầu cụ thể và có thể kiểm tra được.
-Tái sử dụng mã phù hợp, tránh lặp logic không cần thiết.
-Không tự ý đổi kiến trúc lớn, framework chính, cơ sở dữ liệu hoặc cấu trúc dự án.
-Không tự ý xóa, thay thế hoặc làm hỏng chức năng đang hoạt động.
-Không tự đặt quy tắc nghiệp vụ hoặc coi dữ liệu mẫu là thông tin chính thức của nhóm.
-Không thay đổi giao diện hoặc quy trình nghiệp vụ theo ý riêng nếu làm sai lệch yêu cầu đã thống nhất.
-Khi thiết kế dữ liệu và chức năng, luôn tính đến việc dữ liệu thuộc về từng tiệm (dịch vụ, bảng giá, đơn hàng gắn với tiệm cụ thể).
-4. Workflow
+* Gói dịch vụ giặt định kỳ hoặc tự động gia hạn.
+* Tích điểm thành viên, hạng khách hàng thân thiết.
+* Đánh giá, xếp hạng (Rating & Review) chi tiết cho từng tiệm giặt/dịch vụ.
+* Gửi thông báo tự động qua SMS hoặc Email.
+* App/Giao diện riêng cho Tài xế (Driver), điều phối tài xế và định vị vị trí giao nhận theo thời gian thực (GPS).
+* Hệ thống chi trả tự động, chia tiền tự động (Split payment) hay đối soát phức tạp cho tiệm giặt.
+* Chatbot AI, gợi ý dịch vụ thông minh hoặc ứng dụng di động native (iOS/Android).
 
-Trước khi sửa mã nguồn
+> **CẢNH BÁO MÂU THUẪN:** Nếu phát hiện điểm chưa nhất quán giữa AGENTS.md và REQUIREMENTS.md (ví dụ: REQUIREMENTS.md cũ vẫn ghi mô hình 1 trung tâm giặt đơn lẻ), AI không được tự chọn 1 phương án. Hãy chỉ rõ điểm mâu thuẫn và yêu cầu nhóm xác nhận.
 
-Đọc AGENTS.md, REQUIREMENTS.md và tài liệu liên quan đến chức năng được yêu cầu.
-Kiểm tra cấu trúc và mã nguồn hiện tại để hiểu cách hệ thống đang chạy.
-Xác định yêu cầu cần đáp ứng, các tệp bị ảnh hưởng và rủi ro.
-Đề xuất phương án. Với thay đổi ảnh hưởng đến nghiệp vụ, kiến trúc, cơ sở dữ liệu, thanh toán hoặc phân quyền, chờ nhóm xác nhận trước khi triển khai.
+---
 
-Sau khi sửa mã nguồn
+## 3. Coding Principles
 
-Giải thích thay đổi đã thực hiện và lý do.
-Liệt kê các tệp đã tạo hoặc chỉnh sửa.
-Chạy kiểm thử phù hợp nếu môi trường hỗ trợ; nếu chưa có kiểm thử tự động, hướng dẫn nhóm kiểm tra thủ công.
-Hướng dẫn cách chạy hoặc kiểm thử chức năng.
-Báo cáo rõ lỗi còn tồn tại, giới hạn và phần chưa được kiểm thử.
+1. **Đọc kỹ tài liệu hiện có:** Luôn đọc mã nguồn, cấu trúc CSDL và các tài liệu liên quan (REQUIREMENTS.md, AGENTS.md) trước khi đề xuất hoặc sửa đổi code.
+2. **Tư duy Sàn trung gian (Multi-tenant data model):** Khi thiết kế cơ sở dữ liệu và viết logic xử lý, luôn gắn dữ liệu (Dịch vụ, Bảng giá, Mùi hương, Đơn hàng) với ID của một tiệm giặt cụ thể (`store_id`).
+3. **Đơn giản & Dễ bảo trì:** Ưu tiên giải pháp rõ ràng, giữ code dễ đọc, phù hợp với trình độ đồ án sinh viên và quỹ thời gian 8 tuần.
+4. **Tuân thủ chuẩn dự án:** Giữ nguyên stack công nghệ, kiến trúc thư mục và quy ước đặt tên mà dự án đang sử dụng.
+5. **Sửa đổi nhỏ & Có thể kiểm thử:** Ưu tiên thực hiện các thay đổi nhỏ, tập trung đúng yêu cầu cụ thể và dễ kiểm tra độc lập.
+6. **Tái sử dụng mã nguồn:** Tránh lặp lại logic không cần thiết (DRY principle).
+7. **An toàn cho hệ thống:** Tuyệt đối không tự ý xóa, thay thế hoặc làm hỏng các chức năng đang hoạt động ổn định. Không đổi framework, ORM hay kiến trúc CSDL chính khi chưa có đồng ý của nhóm.
+8. **Không tự chế quy tắc nghiệp vụ:** Không sử dụng dữ liệu mẫu (mock data) làm quy tắc nghiệp vụ chính thức.
 
-Không khẳng định chức năng đã đúng nếu chưa có kết quả kiểm tra tương ứng. Nếu không thể chạy thử, phải nói rõ.
+---
 
-5. Security
-Không đưa mật khẩu, API key, token hoặc thông tin bí mật vào mã nguồn, tài liệu công khai hay Git; dùng biến môi trường hoặc cách quản lý cấu hình phù hợp.
-Không lưu mật khẩu dạng văn bản thuần; dùng phương pháp băm phù hợp.
-Kiểm tra quyền ở phía máy chủ, không chỉ ẩn nút trên giao diện. Cụ thể:
-Khách hàng chỉ xem được đơn của chính mình.
-Tiệm giặt chỉ xem và xử lý được dịch vụ, đơn hàng của chính tiệm đó, không truy cập được dữ liệu của tiệm khác.
-Chức năng quản trị chỉ dành cho quản trị viên.
-Kiểm tra dữ liệu đầu vào; dùng truy vấn tham số hóa hoặc ORM để hạn chế SQL Injection và XSS.
-Chỉ thu thập dữ liệu cá nhân cần thiết cho quy trình đặt dịch vụ. Lưu ý thông tin khách hàng (tên, số điện thoại, địa chỉ) chỉ hiển thị cho tiệm ở mức cần thiết để xử lý đơn.
-Không dùng dữ liệu cá nhân thật khi chưa được phép; ưu tiên dữ liệu mẫu khi phát triển và kiểm thử.
-Không vô hiệu hóa xác thực, phân quyền hoặc kiểm tra bảo mật để chức năng chạy được.
+## 4. Workflow
 
-Thanh toán: ưu tiên môi trường thử nghiệm (sandbox). Không lưu thông tin thẻ hoặc xác thực thanh toán nhạy cảm trong cơ sở dữ liệu của WASHUP. Không coi giao dịch là thành công chỉ vì người dùng được chuyển hướng về website; phải xác minh kết quả theo cơ chế của cổng thanh toán.
+### Bước 1: Trước khi sửa mã nguồn
+1. Đọc kỹ AGENTS.md, REQUIREMENTS.md và các tài liệu liên quan đến tính năng được yêu cầu.
+2. Kiểm tra cấu trúc thư mục, code Backend/Frontend và Database hiện tại để nắm rõ luồng chạy.
+3. Xác định rõ yêu cầu, danh sách file bị ảnh hưởng và các rủi ro có thể phát sinh.
+4. **Đề xuất phương án thực hiện:** Với các thay đổi liên quan đến logic sàn (Khách - Tiệm - Admin), phân quyền, CSDL hay thanh toán, bắt buộc phải trình bày phương án và chờ nhóm xác nhận trước khi triển khai.
 
-6. Communication
-Nếu yêu cầu chưa rõ hoặc tài liệu mâu thuẫn, hỏi nhóm trước khi triển khai.
-Khi phát hiện điểm chưa thống nhất giữa AGENTS.md, REQUIREMENTS.md, README.md hoặc tài liệu quy trình, nêu rõ mâu thuẫn và đề nghị nhóm xác nhận.
-Nếu có nhiều phương án, ưu tiên cách đơn giản, an toàn, dễ kiểm thử, phù hợp thời gian đồ án.
-Giải thích bằng tiếng Việt rõ ràng, tự nhiên; hạn chế thuật ngữ khó hiểu khi không cần thiết.
-Nêu rõ phần đã hoàn thành, phần mới chỉ là đề xuất và phần chưa kiểm thử.
-AI chỉ là công cụ hỗ trợ phân tích, viết mã, tìm lỗi và kiểm thử. Nhóm cần xem xét và xác nhận thay đổi trước khi dùng làm kết quả cuối cùng.
+### Bước 2: Sau khi sửa mã nguồn
+1. Giải thích ngắn gọn nội dung thay đổi và lý do thực hiện.
+2. Liệt kê danh sách các file đã tạo mới hoặc chỉnh sửa.
+3. Chạy các bài kiểm thử tự động (nếu có môi trường) hoặc viết hướng dẫn kiểm thử thủ công (manual test) chi tiết từng bước cho nhóm.
+4. Hướng dẫn cách chạy tính năng mới.
+5. Báo cáo minh bạch các lỗi còn tồn tại, giới hạn của tính năng và các phần chưa kiểm thử được.
+6. **Tuyệt đối không khẳng định "chức năng đã chạy đúng"** nếu chưa có kết quả kiểm tra tương ứng.
 
-Nguyên tắc chung: Hỗ trợ nhóm xây dựng WASHUP, một sàn trung gian kết nối khách hàng với các tiệm giặt, đúng yêu cầu đã thống nhất, an toàn, dễ kiểm thử và phù hợp với thời gian đồ án; không tự ý mở rộng phạm vi hoặc quyết định thay nhóm.
+---
+
+## 5. Security Guidelines
+
+| Hạng mục | Quy định chi tiết |
+| :--- | :--- |
+| **Bảo mật Secret** | Không lưu mật khẩu, API Key, Secret Token vào mã nguồn, tài liệu hay đẩy lên Git. Sử dụng biến môi trường (`.env`) để quản lý. |
+| **Mật khẩu người dùng** | Không lưu trữ mật khẩu ở dạng văn bản thuần (plain text). Bắt buộc sử dụng các thuật toán băm an toàn (bcrypt, argon2...). |
+| **Phân quyền Server-side** | • **Khách hàng:** Chỉ xem/thao tác trên đơn hàng của mình.<br>• **Tiệm giặt:** Chỉ xem/sửa dữ liệu thuộc `store_id` của tiệm mình, không xem được tiệm khác.<br>• **Admin:** Có quyền truy cập các API quản trị toàn hệ thống.<br>• *Bắt buộc kiểm tra quyền tại Backend API, không chỉ ẩn nút bấm ở Frontend.* |
+| **Chống lỗ hổng** | Validate và Sanitize toàn bộ dữ liệu đầu vào. Sử dụng Parameterized Queries hoặc ORM để triệt tiêu nguy cơ SQL Injection và XSS. |
+| **Bảo vệ dữ liệu** | Chỉ thu thập thông tin cần thiết. Thông tin cá nhân của khách (Tên, SĐT, Địa chỉ) chỉ hiển thị cho Tiệm giặt ở mức độ tối thiểu đủ để phục vụ việc giao nhận/xử lý đồ. |
+| **Thanh toán an toàn** | Bắt buộc sử dụng môi trường Sandbox. Tuyệt đối không lưu trữ thông tin thẻ/ngân hàng trong DB. Không công nhận đơn hàng thành công qua Redirect URL; bắt buộc xác minh giao dịch qua Webhook / IPN hoặc API từ cổng thanh toán. |
+
+---
+
+## 6. Communication Rules
+
+* **Chủ động hỏi:** Nếu yêu cầu chưa đủ rõ ràng hoặc tài liệu bị mâu thuẫn, hãy hỏi nhóm trước khi thực hiện.
+* **Minh bạch mâu thuẫn:** Khi phát hiện điểm chưa thống nhất giữa AGENTS.md, REQUIREMENTS.md, hay README.md, nêu rõ vị trí mâu thuẫn và đề nghị nhóm chốt phương án; không tự tiện chọn một bên.
+* **Tối ưu hóa nguồn lực:** Luôn đề xuất giải pháp đơn giản, an toàn, dễ kiểm thử và vừa sức với thời gian 8 tuần của đồ án.
+* **Ngôn ngữ:** Giải thích bằng tiếng Việt tự nhiên, rõ ràng; tránh lạm dụng thuật ngữ kỹ thuật phức tạp không cần thiết.
+* **Rõ ràng trạng thái:** Nêu rõ nội dung nào **đã hoàn thành**, nội dung nào **mới dừng ở mức đề xuất** và nội dung nào **chưa kiểm thử**.
+* **Vai trò của AI:** AI là công cụ hỗ trợ phân tích, viết mã và tìm lỗi. Nhóm học viên chịu trách nhiệm xem xét, đánh giá và quyết định cuối cùng đối với mọi kết quả do AI tạo ra.
+
+---
+
+### Nguyên tắc chung
+> Hỗ trợ nhóm xây dựng WASHUP, một sàn trung gian kết nối khách hàng với các tiệm giặt, đúng yêu cầu đã thống nhất, an toàn, dễ kiểm thử và phù hợp với thời gian đồ án; không tự ý mở rộng phạm vi hoặc quyết định thay nhóm.
