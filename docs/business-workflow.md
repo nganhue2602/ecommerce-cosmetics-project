@@ -28,34 +28,5 @@
 | 12 | Customer | Đánh giá dịch vụ | Đánh giá được ghi nhận |
 
 
-## 3. Sơ đồ quy trình đặt hàng
 
-```mermaid
-flowchart TD
-    A([Bắt đầu]) --> B[Tìm kiếm dịch vụ]
-    B --> C[So sánh cửa hàng]
-    C --> D[Chọn dịch vụ và thêm vào giỏ]
-    D --> E{Đã đăng nhập?}
-    E -- Chưa --> F[Đăng ký hoặc đăng nhập]
-    F --> G[Nhập thông tin giao nhận]
-    E -- Rồi --> G
-    G --> H{Địa chỉ hợp lệ?}
-    H -- Không --> I[Điều chỉnh địa chỉ hoặc chọn cửa hàng]
-    I --> G
-    H -- Có --> J[Tính phí và áp dụng khuyến mãi]
-    J --> K[Xác nhận đơn hàng]
-    K --> L[Tạo đơn tổng và đơn theo cửa hàng]
-    L --> M[Thanh toán]
-    M --> N{Thanh toán thành công?}
-    N -- Không --> O[Thông báo và thử lại]
-    O --> M
-    N -- Có --> P[Cửa hàng tiếp nhận đơn]
-    P --> Q{Cửa hàng chấp nhận?}
-    Q -- Không --> R[Thông báo và xử lý theo chính sách]
-    Q -- Có --> S[Thực hiện dịch vụ]
-    S --> T[Giao trả đồ]
-    T --> U[Hoàn tất đơn hàng]
-    U --> V[Khách hàng đánh giá]
-    V --> W([Kết thúc])
-```
 
