@@ -55,8 +55,6 @@ AI là công cụ hỗ trợ; nhóm chịu trách nhiệm xác minh, quyết đ�
 
 ### 3.2. Prompt phản biện bằng AI thứ hai
 
-Nhật ký ban đầu ghi **Gemini (Google)** là công cụ phản biện và có một prompt tổng quát về tính khả thi của website WASHUP. Tuy nhiên, file hiện tại không đính kèm kết quả trả lời Gemini nên **chưa thể xác nhận nội dung phản biện chi tiết** đối với mô hình marketplace.
-
 **Prompt đề xuất sử dụng cho vòng phản biện cập nhật:**
 
 > Bạn là người phản biện độc lập cho đồ án sàn TMĐT dịch vụ WASHUP kết nối khách hàng với nhiều tiệm giặt ủi.
