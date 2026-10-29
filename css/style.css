@@ -136,4 +136,166 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--imperial); outl
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+/* BƯỚC 5: Danh sách dịch vụ WASHUP */
+.products-section {
+  padding-block: 58px 80px;
+}
 
+.products-hero {
+  padding-block: 65px 60px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  border-color: #b7c9f2;
+  box-shadow: 0 14px 32px #071a3d12;
+}
+
+.product-image-link {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--pale);
+}
+
+.product-image-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.product-card:hover .product-image-link img {
+  transform: scale(1.04);
+}
+
+.product-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.product-category {
+  color: var(--imperial);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.product-info h3 {
+  margin: 8px 0;
+  color: var(--navy);
+  font: 800 18px/1.4 var(--heading-font);
+}
+
+.product-description {
+  flex: 1;
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.product-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.product-price {
+  margin: 0;
+  color: var(--imperial);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.product-price span {
+  margin-left: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.product-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--imperial);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.product-link:hover {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.product-link:focus-visible,
+.product-image-link:focus-visible {
+  outline: 3px solid var(--imperial);
+  outline-offset: -3px;
+  border-radius: 5px;
+}
+
+.products-note {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Máy tính bảng */
+@media (max-width: 1000px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+/* Điện thoại */
+@media (max-width: 480px) {
+  .products-section {
+    padding-block: 40px 55px;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .product-info {
+    padding: 16px;
+  }
+}
+
+/* Tôn trọng cài đặt giảm chuyển động */
+@media (prefers-reduced-motion: reduce) {
+  .product-card,
+  .product-image-link img {
+    transition: none;
+  }
+}
