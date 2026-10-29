@@ -15,7 +15,7 @@ Mục tiêu của dự án là giúp khách hàng tìm kiếm, so sánh dịch v
 
 Dự án ưu tiên các chức năng thiết yếu, dễ sử dụng, dễ kiểm thử và phù hợp với năng lực triển khai của nhóm trong 8 tuần.
 
----
+
 
 ## 2. Scope & Boundaries
 
@@ -32,7 +32,7 @@ AI không được tự ý:
 
 Nếu phát hiện tài liệu có nội dung mâu thuẫn, AI phải chỉ rõ phần mâu thuẫn, đề xuất phương án xử lý và chờ nhóm xác nhận trước khi thực hiện thay đổi có liên quan.
 
----
+
 
 ### 2.2. Các chức năng thuộc phạm vi MVP (Từ F01 đến F23)
 
@@ -73,9 +73,9 @@ Nếu phát hiện tài liệu có nội dung mâu thuẫn, AI phải chỉ rõ 
 - Admin quản lý toàn bộ người dùng, tiệm giặt, danh mục và voucher.
 - Dashboard Admin hiển thị thống kê cơ bản: số lượng đơn hàng, doanh thu ghi nhận và tình trạng đơn hàng (sử dụng thư viện Chart.js).
 
----
 
-### 2.3. Các chức năng NÂNG CAO - NẰM NGOÀI PHẠM VI MVP (Không triển khai)
+
+### 2.3. Các chức năng NÂNG CAO - NẰM NGOÀI PHẠM VI MVP 
 Các chức năng dưới đây (tương ứng từ F24 đến F34) tuyệt đối **KHÔNG** triển khai trong giai đoạn MVP, trừ khi nhóm chính thức cập nhật tài liệu và đồng ý mở rộng:
 
 1. **F24:** Gói giặt ủi định kỳ, đăng ký thành viên hoặc tự động gia hạn.
@@ -136,7 +136,7 @@ Sau khi được nhóm xác nhận và hoàn thành thay đổi, AI phải:
 
 Không được khẳng định chức năng đã hoạt động chính xác nếu chưa có kết quả kiểm tra tương ứng. Nếu không thể chạy thử, phải nêu rõ điều đó.
 
----
+
 
 ## 5. Security Guidelines
 
