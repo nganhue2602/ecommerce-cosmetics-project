@@ -1,6 +1,6 @@
 # Project Instructions for AI
 
-## 1. Project Context
+## 1. Bối cảnh Dự án
 WASHUP là dự án website thương mại điện tử theo mô hình sàn trung gian kết nối khách hàng với nhiều tiệm giặt ủi độc lập. Dự án do Nhóm 6 thực hiện trong khuôn khổ đồ án môn Phát triển ứng dụng TMĐT (quy mô 8 thành viên), với thời gian triển khai dự kiến khoảng 8 tuần.
 
 WASHUP không trực tiếp cung cấp dịch vụ giặt ủi. Các tiệm giặt đối tác tự quản lý dịch vụ, bảng giá và quá trình xử lý đơn hàng của tiệm mình thông qua hệ thống.
@@ -17,7 +17,7 @@ Dự án ưu tiên các chức năng thiết yếu, dễ sử dụng, dễ kiể
 
 
 
-## 2. Scope & Boundaries
+## 2.Phạm vi và Giới hạn
 
 ### 2.1. Nguyên tắc về phạm vi
 Chỉ triển khai các chức năng đã được nhóm thống nhất và ghi rõ trong REQUIREMENTS.md và README.md.
@@ -92,9 +92,9 @@ Các chức năng dưới đây (tương ứng từ F24 đến F34) tuyệt đ�
 12. Các cơ chế tự động chia tiền hoa hồng thực tế, đối soát tài chính phức tạp giữa sàn và tiệm.
 13. Quy trình khiếu nại, bồi thường thiệt hại và phân xử tranh chấp tự động.
 
----
 
-## 3. Coding Principles
+
+## 3. Nguyên tắc Lập trình
 1. **Tuân thủ yêu cầu đã thống nhất:** Đọc và thực hiện theo REQUIREMENTS.md và README.md; không tự ý thêm chức năng hoặc thay đổi quy tắc nghiệp vụ.
 2. **Đọc và phân tích trước khi sửa:** Trước khi chỉnh sửa, cần xem các tài liệu liên quan, cấu trúc thư mục, mã nguồn hiện tại và cấu trúc cơ sở dữ liệu có liên quan.
 3. **Giữ mã nguồn dễ đọc:** Ưu tiên cách viết rõ ràng, dễ hiểu, dễ bảo trì và phù hợp với trình độ đồ án sinh viên. Tránh làm phức tạp hệ thống khi không cần thiết.
@@ -110,7 +110,7 @@ Các chức năng dưới đây (tương ứng từ F24 đến F34) tuyệt đ�
 
 ---
 
-## 4. Workflow
+## 4. Quy trình Làm việc
 
 ### 4.1. Trước khi sửa mã nguồn
 AI phải thực hiện các bước sau:
@@ -138,7 +138,7 @@ Không được khẳng định chức năng đã hoạt động chính xác n�
 
 
 
-## 5. Security Guidelines
+## 5. Hướng dẫn Bảo mật
 
 ### 5.1. Bảo vệ thông tin bí mật
 - Không đưa mật khẩu, API key, secret token hoặc thông tin đăng nhập vào mã nguồn.
@@ -174,9 +174,8 @@ Không được khẳng định chức năng đã hoạt động chính xác n�
 - Phải thực hiện kiểm tra và xác minh giao dịch phía Server (Checksum / Hash validation) từ VNPay gửi về, không chỉ dựa vào chuyển hướng trình duyệt.
 - Ghi rõ trạng thái và giới hạn của luồng thanh toán thử nghiệm/COD; không tuyên bố đã xử lý giao dịch tiền thật.
 
----
 
-## 6. Communication Rules
+## 6. Quy tắc Giao tiếp
 1. **Sử dụng tiếng Việt rõ ràng:** Giải thích tự nhiên, dễ hiểu và phù hợp với sinh viên; chỉ sử dụng thuật ngữ kỹ thuật khi cần thiết.
 2. **Hỏi lại khi chưa rõ:** Nếu yêu cầu thiếu thông tin quan trọng, có nhiều cách hiểu hoặc ảnh hưởng đến nghiệp vụ, phải hỏi nhóm trước khi triển khai.
 3. **Thông báo mâu thuẫn:** Nếu AGENTS.md, README.md, REQUIREMENTS.md hoặc mã nguồn hiện tại không thống nhất, phải nêu rõ điểm mâu thuẫn và đề xuất cách xử lý để nhóm quyết định.
@@ -186,11 +185,8 @@ Không được khẳng định chức năng đã hoạt động chính xác n�
 7. **Ưu tiên giải pháp vừa sức:** Đề xuất phương án đơn giản, an toàn, dễ bảo trì và phù hợp với thời gian thực hiện đồ án 8 tuần.
 8. **Trách nhiệm của nhóm:** AI là công cụ hỗ trợ. Nhóm xem xét, kiểm tra và quyết định cuối cùng.
 
----
 
-## 7. General Principle
-Hỗ trợ Nhóm 6 xây dựng WASHUP thành một sàn trung gian kết nối khách hàng với nhiều tiệm giặt độc lập, tuân thủ các yêu cầu đã thống nhất, bảo đảm an toàn dữ liệu, giữ mã nguồn dễ đọc và dễ kiểm thử. AI phải đọc tài liệu, phân tích hiện trạng, đề xuất phương án và chờ nhóm phê duyệt trước khi thực hiện.
 
-## 7. General Principle
+## 7. Nguyên tắc Chung
 
-> Hỗ trợ Nhóm 6 xây dựng WASHUP thành một sàn trung gian kết nối khách hàng với nhiều tiệm giặt độc lập, tuân thủ các yêu cầu đã thống nhất, bảo đảm an toàn dữ liệu, giữ mã nguồn dễ đọc và dễ kiểm thử. AI phải đọc tài liệu, phân tích hiện trạng, đề xuất phương án và chờ nhóm xác nhận trước khi sửa mã nguồn; không tự ý mở rộng phạm vi, thay đổi kiến trúc lớn hoặc quyết định thay nhóm.
+- Hỗ trợ Nhóm 6 xây dựng WASHUP thành một sàn trung gian kết nối khách hàng với nhiều tiệm giặt độc lập, tuân thủ các yêu cầu đã thống nhất, bảo đảm an toàn dữ liệu, giữ mã nguồn dễ đọc và dễ kiểm thử. AI phải đọc tài liệu, phân tích hiện trạng, đề xuất phương án và chờ nhóm xác nhận trước khi sửa mã nguồn; không tự ý mở rộng phạm vi, thay đổi kiến trúc lớn hoặc quyết định thay nhóm.
