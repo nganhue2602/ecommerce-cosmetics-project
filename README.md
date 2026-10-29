@@ -157,7 +157,7 @@ Phân công phát triển giao diện, backend, cơ sở dữ liệu, kiểm th�
 | **Frontend** | HTML5, CSS3, JavaScript, Bootstrap 5, AJAX/Fetch API | Xây dựng giao diện responsive. Sử dụng AJAX/Fetch API để xử lý tương tác mượt mà (lọc dịch vụ, cập nhật giỏ hàng đa cửa hàng) mà không cần tải lại trang. |
 | **Backend** | PHP 8.4 | Xử lý đăng nhập, quản lý giỏ hàng đa cửa hàng, tự động tách đơn, phân quyền hệ thống và kết nối thanh toán. |
 | **Cơ sở dữ liệu & Lưu trữ** | MySQL, Cloudinary (hoặc Imgur API) | MySQL dùng để lưu trữ dữ liệu hệ thống (người dùng, đơn hàng). Cloudinary/Imgur API hỗ trợ lưu trữ và quản lý hình ảnh dịch vụ của các gian hàng tối ưu. |
-| **API & Thư viện bổ trợ** | Google Maps API (hoặc Leaflet.js), Chart.js, PHPMailer | **Google Maps:** Tính toán khoảng cách và phí vận chuyển theo cửa hàng.<br>**Chart.js:** Trực quan hóa dữ liệu thống kê doanh thu.<br>**PHPMailer:** Gửi email thông báo tự động (đơn hàng, duyệt gian hàng). |
+| **API & Thư viện bổ trợ** | Google Maps API (hoặc Leaflet.js), Chart.js | **Google Maps:** Tính toán khoảng cách và phí vận chuyển theo cửa hàng.<br>**Chart.js:** Trực quan hóa dữ liệu thống kê doanh thu. |
 | **Môi trường phát triển** | XAMPP | Chạy thử website và cơ sở dữ liệu trên máy tính. |
 | **Trình soạn thảo mã nguồn** | Visual Studio Code | Viết và chỉnh sửa mã nguồn dự án. |
 | **Cổng thanh toán** | VNPay Sandbox | Tích hợp và kiểm thử giao dịch thanh toán trực tuyến trong môi trường thử nghiệm. |
@@ -167,7 +167,9 @@ Phân công phát triển giao diện, backend, cơ sở dữ liệu, kiểm th�
 **Định hướng công nghệ:** 
 Nhóm lựa chọn **HTML5, CSS3, JavaScript kết hợp Bootstrap 5** để phát triển giao diện, giúp tận dụng các thành phần thiết kế có sẵn và giảm thời gian xây dựng. Việc bổ sung **AJAX** là cần thiết để mang lại trải nghiệm liền mạch cho tính năng giỏ hàng tổng và tự động tách đơn. 
 
-Ở phía hệ thống, **PHP và MySQL** đóng vai trò xử lý nghiệp vụ phức tạp của mô hình Marketplace. Thay vì tự xây dựng từ đầu, nhóm quyết định tích hợp các công cụ hỗ trợ như **Google Maps API, Chart.js và PHPMailer** để giải quyết nhanh chóng bài toán tính phí vận chuyển, báo cáo thống kê và gửi thông báo tự động. Các công nghệ này được lựa chọn nhằm tối ưu hóa thời gian phát triển, đảm bảo dự án WASHUP ra mắt phiên bản MVP đúng tiến độ 8 tuần với chất lượng tốt nhất.
+Ở phía hệ thống, **PHP và MySQL** được sử dụng để xử lý nghiệp vụ và lưu trữ dữ liệu của mô hình Marketplace. Nhóm lựa chọn **Google Maps API và Chart.js** để hỗ trợ tính phí vận chuyển và trình bày báo cáo thống kê theo phương án công nghệ đã xác định.
+
+Chức năng gửi thông báo tự động qua SMS, email hoặc thông báo đẩy thuộc nhóm phát triển sau MVP theo **F27**. Vì vậy, **PHPMailer chưa nằm trong danh sách công nghệ triển khai cho phiên bản MVP**; việc sử dụng thư viện này sẽ được xem xét khi nhóm mở rộng chức năng thông báo.
 
 ## 6. Kế hoạch thực hiện
 
@@ -178,7 +180,7 @@ Nhóm lựa chọn **HTML5, CSS3, JavaScript kết hợp Bootstrap 5** để ph�
 | **Giai đoạn 1: Khảo sát và xác định yêu cầu** | Xác định vấn đề kinh doanh, khách hàng mục tiêu; khảo sát các website tương tự; phân tích yêu cầu bằng AI, phản biện và thống nhất phạm vi MVP. | Hoàn thiện tài liệu giới thiệu dự án, phân tích website, yêu cầu chức năng và quy trình nghiệp vụ. |
 | **Giai đoạn 2: Thiết kế giao diện** | Xây dựng bố cục và thiết kế giao diện bằng Figma cho: trang chủ, danh sách/chi tiết dịch vụ, giỏ hàng, trang quản lý của khách hàng, **trang quản lý gian hàng (người bán)** và trang quản trị (Admin). | Bộ thiết kế giao diện và cấu trúc điều hướng hoàn chỉnh của mô hình WASHUP Marketplace. |
 | **Giai đoạn 3: Xây dựng các chức năng Frontend** | Sử dụng HTML5, CSS3, JavaScript và Bootstrap 5 xây dựng giao diện. **Tích hợp AJAX/Fetch API** cho bộ lọc tìm kiếm và cập nhật giỏ hàng đa cửa hàng mượt mà. | Giao diện website hiển thị responsive, các tương tác người dùng hoạt động trơn tru mà không cần tải lại trang. |
-| **Giai đoạn 4: Phát triển Backend và cơ sở dữ liệu** | Sử dụng PHP, MySQL xây dựng hệ thống: tài khoản (3 vai trò), quản lý gian hàng, **giỏ hàng tổng, tự động tách đơn**, voucher, thanh toán. **Tích hợp các API (Google Maps, Chart.js, PHPMailer)**. | Hệ thống Backend vững chắc, các API được kết nối sẵn sàng để ráp nối với Frontend. |
+| **Giai đoạn 4: Phát triển Backend và cơ sở dữ liệu** | Sử dụng PHP và MySQL để xây dựng tài khoản khách hàng, chủ tiệm và quản trị viên; quản lý gian hàng, giỏ hàng tổng, tự động tách đơn theo tiệm, voucher và thanh toán. Tích hợp Google Maps và Chart.js theo phương án công nghệ đã xác định. | Các chức năng xử lý nghiệp vụ, cơ sở dữ liệu và các thành phần hỗ trợ được xây dựng, sẵn sàng tích hợp với giao diện. |
 | **Giai đoạn 5: Tích hợp và kiểm thử** | Kết nối Frontend, Backend và CSDL; kiểm tra luồng đặt hàng từ nhiều cửa hàng, **thuật toán tách đơn, tính phí vận chuyển theo khoảng cách**, áp dụng voucher, thanh toán và phân quyền. | Website hoạt động ổn định theo các quy trình Marketplace, các lỗi (bug) được ghi nhận và xử lý. |
 | **Giai đoạn 6: Triển khai và hoàn thiện** | Triển khai phiên bản thử nghiệm, hoàn thiện UI/UX, kiểm tra các tính năng và bổ sung tài liệu hướng dẫn, báo cáo dự án. | Website WASHUP phiên bản MVP và bộ tài liệu phục vụ đánh giá cuối học phần. |
 
