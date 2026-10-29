@@ -2,52 +2,433 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Xem các loại hình giặt ủi do những tiệm đối tác trên WASHUP cung cấp." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Khám phá danh sách dịch vụ giặt ủi, combo tiết kiệm và gói thành viên tại WASHUP." />
   <title>Danh sách dịch vụ | WASHUP</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Bỏ qua menu để đến nội dung</a>
+
+  <!-- HEADER -->
   <header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="WASHUP – Về trang chủ">
-      <img src="images/washup-logo-wordmark.png" width="176" height="52" alt="WASHUP" />
-    </a>
-    <nav class="main-nav" aria-label="Điều hướng chính">
-      <a href="index.html">Trang chủ</a>
-<a href="shops.html">Tiệm giặt</a>
-<a href="services.html" aria-current="page">Dịch vụ</a>
-<a href="about.html">Giới thiệu</a>
-    </nav>
-    <a class="header-cta" href="shops.html">Tìm tiệm giặt <span aria-hidden="true">↗</span></a>
-  </div>
-</header>
-  <main id="main-content">
-    <!-- Khung trang tại BƯỚC 4: nội dung chi tiết xây dựng ở các bước sau. -->
-    <section class="page-hero">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="WASHUP – Về trang chủ">
+        <img src="images/washup-logo-wordmark.png" width="176" height="52" alt="WASHUP" />
+      </a>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="index.html">Trang chủ</a>
+        <a href="shops.html">Tiệm giặt</a>
+        <a href="products.html" aria-current="page">Dịch vụ</a>
+        <a href="about.html">Giới thiệu</a>
+      </nav>
+      <a class="header-cta" href="shops.html">Tìm tiệm giặt <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+<main id="main-content">
+
+    <!-- 1. BANNER -->
+    <section class="products-hero">
+      <div class="container products-hero-inner">
+        <div class="products-hero-content">
+          <span class="section-kicker">WASHUP · LAUNDRY CARE</span>
+          <h1>Giặt sạch mỗi ngày,<br>thảnh thơi từng phút</h1>
+          <p>
+            Khám phá dịch vụ giặt ủi, combo tiết kiệm và các gói
+            thành viên từ những tiệm giặt đối tác của WASHUP.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#all-services">Khám phá dịch vụ</a>
+            <a class="btn btn-outline" href="#combos">Xem combo tiết kiệm</a>
+          </div>
+          <div class="hero-benefits">
+            <span>✓ Nhiều dịch vụ lựa chọn</span>
+            <span>✓ Dễ dàng tìm tiệm giặt</span>
+            <span>✓ Gói linh hoạt</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img
+            src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=1000&q=85"
+            alt="Quần áo sạch sau khi giặt"
+          >
+          <div class="hero-floating-card">
+            <span class="floating-icon">✦</span>
+            <div>
+              <strong>Chăm sóc quần áo</strong>
+              <p>Tìm dịch vụ phù hợp với bạn</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. BEST SELLERS -->
+    <section class="products-section" id="best-sellers">
       <div class="container">
-        <span class="section-kicker">WASHUP · Danh sách dịch vụ</span>
-        <h1>Chọn dịch vụ phù hợp với bạn</h1>
-        <p>Xem các loại hình giặt ủi do những tiệm đối tác trên WASHUP cung cấp.</p>
-        <a class="btn btn-secondary" href="service-detail.html">Xem trang chi tiết mẫu <span aria-hidden="true">↗</span></a>
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">WASHUP PICKS</span>
+            <h2>Dịch vụ nổi bật</h2>
+          </div>
+          <p>Những lựa chọn tiêu biểu cho nhu cầu giặt ủi hằng ngày.</p>
+        </div>
+
+        <div class="products-grid products-grid-featured">
+          <article class="product-card">
+            <a class="product-image-link" href="service-detail.html">
+              <img src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=700&q=80" alt="Quần áo sạch sau khi giặt" loading="lazy">
+              <span class="product-ribbon">Được yêu thích</span>
+            </a>
+            <div class="product-info">
+              <span class="product-category">Giặt thường</span>
+              <h3>Giặt sấy quần áo</h3>
+              <p class="product-description">Giải pháp tiện lợi cho quần áo sử dụng hằng ngày.</p>
+              <div class="product-bottom">
+                <p class="product-price">15.000đ <span>/ kg</span></p>
+                <a class="product-link" href="service-detail.html">Xem chi tiết →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <a class="product-image-link" href="service-detail.html">
+              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=700&q=80" alt="Chăn ga gối sạch sẽ" loading="lazy">
+              <span class="product-ribbon">Đồ gia dụng</span>
+            </a>
+            <div class="product-info">
+              <span class="product-category">Chăm sóc nhà cửa</span>
+              <h3>Giặt chăn mền</h3>
+              <p class="product-description">Chăm sóc chăn mền và đồ dùng giường ngủ.</p>
+              <div class="product-bottom">
+                <p class="product-price">60.000đ <span>/ món</span></p>
+                <a class="product-link" href="service-detail.html">Xem chi tiết →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <a class="product-image-link" href="service-detail.html">
+              <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=700&q=80" alt="Trang phục được chăm sóc" loading="lazy">
+              <span class="product-ribbon">Chỉn chu mỗi ngày</span>
+            </a>
+            <div class="product-info">
+              <span class="product-category">Hoàn thiện trang phục</span>
+              <h3>Ủi quần áo</h3>
+              <p class="product-description">Giúp trang phục phẳng phiu và sẵn sàng sử dụng.</p>
+              <div class="product-bottom">
+                <p class="product-price">10.000đ <span>/ món</span></p>
+                <a class="product-link" href="service-detail.html">Xem chi tiết →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <a class="product-image-link" href="service-detail.html">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80" alt="Giày thể thao" loading="lazy">
+              <span class="product-ribbon">Chăm sóc giày</span>
+            </a>
+            <div class="product-info">
+              <span class="product-category">Vệ sinh giày</span>
+              <h3>Vệ sinh giày thể thao</h3>
+              <p class="product-description">Giữ giày sạch sẽ với dịch vụ chăm sóc phù hợp.</p>
+              <div class="product-bottom">
+                <p class="product-price">40.000đ <span>/ đôi</span></p>
+                <a class="product-link" href="service-detail.html">Xem chi tiết →</a>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
-    <section class="page-placeholder">
-      <div class="container placeholder-card">
-        <span class="placeholder-icon" aria-hidden="true">✦</span>
-        <h2>Nội dung đang được chuẩn bị</h2>
-        <p>Danh sách tối thiểu 8 thẻ dịch vụ mẫu và thông tin giá sẽ được hoàn thiện ở Bước 5.</p>
-        <a class="text-link" href="index.html">Về trang chủ <span aria-hidden="true">→</span></a>
+
+    <!-- 3. TẤT CẢ 8 DỊCH VỤ -->
+    <section class="products-section section-tinted" id="all-services">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">EXPLORE OUR SERVICES</span>
+            <h2>Tất cả dịch vụ</h2>
+          </div>
+          <p>Lựa chọn dịch vụ phù hợp với nhu cầu của bạn.</p>
+        </div>
+
+        <div class="products-grid">
+
+          <article class="product-card">
+            <a class="product-image-link" href="service-detail.html">
+              <img src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=700&q=80" alt="Quần áo đang được giặt" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-category">Giặt thường</span>
+              <h3>Giặt sấy quần áo</h3>
+              <p class="product-description">Giặt sạch quần áo hằng ngày, tiện lợi cho lịch trình bận rộn.</p>
+              <div class="product-bottom">
+                <p class="product-price">15.000đ <span>/ kg</span></p>
+                <a class="product-link" href="service-detail.html">Xem chi tiết →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <a class="product-image-link" href="service-detail.html">
+              <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=700&q=80" alt="Trang phục được treo ngay ngắn" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-category">Chăm sóc chuyên biệt</span>
+              <h3>Giặt hấp quần áo</h3>
+              <p class="product-description">Dành cho một số trang phục cần phương pháp chăm sóc riêng.</p>
+              <div class="product-bottom">
+                <p class="product-price">50.000đ <span>/ món</span></p>
+                <a class="product-link" href="service-detail.html">Xem chi tiết →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <a class="product-image-link" href="service-detail.html">
+              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=700&q=80" alt="Chăn ga gối trên giường" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-category">Đồ gia dụng</span>
+              <h3>Giặt chăn mền</h3>
+              <p class="product-description">Làm sạch chăn mền và đồ dùng giường ngủ.</p>
+              <div class="product-bottom">
+                <p class="product-price">60.000đ <span>/ món</span></p>
+                <a class="product-link" href="service-detail.html">Xem chi tiết →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <a class="product-image-link" href="service-detail.html">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80" alt="Đôi giày thể thao" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-category">Chăm sóc giày</span>
+              <h3>Vệ sinh giày thể thao</h3>
+              <p class="product-description">Chăm sóc giày để giữ vẻ ngoài sạch sẽ, gọn gàng.</p>
+              <div class="product-bottom">
+                <p class="product-price">40.000đ <span>/ đôi</span></p>
+                <a class="product-link" href="service-detail.html">Xem chi tiết →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <a class="product-image-link" href="service-detail.html">
+              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=700&q=80" alt="Không gian phòng khách với rèm cửa" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-category">Đồ gia dụng</span>
+              <h3>Giặt rèm cửa</h3>
+              <p class="product-description">Vệ sinh rèm theo chất liệu và hướng dẫn chăm sóc.</p>
+              <div class="product-bottom">
+                <p class="product-price">35.000đ <span>/ kg</span></p>
+                <a class="product-link" href="service-detail.html">Xem chi tiết →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <a class="product-image-link" href="service-detail.html">
+              <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=700&q=80" alt="Thú bông mềm mại" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-category">Đồ dùng cá nhân</span>
+              <h3>Giặt thú bông</h3>
+              <p class="product-description">Làm sạch thú bông với cách chăm sóc phù hợp.</p>
+              <div class="product-bottom">
+                <p class="product-price">30.000đ <span>/ món</span></p>
+                <a class="product-link" href="service-detail.html">Xem chi tiết →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <a class="product-image-link" href="service-detail.html">
+              <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=700&q=80" alt="Quần áo được sắp xếp gọn gàng" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-category">Tiết kiệm thời gian</span>
+              <h3>Giặt nhanh</h3>
+              <p class="product-description">Dành cho nhu cầu cần xử lý quần áo trong thời gian ngắn.</p>
+              <div class="product-bottom">
+                <p class="product-price">25.000đ <span>/ kg</span></p>
+                <a class="product-link" href="service-detail.html">Xem chi tiết →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <a class="product-image-link" href="service-detail.html">
+              <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=700&q=80" alt="Quần áo được treo sau khi chăm sóc" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-category">Hoàn thiện trang phục</span>
+              <h3>Ủi quần áo</h3>
+              <p class="product-description">Giúp trang phục phẳng phiu và sẵn sàng sử dụng.</p>
+              <div class="product-bottom">
+                <p class="product-price">10.000đ <span>/ món</span></p>
+                <a class="product-link" href="service-detail.html">Xem chi tiết →</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <p class="products-note">
+          * Giá và hình ảnh là dữ liệu minh họa cho bài tập.
+          Giá thực tế tùy thuộc tiệm giặt, chất liệu và loại dịch vụ.
+        </p>
       </div>
     </section>
+
+    <!-- 4. COMBO TIẾT KIỆM -->
+    <section class="products-section" id="combos">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">SAVE MORE</span>
+            <h2>Combo tiết kiệm</h2>
+          </div>
+          <p>Kết hợp dịch vụ và mua trước khối lượng giặt theo nhu cầu.</p>
+        </div>
+
+        <div class="products-grid products-grid-featured">
+
+          <article class="product-card">
+            <a class="product-image-link" href="shops.html">
+              <img src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=700&q=80" alt="Quần áo sạch trong giỏ giặt" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-category">Combo theo kg</span>
+              <h3>Combo giặt 10 kg</h3>
+              <p class="product-description">Mua trước 10 kg và trừ dần theo khối lượng sử dụng.</p>
+              <div class="product-bottom">
+                <p class="product-price">Giá theo tiệm</p>
+                <a class="product-link" href="shops.html">Tìm tiệm áp dụng →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <a class="product-image-link" href="shops.html">
+              <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=700&q=80" alt="Trang phục sạch được chăm sóc" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-category">Combo dịch vụ</span>
+              <h3>Giặt sấy + ủi</h3>
+              <p class="product-description">Kết hợp làm sạch, sấy khô và ủi trang phục.</p>
+              <div class="product-bottom">
+                <p class="product-price">Giá theo tiệm</p>
+                <a class="product-link" href="shops.html">Tìm tiệm áp dụng →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <a class="product-image-link" href="shops.html">
+              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=700&q=80" alt="Chăn ga trên giường" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-category">Combo chăm sóc</span>
+              <h3>Giặt hấp + chăn mền</h3>
+              <p class="product-description">Kết hợp chăm sóc trang phục và đồ dùng giường ngủ.</p>
+              <div class="product-bottom">
+                <p class="product-price">Giá theo tiệm</p>
+                <a class="product-link" href="shops.html">Tìm tiệm áp dụng →</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. GÓI THÀNH VIÊN -->
+    <section class="products-section membership-section" id="membership">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">WASHUP MEMBERSHIP</span>
+            <h2>Gói thành viên</h2>
+          </div>
+          <p>Giải pháp linh hoạt cho khách hàng có nhu cầu giặt ủi thường xuyên.</p>
+        </div>
+
+        <div class="products-grid products-grid-membership">
+
+          <article class="product-card membership-card">
+            <div class="membership-icon" aria-hidden="true">◷</div>
+            <div class="product-info">
+              <span class="product-category">Theo tháng</span>
+              <h3>Gói giặt theo tháng</h3>
+              <p class="product-description">Chọn hạn mức kg theo tháng phù hợp với nhu cầu của bạn.</p>
+              <div class="product-bottom">
+                <p class="product-price">Theo giá gói</p>
+                <a class="product-link" href="shops.html">Tìm hiểu thêm →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card membership-card">
+            <div class="membership-icon" aria-hidden="true">✓</div>
+            <div class="product-info">
+              <span class="product-category">Theo lượt</span>
+              <h3>Gói 5 / 10 / 15 lần</h3>
+              <p class="product-description">Gói sử dụng nhiều lượt với hạn dùng theo điều kiện công bố.</p>
+              <div class="product-bottom">
+                <p class="product-price">Theo giá gói</p>
+                <a class="product-link" href="shops.html">Tìm hiểu thêm →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card membership-card">
+            <div class="membership-icon" aria-hidden="true">♡</div>
+            <div class="product-info">
+              <span class="product-category">Dành cho gia đình</span>
+              <h3>Gói chia sẻ 2–4 người</h3>
+              <p class="product-description">Gói dùng chung cho các thành viên theo điều kiện sử dụng.</p>
+              <div class="product-bottom">
+                <p class="product-price">Theo giá gói</p>
+                <a class="product-link" href="shops.html">Tìm hiểu thêm →</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <p class="products-note">
+          Các gói thành viên trên là nội dung minh họa giao diện.
+          Điều kiện, hạn mức và giá cần được xác nhận với tiệm đối tác.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA CUỐI TRANG -->
+    <section class="products-cta">
+      <div class="container products-cta-inner">
+        <div>
+          <span class="section-kicker">READY TO REFRESH?</span>
+          <h2>Bắt đầu với tiệm giặt phù hợp</h2>
+          <p>Khám phá các tiệm đối tác và tìm dịch vụ dành cho bạn.</p>
+        </div>
+        <a class="btn" href="shops.html">Khám phá tiệm giặt →</a>
+      </div>
+    </section>
+
   </main>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
-  <div class="container footer-inner">
-    <div><strong>WASHUP</strong><p>Nền tảng kết nối khách hàng và các tiệm giặt ủi.</p></div>
-    <p class="footer-note">Giao diện minh họa cho bài tập HTML5 &amp; CSS3 · Buổi 2</p>
-  </div>
-</footer>
+    <div class="container footer-inner">
+      <div>
+        <strong>WASHUP</strong>
+        <p>Nền tảng kết nối khách hàng và các tiệm giặt ủi.</p>
+      </div>
+      <p class="footer-note">Giao diện minh họa cho bài tập HTML5 &amp; CSS3 · Buổi 2</p>
+    </div>
+  </footer>
 </body>
 </html>
-

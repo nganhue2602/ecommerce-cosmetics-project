@@ -136,3 +136,454 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--imperial); outl
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+/* ==========================================================================
+   BƯỚC 5: XÂY DỰNG TRANG DANH SÁCH SẢN PHẨM / DỊCH VỤ (products.html)
+   ========================================================================== */
+
+/* Hero Banner */
+.products-hero {
+  padding: 64px 0;
+  background: linear-gradient(135deg, #eef3ff 0%, #dce8ff 100%);
+  overflow: hidden;
+}
+
+.products-hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.products-hero-content {
+  max-width: 650px;
+}
+
+.products-hero h1 {
+  margin: 14px 0 18px;
+  color: var(--navy);
+  font-family: var(--heading-font);
+  font-size: clamp(2.1rem, 4vw, 3.5rem);
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+}
+
+.products-hero-content > p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 570px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.btn-outline {
+  color: var(--imperial);
+  background: transparent;
+  border: 1px solid var(--imperial);
+}
+
+.btn-outline:hover {
+  color: var(--white);
+  background: var(--imperial);
+}
+
+.hero-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-top: 24px;
+  color: var(--text);
+  font-size: 0.82rem;
+}
+
+.hero-visual {
+  position: relative;
+  min-width: 0;
+}
+
+.hero-visual > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 4.2;
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: 0 20px 50px rgba(7, 26, 61, 0.14);
+}
+
+.hero-floating-card {
+  position: absolute;
+  left: -24px;
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 16px 36px rgba(7, 26, 61, 0.12);
+}
+
+.floating-icon {
+  font-size: 1.6rem;
+}
+
+.hero-floating-card strong {
+  display: block;
+  color: var(--navy);
+  font-size: 0.95rem;
+}
+
+.hero-floating-card p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* Products Section & Grid Layout */
+.products-section {
+  padding: 64px 0;
+}
+
+.products-section:nth-of-type(even) {
+  background: #fbfcfe;
+}
+
+.products-section .section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.products-section .section-heading h2 {
+  margin: 8px 0 0;
+  color: var(--navy);
+  font-family: var(--heading-font);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.products-section .section-heading > p {
+  max-width: 440px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* CSS Grid cho 4 cột trên Desktop */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Product Card */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  border-color: #b7c9f2;
+  box-shadow: 0 16px 34px rgba(7, 26, 61, 0.10);
+}
+
+.product-card:focus-within {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.product-image-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--pale);
+}
+
+.product-image-link img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image-link img {
+  transform: scale(1.05);
+}
+
+.product-ribbon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  max-width: calc(100% - 24px);
+  padding: 7px 10px;
+  color: var(--imperial);
+  background: var(--white);
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(0, 51, 160, 0.12);
+}
+
+.product-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.product-category {
+  color: var(--imperial);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.product-info h3 {
+  min-height: 2.8em;
+  margin: 10px 0;
+  color: var(--navy);
+  font-family: var(--heading-font);
+  font-size: 1.05rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.product-description {
+  flex: 1;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.product-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border);
+}
+
+.product-price {
+  margin: 0;
+  color: var(--imperial);
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.product-price span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.product-link {
+  color: var(--imperial);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.product-link:hover,
+.product-link:focus-visible {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.product-link:focus-visible,
+.hero-actions a:focus-visible,
+.header-cta:focus-visible {
+  outline: 3px solid var(--imperial);
+  outline-offset: 4px;
+}
+
+.products-note {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+/* Membership Section */
+.membership-section {
+  background: #f7f9ff;
+}
+
+.products-grid-membership {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.membership-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin: 22px 18px 0;
+  border-radius: 16px;
+  background: var(--pale);
+  color: var(--imperial);
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.membership-card .product-info h3 {
+  min-height: auto;
+}
+
+/* Products Call To Action */
+.products-cta {
+  padding: 44px 0;
+  color: var(--white);
+  background: var(--navy);
+}
+
+.products-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.products-cta .section-kicker {
+  color: #b9d0ff;
+}
+
+.products-cta h2 {
+  margin: 10px 0;
+  color: var(--white);
+  font-family: var(--heading-font);
+}
+
+.products-cta p {
+  margin: 0;
+  color: #d5def2;
+  line-height: 1.7;
+}
+
+.products-cta .btn {
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Bước 5)
+   ========================================================================== */
+
+/* Máy tính bảng (Tablet - 768px / max-width: 1000px) */
+@media (max-width: 1000px) {
+  .products-hero-inner {
+    gap: 28px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .products-grid-membership {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Điện thoại & màn hình nhỏ (Mobile - 390px / max-width: 700px) */
+@media (max-width: 700px) {
+  .products-hero {
+    padding: 42px 0;
+  }
+
+  .products-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-visual > img {
+    aspect-ratio: 5 / 3.5;
+  }
+
+  .hero-floating-card {
+    left: 12px;
+    bottom: 12px;
+  }
+
+  .products-section {
+    padding: 38px 0;
+  }
+
+  .products-section .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .products-cta-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid,
+  .products-grid-membership {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero-actions .btn {
+    text-align: center;
+  }
+
+  .hero-benefits {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .product-info {
+    padding: 16px;
+  }
+}
+
+/* Hỗ trợ giảm chuyển động */
+@media (prefers-reduced-motion: reduce) {
+  .product-card,
+  .product-image-link img {
+    transition: none;
+  }
+
+  .product-card:hover {
+    transform: none;
+  }
+}
