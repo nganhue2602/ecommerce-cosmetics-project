@@ -752,3 +752,194 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--imperial); outl
     padding: 20px;
   }
 }
+/* ==========================================================================
+   BƯỚC 6B: ĐẶC TẢ CSS CHO TRANG GIỚI THIỆU (about.html)
+   ========================================================================== */
+
+/* Hero Banner Trang Giới Thiệu */
+.about-hero {
+  padding: 64px 0 54px;
+  background: linear-gradient(115deg, var(--pale) 0%, #dce8ff 100%);
+  text-align: center;
+}
+
+.about-hero h1 {
+  margin: 12px 0 16px;
+  color: var(--navy);
+  font-family: var(--heading-font);
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+}
+
+.about-hero p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* Khung chính trang About */
+.about-main {
+  padding-block: 56px 80px;
+}
+
+.about-section {
+  margin-bottom: 64px;
+}
+
+.about-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Section 1: Câu chuyện thương hiệu (2 Cột Flex/Grid) */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.story-text h2 {
+  margin: 8px 0 18px;
+  color: var(--navy);
+  font-family: var(--heading-font);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+}
+
+.story-text p {
+  margin-bottom: 16px;
+  color: var(--text);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.story-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 36px rgba(7, 26, 61, 0.1);
+}
+
+/* Section 2: Giá trị nổi bật (Grid 4 Cột) */
+.text-center {
+  text-align: center;
+}
+
+.features-section .section-heading h2 {
+  margin-top: 6px;
+  color: var(--navy);
+  font-family: var(--heading-font);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.feature-card {
+  padding: 28px 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  text-align: center;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: #b7c9f2;
+  box-shadow: 0 16px 34px rgba(7, 26, 61, 0.1);
+}
+
+.feature-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 16px;
+  background: var(--pale);
+  color: var(--imperial);
+  border-radius: 14px;
+  font-size: 1.6rem;
+}
+
+.feature-card h3 {
+  margin: 0 0 10px;
+  color: var(--navy);
+  font-family: var(--heading-font);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+/* Section 3: Khung Thông Tin Liên Hệ */
+.contact-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 36px;
+  background: #fbfcfe;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--imperial);
+  border-radius: 0 18px 18px 0;
+  box-shadow: 0 10px 24px rgba(7, 26, 61, 0.04);
+}
+
+.contact-card h3 {
+  margin: 6px 0 16px;
+  color: var(--navy);
+  font-family: var(--heading-font);
+  font-size: 1.3rem;
+}
+
+.contact-card p {
+  margin-bottom: 10px;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.contact-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Design cho Trang About */
+@media (max-width: 1000px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-hero {
+    padding: 42px 0;
+  }
+  
+  .contact-card {
+    padding: 22px 20px;
+  }
+}
