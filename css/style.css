@@ -27,8 +27,20 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--imperial); outl
 /* HEADER: chia bố cục bằng Flexbox và dùng chung trên 5 trang */
 .site-header { background: var(--white); border-bottom: 1px solid #edf1fa; position: relative; z-index: 20; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 90px; }
-.brand { display: inline-flex; align-items: center; flex: 0 0 auto; }
-.brand img { width: 152px; height: auto; }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.brand img {
+  display: block;
+  width: 152px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 .main-nav { display: flex; align-items: center; gap: clamp(12px, 2.2vw, 34px); }
 .main-nav a { position: relative; color: #405274; font-weight: 600; white-space: nowrap; padding: 10px 1px; transition: color .2s ease; }
 .main-nav a:hover, .main-nav a[aria-current="page"] { color: var(--imperial); }
