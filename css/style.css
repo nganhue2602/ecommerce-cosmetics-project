@@ -219,7 +219,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--imperial); outl
   min-width: 0;
 }
 
-.hero-visual > img {
+.products-hero .hero-visual > img {
   display: block;
   width: 100%;
   aspect-ratio: 4 / 4.2;
