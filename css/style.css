@@ -943,3 +943,90 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--imperial); outl
     padding: 22px 20px;
   }
 }
+
+/* =========================================
+   BƯỚC 7: CẢI THIỆN TRẢI NGHIỆM NGƯỜI DÙNG
+   ========================================= */
+
+/* 1. Hover cho các nút và liên kết */
+@media (hover: hover) {
+    .header-cta:hover,
+    .btn-primary:hover {
+        background-color: #071a3d;
+        color: #ffffff;
+    }
+
+    .btn-secondary:hover,
+    .btn-outline:hover {
+        color: #0033a0;
+        background-color: #eef3ff;
+        border-color: #0033a0;
+    }
+
+    .main-nav a:hover,
+    .text-link:hover,
+    .product-link:hover {
+        color: #071a3d;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+    /* 2. Hover cho thẻ sản phẩm */
+    .product-card:hover {
+        transform: none;
+        border-color: #477fe8;
+        box-shadow: 0 8px 24px rgba(7, 26, 61, 0.12);
+    }
+
+    .product-card:hover .product-image-link img {
+        transform: scale(1.03);
+    }
+}
+
+/* 3. Focus khi sử dụng bàn phím */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #0033a0;
+    outline-offset: 4px;
+    border-radius: 5px;
+}
+
+/* Hiển thị focus khi thao tác bên trong thẻ sản phẩm */
+.product-card:focus-within {
+    outline: 3px solid #477fe8;
+    outline-offset: 3px;
+}
+
+/* 4. Transition mượt mà, không làm xê dịch bố cục */
+.product-card,
+.btn,
+.header-cta,
+.product-link,
+.main-nav a,
+.text-link {
+    transition: color 0.2s ease,
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+/* 5. Cải thiện độ tương phản của chữ */
+:root {
+    --muted: #52627d;
+}
+
+/* 6. Hỗ trợ người dùng hạn chế chuyển động */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .product-card:hover,
+    .product-card:hover .product-image-link img {
+        transform: none;
+    }
+}
