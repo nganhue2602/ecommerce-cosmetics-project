@@ -1042,3 +1042,38 @@ button:focus-visible {
         transform: none;
     }
 }
+/* FIX BANNER TRANG CHỦ - MOBILE 390px */
+@media (max-width: 480px) {
+  .hero-visual {
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    margin-top: 20px;
+    padding: 20px 0;
+    overflow: hidden;
+  }
+
+  .hero-logo {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  .hero-blob {
+    width: 90%;
+    max-width: 280px;
+  }
+
+  .float-top {
+    top: 8%;
+    right: 0;
+  }
+
+  .float-bottom {
+    bottom: 8%;
+    left: 0;
+  }
+}
