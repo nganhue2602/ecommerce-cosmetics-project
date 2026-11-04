@@ -729,12 +729,13 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--imperial); outl
   padding: 18px;
 }
 
-.product-category {
-  color: var(--imperial);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+/* BƯỚC 5: Thông tin tiệm cung cấp trên thẻ dịch vụ */
+.product-shop {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .product-info h3 {
