@@ -1439,3 +1439,37 @@ button:focus-visible {
   }
 }
 
+/* QA02: Dịch vụ nổi bật trang chủ */
+.home-featured {
+  background: #f8faff;
+}
+
+.home-featured-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.home-featured-note {
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.home-featured-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+@media (max-width: 1000px) {
+  .home-featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .home-featured-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
