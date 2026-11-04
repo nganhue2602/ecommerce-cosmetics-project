@@ -3,461 +3,494 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Chi tiết cần thể hiện tiệm cung cấp, đơn vị giá, thời gian xử lý và điều kiện dịch vụ." />
+  <meta name="description" content="Thông tin chi tiết các dịch vụ giặt ủi trên nền tảng WASHUP." />
   <title>Chi tiết dịch vụ | WASHUP</title>
   <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* CHI TIẾT DỊCH VỤ */
+    .service-detail-section {
+      padding: 64px 0;
+    }
+
+    .service-detail-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .service-detail-image {
+      overflow: hidden;
+      border-radius: 24px;
+      background: #f3f5fa;
+    }
+
+    .service-detail-image img {
+      display: block;
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+    }
+
+    .service-detail-content {
+      min-width: 0;
+    }
+
+    .service-detail-content h2 {
+      margin: 12px 0;
+      font-size: 32px;
+      line-height: 1.3;
+    }
+
+    /* NHÃN PHÂN LOẠI DỊCH VỤ */
+    #service-category {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .service-detail-content > p {
+      color: #64748b;
+      line-height: 1.8;
+    }
+
+    .service-detail-price {
+      margin: 24px 0;
+      padding: 22px 24px;
+      border-radius: 16px;
+      background: #f0f5ff;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-detail-price span {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .service-detail-price strong {
+      color: #0645ad;
+      font-size: 28px;
+    }
+
+    .service-detail-info {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .service-detail-info > div {
+      padding: 16px 18px;
+      border: 1px solid #e5eaf3;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .service-detail-info span {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .service-detail-info strong {
+      color: #14213d;
+      line-height: 1.6;
+    }
+
+    .service-detail-note {
+      padding: 18px 20px;
+      margin-bottom: 24px;
+      border-left: 4px solid #2459c5;
+      border-radius: 8px;
+      background: #f7f9fd;
+    }
+
+    .service-detail-note p {
+      margin: 8px 0 0;
+      color: #64748b;
+      line-height: 1.7;
+    }
+
+    /* QUY TRÌNH */
+    .service-process-section {
+      padding: 64px 0;
+      background: #f6f8fc;
+    }
+
+    .service-process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .service-process-card {
+      padding: 28px;
+      border: 1px solid #e5eaf3;
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .service-process-card > span {
+      display: inline-flex;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: #eaf1ff;
+      color: #0645ad;
+      font-weight: 700;
+    }
+
+    .service-process-card h3 {
+      margin: 18px 0 10px;
+    }
+
+    .service-process-card p {
+      color: #64748b;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .service-detail-section {
+        padding: 40px 0;
+      }
+
+      .service-detail-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .service-detail-image img {
+        height: 320px;
+      }
+
+      .service-detail-content h2 {
+        font-size: 26px;
+      }
+
+      .service-process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <a class="skip-link" href="#main-content">Bỏ qua menu để đến nội dung</a>
+  <a class="skip-link" href="#main-content">
+    Bỏ qua menu để đến nội dung
+  </a>
+
+  <!-- HEADER -->
   <header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="WASHUP – Về trang chủ">
-      <img src="images/washup-logo-wordmark.png" width="176" height="52" alt="WASHUP" />
-    </a>
-    <nav class="main-nav" aria-label="Điều hướng chính">
-      <a href="index.html">Trang chủ</a>
-<a href="shops.html">Tiệm giặt</a>
-<a href="products.html" aria-current="page">Dịch vụ</a>
-<a href="about.html">Giới thiệu</a>
-    </nav>
-    <a class="header-cta" href="shops.html">Tìm tiệm giặt <span aria-hidden="true">↗</span></a>
-  </div>
-</header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="WASHUP – Về trang chủ">
+        <img src="images/washup-logo-wordmark.png"
+             width="176"
+             height="52"
+             alt="WASHUP" />
+      </a>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="index.html">Trang chủ</a>
+        <a href="shops.html">Tiệm giặt</a>
+        <a href="products.html" aria-current="page">Dịch vụ</a>
+        <a href="about.html">Giới thiệu</a>
+      </nav>
+
+      <a class="header-cta" href="shops.html">
+        Tìm tiệm giặt <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </header>
+
   <main id="main-content">
-  
-<!-- BƯỚC 6A: GIỚI THIỆU TRANG CHI TIẾT -->
-<section class="page-hero">
-  <div class="container">
-    <span class="section-kicker">WASHUP · Chi tiết dịch vụ</span>
-    <h1>Khám phá chi tiết dịch vụ</h1>
-    <p>Tham khảo thông tin, mức giá và tiệm cung cấp của tám dịch vụ minh họa trên WASHUP.</p>
-    <a class="btn btn-secondary" href="products.html">
-      ← Quay lại danh sách dịch vụ
-    </a>
-  </div>
-</section>
 
-<!-- DANH SÁCH 8 DỊCH VỤ CHI TIẾT -->
-<section class="service-details" aria-label="Thông tin chi tiết các dịch vụ">
-  <div class="container">
+    <!-- BANNER CHI TIẾT DỊCH VỤ -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-kicker">
+          WASHUP · CHI TIẾT DỊCH VỤ
+        </span>
 
-    <p class="service-demo-notice">
-      Tên tiệm, giá và thông tin dịch vụ dưới đây là dữ liệu minh họa
-      cho bài tập HTML5/CSS3, không phải báo giá hoặc cam kết
-      kinh doanh thực tế.
-    </p>
+        <h1 id="service-title">Giặt sấy quần áo</h1>
 
-    <!-- DỊCH VỤ 1: GIẶT SẤY QUẦN ÁO -->
-    <article class="service-detail-card" id="giat-say">
-      <div class="service-detail-image">
-        <img
-         src="images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg"
-          alt="Quần áo đang được giặt"
-          loading="lazy"
-        />
+        <p id="service-description">
+          Giải pháp tiện lợi cho quần áo sử dụng hằng ngày.
+        </p>
+
+        <a class="btn btn-secondary" href="products.html">
+          Quay lại danh sách dịch vụ
+          <span aria-hidden="true">↗</span>
+        </a>
       </div>
+    </section>
 
-      <div class="service-detail-info">
-        <span class="section-kicker">Giặt thường</span>
-        <h2>Giặt sấy quần áo</h2>
+    <!-- THÔNG TIN CHI TIẾT DỊCH VỤ -->
+    <section class="service-detail-section">
+      <div class="container service-detail-layout">
 
-        <p class="service-detail-shop">
-          <strong>Tiệm cung cấp:</strong> Tiệm minh họa A
-        </p>
-
-        <p class="service-detail-price">
-          15.000đ <span>/ kg</span>
-        </p>
-
-        <p class="service-detail-description">
-          Dịch vụ giặt sấy dành cho trang phục sử dụng hằng ngày,
-          phù hợp với nhu cầu sinh hoạt của sinh viên và người đi làm.
-        </p>
-
-        <div class="service-detail-attributes">
-          <h3>Thông tin dịch vụ</h3>
-          <ul>
-            <li><strong>Loại đồ:</strong> Quần áo thường ngày</li>
-            <li><strong>Đơn vị tính:</strong> kg</li>
-            <li><strong>Giá tham khảo:</strong> 15.000đ/kg</li>
-          </ul>
+        <div class="service-detail-image">
+          <img
+            id="service-image"
+            src="https://cellphones.com.vn/sforum/wp-content/uploads/2024/05/may-giat-va-may-say-4.jpg"
+            alt="Dịch vụ giặt sấy quần áo"
+          />
         </div>
 
-        <p class="service-detail-note">
-          <strong>Lưu ý:</strong> Nên kiểm tra nhãn hướng dẫn chăm sóc
-          của quần áo trước khi lựa chọn dịch vụ.
-        </p>
+        <div class="service-detail-content">
 
-        <div class="service-detail-actions">
-          <button class="btn btn-primary" type="button" disabled>
-            Đặt dịch vụ (Demo)
-          </button>
-          <a class="btn btn-secondary" href="products.html">
-            Quay lại danh sách
+          <span class="section-kicker" id="service-category">
+            GIẶT THƯỜNG
+          </span>
+
+          <h2 id="service-name">
+            Giặt sấy quần áo
+          </h2>
+
+          <p id="service-full-description">
+            Quần áo được giặt sạch và sấy khô, giúp tiết kiệm thời gian
+            và công sức cho khách hàng.
+          </p>
+
+          <div class="service-detail-price">
+            <span>Giá tham khảo</span>
+            <strong id="service-price">15.000đ / kg</strong>
+          </div>
+
+          <div class="service-detail-info">
+
+            <div>
+              <span>⏱ Thời gian xử lý</span>
+              <strong id="service-time">24 – 48 giờ</strong>
+            </div>
+
+            <div>
+              <span>📦 Đơn vị tính</span>
+              <strong id="service-unit">Theo kg</strong>
+            </div>
+
+            <div>
+              <span>✦ Phù hợp với</span>
+              <strong id="service-suitable">
+                Quần áo mặc hằng ngày, đồ sinh hoạt cá nhân.
+              </strong>
+            </div>
+
+          </div>
+
+          <div class="service-detail-note">
+            <strong>Lưu ý dịch vụ</strong>
+            <p id="service-note">
+              Nên phân loại quần áo theo màu sắc và chất liệu trước khi giặt.
+            </p>
+          </div>
+
+          <a class="btn" href="shops.html">
+            Tìm tiệm cung cấp dịch vụ →
           </a>
+
         </div>
       </div>
-    </article>
+    </section>
 
-    <!-- DỊCH VỤ 2: GIẶT HẤP QUẦN ÁO -->
-    <article class="service-detail-card" id="giat-hap">
-      <div class="service-detail-image">
-        <img
-          src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
-          alt="Trang phục được treo ngay ngắn"
-          loading="lazy"
-        />
-      </div>
+    <!-- QUY TRÌNH SỬ DỤNG DỊCH VỤ -->
+    <section class="service-process-section">
+      <div class="container">
 
-      <div class="service-detail-info">
-        <span class="section-kicker">Chăm sóc chuyên biệt</span>
-        <h2>Giặt hấp quần áo</h2>
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">HOW IT WORKS</span>
+            <h2>Quy trình sử dụng dịch vụ</h2>
+          </div>
 
-        <p class="service-detail-shop">
-          <strong>Tiệm cung cấp:</strong> Tiệm minh họa B
-        </p>
-
-        <p class="service-detail-price">
-          50.000đ <span>/ món</span>
-        </p>
-
-        <p class="service-detail-description">
-          Dịch vụ tham khảo dành cho một số loại trang phục
-          cần phương pháp làm sạch riêng thay vì giặt thông thường.
-        </p>
-
-        <div class="service-detail-attributes">
-          <h3>Thông tin dịch vụ</h3>
-          <ul>
-            <li><strong>Loại đồ:</strong> Trang phục cần chăm sóc riêng</li>
-            <li><strong>Đơn vị tính:</strong> món</li>
-            <li><strong>Giá tham khảo:</strong> 50.000đ/món</li>
-          </ul>
+          <p>
+            Đặt dịch vụ thông qua các tiệm giặt đối tác trên WASHUP.
+          </p>
         </div>
 
-        <p class="service-detail-note">
-          <strong>Lưu ý:</strong> Cần trao đổi với tiệm về chất liệu
-          và phương pháp xử lý phù hợp.
-        </p>
+        <div class="service-process-grid">
 
-        <div class="service-detail-actions">
-          <button class="btn btn-primary" type="button" disabled>
-            Đặt dịch vụ (Demo)
-          </button>
-          <a class="btn btn-secondary" href="products.html">
-            Quay lại danh sách
-          </a>
+          <div class="service-process-card">
+            <span>01</span>
+            <h3>Chọn dịch vụ</h3>
+            <p>
+              Lựa chọn loại dịch vụ phù hợp với nhu cầu giặt ủi.
+            </p>
+          </div>
+
+          <div class="service-process-card">
+            <span>02</span>
+            <h3>Tìm tiệm giặt</h3>
+            <p>
+              Tham khảo tiệm đối tác, giá và thời gian xử lý.
+            </p>
+          </div>
+
+          <div class="service-process-card">
+            <span>03</span>
+            <h3>Liên hệ đặt dịch vụ</h3>
+            <p>
+              Chọn tiệm phù hợp và tiến hành đặt dịch vụ.
+            </p>
+          </div>
+
         </div>
       </div>
-    </article>
+    </section>
 
-    <!-- DỊCH VỤ 3: GIẶT CHĂN MỀN -->
-    <article class="service-detail-card" id="chan-men">
-      <div class="service-detail-image">
-        <img
-          src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
-          alt="Chăn ga gối trên giường"
-          loading="lazy"
-        />
-      </div>
-
-      <div class="service-detail-info">
-        <span class="section-kicker">Đồ gia dụng</span>
-        <h2>Giặt chăn mền</h2>
-
-        <p class="service-detail-shop">
-          <strong>Tiệm cung cấp:</strong> Tiệm minh họa C
-        </p>
-
-        <p class="service-detail-price">
-          60.000đ <span>/ món</span>
-        </p>
-
-        <p class="service-detail-description">
-          Giải pháp làm sạch chăn mền và các vật dụng giường ngủ,
-          giúp người dùng tham khảo dịch vụ theo từng món.
-        </p>
-
-        <div class="service-detail-attributes">
-          <h3>Thông tin dịch vụ</h3>
-          <ul>
-            <li><strong>Loại đồ:</strong> Chăn, mền và đồ dùng giường ngủ</li>
-            <li><strong>Đơn vị tính:</strong> món</li>
-            <li><strong>Giá tham khảo:</strong> 60.000đ/món</li>
-          </ul>
-        </div>
-
-        <p class="service-detail-note">
-          <strong>Lưu ý:</strong> Kích thước, chất liệu và tình trạng
-          chăn mền cần được xác nhận với tiệm.
-        </p>
-
-        <div class="service-detail-actions">
-          <button class="btn btn-primary" type="button" disabled>
-            Đặt dịch vụ (Demo)
-          </button>
-          <a class="btn btn-secondary" href="products.html">
-            Quay lại danh sách
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <!-- DỊCH VỤ 4: VỆ SINH GIÀY THỂ THAO -->
-    <article class="service-detail-card" id="ve-sinh-giay">
-      <div class="service-detail-image">
-        <img
-          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
-          alt="Đôi giày thể thao"
-          loading="lazy"
-        />
-      </div>
-
-      <div class="service-detail-info">
-        <span class="section-kicker">Chăm sóc giày</span>
-        <h2>Vệ sinh giày thể thao</h2>
-
-        <p class="service-detail-shop">
-          <strong>Tiệm cung cấp:</strong> Tiệm minh họa B
-        </p>
-
-        <p class="service-detail-price">
-          40.000đ <span>/ đôi</span>
-        </p>
-
-        <p class="service-detail-description">
-          Dịch vụ vệ sinh giày thể thao nhằm hỗ trợ làm sạch
-          bề mặt và chăm sóc giày theo chất liệu.
-        </p>
-
-        <div class="service-detail-attributes">
-          <h3>Thông tin dịch vụ</h3>
-          <ul>
-            <li><strong>Loại đồ:</strong> Giày thể thao</li>
-            <li><strong>Đơn vị tính:</strong> đôi</li>
-            <li><strong>Giá tham khảo:</strong> 40.000đ/đôi</li>
-          </ul>
-        </div>
-
-        <p class="service-detail-note">
-          <strong>Lưu ý:</strong> Không phải mọi loại giày đều phù hợp
-          cùng một phương pháp vệ sinh.
-        </p>
-
-        <div class="service-detail-actions">
-          <button class="btn btn-primary" type="button" disabled>
-            Đặt dịch vụ (Demo)
-          </button>
-          <a class="btn btn-secondary" href="products.html">
-            Quay lại danh sách
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <!-- DỊCH VỤ 5: GIẶT RÈM CỬA -->
-    <article class="service-detail-card" id="rem-cua">
-      <div class="service-detail-image">
-        <img
-          src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
-          alt="Không gian phòng khách với rèm cửa"
-          loading="lazy"
-        />
-      </div>
-
-      <div class="service-detail-info">
-        <span class="section-kicker">Đồ gia dụng</span>
-        <h2>Giặt rèm cửa</h2>
-
-        <p class="service-detail-shop">
-          <strong>Tiệm cung cấp:</strong> Tiệm minh họa C
-        </p>
-
-        <p class="service-detail-price">
-          35.000đ <span>/ kg</span>
-        </p>
-
-        <p class="service-detail-description">
-          Dịch vụ làm sạch rèm cửa, phù hợp để tham khảo
-          khi cần vệ sinh đồ vải sử dụng trong không gian sống.
-        </p>
-
-        <div class="service-detail-attributes">
-          <h3>Thông tin dịch vụ</h3>
-          <ul>
-            <li><strong>Loại đồ:</strong> Rèm cửa</li>
-            <li><strong>Đơn vị tính:</strong> kg</li>
-            <li><strong>Giá tham khảo:</strong> 35.000đ/kg</li>
-          </ul>
-        </div>
-
-        <p class="service-detail-note">
-          <strong>Lưu ý:</strong> Cần kiểm tra chất liệu rèm
-          và điều kiện tháo lắp trước khi sử dụng.
-        </p>
-
-        <div class="service-detail-actions">
-          <button class="btn btn-primary" type="button" disabled>
-            Đặt dịch vụ (Demo)
-          </button>
-          <a class="btn btn-secondary" href="products.html">
-            Quay lại danh sách
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <!-- DỊCH VỤ 6: GIẶT THÚ BÔNG -->
-    <article class="service-detail-card" id="thu-bong">
-      <div class="service-detail-image">
-        <img
-          src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
-          alt="Thú bông mềm mại"
-          loading="lazy"
-        />
-      </div>
-
-      <div class="service-detail-info">
-        <span class="section-kicker">Đồ dùng cá nhân</span>
-        <h2>Giặt thú bông</h2>
-
-        <p class="service-detail-shop">
-          <strong>Tiệm cung cấp:</strong> Tiệm minh họa C
-        </p>
-
-        <p class="service-detail-price">
-          30.000đ <span>/ món</span>
-        </p>
-
-        <p class="service-detail-description">
-          Dịch vụ làm sạch thú bông, có xem xét chất liệu vải,
-          phần nhồi và hướng dẫn chăm sóc của sản phẩm.
-        </p>
-
-        <div class="service-detail-attributes">
-          <h3>Thông tin dịch vụ</h3>
-          <ul>
-            <li><strong>Loại đồ:</strong> Thú bông</li>
-            <li><strong>Đơn vị tính:</strong> món</li>
-            <li><strong>Giá tham khảo:</strong> 30.000đ/món</li>
-          </ul>
-        </div>
-
-        <p class="service-detail-note">
-          <strong>Lưu ý:</strong> Một số thú bông có chi tiết điện tử
-          hoặc chất liệu đặc biệt cần xử lý riêng.
-        </p>
-
-        <div class="service-detail-actions">
-          <button class="btn btn-primary" type="button" disabled>
-            Đặt dịch vụ (Demo)
-          </button>
-          <a class="btn btn-secondary" href="products.html">
-            Quay lại danh sách
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <!-- DỊCH VỤ 7: GIẶT NHANH -->
-    <article class="service-detail-card" id="giat-nhanh">
-      <div class="service-detail-image">
-        <img
-          src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
-          alt="Quần áo được sắp xếp gọn gàng"
-          loading="lazy"
-        />
-      </div>
-
-      <div class="service-detail-info">
-        <span class="section-kicker">Tiết kiệm thời gian</span>
-        <h2>Giặt nhanh</h2>
-
-        <p class="service-detail-shop">
-          <strong>Tiệm cung cấp:</strong> Tiệm minh họa A
-        </p>
-
-        <p class="service-detail-price">
-          25.000đ <span>/ kg</span>
-        </p>
-
-        <p class="service-detail-description">
-          Dịch vụ minh họa dành cho nhu cầu cần xử lý quần áo
-          trong khoảng thời gian ngắn hơn dịch vụ thông thường.
-        </p>
-
-        <div class="service-detail-attributes">
-          <h3>Thông tin dịch vụ</h3>
-          <ul>
-            <li><strong>Loại đồ:</strong> Quần áo thông thường</li>
-            <li><strong>Đơn vị tính:</strong> kg</li>
-            <li><strong>Giá tham khảo:</strong> 25.000đ/kg</li>
-          </ul>
-        </div>
-
-        <p class="service-detail-note">
-          <strong>Lưu ý:</strong> Thời gian hoàn thành cụ thể
-          phụ thuộc khả năng tiếp nhận của tiệm;
-          chưa có cam kết thời gian.
-        </p>
-
-        <div class="service-detail-actions">
-          <button class="btn btn-primary" type="button" disabled>
-            Đặt dịch vụ (Demo)
-          </button>
-          <a class="btn btn-secondary" href="products.html">
-            Quay lại danh sách
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <!-- DỊCH VỤ 8: ỦI QUẦN ÁO -->
-    <article class="service-detail-card" id="ui-quan-ao">
-      <div class="service-detail-image">
-        <img
-          src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
-          alt="Quần áo được treo ngay ngắn"
-          loading="lazy"
-        />
-      </div>
-
-      <div class="service-detail-info">
-        <span class="section-kicker">Hoàn thiện trang phục</span>
-        <h2>Ủi quần áo</h2>
-
-        <p class="service-detail-shop">
-          <strong>Tiệm cung cấp:</strong> Tiệm minh họa A
-        </p>
-
-        <p class="service-detail-price">
-          10.000đ <span>/ món</span>
-        </p>
-
-        <p class="service-detail-description">
-          Dịch vụ ủi giúp trang phục phẳng phiu hơn,
-          phù hợp với nhu cầu chuẩn bị quần áo cho
-          học tập và công việc.
-        </p>
-
-        <div class="service-detail-attributes">
-          <h3>Thông tin dịch vụ</h3>
-          <ul>
-            <li><strong>Loại đồ:</strong> Quần áo cần làm phẳng</li>
-            <li><strong>Đơn vị tính:</strong> món</li>
-            <li><strong>Giá tham khảo:</strong> 10.000đ/món</li>
-          </ul>
-        </div>
-
-        <p class="service-detail-note">
-          <strong>
   </main>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
-  <div class="container footer-inner">
-    <div><strong>WASHUP</strong><p>Nền tảng kết nối khách hàng và các tiệm giặt ủi.</p></div>
-    <p class="footer-note">Giao diện minh họa cho bài tập HTML5 &amp; CSS3 · Buổi 2</p>
-  </div>
-</footer>
+    <div class="container footer-inner">
+      <div>
+        <strong>WASHUP</strong>
+        <p>Nền tảng kết nối khách hàng và các tiệm giặt ủi.</p>
+      </div>
+
+      <p class="footer-note">
+        Giao diện minh họa cho bài tập HTML5 &amp; CSS3 · Buổi 2
+      </p>
+    </div>
+  </footer>
+
+  <!-- DỮ LIỆU CÁC DỊCH VỤ -->
+  <script>
+    const services = {
+      "giat-say": {
+        name: "Giặt sấy quần áo",
+        category: "GIẶT THƯỜNG",
+        description: "Giải pháp tiện lợi cho quần áo sử dụng hằng ngày.",
+        fullDescription: "Quần áo được giặt sạch và sấy khô, giúp tiết kiệm thời gian và công sức cho khách hàng.",
+        price: "15.000đ / kg",
+        time: "24 – 48 giờ",
+        unit: "Theo kg",
+        suitable: "Quần áo mặc hằng ngày, đồ sinh hoạt cá nhân.",
+        note: "Nên phân loại quần áo theo màu sắc và chất liệu trước khi giặt.",
+        image: "https://cellphones.com.vn/sforum/wp-content/uploads/2024/05/may-giat-va-may-say-4.jpg"
+      },
+
+      "giat-hap": {
+        name: "Giặt hấp quần áo",
+        category: "CHĂM SÓC CHUYÊN BIỆT",
+        description: "Dành cho một số trang phục cần phương pháp chăm sóc riêng.",
+        fullDescription: "Dịch vụ giặt hấp hỗ trợ làm sạch và chăm sóc các loại trang phục phù hợp với phương pháp giặt chuyên biệt.",
+        price: "50.000đ / món",
+        time: "24 – 48 giờ",
+        unit: "Theo món",
+        suitable: "Vest, áo khoác và một số trang phục cần chăm sóc riêng.",
+        note: "Cần kiểm tra nhãn hướng dẫn giặt trên trang phục trước khi sử dụng.",
+        image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=900&q=85"
+      },
+
+      "chan-men": {
+        name: "Giặt chăn mền",
+        category: "ĐỒ GIA DỤNG",
+        description: "Chăm sóc chăn mền và đồ dùng giường ngủ.",
+        fullDescription: "Dịch vụ làm sạch chăn mền, hỗ trợ loại bỏ bụi bẩn và giữ đồ dùng giường ngủ sạch sẽ.",
+        price: "60.000đ / món",
+        time: "24 – 48 giờ",
+        unit: "Theo món",
+        suitable: "Chăn, mền và một số đồ dùng giường ngủ.",
+        note: "Nên thông báo chất liệu và kích thước chăn mền khi gửi giặt.",
+        image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=85"
+      },
+
+      "ve-sinh-giay": {
+        name: "Vệ sinh giày thể thao",
+        category: "CHĂM SÓC GIÀY",
+        description: "Giữ giày sạch sẽ với dịch vụ chăm sóc phù hợp.",
+        fullDescription: "Giày được vệ sinh theo chất liệu và tình trạng thực tế nhằm giữ vẻ ngoài sạch sẽ, gọn gàng.",
+        price: "40.000đ / đôi",
+        time: "2 – 3 ngày",
+        unit: "Theo đôi",
+        suitable: "Giày thể thao và một số loại giày thông dụng.",
+        note: "Nên kiểm tra chất liệu giày và tình trạng hư hỏng trước khi gửi.",
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85"
+      },
+
+      "giat-rem": {
+        name: "Giặt rèm cửa",
+        category: "ĐỒ GIA DỤNG",
+        description: "Vệ sinh rèm theo chất liệu và hướng dẫn chăm sóc.",
+        fullDescription: "Dịch vụ hỗ trợ làm sạch rèm cửa, giúp loại bỏ bụi bẩn tích tụ trong quá trình sử dụng.",
+        price: "35.000đ / kg",
+        time: "2 – 3 ngày",
+        unit: "Theo kg",
+        suitable: "Rèm cửa gia đình và văn phòng.",
+        note: "Nên kiểm tra chất liệu và hướng dẫn vệ sinh của rèm trước khi giặt.",
+        image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=85"
+      },
+
+      "giat-thu-bong": {
+        name: "Giặt thú bông",
+        category: "ĐỒ DÙNG CÁ NHÂN",
+        description: "Làm sạch thú bông với cách chăm sóc phù hợp.",
+        fullDescription: "Dịch vụ vệ sinh thú bông, hỗ trợ làm sạch bụi bẩn và giữ sản phẩm mềm mại.",
+        price: "30.000đ / món",
+        time: "24 – 48 giờ",
+        unit: "Theo món",
+        suitable: "Thú bông, gấu bông và đồ chơi bằng vải.",
+        note: "Cần thông báo nếu thú bông có pin, bộ phận điện tử hoặc chi tiết dễ hư hỏng.",
+        image: "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=900&q=85"
+      },
+
+      "giat-nhanh": {
+        name: "Giặt nhanh",
+        category: "TIẾT KIỆM THỜI GIAN",
+        description: "Dành cho nhu cầu cần xử lý quần áo trong thời gian ngắn.",
+        fullDescription: "Dịch vụ giặt nhanh dành cho khách hàng cần làm sạch quần áo trong thời gian ngắn hơn thông thường.",
+        price: "25.000đ / kg",
+        time: "Trong ngày hoặc theo tiệm",
+        unit: "Theo kg",
+        suitable: "Quần áo cần sử dụng sớm và phù hợp với quy trình giặt nhanh.",
+        note: "Thời gian hoàn thành tùy thuộc vào khối lượng đồ và khả năng tiếp nhận của tiệm.",
+        image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=900&q=85"
+      },
+
+      "ui-quan-ao": {
+        name: "Ủi quần áo",
+        category: "HOÀN THIỆN TRANG PHỤC",
+        description: "Giúp trang phục phẳng phiu và sẵn sàng sử dụng.",
+        fullDescription: "Dịch vụ ủi giúp trang phục gọn gàng, giảm nếp nhăn và thuận tiện hơn khi sử dụng.",
+        price: "10.000đ / món",
+        time: "Trong ngày hoặc 24 giờ",
+        unit: "Theo món",
+        suitable: "Áo sơ mi, quần tây và trang phục thông dụng.",
+        note: "Cần lưu ý chất liệu vải để lựa chọn nhiệt độ ủi phù hợp.",
+        image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=900&q=85"
+      }
+    };
+
+    // Lấy mã dịch vụ từ địa chỉ URL
+    const params = new URLSearchParams(window.location.search);
+    const serviceId = params.get("id") || "giat-say";
+
+    // Nếu mã không hợp lệ, hiển thị dịch vụ giặt sấy mặc định
+    const service = services[serviceId] || services["giat-say"];
+
+    // Hiển thị dữ liệu dịch vụ
+    document.getElementById("service-title").textContent = service.name;
+    document.getElementById("service-description").textContent = service.description;
+    document.getElementById("service-category").textContent = service.category;
+    document.getElementById("service-name").textContent = service.name;
+    document.getElementById("service-full-description").textContent = service.fullDescription;
+    document.getElementById("service-price").textContent = service.price;
+    document.getElementById("service-time").textContent = service.time;
+    document.getElementById("service-unit").textContent = service.unit;
+    document.getElementById("service-suitable").textContent = service.suitable;
+    document.getElementById("service-note").textContent = service.note;
+
+    document.getElementById("service-image").src = service.image;
+    document.getElementById("service-image").alt = service.name;
+
+    document.title = service.name + " | WASHUP";
+  </script>
+
 </body>
 </html>
-
