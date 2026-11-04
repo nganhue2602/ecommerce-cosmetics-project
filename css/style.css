@@ -1162,7 +1162,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--imperial); outl
 }
 
 /* =========================================
-   BƯỚC 7: CẢI THIỆN TRẢI NGHIỆM NGƯỜI DÙNG
+   BƯỚC 8: HOVER, FOCUS VÀ TRẢI NGHIỆM NGƯỜI DÙNG
    ========================================= */
 
 /* 1. Hover cho các nút và liên kết */
