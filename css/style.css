@@ -1296,3 +1296,22 @@ button:focus-visible {
   z-index: 2;
 }
 }
+
+/* BƯỚC 6B: Liên kết điều hướng trang giới thiệu */
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+@media (max-width: 480px) {
+  .about-actions {
+    flex-direction: column;
+  }
+
+  .about-actions .btn {
+    width: 100%;
+  }
+}
+
