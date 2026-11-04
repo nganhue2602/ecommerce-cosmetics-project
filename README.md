@@ -1,3 +1,68 @@
+
+# WASHUP – Giao diện website thương mại điện tử
+
+**Dự án học phần Phát triển ứng dụng TMĐT – Nhóm 6**
+
+WASHUP là ý tưởng nền tảng trung gian kết nối khách hàng
+với nhiều tiệm giặt ủi độc lập.
+
+## Phiên bản hiện tại – Bài tập Buổi 2
+
+Phiên bản hiện tại tập trung xây dựng giao diện website
+bằng HTML5 và CSS3, sử dụng GitHub Pages để trình bày.
+
+### Xem website
+
+- [Website WASHUP](https://nganhue2602.github.io/ecommerce-cosmetics-project/)
+- [GitHub Repository](https://github.com/nganhue2602/ecommerce-cosmetics-project)
+
+### Các trang đã xây dựng
+
+| Tệp | Nội dung |
+|---|---|
+| `index.html` | Trang chủ, banner và dịch vụ nổi bật |
+| `shops.html` | Danh sách 3 tiệm giặt minh họa |
+| `products.html` | Danh sách 8 dịch vụ chính, combo và gói minh họa |
+| `service-detail.html` | Thông tin chi tiết 8 dịch vụ |
+| `about.html` | Giới thiệu WASHUP và thông tin dự án |
+| `css/style.css` | Định dạng giao diện, responsive, hover và focus |
+
+### Công nghệ đã sử dụng
+
+- HTML5
+- CSS3 (Grid, Flexbox, Media Queries)
+- Git và GitHub
+- GitHub Pages
+- Chrome DevTools để kiểm tra giao diện
+
+### Cách chạy website
+
+**Cách 1:** Truy cập đường dẫn GitHub Pages ở trên.
+
+**Cách 2:** Tải repository về máy, giải nén và mở
+tệp `index.html` bằng trình duyệt.
+
+### Giới hạn của phiên bản
+
+- Chưa triển khai đăng ký, đăng nhập và phân quyền.
+- Chưa có giỏ hàng, đặt dịch vụ hoặc thanh toán thực tế.
+- Nút "Đặt dịch vụ (Demo)" chỉ minh họa giao diện.
+- Thông tin tiệm A, B, C và mức giá là dữ liệu giả định.
+- Một số hình ảnh sử dụng nguồn bên ngoài.
+
+Các chức năng PHP, MySQL, quản lý đơn hàng, voucher
+và thanh toán thuộc kế hoạch phát triển tiếp theo.
+
+---
+
+## Tài liệu định hướng phát triển dự án
+
+Phần bên dưới trình bày ý tưởng kinh doanh, yêu cầu,
+phạm vi MVP và kế hoạch phát triển WASHUP dài hạn.
+Đây là các chức năng dự kiến, không phải toàn bộ
+chức năng đã triển khai trong phiên bản Buổi 2.
+
+---
 #  WASHUP - Website đặt dịch vụ giặt ủi trực tuyến
 Đồ án môn Phát triển ứng dụng TMĐT - Nhóm 6.
 Quy mô nhóm: 8 thành viên.
