@@ -313,51 +313,205 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--imperial); outl
 .placeholder-card p { color: var(--muted); font-size: 14px; max-width: 620px; margin: 0 auto 15px; }
 .text-link { color: var(--imperial); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
 .text-link:hover { color: var(--navy); }
+/* RESPONSIVE CƠ SỞ: HEADER, BANNER VÀ CÁC THÀNH PHẦN LIÊN QUAN */
+
+/* Thu gọn khoảng cách khi vùng hiển thị không vượt quá 1040px */
 @media (max-width: 1040px) {
-  .header-inner { gap: 15px; }
-  .brand img { width: 125px; }
-  .main-nav { gap: 16px; }
-  .header-cta { padding-inline: 13px; }
-  .hero-grid { min-height: 470px; gap: 12px; }
-  .hero h1 { font-size: clamp(35px,4.1vw,47px); }
-  .float-top { right: 0; }
+  .header-inner {
+    gap: 15px;
+  }
+
+  .brand img {
+    width: 125px;
+  }
+
+  .main-nav {
+    gap: 16px;
+  }
+
+  .header-cta {
+    padding-inline: 13px;
+  }
+
+  .hero-grid {
+    min-height: 470px;
+    gap: 12px;
+  }
+
+  .hero h1 {
+    font-size: clamp(35px, 4.1vw, 47px);
+  }
+
+  .float-top {
+    right: 0;
+  }
 }
+
+/* Chuyển bố cục header và banner khi không vượt quá 760px */
 @media (max-width: 760px) {
-  .container { width: min(100% - 34px, 640px); }
-  .header-inner { display: grid; grid-template-columns: 1fr auto; column-gap: 12px; row-gap: 0; padding-top: 9px; }
-  .brand img { width: 125px; }
-  .header-cta { min-height: 38px; font-size: 12px; padding: 6px 12px; }
-  .main-nav { grid-column: 1 / -1; grid-row: 2; overflow-x: auto; display: flex; gap: 23px; padding: 0 0 4px; scrollbar-width: thin; }
-  .main-nav a { font-size: 13px; padding: 10px 0; }
-  .hero-grid { grid-template-columns: 1fr; padding-block: 47px 36px; gap: 0; }
-  .hero h1 { font-size: clamp(37px,7vw,48px); }
-  .hero-visual { min-height: 340px; }
-  .hero-logo { max-width: 430px; }
-  .float-top { right: 4%; top: 11%; }
-  .float-bottom { left: 1%; bottom: 11%; }
-  .quick-grid { grid-template-columns: 1fr 1fr; }
-  .section-heading { display: block; }
-  .section-heading p { margin-top: 10px; max-width: none; }
+  .container {
+    width: min(100% - 34px, 640px);
+  }
+
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 12px;
+    row-gap: 0;
+    padding-top: 9px;
+  }
+
+  .brand img {
+    width: 125px;
+  }
+
+  .header-cta {
+    min-height: 38px;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .main-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    overflow-x: auto;
+    display: flex;
+    gap: 23px;
+    padding: 0 0 4px;
+    scrollbar-width: thin;
+  }
+
+  .main-nav a {
+    font-size: 13px;
+    padding: 10px 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    padding-block: 47px 36px;
+    gap: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(37px, 7vw, 48px);
+  }
+
+  .hero-visual {
+    min-height: 340px;
+  }
+
+  .hero-logo {
+    max-width: 430px;
+  }
+
+  .float-top {
+    right: 4%;
+    top: 11%;
+  }
+
+  .float-bottom {
+    left: 1%;
+    bottom: 11%;
+  }
+
+  /* Giữ các quy tắc cho phần khám phá nhanh */
+  .quick-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .section-heading {
+    display: block;
+  }
+
+  .section-heading p {
+    margin-top: 10px;
+    max-width: none;
+  }
 }
+
+/* Điều chỉnh bổ sung khi vùng hiển thị không vượt quá 480px */
 @media (max-width: 480px) {
-  .brand img { width: 113px; }
-  .header-cta { font-size: 11px; padding-inline: 11px; }
-  .hero-grid { padding-top: 38px; }
-  .hero h1 { font-size: 36px; letter-spacing: -1px; }
-  .hero-copy > p:not(.hero-note) { font-size: 14px; line-height: 1.8; }
-  .hero-actions .btn { flex: 1 1 100%; }
-  .hero-note { display: none; }
-  .hero-visual { min-height: 275px; margin-top: 5px; }
-  .float-label { font-size: 10px; padding: 6px 9px; }
-  .float-bottom { bottom: 7%; }
-  .float-top { top: 8%; }
-  .intro-nav { padding-block: 50px 62px; }
-  .quick-grid { grid-template-columns: 1fr; }
-  .quick-card { min-height: 140px; padding: 19px; }
-  .footer-inner { flex-direction: column; align-items: flex-start; }
-  .footer-note { text-align: left; }
-  .page-hero { padding-block: 56px 54px; }
-  .placeholder-card { padding: 35px 18px; }
+  .brand img {
+    width: 113px;
+  }
+
+  .header-cta {
+    font-size: 11px;
+    padding-inline: 11px;
+  }
+
+  .hero-grid {
+    padding-top: 38px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  .hero-copy > p:not(.hero-note) {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .hero-actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .hero-note {
+    display: none;
+  }
+
+  .hero-visual {
+    min-height: 275px;
+    margin-top: 5px;
+  }
+
+  .float-label {
+    font-size: 10px;
+    padding: 6px 9px;
+  }
+
+  .float-bottom {
+    bottom: 7%;
+  }
+
+  .float-top {
+    top: 8%;
+  }
+
+  /* Giữ các quy tắc cho phần khám phá nhanh */
+  .intro-nav {
+    padding-block: 50px 62px;
+  }
+
+  .quick-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-card {
+    min-height: 140px;
+    padding: 19px;
+  }
+
+  /* Giữ các quy tắc cho footer */
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-note {
+    text-align: left;
+  }
+
+  /* Giữ các quy tắc cho khung nội dung hiện có */
+  .page-hero {
+    padding-block: 56px 54px;
+  }
+
+  .placeholder-card {
+    padding: 35px 18px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
