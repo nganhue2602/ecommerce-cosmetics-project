@@ -15,7 +15,7 @@
 
     .service-detail-layout {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1fr 1fr;
       gap: 48px;
       align-items: start;
     }
@@ -31,7 +31,6 @@
       width: 100%;
       height: 480px;
       object-fit: cover;
-      border-radius: 24px;
     }
 
     .service-detail-content {
@@ -45,9 +44,10 @@
     }
 
     /* NHÃN PHÂN LOẠI DỊCH VỤ */
-    #service-category {
-      font-size: 18px;
-      font-weight: 700;
+    #service-category.section-kicker {
+      display: inline-block;
+      font-size: 22px !important;
+      font-weight: 700 !important;
       letter-spacing: 1px;
     }
 
@@ -115,7 +115,7 @@
       line-height: 1.7;
     }
 
-    /* QUY TRÌNH */
+    /* QUY TRÌNH SỬ DỤNG DỊCH VỤ */
     .service-process-section {
       padding: 64px 0;
       background: #f6f8fc;
@@ -156,6 +156,7 @@
       line-height: 1.7;
     }
 
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       .service-detail-section {
         padding: 40px 0;
@@ -174,6 +175,10 @@
         font-size: 26px;
       }
 
+      #service-category.section-kicker {
+        font-size: 19px !important;
+      }
+
       .service-process-grid {
         grid-template-columns: 1fr;
       }
@@ -190,10 +195,12 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="WASHUP – Về trang chủ">
-        <img src="images/washup-logo-wordmark.png"
-             width="176"
-             height="52"
-             alt="WASHUP" />
+        <img
+          src="images/washup-logo-wordmark.png"
+          width="176"
+          height="52"
+          alt="WASHUP"
+        />
       </a>
 
       <nav class="main-nav" aria-label="Điều hướng chính">
@@ -238,7 +245,7 @@
         <div class="service-detail-image">
           <img
             id="service-image"
-            src="https://cellphones.com.vn/sforum/wp-content/uploads/2024/05/may-giat-va-may-say-4.jpg"
+            src="https://th.bing.com/th/id/R.1b97c3119d555e1accfe611faf525d08?rik=BNJ3ojMN62E4Zw&pid=ImgRaw&r=0"
             alt="Dịch vụ giặt sấy quần áo"
           />
         </div>
@@ -373,7 +380,7 @@
         unit: "Theo kg",
         suitable: "Quần áo mặc hằng ngày, đồ sinh hoạt cá nhân.",
         note: "Nên phân loại quần áo theo màu sắc và chất liệu trước khi giặt.",
-        image: "https://cellphones.com.vn/sforum/wp-content/uploads/2024/05/may-giat-va-may-say-4.jpg"
+        image: "https://th.bing.com/th/id/R.1b97c3119d555e1accfe611faf525d08?rik=BNJ3ojMN62E4Zw&pid=ImgRaw&r=0"
       },
 
       "giat-hap": {
@@ -468,14 +475,20 @@
       }
     };
 
-    // Lấy mã dịch vụ từ địa chỉ URL
+    // Lấy mã dịch vụ từ URL.
+    // Hỗ trợ cả dạng ?id=giat-hap và dạng #giat-hap.
     const params = new URLSearchParams(window.location.search);
-    const serviceId = params.get("id") || "giat-say";
+    const hashServiceId = window.location.hash.substring(1);
 
-    // Nếu mã không hợp lệ, hiển thị dịch vụ giặt sấy mặc định
+    const serviceId =
+      params.get("id") ||
+      hashServiceId ||
+      "giat-say";
+
+    // Nếu mã dịch vụ không hợp lệ, hiển thị dịch vụ mặc định.
     const service = services[serviceId] || services["giat-say"];
 
-    // Hiển thị dữ liệu dịch vụ
+    // Cập nhật nội dung trang theo dịch vụ được chọn.
     document.getElementById("service-title").textContent = service.name;
     document.getElementById("service-description").textContent = service.description;
     document.getElementById("service-category").textContent = service.category;
@@ -487,9 +500,20 @@
     document.getElementById("service-suitable").textContent = service.suitable;
     document.getElementById("service-note").textContent = service.note;
 
-    document.getElementById("service-image").src = service.image;
-    document.getElementById("service-image").alt = service.name;
+    // Cập nhật hình ảnh và mô tả ảnh.
+    const serviceImage = document.getElementById("service-image");
+    serviceImage.src = service.image;
+    serviceImage.alt = service.name;
 
+    // Nếu ảnh Bing không tải được, chuyển sang ảnh dự phòng.
+    serviceImage.onerror = function () {
+      if (serviceId === "giat-say" && !this.dataset.fallbackUsed) {
+        this.dataset.fallbackUsed = "true";
+        this.src = "https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&w=900&q=85";
+      }
+    };
+
+    // Cập nhật tiêu đề trình duyệt.
     document.title = service.name + " | WASHUP";
   </script>
 
