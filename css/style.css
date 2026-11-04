@@ -901,15 +901,14 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--imperial); outl
     grid-template-columns: 1fr;
   }
 
-  .hero-visual {
-    max-width: 520px;
-    width: 100%;
-    margin: 0 auto;
-  }
 
-  @media (max-width: 700px) {
-    aspect-ratio: 5 / 3.5;
-  }
+.products-hero .hero-visual {
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+  aspect-ratio: 5 / 3.5;
+}
+
 
   .hero-floating-card {
     left: 12px;
@@ -1248,9 +1247,25 @@ button:focus-visible {
         transform: none;
     }
 }
-/* FIX BANNER TRANG CHỦ - MOBILE 390px */
+
+/* BƯỚC 7: Chuẩn hóa hình ảnh banner trang chủ */
+.hero .hero-visual {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero .hero-logo {
+  display: block;
+  width: min(500px, 92%);
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 @media (max-width: 480px) {
-  .hero-visual {
+  .hero .hero-visual {
     width: 100%;
     min-height: 0;
     height: auto;
@@ -1259,7 +1274,7 @@ button:focus-visible {
     overflow: hidden;
   }
 
-  .hero-logo {
+  .hero .hero-logo {
     display: block;
     width: 100%;
     max-width: 300px;
@@ -1268,34 +1283,26 @@ button:focus-visible {
     margin: 0 auto;
   }
 
-  .hero-blob {
+  .hero .hero-blob {
     width: 90%;
     max-width: 280px;
   }
 
-  .float-top {
+  .hero .float-top {
     top: 8%;
     right: 0;
   }
 
-  .float-bottom {
+  .hero .float-bottom {
     bottom: 8%;
     left: 0;
   }
-  .hero-visual {
-  margin-top: 30px;
-  overflow: hidden;
+
+  .hero .float-label {
+    z-index: 2;
+  }
 }
 
-.hero-logo {
-  position: relative;
-  z-index: 1;
-}
-
-.float-label {
-  z-index: 2;
-}
-}
 
 /* BƯỚC 6B: Liên kết điều hướng trang giới thiệu */
 .about-actions {
