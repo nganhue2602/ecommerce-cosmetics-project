@@ -519,7 +519,23 @@ if (!service) {
   document.querySelector(".page-hero").style.display = "none";
   document.querySelector(".service-process-section").style.display = "none";
 } else {
-  
+  // Chức năng thêm dịch vụ vào giỏ hàng.
+const addToCartButton = document.getElementById("add-to-cart");
+
+addToCartButton.addEventListener("click", function () {
+  let cart = JSON.parse(localStorage.getItem("washupCart")) || [];
+
+  cart.push({
+    id: serviceId,
+    name: service.name,
+    price: service.price,
+    quantity: 1
+  });
+
+  localStorage.setItem("washupCart", JSON.stringify(cart));
+
+  alert("Đã thêm " + service.name + " vào giỏ hàng!");
+});
     // Cập nhật nội dung trang theo dịch vụ được chọn.
     document.getElementById("service-title").textContent = service.name;
     document.getElementById("service-description").textContent = service.description;
