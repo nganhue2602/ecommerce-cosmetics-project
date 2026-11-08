@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -8,42 +9,19 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
+    /* NHÓM NÚT CHỨC NĂNG */
     .service-detail-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-.service-detail-actions button {
-  /* HIỆU ỨNG NÚT THÊM VÀO GIỎ HÀNG */
-.service-detail-actions #add-to-cart {
-  transition: all 0.25s ease;
-}
+    .service-detail-actions button {
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+    }
 
-/* Khi di chuột vào nút */
-.service-detail-actions #add-to-cart:hover {
-  background-color: #0645ad;
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 12px rgba(6, 69, 173, 0.2);
-}
-
-/* Khi nhấn giữ nút */
-.service-detail-actions #add-to-cart:active {
-  background-color: #033580;
-  transform: scale(0.97);
-  box-shadow: none;
-}
-
-/* Khi nút được chọn bằng bàn phím */
-.service-detail-actions #add-to-cart:focus-visible {
-  outline: 3px solid rgba(36, 89, 197, 0.35);
-  outline-offset: 3px;
-}
-  cursor: pointer;
-  font-family: inherit;
-  border: none;
-}
     /* CHI TIẾT DỊCH VỤ */
     .service-detail-section {
       padding: 64px 0;
@@ -334,15 +312,16 @@
             </p>
           </div>
 
-         <div class="service-detail-actions">
-  <button class="btn" type="button" id="add-to-cart">
-    Thêm vào giỏ hàng
-  </button>
+          <!-- NHÓM NÚT CHỨC NĂNG -->
+          <div class="service-detail-actions">
+            <button class="btn" type="button" id="add-to-cart">
+              Thêm vào giỏ hàng
+            </button>
 
-  <a class="btn btn-secondary" href="shops.html">
-    Tìm tiệm cung cấp dịch vụ →
-  </a>
-</div>
+            <a class="btn btn-secondary" href="shops.html">
+              Tìm tiệm cung cấp dịch vụ →
+            </a>
+          </div>
 
         </div>
       </div>
@@ -522,72 +501,72 @@
     const params = new URLSearchParams(window.location.search);
     const hashServiceId = window.location.hash.substring(1);
 
-    const serviceId =
-      params.get("id") ||
-      hashServiceId ||
-      "giat-say";
+    const serviceId = params.get("id") || hashServiceId;
 
     // Kiểm tra mã dịch vụ có tồn tại hay không.
-const service = services[serviceId];
+    const service = serviceId ? services[serviceId] : null;
 
-if (!service) {
-  document.querySelector(".service-detail-section").innerHTML = `
-    <div class="container" style="text-align: center; padding: 60px 0;">
-      <h2>Không tìm thấy dịch vụ!</h2>
-      <p>Dịch vụ không tồn tại hoặc mã dịch vụ không hợp lệ.</p>
-      <a class="btn" href="products.html">
-        Quay lại danh sách dịch vụ
-      </a>
-    </div>
-  `;
+    if (!service) {
+      document.querySelector(".service-detail-section").innerHTML = `
+        <div class="container" style="text-align: center; padding: 60px 0;">
+          <h2>Không tìm thấy dịch vụ!</h2>
+          <p>Dịch vụ không tồn tại hoặc mã dịch vụ không hợp lệ.</p>
+          <a class="btn" href="products.html">
+            Quay lại danh sách dịch vụ
+          </a>
+        </div>
+      `;
 
-  document.querySelector(".page-hero").style.display = "none";
-  document.querySelector(".service-process-section").style.display = "none";
-} else {
-  // Chức năng thêm dịch vụ vào giỏ hàng.
-const addToCartButton = document.getElementById("add-to-cart");
+      document.querySelector(".page-hero").style.display = "none";
+      document.querySelector(".service-process-section").style.display = "none";
 
-addToCartButton.addEventListener("click", function () {
-  let cart = JSON.parse(localStorage.getItem("washupCart")) || [];
+    } else {
+      // Cập nhật nội dung trang theo dịch vụ được chọn.
+      document.getElementById("service-title").textContent = service.name;
+      document.getElementById("service-description").textContent = service.description;
+      document.getElementById("service-category").textContent = service.category;
+      document.getElementById("service-name").textContent = service.name;
+      document.getElementById("service-full-description").textContent = service.fullDescription;
+      document.getElementById("service-price").textContent = service.price;
+      document.getElementById("service-time").textContent = service.time;
+      document.getElementById("service-unit").textContent = service.unit;
+      document.getElementById("service-suitable").textContent = service.suitable;
+      document.getElementById("service-note").textContent = service.note;
 
-  cart.push({
-    id: serviceId,
-    name: service.name,
-    price: service.price,
-    quantity: 1
-  });
+      // Cập nhật hình ảnh và mô tả ảnh.
+      const serviceImage = document.getElementById("service-image");
+      serviceImage.src = service.image;
+      serviceImage.alt = service.name;
 
-  localStorage.setItem("washupCart", JSON.stringify(cart));
+      // Nếu ảnh giặt sấy không tải được, chuyển sang ảnh dự phòng.
+      serviceImage.onerror = function () {
+        if (serviceId === "giat-say" && !this.dataset.fallbackUsed) {
+          this.dataset.fallbackUsed = "true";
+          this.src = "https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&w=900&q=85";
+        }
+      };
 
-  alert("Đã thêm " + service.name + " vào giỏ hàng!");
-});
-    // Cập nhật nội dung trang theo dịch vụ được chọn.
-    document.getElementById("service-title").textContent = service.name;
-    document.getElementById("service-description").textContent = service.description;
-    document.getElementById("service-category").textContent = service.category;
-    document.getElementById("service-name").textContent = service.name;
-    document.getElementById("service-full-description").textContent = service.fullDescription;
-    document.getElementById("service-price").textContent = service.price;
-    document.getElementById("service-time").textContent = service.time;
-    document.getElementById("service-unit").textContent = service.unit;
-    document.getElementById("service-suitable").textContent = service.suitable;
-    document.getElementById("service-note").textContent = service.note;
+      // Cập nhật tiêu đề trình duyệt.
+      document.title = service.name + " | WASHUP";
 
-    // Cập nhật hình ảnh và mô tả ảnh.
-    const serviceImage = document.getElementById("service-image");
-    serviceImage.src = service.image;
-    serviceImage.alt = service.name;
+      // Chức năng thêm dịch vụ vào giỏ hàng.
+      const addToCartButton = document.getElementById("add-to-cart");
 
-    // Nếu ảnh Bing không tải được, chuyển sang ảnh dự phòng.
-    serviceImage.onerror = function () {
-      if (serviceId === "giat-say" && !this.dataset.fallbackUsed) {
-        this.dataset.fallbackUsed = "true";
-        this.src = "https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&w=900&q=85";
-      }
-    };
+      addToCartButton.addEventListener("click", function () {
+        let cart = JSON.parse(localStorage.getItem("washupCart")) || [];
 
-    // Cập nhật tiêu đề trình duyệt.
-    document.title = service.name + " | WASHUP";
+        cart.push({
+          id: serviceId,
+          name: service.name,
+          price: service.price,
+          quantity: 1
+        });
+
+        localStorage.setItem("washupCart", JSON.stringify(cart));
+
+        alert("Đã thêm " + service.name + " vào giỏ hàng!");
+      });
+    }
   </script>
 
 </body>
