@@ -485,9 +485,24 @@
       hashServiceId ||
       "giat-say";
 
-    // Nếu mã dịch vụ không hợp lệ, hiển thị dịch vụ mặc định.
-    const service = services[serviceId] || services["giat-say"];
+    // Kiểm tra mã dịch vụ có tồn tại hay không.
+const service = services[serviceId];
 
+if (!service) {
+  document.querySelector(".service-detail-section").innerHTML = `
+    <div class="container" style="text-align: center; padding: 60px 0;">
+      <h2>Không tìm thấy dịch vụ!</h2>
+      <p>Dịch vụ không tồn tại hoặc mã dịch vụ không hợp lệ.</p>
+      <a class="btn" href="products.html">
+        Quay lại danh sách dịch vụ
+      </a>
+    </div>
+  `;
+
+  document.querySelector(".page-hero").style.display = "none";
+  document.querySelector(".service-process-section").style.display = "none";
+} else {
+  
     // Cập nhật nội dung trang theo dịch vụ được chọn.
     document.getElementById("service-title").textContent = service.name;
     document.getElementById("service-description").textContent = service.description;
