@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
+    
     /* NHÓM NÚT CHỨC NĂNG */
     .service-detail-actions {
       display: flex;
@@ -56,7 +57,11 @@
       font-size: 32px;
       line-height: 1.3;
     }
-
+.service-detail-actions button.btn-secondary {
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
     /* NHÃN PHÂN LOẠI DỊCH VỤ */
     #service-category.section-kicker {
       display: inline-block;
@@ -314,9 +319,9 @@
 
           <!-- NHÓM NÚT CHỨC NĂNG -->
           <div class="service-detail-actions">
-            <button class="btn" type="button" id="add-to-cart">
-              Thêm vào giỏ hàng
-            </button>
+            <button class="btn btn-secondary" type="button" id="add-to-cart">
+    Thêm vào giỏ hàng
+</button>
 
             <a class="btn btn-secondary" href="shops.html">
               Tìm tiệm cung cấp dịch vụ →
