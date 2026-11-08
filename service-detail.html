@@ -15,6 +15,31 @@
 }
 
 .service-detail-actions button {
+  /* HIỆU ỨNG NÚT THÊM VÀO GIỎ HÀNG */
+.service-detail-actions #add-to-cart {
+  transition: all 0.25s ease;
+}
+
+/* Khi di chuột vào nút */
+.service-detail-actions #add-to-cart:hover {
+  background-color: #0645ad;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(6, 69, 173, 0.2);
+}
+
+/* Khi nhấn giữ nút */
+.service-detail-actions #add-to-cart:active {
+  background-color: #033580;
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+/* Khi nút được chọn bằng bàn phím */
+.service-detail-actions #add-to-cart:focus-visible {
+  outline: 3px solid rgba(36, 89, 197, 0.35);
+  outline-offset: 3px;
+}
   cursor: pointer;
   font-family: inherit;
   border: none;
