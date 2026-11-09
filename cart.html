@@ -4,10 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Giỏ hàng - WASHUP</title>
-  <!-- Nhúng CSS chính của dự án -->
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* CSS hỗ trợ giao diện giỏ hàng */
     .cart-container {
       max-width: 1000px;
       margin: 40px auto;
@@ -80,13 +78,13 @@
   <main class="cart-container">
     <h2>Giỏ hàng của bạn</h2>
 
-    <!-- TRẠNG THÁI 1: THÔNG BÁO GIỎ HÀNG RỖNG -->
+    <!-- THÔNG BÁO GIỎ HÀNG RỖNG (HÌNH 5.5) -->
     <div id="empty-cart-message" class="empty-box" style="display: none;">
       <p style="font-size: 18px; color: #64748b; margin-bottom: 15px;">Giỏ hàng của bạn hiện đang rỗng!</p>
       <a href="products.html" style="display: inline-block; padding: 10px 20px; background-color: #0645ad; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">Tiếp tục xem dịch vụ</a>
     </div>
 
-    <!-- TRẠNG THÁI 2: KHUNG BẢNG GIỎ HÀNG (CÓ HÀNG) -->
+    <!-- KHUNG BẢNG GIỎ HÀNG (KHI CÓ HÀNG) -->
     <div id="cart-content-wrapper">
       <table id="cart-table" class="cart-table">
         <thead>
@@ -100,7 +98,7 @@
           </tr>
         </thead>
         <tbody id="cart-items">
-          <!-- Nội dung từng dòng dịch vụ sẽ được JavaScript tự động điền vào đây -->
+          <!-- JS Render các sản phẩm tại đây -->
         </tbody>
       </table>
 
@@ -112,7 +110,6 @@
     </div>
   </main>
 
-  <!-- NHÚNG SCRIPT (Đúng thứ tự) -->
   <script src="js/products.js"></script>
   <script src="js/cart.js"></script>
 </body>
