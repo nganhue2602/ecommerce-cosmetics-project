@@ -4,8 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Giỏ hàng - Washup</title>
-  <!-- Nhúng file CSS của dự án -->
   <link rel="stylesheet" href="css/style.css"> 
+  <style>
+    /* CSS hỗ trợ căn chỉnh nút bấm Tăng / Giảm / Xóa đẹp mắt */
+    .quantity-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-qty {
+      width: 28px;
+      height: 28px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .btn-qty:hover {
+      background-color: #e6e6e6;
+    }
+    .btn-delete {
+      padding: 6px 12px;
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn-delete:hover {
+      background-color: #c9302c;
+    }
+  </style>
 </head>
 <body>
 
@@ -31,31 +62,33 @@
       <a href="products.html" style="display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px;">Tiếp tục mua sắm</a>
     </div>
 
-    <!-- Trạng thái 2: Bảng sản phẩm khi CÓ HÀNG -->
-    <table id="cart-table" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-      <thead>
-        <tr style="background-color: #f2f2f2; text-align: left;">
-          <th style="padding: 12px; width: 80px;">Hình ảnh</th>
-          <th style="padding: 12px;">Tên sản phẩm</th>
-          <th style="padding: 12px;">Đơn giá</th>
-          <th style="padding: 12px;">Số lượng</th>
-          <th style="padding: 12px;">Thành tiền</th>
-          <th style="padding: 12px;">Thao tác</th>
-        </tr>
-      </thead>
-      <tbody id="cart-items">
-        <!-- Mã HTML sản phẩm sẽ được JavaScript chèn tự động vào đây -->
-      </tbody>
-    </table>
+    <!-- Khung chứa bảng và tổng tiền khi CÓ HÀNG -->
+    <div id="cart-content">
+      <table id="cart-table" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+          <tr style="background-color: #f2f2f2; text-align: left;">
+            <th style="padding: 12px; width: 80px;">Hình ảnh</th>
+            <th style="padding: 12px;">Tên sản phẩm</th>
+            <th style="padding: 12px;">Đơn giá</th>
+            <th style="padding: 12px;">Số lượng</th>
+            <th style="padding: 12px;">Thành tiền</th>
+            <th style="padding: 12px;">Thao tác</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- JS chèn các dòng sản phẩm vào đây -->
+        </tbody>
+      </table>
 
-    <!-- Tổng tiền giỏ hàng -->
-    <div style="margin-top: 25px; text-align: right; font-size: 20px; font-weight: bold;">
-      <span>Tổng cộng: </span>
-      <span id="total-price" style="color: #d9534f;">0 ₫</span>
+      <!-- Tổng tiền giỏ hàng -->
+      <div style="margin-top: 25px; text-align: right; font-size: 20px; font-weight: bold;">
+        <span>Tổng cộng: </span>
+        <span id="total-price" style="color: #d9534f;">0 ₫</span>
+      </div>
     </div>
   </main>
 
-  <!-- LIÊN KẾT TỆP JAVASCRIPT (Chú ý thứ tự) -->
+  <!-- Nhúng Script -->
   <script src="js/products.js"></script>
   <script src="js/cart.js"></script>
 
