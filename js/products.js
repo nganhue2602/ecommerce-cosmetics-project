@@ -89,4 +89,5 @@ const products = [
     shopName: "Tiệm minh họa A"
   }
 ];
-
+// Gán mảng products lên window để cart.js đọc được ở mọi nơi
+window.products = products;
