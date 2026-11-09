@@ -110,10 +110,14 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--imperial); outl
 
 .header-cta {
   flex: 0 0 auto;
-  background: var(--navy);
-  color: var(--white);
+  margin-left: auto;
+  background: var(--imperial);
+  color: #ffffff;
   padding: 10px 19px;
   font-size: 13px;
+  font-weight: 800;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 51, 160, 0.18);
 }
 
 .header-cta:hover {
@@ -1488,7 +1492,7 @@ button:focus-visible {
   width: 44px;
   height: 44px;
   flex: 0 0 auto;
-  margin-left: 8px;
+  margin-left: 0;
   text-decoration: none;
   color: #405274;
   position: relative;
