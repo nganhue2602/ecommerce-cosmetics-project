@@ -85,7 +85,7 @@ function renderCart() {
     const itemSubtotal = item.price * item.quantity;
     totalMoney += itemSubtotal;
 
-    // ĐÃ SỬA: Bọc '${item.id}' trong dấu nháy đơn '' để truyền dạng String chuẩn
+    // ĐÃ SỬA: Thêm dấu nháy đơn '${item.id}' để truyền ID dạng String chuẩn
     html += `
       <tr>
         <td style="text-align: center;">
@@ -123,7 +123,7 @@ function updateCartBadge() {
   }
 }
 
-// ĐÃ SỬA: Đưa các hàm lên scope window để HTML onclick nhận diện 100%
+// ĐÃ SỬA: Gán trực tiếp vào window scope để đảm bảo HTML onclick luôn gọi được
 window.addToCart = addToCart;
 window.updateQuantity = updateQuantity;
 window.removeFromCart = removeFromCart;
