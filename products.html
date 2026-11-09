@@ -7,6 +7,29 @@
   <title>Danh sách dịch vụ | WASHUP</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/catalog-filters.css" />
+  <style>
+    /* CSS bổ sung hỗ trợ nút Thêm vào giỏ hàng đẹp mắt trên card */
+    .product-actions-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .btn-add-cart-card {
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .btn-add-cart-card:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Bỏ qua menu để đến nội dung</a>
@@ -86,10 +109,11 @@
         </p>
 
         <div class="products-grid products-grid-featured">
+          
+          <!-- Dịch vụ 1 -->
           <article class="product-card">
             <a class="product-image-link" href="service-detail.html?id=giat-say">
-              <img src="images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg"
-                   alt="Quần áo đang được giặt" loading="lazy">
+              <img src="images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg" alt="Quần áo đang được giặt" loading="lazy">
               <span class="product-ribbon">Gợi ý minh họa</span>
             </a>
             <div class="product-info">
@@ -99,15 +123,18 @@
               <p class="product-description">Giặt sạch quần áo hằng ngày, tiện lợi cho lịch trình bận rộn.</p>
               <div class="product-bottom">
                 <p class="product-price">15.000đ <span>/ kg</span></p>
-                <a class="product-link" href="service-detail.html?id=giat-say">Xem chi tiết →</a>
+                <div class="product-actions-group">
+                  <button type="button" class="btn-add-cart-card" onclick="addToCart('giat-say')">+ Thêm giỏ</button>
+                  <a class="product-link" href="service-detail.html?id=giat-say">Chi tiết →</a>
+                </div>
               </div>
             </div>
           </article>
 
+          <!-- Dịch vụ 2 -->
           <article class="product-card">
             <a class="product-image-link" href="service-detail.html?id=chan-men">
-              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
-                   alt="Chăn ga gối trên giường" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Chăn ga gối trên giường" loading="lazy">
               <span class="product-ribbon">Đồ gia dụng</span>
             </a>
             <div class="product-info">
@@ -117,15 +144,18 @@
               <p class="product-description">Làm sạch chăn mền và đồ dùng giường ngủ.</p>
               <div class="product-bottom">
                 <p class="product-price">60.000đ <span>/ món</span></p>
-                <a class="product-link" href="service-detail.html?id=chan-men">Xem chi tiết →</a>
+                <div class="product-actions-group">
+                  <button type="button" class="btn-add-cart-card" onclick="addToCart('chan-men')">+ Thêm giỏ</button>
+                  <a class="product-link" href="service-detail.html?id=chan-men">Chi tiết →</a>
+                </div>
               </div>
             </div>
           </article>
 
+          <!-- Dịch vụ 3 -->
           <article class="product-card">
             <a class="product-image-link" href="service-detail.html?id=ui-quan-ao">
-              <img src="https://images.unsplash.com/photo-1489274495757-95c7c837b101?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
-                   alt="Ủi đồ phẳng phiu sẵn sàng sử dụng" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1489274495757-95c7c837b101?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Ủi đồ phẳng phiu sẵn sàng sử dụng" loading="lazy">
               <span class="product-ribbon">Chỉn chu mỗi ngày</span>
             </a>
             <div class="product-info">
@@ -135,15 +165,18 @@
               <p class="product-description">Giúp trang phục phẳng phiu và sẵn sàng sử dụng.</p>
               <div class="product-bottom">
                 <p class="product-price">10.000đ <span>/ món</span></p>
-                <a class="product-link" href="service-detail.html?id=ui-quan-ao">Xem chi tiết →</a>
+                <div class="product-actions-group">
+                  <button type="button" class="btn-add-cart-card" onclick="addToCart('ui-quan-ao')">+ Thêm giỏ</button>
+                  <a class="product-link" href="service-detail.html?id=ui-quan-ao">Chi tiết →</a>
+                </div>
               </div>
             </div>
           </article>
 
+          <!-- Dịch vụ 4 -->
           <article class="product-card">
             <a class="product-image-link" href="service-detail.html?id=ve-sinh-giay">
-              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
-                   alt="Đôi giày thể thao" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Đôi giày thể thao" loading="lazy">
               <span class="product-ribbon">Chăm sóc giày</span>
             </a>
             <div class="product-info">
@@ -153,10 +186,14 @@
               <p class="product-description">Chăm sóc giày để giữ vẻ ngoài sạch sẽ, gọn gàng.</p>
               <div class="product-bottom">
                 <p class="product-price">40.000đ <span>/ đôi</span></p>
-                <a class="product-link" href="service-detail.html?id=ve-sinh-giay">Xem chi tiết →</a>
+                <div class="product-actions-group">
+                  <button type="button" class="btn-add-cart-card" onclick="addToCart('ve-sinh-giay')">+ Thêm giỏ</button>
+                  <a class="product-link" href="service-detail.html?id=ve-sinh-giay">Chi tiết →</a>
+                </div>
               </div>
             </div>
           </article>
+
         </div>
       </div>
     </section>
@@ -173,7 +210,7 @@
         </div>
 
         <div class="products-grid" id="products-list">
-          <!-- JavaScript render danh sách tại đây -->
+          <!-- JavaScript render danh sách tự động nếu có -->
         </div>
 
         <p class="products-note" id="products-empty" hidden>
