@@ -21,6 +21,10 @@
         <a href="index.html">Trang chủ</a>
         <a href="shops.html">Tiệm giặt</a>
         <a href="products.html" aria-current="page">Dịch vụ</a>
+        <!-- ĐÃ THÊM SỐ 3: GIỎ HÀNG VỚI BADGE SỐ LƯỢNG -->
+        <a href="cart.html" class="nav-cart">
+          Giỏ hàng (<span id="cart-badge">0</span>)
+        </a>
         <a href="about.html">Giới thiệu</a>
       </nav>
       <a class="header-cta" href="shops.html">Tìm tiệm giặt <span aria-hidden="true">↗</span></a>
@@ -332,14 +336,11 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT -->
-  <script src="js/products.js" defer></script>
-  <script src="js/common.js" defer></script>
-  <script src="js/catalog.js" defer></script>
-  <script src="js/catalog-filters.js" defer></script>
-</body>
-</html>
-<!-- Đảm bảo nhúng đủ 2 file JS này ở cuối trang -->
+  <!-- ĐÃ SỬA SỐ 2: NHÚNG TẤT CẢ JAVASCRIPT ĐÚNG VỊ TRÍ TRONG BODY -->
   <script src="js/products.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/catalog-filters.js"></script>
   <script src="js/cart.js"></script>
 </body>
+</html>
