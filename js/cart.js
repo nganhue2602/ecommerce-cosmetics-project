@@ -1,16 +1,29 @@
-// 1. LẤY MẢNG GIỎ HÀNG TỪ LOCALSTORAGE (ĐỌC TẤT CẢ CÁC KHÓA CÓ THỂ CÓ)
+// 1. HÀM ĐỌC VÀ CHUẨN HÓA DỮ LIỆU TỪ TẤT CẢ CÁC KHÓA LOCALSTORAGE
 function getCart() {
   try {
-    const rawData = localStorage.getItem('cart') || 
-                    localStorage.getItem('washupCart') || 
-                    localStorage.getItem('washup_cart');
-    return rawData ? JSON.parse(rawData) : [];
+    // Đọc tất cả các khóa có thể có trong máy
+    let raw = localStorage.getItem('cart') || 
+              localStorage.getItem('washupCart') || 
+              localStorage.getItem('washup_cart');
+    
+    if (!raw) return [];
+
+    let parsed = JSON.parse(raw);
+
+    // Nếu dữ liệu dạng Object (ví dụ: { "giat-say": {...} }), chuyển thành Array
+    if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+      parsed = Object.values(parsed);
+    }
+
+    // Đảm bảo trả về mảng hợp lệ
+    return Array.isArray(parsed) ? parsed : [];
   } catch (e) {
+    console.error("Lỗi đọc giỏ hàng:", e);
     return [];
   }
 }
 
-// 2. LƯU ĐỒNG BỘ VÀO TẤT CẢ CÁC KHÓA LOCALSTORAGE
+// 2. HÀM LƯU ĐỒNG BỘ VÀO TẤT CẢ CÁC KHÓA (GIÚP MỌI TRANG ĐỀU ĐỌC ĐƯỢC)
 function saveCart(cart) {
   const json = JSON.stringify(cart);
   localStorage.setItem('cart', json);
@@ -21,17 +34,17 @@ function saveCart(cart) {
 // 3. CẬP NHẬT BADGE TRÊN HEADER
 function updateCartBadge() {
   const cart = getCart();
-  const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalCount = cart.reduce((sum, item) => sum + (Number(item.quantity) || 1), 0);
   const badge = document.getElementById('cart-badge');
   if (badge) badge.innerText = totalCount;
 }
 
-// 4. RENDER BẢNG GIỎ HÀNG
+// 4. RENDER GIỎ HÀNG TRÊN CART.HTML
 function renderCart() {
   const cartContainer = document.getElementById('cart-items');
   const totalPriceElement = document.getElementById('total-price');
   const emptyCartMsg = document.getElementById('empty-cart-message');
-  const cartWrapper = document.getElementById('cart-content-wrapper');
+  const cartWrapper = document.getElementById('cart-content-wrapper') || document.getElementById('cart-table');
 
   updateCartBadge();
 
@@ -39,7 +52,7 @@ function renderCart() {
 
   const cart = getCart();
 
-  // TRẠNG THÁI GIỎ HÀNG RỖNG
+  // TRẠNG THÁI GIỎ HÀNG RỖNG (HÌNH 5.5)
   if (cart.length === 0) {
     if (cartWrapper) cartWrapper.style.display = 'none';
     if (emptyCartMsg) emptyCartMsg.style.display = 'block';
@@ -55,30 +68,38 @@ function renderCart() {
   let totalMoney = 0;
 
   cart.forEach((item, index) => {
-    const itemSubtotal = item.price * item.quantity;
+    // Ép kiểu dữ liệu an toàn tránh lỗi NaN
+    const price = Number(item.price) || 0;
+    const qty = Number(item.quantity) || 1;
+    const itemSubtotal = price * qty;
     totalMoney += itemSubtotal;
 
+    // Chuẩn hóa đường dẫn ảnh và tên sản phẩm
+    const imgName = item.image || item.img || 'images/giat-say.jpg';
+    const title = item.name || item.title || 'Dịch vụ';
+
     const tr = document.createElement('tr');
+    tr.style.borderBottom = '1px solid #e5eaf3';
     tr.innerHTML = `
-      <td style="text-align: center;">
-        <img src="${item.image}" alt="${item.name}" style="width: 55px; height: 55px; object-fit: cover; border-radius: 6px;">
+      <td style="text-align: center; padding: 12px;">
+        <img src="${imgName}" alt="${title}" style="width: 55px; height: 55px; object-fit: cover; border-radius: 6px;" onerror="this.src='https://via.placeholder.com/60'">
       </td>
-      <td><strong>${item.name}</strong></td>
-      <td>${Number(item.price).toLocaleString('vi-VN')} ₫</td>
-      <td>
+      <td style="padding: 12px;"><strong>${title}</strong></td>
+      <td style="padding: 12px;">${price.toLocaleString('vi-VN')} ₫</td>
+      <td style="padding: 12px;">
         <div style="display: flex; align-items: center; gap: 8px;">
-          <button type="button" class="qty-btn btn-minus">-</button>
-          <span style="font-weight: bold; min-width: 18px; text-align: center;">${item.quantity}</span>
-          <button type="button" class="qty-btn btn-plus">+</button>
+          <button type="button" class="qty-btn btn-minus" style="width:28px; height:28px; cursor:pointer;">-</button>
+          <span style="font-weight: bold; min-width: 18px; text-align: center;">${qty}</span>
+          <button type="button" class="qty-btn btn-plus" style="width:28px; height:28px; cursor:pointer;">+</button>
         </div>
       </td>
-      <td style="font-weight: bold; color: #0645ad;">${itemSubtotal.toLocaleString('vi-VN')} ₫</td>
-      <td>
-        <button type="button" class="btn-remove">Xóa</button>
+      <td style="padding: 12px; font-weight: bold; color: #0645ad;">${itemSubtotal.toLocaleString('vi-VN')} ₫</td>
+      <td style="padding: 12px;">
+        <button type="button" class="btn-remove" style="padding: 6px 12px; background:#dc3545; color:#fff; border:none; border-radius:4px; cursor:pointer;">Xóa</button>
       </td>
     `;
 
-    // Gán sự kiện trực tiếp bằng JS (không lo lỗi onclick HTML)
+    // Gán sự kiện click trực tiếp bằng JS
     tr.querySelector('.btn-minus').onclick = function() { changeQuantity(index, -1); };
     tr.querySelector('.btn-plus').onclick = function() { changeQuantity(index, 1); };
     tr.querySelector('.btn-remove').onclick = function() { removeItem(index); };
@@ -95,7 +116,7 @@ function renderCart() {
 function changeQuantity(index, delta) {
   let cart = getCart();
   if (cart[index]) {
-    cart[index].quantity += delta;
+    cart[index].quantity = (Number(cart[index].quantity) || 1) + delta;
     if (cart[index].quantity <= 0) {
       cart.splice(index, 1);
     }
@@ -104,7 +125,7 @@ function changeQuantity(index, delta) {
   }
 }
 
-// 6. XÓA SẢN PHẨM KHỎI GIỎ
+// 6. XÓA SẢN PHẨM KHỎI GIỎ HÀNG
 function removeItem(index) {
   let cart = getCart();
   if (cart[index]) {
@@ -114,7 +135,7 @@ function removeItem(index) {
   }
 }
 
-// 7. THÊM SẢN PHẨM MỚI VÀO GIỎ (DÙNG CHO TRANG PRODUCTS / DETAIL)
+// 7. THÊM SẢN PHẨM MỚI VÀO GIỎ (DÙNG CHO CÁC TRANG DỊCH VỤ)
 function addToCart(productId) {
   let cart = getCart();
   const allProducts = window.products || (typeof products !== 'undefined' ? products : []);
@@ -127,7 +148,7 @@ function addToCart(productId) {
 
   const existing = cart.find(p => p.id === productId);
   if (existing) {
-    existing.quantity += 1;
+    existing.quantity = (Number(existing.quantity) || 1) + 1;
   } else {
     cart.push({
       id: product.id,
@@ -148,9 +169,11 @@ function addToCart(productId) {
   alert(`Đã thêm "${product.name}" vào giỏ hàng!`);
 }
 
-// Gán hàm vào window scope
+// Gán biến toàn cục
 window.addToCart = addToCart;
 window.renderCart = renderCart;
+window.removeItem = removeItem;
+window.changeQuantity = changeQuantity;
 
 // TỰ ĐỘNG CHẠY KHI TẢI TRANG
 document.addEventListener('DOMContentLoaded', renderCart);
