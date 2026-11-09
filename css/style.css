@@ -473,12 +473,22 @@ transform: none;
     margin-left: 0;
   }
 
-  .header-inner > .main-nav {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    position: static;
-    transform: none;
-  }
+ .header-inner > .main-nav {
+  grid-column: 1 / -1;
+  grid-row: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+
+  position: static;
+  transform: none;
+}
 }
 
 /* Điều chỉnh bổ sung khi vùng hiển thị không vượt quá 480px */
