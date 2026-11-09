@@ -1,119 +1,271 @@
 
-/* WASHUP - Buoi 3 / Buoc 2
- * Hien thi danh sach dich vu tu du lieu trong products.js
+/* WASHUP - Buoi 3 / Buoc 3
+ * Tim kiem theo ten, loc theo danh muc, sap xep gia.
+ * Su dung mang products tu products.js va ham renderProducts tu catalog.js.
+ * Khong thay doi mang products goc.
  */
 
-function renderProducts(list) {
-  const grid = document.getElementById('products-list');
-  const empty = document.getElementById('products-empty');
+(function () {
+  'use strict';
 
-  if (!grid) return;
-
-  grid.replaceChildren();
-
-  if (empty) {
-    empty.hidden = list.length !== 0;
+  // Chuan hoa chuoi de ho tro tim kiem khong dau
+  function normalizeText(value) {
+    return String(value ?? '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/đ/g, 'd')
+      .replace(/Đ/g, 'D')
+      .toLocaleLowerCase('vi')
+      .trim();
   }
 
-  list.forEach(function (product) {
-    // Tao the card dich vu
-    const card = document.createElement('article');
-    card.className = 'product-card';
+  // Tim kiem dich vu theo ten
+  function searchByName(list, keyword) {
+    const normalizedKeyword = normalizeText(keyword);
 
-    // Hinh anh va lien ket den trang chi tiet
-    const imageLink = document.createElement('a');
-    imageLink.className = 'product-image-link';
-    imageLink.href =
-      'service-detail.html?id=' + encodeURIComponent(product.id);
+    if (!normalizedKeyword) {
+      return [...list];
+    }
 
-    const img = document.createElement('img');
-    img.src = product.image;
-    img.alt = 'Hinh minh hoa ' + product.name;
-    img.loading = 'lazy';
+    return list.filter(function (product) {
+      return normalizeText(product.name).includes(normalizedKeyword);
+    });
+  }
 
-    imageLink.appendChild(img);
+  // Loc dich vu theo danh muc
+  function filterByCategory(list, category) {
+    if (!category || category === 'all') {
+      return [...list];
+    }
 
-    // Thong tin dich vu
-    const info = document.createElement('div');
-    info.className = 'product-info';
+    return list.filter(function (product) {
+      return product.category === category;
+    });
+  }
 
-    const category = document.createElement('span');
-    category.className = 'product-category';
-    category.textContent = product.category;
+  // Sap xep dich vu theo gia
+  function sortByPrice(list, order) {
+    const result = [...list];
 
-    const title = document.createElement('h3');
-    title.textContent = product.name;
+    if (order === 'asc') {
+      return result.sort(function (a, b) {
+        return a.price - b.price;
+      });
+    }
 
-    const shop = document.createElement('p');
-    shop.className = 'product-shop';
+    if (order === 'desc') {
+      return result.sort(function (a, b) {
+        return b.price - a.price;
+      });
+    }
 
-    const strong = document.createElement('strong');
-    strong.textContent = 'Tiệm cung cấp: ';
+    return result;
+  }
 
-    shop.append(
-      strong,
-      document.createTextNode(product.shopName || 'Tiệm minh họa')
+  // Ket hop tim kiem, loc va sap xep
+  function getFilteredProducts(list, keyword, category, order) {
+    const searched = searchByName(list, keyword);
+    const filtered = filterByCategory(searched, category);
+
+    return sortByPrice(filtered, order);
+  }
+
+  // Tao truong nhap lieu va nhan
+  function createControl(tag, id, labelText, className) {
+    const field = document.createElement('div');
+    field.className = 'catalog-field';
+
+    const label = document.createElement('label');
+    label.htmlFor = id;
+    label.textContent = labelText;
+
+    const control = document.createElement(tag);
+    control.id = id;
+    control.className = className;
+
+    field.append(label, control);
+
+    return {
+      field: field,
+      control: control
+    };
+  }
+
+  // Khoi tao cac bo loc tren trang
+  function initCatalogFilters() {
+    const listElement = document.getElementById('products-list');
+
+    if (!listElement || document.getElementById('catalog-toolbar')) {
+      return;
+    }
+
+    if (
+      typeof products === 'undefined' ||
+      !Array.isArray(products) ||
+      typeof renderProducts !== 'function'
+    ) {
+      console.error(
+        'WASHUP: Can tai products.js va catalog.js truoc catalog-filters.js.'
+      );
+      return;
+    }
+
+    // Tao khu vuc tim kiem va loc
+    const toolbar = document.createElement('div');
+    toolbar.id = 'catalog-toolbar';
+    toolbar.className = 'catalog-toolbar';
+    toolbar.setAttribute('role', 'search');
+    toolbar.setAttribute(
+      'aria-label',
+      'Tim kiem va loc dich vu giat ui'
     );
 
-    const description = document.createElement('p');
-    description.className = 'product-description';
-    description.textContent = product.description;
-
-    // Gia tien va don vi tinh
-    const bottom = document.createElement('div');
-    bottom.className = 'product-bottom';
-
-    const price = document.createElement('p');
-    price.className = 'product-price';
-    price.appendChild(
-      document.createTextNode(formatCurrency(product.price) + ' ')
+    // O tim kiem
+    const search = createControl(
+      'input',
+      'catalog-search',
+      'Tim theo ten dich vu',
+      'catalog-input'
     );
 
-    const unit = document.createElement('span');
-    unit.textContent = '/ ' + product.unit;
+    search.control.type = 'search';
+    search.control.placeholder = 'Vi du: giat, ui, giay...';
+    search.control.autocomplete = 'off';
 
-    price.appendChild(unit);
+    // Danh muc dich vu
+    const category = createControl(
+      'select',
+      'catalog-category',
+      'Danh muc dich vu',
+      'catalog-select'
+    );
 
-    // Nhom nut thao tac
-    const actions = document.createElement('div');
-    actions.className = 'product-actions-group';
+    const allOption = document.createElement('option');
+    allOption.value = 'all';
+    allOption.textContent = 'Tat ca danh muc';
 
-    // Nut them vao gio hang
-    const addButton = document.createElement('button');
-    addButton.type = 'button';
-    addButton.className = 'btn-add-cart-card';
-    addButton.textContent = '+ Thêm giỏ';
-    addButton.addEventListener('click', function () {
-      if (typeof addToCart === 'function') {
-        addToCart(product.id);
-      }
+    category.control.appendChild(allOption);
+
+    const categories = [
+      ...new Set(products.map(function (product) {
+        return product.category;
+      }))
+    ].sort(function (a, b) {
+      return a.localeCompare(b, 'vi');
     });
 
-    // Nut xem chi tiet
-    const detail = document.createElement('a');
-    detail.className = 'product-link';
-    detail.href = imageLink.href;
-    detail.textContent = 'Xem chi tiết →';
+    categories.forEach(function (value) {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = value;
 
-    actions.append(addButton, detail);
-    bottom.append(price, actions);
+      category.control.appendChild(option);
+    });
 
-    // Hoan thanh card dich vu
-    info.append(category, title, shop, description, bottom);
-    card.append(imageLink, info);
-    grid.appendChild(card);
-  });
-}
+    // Sap xep theo gia
+    const sort = createControl(
+      'select',
+      'catalog-sort',
+      'Sap xep theo gia',
+      'catalog-select'
+    );
 
-// Hien thi danh sach sau khi HTML duoc tai
-function initializeCatalog() {
-  if (typeof products !== 'undefined') {
-    renderProducts(products);
+    const sortOptions = [
+      ['', 'Thu tu mac dinh'],
+      ['asc', 'Gia: thap den cao'],
+      ['desc', 'Gia: cao xuong thap']
+    ];
+
+    sortOptions.forEach(function (item) {
+      const option = document.createElement('option');
+      option.value = item[0];
+      option.textContent = item[1];
+
+      sort.control.appendChild(option);
+    });
+
+    // Nut xoa bo loc
+    const action = document.createElement('div');
+    action.className = 'catalog-reset-wrap';
+
+    const reset = document.createElement('button');
+    reset.type = 'button';
+    reset.id = 'catalog-reset';
+    reset.className = 'catalog-reset';
+    reset.textContent = 'Xoa bo loc';
+
+    action.appendChild(reset);
+
+    // Dua cac truong vao thanh cong cu
+    toolbar.append(
+      search.field,
+      category.field,
+      sort.field,
+      action
+    );
+
+    listElement.parentNode.insertBefore(toolbar, listElement);
+
+    // Khu vuc hien thi so luong ket qua
+    const summary = document.createElement('p');
+    summary.id = 'catalog-result-count';
+    summary.className = 'catalog-result-count';
+    summary.setAttribute('role', 'status');
+    summary.setAttribute('aria-live', 'polite');
+
+    listElement.parentNode.insertBefore(summary, listElement);
+
+    // Ap dung cac dieu kien tim kiem, loc va sap xep
+    function applyFilters() {
+      const result = getFilteredProducts(
+        products,
+        search.control.value,
+        category.control.value,
+        sort.control.value
+      );
+
+      renderProducts(result);
+
+      summary.textContent =
+        'Hien thi ' + result.length + ' / ' +
+        products.length + ' dich vu';
+    }
+
+    // Lang nghe cac thao tac cua nguoi dung
+    search.control.addEventListener('input', applyFilters);
+    category.control.addEventListener('change', applyFilters);
+    sort.control.addEventListener('change', applyFilters);
+
+    // Dat lai cac bo loc
+    reset.addEventListener('click', function () {
+      search.control.value = '';
+      category.control.value = 'all';
+      sort.control.value = '';
+
+      applyFilters();
+      search.control.focus();
+    });
+
+    // Hien thi danh sach dich vu ban dau
+    applyFilters();
   }
-}
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initializeCatalog);
-} else {
-  initializeCatalog();
-}
+  // Cong khai cac ham de phuc vu kiem thu
+  window.WashupCatalogFilters = {
+    normalizeText: normalizeText,
+    searchByName: searchByName,
+    filterByCategory: filterByCategory,
+    sortByPrice: sortByPrice,
+    getFilteredProducts: getFilteredProducts
+  };
+
+  // Khoi tao sau khi HTML duoc tai
+  if (document.readyState === 'loading') {
+    document.addEventListener(
+      'DOMContentLoaded',
+      initCatalogFilters
+    );
+  } else {
+    initCatalogFilters();
+  }
+})();
