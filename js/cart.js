@@ -1,116 +1,153 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Giỏ hàng - WASHUP</title>
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    .cart-container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .cart-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      background: #fff;
-    }
-    .cart-table th, .cart-table td {
-      padding: 14px;
-      text-align: left;
-      border-bottom: 1px solid #e5eaf3;
-    }
-    .cart-table th {
-      background-color: #f8fafc;
-      color: #14213d;
-    }
-    .qty-btn {
-      width: 28px;
-      height: 28px;
-      border: 1px solid #cbd5e1;
-      background: #fff;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .qty-btn:hover {
-      background: #e2e8f0;
-    }
-    .btn-remove {
-      padding: 6px 12px;
-      background-color: #dc3545;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    .btn-remove:hover {
-      background-color: #bb2d3b;
-    }
-    .empty-box {
-      text-align: center;
-      padding: 50px 20px;
-      background: #f8fafc;
-      border-radius: 12px;
-      border: 1px dashed #cbd5e1;
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
+// 1. LẤY MẢNG GIỎ HÀNG TỪ LOCALSTORAGE
+function getCart() {
+  try {
+    return JSON.parse(localStorage.getItem('cart')) || JSON.parse(localStorage.getItem('washupCart')) || [];
+  } catch (e) {
+    return [];
+  }
+}
 
-  <!-- HEADER -->
-  <header style="padding: 15px 30px; background-color: #fff; border-bottom: 1px solid #e5eaf3; display: flex; justify-content: space-between; align-items: center;">
-    <a href="index.html" style="font-weight: bold; text-decoration: none; font-size: 22px; color: #14213d;">WASHUP</a>
-    <nav style="display: flex; gap: 20px; align-items: center;">
-      <a href="index.html" style="text-decoration: none; color: #475569;">Trang chủ</a>
-      <a href="products.html" style="text-decoration: none; color: #475569;">Sản phẩm / Dịch vụ</a>
-      <a href="cart.html" style="font-weight: bold; color: #0645ad; text-decoration: none;">
-        Giỏ hàng (<span id="cart-badge">0</span>)
-      </a>
-    </nav>
-  </header>
+// 2. LƯU GIỎ HÀNG VÀO LOCALSTORAGE
+function saveCart(cart) {
+  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('washupCart', JSON.stringify(cart));
+}
 
-  <!-- NỘI DUNG GIỎ HÀNG -->
-  <main class="cart-container">
-    <h2>Giỏ hàng của bạn</h2>
+// 3. CẬP NHẬT BADGE TRÊN HEADER
+function updateCartBadge() {
+  const cart = getCart();
+  const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const badge = document.getElementById('cart-badge');
+  if (badge) badge.innerText = totalCount;
+}
 
-    <!-- THÔNG BÁO GIỎ HÀNG RỖNG -->
-    <div id="empty-cart-message" class="empty-box" style="display: none;">
-      <p style="font-size: 18px; color: #64748b; margin-bottom: 15px;">Giỏ hàng của bạn hiện đang rỗng!</p>
-      <a href="products.html" style="display: inline-block; padding: 10px 20px; background-color: #0645ad; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">Tiếp tục xem dịch vụ</a>
-    </div>
+// 4. CHỨC NĂNG THÊM SẢN PHẨM VÀO GIỎ HÀNG
+function addToCart(productId) {
+  let cart = getCart();
+  
+  // Lấy mảng products từ window
+  const allProducts = window.products || (typeof products !== 'undefined' ? products : []);
+  const product = allProducts.find(p => p.id === productId);
 
-    <!-- BẢNG GIỎ HÀNG KHUYẾN NGHỊ -->
-    <div id="cart-content-wrapper">
-      <table id="cart-table" class="cart-table">
-        <thead>
-          <tr>
-            <th style="width: 80px;">Hình ảnh</th>
-            <th>Tên dịch vụ</th>
-            <th>Đơn giá</th>
-            <th>Số lượng</th>
-            <th>Thành tiền</th>
-            <th>Thao tác</th>
-          </tr>
-        </thead>
-        <tbody id="cart-items">
-          <!-- JS Render ở đây -->
-        </tbody>
-      </table>
+  if (!product) {
+    alert("Không tìm thấy sản phẩm!");
+    return;
+  }
 
-      <div style="margin-top: 25px; text-align: right; font-size: 20px; font-weight: bold;">
-        <span>Tổng cộng: </span>
-        <span id="total-price" style="color: #0645ad;">0 ₫</span>
-      </div>
-    </div>
-  </main>
+  const existingItem = cart.find(item => item.id === productId);
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      quantity: 1
+    });
+  }
 
-  <!-- CHÚ Ý: CHỈ NHÚNG 2 FILE SCRIPT NÀY, KHÔNG VIẾT THÊM THẺ <script> NÀO KHÁC BÊN DƯỚI -->
-  <script src="js/products.js"></script>
-  <script src="js/cart.js"></script>
-</body>
-</html>
+  saveCart(cart);
+  updateCartBadge();
+  
+  // Nút render lại giỏ ngay nếu đang đứng ở cart.html
+  if (document.getElementById('cart-items')) {
+    renderCart();
+  }
+
+  alert(`Đã thêm "${product.name}" vào giỏ hàng!`);
+}
+
+// 5. THAY ĐỔI SỐ LƯỢNG (TĂNG/GIẢM)
+function changeQuantity(index, delta) {
+  let cart = getCart();
+  if (cart[index]) {
+    cart[index].quantity += delta;
+    if (cart[index].quantity <= 0) {
+      cart.splice(index, 1);
+    }
+    saveCart(cart);
+    renderCart();
+  }
+}
+
+// 6. XÓA SẢN PHẨM KHỎI GIỎ
+function removeItem(index) {
+  let cart = getCart();
+  if (cart[index]) {
+    cart.splice(index, 1);
+    saveCart(cart);
+    renderCart();
+  }
+}
+
+// 7. RENDER BẢNG GIỎ HÀNG TẠI CART.HTML
+function renderCart() {
+  const cartContainer = document.getElementById('cart-items');
+  const totalPriceElement = document.getElementById('total-price');
+  const emptyCartMsg = document.getElementById('empty-cart-message');
+  const cartWrapper = document.getElementById('cart-content-wrapper');
+
+  updateCartBadge();
+
+  if (!cartContainer) return; // Nếu không ở cart.html thì bỏ qua
+
+  const cart = getCart();
+
+  // Xử lý giỏ hàng RỖNG
+  if (cart.length === 0) {
+    if (cartWrapper) cartWrapper.style.display = 'none';
+    if (emptyCartMsg) emptyCartMsg.style.display = 'block';
+    if (totalPriceElement) totalPriceElement.innerText = '0 ₫';
+    return;
+  }
+
+  // Xử lý CÓ HÀNG
+  if (cartWrapper) cartWrapper.style.display = 'block';
+  if (emptyCartMsg) emptyCartMsg.style.display = 'none';
+
+  cartContainer.innerHTML = '';
+  let totalMoney = 0;
+
+  cart.forEach((item, index) => {
+    const itemSubtotal = item.price * item.quantity;
+    totalMoney += itemSubtotal;
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td style="text-align: center;">
+        <img src="${item.image}" alt="${item.name}" style="width: 55px; height: 55px; object-fit: cover; border-radius: 6px;">
+      </td>
+      <td><strong>${item.name}</strong></td>
+      <td>${Number(item.price).toLocaleString('vi-VN')} ₫</td>
+      <td>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <button type="button" class="qty-btn btn-minus">-</button>
+          <span style="font-weight: bold; min-width: 18px; text-align: center;">${item.quantity}</span>
+          <button type="button" class="qty-btn btn-plus">+</button>
+        </div>
+      </td>
+      <td style="font-weight: bold; color: #0645ad;">${itemSubtotal.toLocaleString('vi-VN')} ₫</td>
+      <td>
+        <button type="button" class="btn-remove">Xóa</button>
+      </td>
+    `;
+
+    // Gán sự kiện trực tiếp bằng JS
+    tr.querySelector('.btn-minus').onclick = function() { changeQuantity(index, -1); };
+    tr.querySelector('.btn-plus').onclick = function() { changeQuantity(index, 1); };
+    tr.querySelector('.btn-remove').onclick = function() { removeItem(index); };
+
+    cartContainer.appendChild(tr);
+  });
+
+  if (totalPriceElement) {
+    totalPriceElement.innerText = totalMoney.toLocaleString('vi-VN') + ' ₫';
+  }
+}
+
+// Gán lên scope toàn cục
+window.addToCart = addToCart;
+
+// TỰ ĐỘNG CHẠY KHI TẢI TRANG
+document.addEventListener('DOMContentLoaded', renderCart);
