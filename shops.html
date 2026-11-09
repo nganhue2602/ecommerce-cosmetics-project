@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -10,22 +9,28 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Bỏ qua menu để đến nội dung</a>
+  
+  <!-- HEADER -->
   <header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="WASHUP – Về trang chủ">
-      <img src="images/washup-logo-wordmark.png" width="176" height="52" alt="WASHUP" />
-    </a>
-    <nav class="main-nav" aria-label="Điều hướng chính">
-      <a href="index.html">Trang chủ</a>
-<a href="shops.html" aria-current="page">Tiệm giặt</a>
-<a href="products.html">Dịch vụ</a>
-<a href="about.html">Giới thiệu</a>
-    </nav>
-    <a class="header-cta" href="shops.html">Tìm tiệm giặt <span aria-hidden="true">↗</span></a>
-  </div>
-</header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="WASHUP – Về trang chủ">
+        <img src="images/washup-logo-wordmark.png" width="176" height="52" alt="WASHUP" />
+      </a>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="index.html">Trang chủ</a>
+        <a href="shops.html" aria-current="page">Tiệm giặt</a>
+        <a href="products.html">Dịch vụ</a>
+        <!-- ĐÃ THÊM: NÚT GIỎ HÀNG THỐNG NHẤT -->
+        <a href="cart.html" class="nav-cart">
+          Giỏ hàng (<span id="cart-badge">0</span>)
+        </a>
+        <a href="about.html">Giới thiệu</a>
+      </nav>
+      <a class="header-cta" href="shops.html">Tìm tiệm giặt <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
   <main id="main-content">
-    <!-- Khung trang tại BƯỚC 4: nội dung chi tiết xây dựng ở các bước sau. -->
     <section class="page-hero">
       <div class="container">
         <span class="section-kicker">WASHUP · Danh sách tiệm giặt</span>
@@ -34,106 +39,96 @@
         <a class="btn btn-secondary" href="products.html">Xem các dịch vụ <span aria-hidden="true">↗</span></a>
       </div>
     </section>
-  
-<section class="shops-section" aria-labelledby="shops-heading">
-  <div class="container">
-    <div class="shops-heading">
-      <span class="section-kicker">KHÁM PHÁ NHÀ CUNG CẤP</span>
-      <h2 id="shops-heading">Các tiệm giặt trên WASHUP</h2>
-      <p>Khám phá các tiệm giặt minh họa và những dịch vụ
-        được giới thiệu trên nền tảng WASHUP.</p>
-    </div>
 
-    <div class="shops-grid">
-
-      <!-- TIỆM A -->
-      <article class="shop-card">
-        <img
-          src="images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg"
-          alt="Hình minh họa dịch vụ giặt sấy"
-          loading="lazy"
-        />
-        <div class="shop-card-body">
-          <span class="shop-tag">GIẶT SẤY THƯỜNG NGÀY</span>
-          <h3>Tiệm minh họa A</h3>
-          <p>Nhóm dịch vụ chăm sóc quần áo thường ngày,
-            phù hợp với nhu cầu sinh hoạt của sinh viên
-            và người đi làm.</p>
-          <h4>Dịch vụ cung cấp</h4>
-          <ul>
-            <li>Giặt sấy quần áo</li>
-            <li>Giặt nhanh</li>
-            <li>Ủi quần áo</li>
-          </ul>
-          <a class="btn btn-primary" href="products.html">
-            Xem danh sách dịch vụ
-          </a>
+    <section class="shops-section" aria-labelledby="shops-heading">
+      <div class="container">
+        <div class="shops-heading">
+          <span class="section-kicker">KHÁM PHÁ NHÀ CUNG CẤP</span>
+          <h2 id="shops-heading">Các tiệm giặt trên WASHUP</h2>
+          <p>Khám phá các tiệm giặt minh họa và những dịch vụ được giới thiệu trên nền tảng WASHUP.</p>
         </div>
-      </article>
 
-      <!-- TIỆM B -->
-      <article class="shop-card">
-        <img
-          src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
-          alt="Hình minh họa trang phục được chăm sóc"
-          loading="lazy"
-        />
-        <div class="shop-card-body">
-          <span class="shop-tag">CHĂM SÓC CHUYÊN BIỆT</span>
-          <h3>Tiệm minh họa B</h3>
-          <p>Nhóm dịch vụ dành cho trang phục cần
-            chăm sóc riêng và vệ sinh giày thể thao.</p>
-          <h4>Dịch vụ cung cấp</h4>
-          <ul>
-            <li>Giặt hấp quần áo</li>
-            <li>Vệ sinh giày thể thao</li>
-          </ul>
-          <a class="btn btn-primary" href="products.html">
-            Xem danh sách dịch vụ
-          </a>
+        <div class="shops-grid">
+          <!-- TIỆM A -->
+          <article class="shop-card">
+            <img
+              src="images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg"
+              alt="Hình minh họa dịch vụ giặt sấy"
+              loading="lazy"
+            />
+            <div class="shop-card-body">
+              <span class="shop-tag">GIẶT SẤY THƯỜNG NGÀY</span>
+              <h3>Tiệm minh họa A</h3>
+              <p>Nhóm dịch vụ chăm sóc quần áo thường ngày, phù hợp với nhu cầu sinh hoạt của sinh viên và người đi làm.</p>
+              <h4>Dịch vụ cung cấp</h4>
+              <ul>
+                <li>Giặt sấy quần áo</li>
+                <li>Giặt nhanh</li>
+                <li>Ủi quần áo</li>
+              </ul>
+              <a class="btn btn-primary" href="products.html">Xem danh sách dịch vụ</a>
+            </div>
+          </article>
+
+          <!-- TIỆM B -->
+          <article class="shop-card">
+            <img
+              src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+              alt="Hình minh họa trang phục được chăm sóc"
+              loading="lazy"
+            />
+            <div class="shop-card-body">
+              <span class="shop-tag">CHĂM SÓC CHUYÊN BIỆT</span>
+              <h3>Tiệm minh họa B</h3>
+              <p>Nhóm dịch vụ dành cho trang phục cần chăm sóc riêng và vệ sinh giày thể thao.</p>
+              <h4>Dịch vụ cung cấp</h4>
+              <ul>
+                <li>Giặt hấp quần áo</li>
+                <li>Vệ sinh giày thể thao</li>
+              </ul>
+              <a class="btn btn-primary" href="products.html">Xem danh sách dịch vụ</a>
+            </div>
+          </article>
+
+          <!-- TIỆM C -->
+          <article class="shop-card">
+            <img
+              src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+              alt="Hình minh họa chăn ga và đồ gia dụng"
+              loading="lazy"
+            />
+            <div class="shop-card-body">
+              <span class="shop-tag">GIẶT ĐỒ GIA DỤNG</span>
+              <h3>Tiệm minh họa C</h3>
+              <p>Nhóm dịch vụ làm sạch chăn mền, rèm cửa và thú bông trong sinh hoạt gia đình.</p>
+              <h4>Dịch vụ cung cấp</h4>
+              <ul>
+                <li>Giặt chăn mền</li>
+                <li>Giặt rèm cửa</li>
+                <li>Giặt thú bông</li>
+              </ul>
+              <a class="btn btn-primary" href="products.html">Xem danh sách dịch vụ</a>
+            </div>
+          </article>
         </div>
-      </article>
 
-      <!-- TIỆM C -->
-      <article class="shop-card">
-        <img
-          src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
-          alt="Hình minh họa chăn ga và đồ gia dụng"
-          loading="lazy"
-        />
-        <div class="shop-card-body">
-          <span class="shop-tag">GIẶT ĐỒ GIA DỤNG</span>
-          <h3>Tiệm minh họa C</h3>
-          <p>Nhóm dịch vụ làm sạch chăn mền, rèm cửa
-            và thú bông trong sinh hoạt gia đình.</p>
-          <h4>Dịch vụ cung cấp</h4>
-          <ul>
-            <li>Giặt chăn mền</li>
-            <li>Giặt rèm cửa</li>
-            <li>Giặt thú bông</li>
-          </ul>
-          <a class="btn btn-primary" href="products.html">
-            Xem danh sách dịch vụ
-          </a>
-        </div>
-      </article>
-
-    </div>
-
-    <p class="shops-disclaimer">
-      Lưu ý: Tên tiệm, thông tin dịch vụ và hình ảnh
-      được sử dụng để minh họa cho bài tập học phần.
-      Đây không phải danh sách đối tác thực tế của WASHUP.
-    </p>
-  </div>
-</section>
-
+        <p class="shops-disclaimer">
+          Lưu ý: Tên tiệm, thông tin dịch vụ và hình ảnh được sử dụng để minh họa cho bài tập học phần. Đây không phải danh sách đối tác thực tế của WASHUP.
+        </p>
+      </div>
+    </section>
   </main>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
-  <div class="container footer-inner">
-    <div><strong>WASHUP</strong><p>Nền tảng kết nối khách hàng và các tiệm giặt ủi.</p></div>
-    <p class="footer-note">Giao diện minh họa cho bài tập HTML5 &amp; CSS3 · Buổi 2</p>
-  </div>
-</footer>
+    <div class="container footer-inner">
+      <div><strong>WASHUP</strong><p>Nền tảng kết nối khách hàng và các tiệm giặt ủi.</p></div>
+      <p class="footer-note">Giao diện minh họa cho bài tập HTML5, CSS3 &amp; JavaScript · Buổi 3</p>
+    </div>
+  </footer>
+
+  <!-- ĐÃ THÊM: TỆP JAVASCRIPT ĐỒNG BỘ GIỎ HÀNG -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
 </body>
 </html>
