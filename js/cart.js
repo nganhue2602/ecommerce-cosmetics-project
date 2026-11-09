@@ -1,9 +1,8 @@
 // 1. Khởi tạo mảng giỏ hàng lấy từ localStorage (nếu có)
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let cart = JSON.parse(localStorage.getItem('cart')) || JSON.parse(localStorage.getItem('washupCart')) || [];
 
 // 2. Chức năng Thêm sản phẩm vào giỏ (Nếu trùng thì tăng số lượng)
 function addToCart(productId) {
-  // Tìm sản phẩm trong mảng 'products' (được khai báo ở js/products.js)
   if (typeof products === 'undefined') {
     console.error("Chưa tải mảng products!");
     return;
@@ -15,7 +14,6 @@ function addToCart(productId) {
     return;
   }
 
-  // Kiểm tra sản phẩm đã có trong giỏ chưa
   const existingItem = cart.find(item => item.id === productId);
 
   if (existingItem) {
@@ -39,7 +37,6 @@ function updateQuantity(productId, newQuantity) {
   const item = cart.find(item => item.id === productId);
   if (item) {
     item.quantity = parseInt(newQuantity);
-    // Nếu giảm số lượng về <= 0 thì tự động xóa khỏi giỏ
     if (item.quantity <= 0) {
       removeFromCart(productId);
       return;
@@ -57,6 +54,7 @@ function removeFromCart(productId) {
 // 5. Hàm Lưu giỏ hàng vào localStorage và Cập nhật Giao diện
 function saveAndRender() {
   localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('washupCart', JSON.stringify(cart));
   renderCart();
   updateCartBadge();
 }
@@ -68,10 +66,8 @@ function renderCart() {
   const emptyCartMsg = document.getElementById('empty-cart-message');
   const cartTable = document.getElementById('cart-table');
 
-  // Nếu trang hiện tại không có khung giỏ hàng thì dừng
   if (!cartContainer) return;
 
-  // Trường hợp Giỏ hàng RỖNG
   if (cart.length === 0) {
     if (cartTable) cartTable.style.display = 'none';
     if (emptyCartMsg) emptyCartMsg.style.display = 'block';
@@ -79,7 +75,6 @@ function renderCart() {
     return;
   }
 
-  // Trường hợp Giỏ hàng CÓ sản phẩm
   if (cartTable) cartTable.style.display = 'table';
   if (emptyCartMsg) emptyCartMsg.style.display = 'none';
 
@@ -90,6 +85,7 @@ function renderCart() {
     const itemSubtotal = item.price * item.quantity;
     totalMoney += itemSubtotal;
 
+    // ĐÃ SỬA: Bọc '${item.id}' trong dấu nháy đơn '' để truyền dạng String chuẩn
     html += `
       <tr>
         <td style="text-align: center;">
@@ -99,14 +95,14 @@ function renderCart() {
         <td>${item.price.toLocaleString('vi-VN')} ₫</td>
         <td>
           <div style="display: flex; align-items: center; gap: 5px;">
-            <button type="button" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+            <button type="button" onclick="updateQuantity('${item.id}', ${item.quantity - 1})">-</button>
             <span style="padding: 0 8px; font-weight: bold;">${item.quantity}</span>
-            <button type="button" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+            <button type="button" onclick="updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
           </div>
         </td>
         <td style="font-weight: bold; color: #d9534f;">${itemSubtotal.toLocaleString('vi-VN')} ₫</td>
         <td>
-          <button type="button" onclick="removeFromCart(${item.id})" style="background-color: #ff4d4f; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px;">Xóa</button>
+          <button type="button" onclick="removeFromCart('${item.id}')" style="background-color: #ff4d4f; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px;">Xóa</button>
         </td>
       </tr>
     `;
@@ -126,6 +122,11 @@ function updateCartBadge() {
     cartBadge.innerText = totalCount;
   }
 }
+
+// ĐÃ SỬA: Đưa các hàm lên scope window để HTML onclick nhận diện 100%
+window.addToCart = addToCart;
+window.updateQuantity = updateQuantity;
+window.removeFromCart = removeFromCart;
 
 // Chạy tự động khi tải trang
 document.addEventListener('DOMContentLoaded', () => {
