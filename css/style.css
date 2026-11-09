@@ -1472,18 +1472,36 @@ button:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+
+/* GIỎ HÀNG Ở GÓC PHẢI HEADER */
 .nav-cart {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  margin-left: 8px;
   text-decoration: none;
-  color: inherit;
+  color: #405274;
   position: relative;
+  border: 1px solid #e5eaf3;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.nav-cart:hover {
+  color: #0645ad;
+  background: #f0f5ff;
+  border-color: #0645ad;
 }
 
 #cart-badge {
-  font-size: 11px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 10px;
   font-weight: 700;
   background: #0645ad;
   color: white;
@@ -1494,4 +1512,5 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
 }
+
 
