@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -7,14 +8,16 @@
   <title>Danh sách dịch vụ | WASHUP</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/catalog-filters.css" />
+
   <style>
-    /* CSS bổ sung hỗ trợ nút Thêm vào giỏ hàng đẹp mắt trên card */
+    /* CSS bổ sung hỗ trợ nút Thêm vào giỏ hàng trên card */
     .product-actions-group {
       display: flex;
       gap: 8px;
       align-items: center;
       margin-top: 8px;
     }
+
     .btn-add-cart-card {
       background-color: #007bff;
       color: #ffffff;
@@ -26,11 +29,13 @@
       cursor: pointer;
       transition: background-color 0.2s ease;
     }
+
     .btn-add-cart-card:hover {
       background-color: #0056b3;
     }
   </style>
 </head>
+
 <body>
   <a class="skip-link" href="#main-content">Bỏ qua menu để đến nội dung</a>
 
@@ -40,17 +45,20 @@
       <a class="brand" href="index.html" aria-label="WASHUP – Về trang chủ">
         <img src="images/washup-logo-wordmark.png" width="176" height="52" alt="WASHUP" />
       </a>
+
       <nav class="main-nav" aria-label="Điều hướng chính">
         <a href="index.html">Trang chủ</a>
         <a href="shops.html">Tiệm giặt</a>
         <a href="products.html" aria-current="page">Dịch vụ</a>
-        <!-- GIỎ HÀNG VỚI BADGE SỐ LƯỢNG -->
         <a href="cart.html" class="nav-cart">
           Giỏ hàng (<span id="cart-badge">0</span>)
         </a>
         <a href="about.html">Giới thiệu</a>
       </nav>
-      <a class="header-cta" href="shops.html">Tìm tiệm giặt <span aria-hidden="true">↗</span></a>
+
+      <a class="header-cta" href="shops.html">
+        Tìm tiệm giặt <span aria-hidden="true">↗</span>
+      </a>
     </div>
   </header>
 
@@ -62,25 +70,30 @@
         <div class="products-hero-content">
           <span class="section-kicker">WASHUP · LAUNDRY CARE</span>
           <h1>Giặt sạch mỗi ngày,<br>thảnh thơi từng phút</h1>
+
           <p>
             Khám phá dịch vụ giặt ủi, combo tiết kiệm và các gói
             thành viên từ những tiệm giặt đối tác của WASHUP.
           </p>
+
           <div class="hero-actions">
             <a class="btn btn-primary" href="#all-services">Khám phá dịch vụ</a>
             <a class="btn btn-outline" href="#combos">Xem combo tiết kiệm</a>
           </div>
+
           <div class="hero-benefits">
             <span>✓ Nhiều dịch vụ lựa chọn</span>
             <span>✓ Dễ dàng tìm tiệm giặt</span>
             <span>✓ Gói linh hoạt</span>
           </div>
         </div>
+
         <div class="hero-visual">
           <img
             src="images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg"
             alt="Quần áo sạch sau khi giặt"
           >
+
           <div class="hero-floating-card">
             <span class="floating-icon">✦</span>
             <div>
@@ -92,7 +105,7 @@
       </div>
     </section>
 
-    <!-- 2. BEST SELLERS -->
+    <!-- 2. DỊCH VỤ NỔI BẬT -->
     <section class="products-section" id="best-sellers">
       <div class="container">
         <div class="section-heading">
@@ -109,22 +122,33 @@
         </p>
 
         <div class="products-grid products-grid-featured">
-          
+
           <!-- Dịch vụ 1 -->
           <article class="product-card">
             <a class="product-image-link" href="service-detail.html?id=giat-say">
-              <img src="images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg" alt="Quần áo đang được giặt" loading="lazy">
+              <img
+                src="images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg"
+                alt="Quần áo đang được giặt"
+                loading="lazy"
+              >
               <span class="product-ribbon">Gợi ý minh họa</span>
             </a>
+
             <div class="product-info">
               <span class="product-category">Giặt thường</span>
               <h3>Giặt sấy quần áo</h3>
               <p class="product-shop"><strong>Tiệm cung cấp:</strong> Tiệm minh họa A</p>
-              <p class="product-description">Giặt sạch quần áo hằng ngày, tiện lợi cho lịch trình bận rộn.</p>
+              <p class="product-description">
+                Giặt sạch quần áo hằng ngày, tiện lợi cho lịch trình bận rộn.
+              </p>
+
               <div class="product-bottom">
                 <p class="product-price">15.000đ <span>/ kg</span></p>
+
                 <div class="product-actions-group">
-                  <button type="button" class="btn-add-cart-card" onclick="addToCart('giat-say')">+ Thêm giỏ</button>
+                  <button type="button" class="btn-add-cart-card" onclick="addToCart('giat-say')">
+                    + Thêm giỏ
+                  </button>
                   <a class="product-link" href="service-detail.html?id=giat-say">Chi tiết →</a>
                 </div>
               </div>
@@ -134,18 +158,29 @@
           <!-- Dịch vụ 2 -->
           <article class="product-card">
             <a class="product-image-link" href="service-detail.html?id=chan-men">
-              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Chăn ga gối trên giường" loading="lazy">
+              <img
+                src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
+                alt="Chăn ga gối trên giường"
+                loading="lazy"
+              >
               <span class="product-ribbon">Đồ gia dụng</span>
             </a>
+
             <div class="product-info">
               <span class="product-category">Đồ gia dụng</span>
               <h3>Giặt chăn mền</h3>
               <p class="product-shop"><strong>Tiệm cung cấp:</strong> Tiệm minh họa C</p>
-              <p class="product-description">Làm sạch chăn mền và đồ dùng giường ngủ.</p>
+              <p class="product-description">
+                Làm sạch chăn mền và đồ dùng giường ngủ.
+              </p>
+
               <div class="product-bottom">
                 <p class="product-price">60.000đ <span>/ món</span></p>
+
                 <div class="product-actions-group">
-                  <button type="button" class="btn-add-cart-card" onclick="addToCart('chan-men')">+ Thêm giỏ</button>
+                  <button type="button" class="btn-add-cart-card" onclick="addToCart('chan-men')">
+                    + Thêm giỏ
+                  </button>
                   <a class="product-link" href="service-detail.html?id=chan-men">Chi tiết →</a>
                 </div>
               </div>
@@ -155,18 +190,29 @@
           <!-- Dịch vụ 3 -->
           <article class="product-card">
             <a class="product-image-link" href="service-detail.html?id=ui-quan-ao">
-              <img src="https://images.unsplash.com/photo-1489274495757-95c7c837b101?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Ủi đồ phẳng phiu sẵn sàng sử dụng" loading="lazy">
+              <img
+                src="https://images.unsplash.com/photo-1489274495757-95c7c837b101?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
+                alt="Ủi đồ phẳng phiu sẵn sàng sử dụng"
+                loading="lazy"
+              >
               <span class="product-ribbon">Chỉn chu mỗi ngày</span>
             </a>
+
             <div class="product-info">
               <span class="product-category">Hoàn thiện trang phục</span>
               <h3>Ủi quần áo</h3>
               <p class="product-shop"><strong>Tiệm cung cấp:</strong> Tiệm minh họa A</p>
-              <p class="product-description">Giúp trang phục phẳng phiu và sẵn sàng sử dụng.</p>
+              <p class="product-description">
+                Giúp trang phục phẳng phiu và sẵn sàng sử dụng.
+              </p>
+
               <div class="product-bottom">
                 <p class="product-price">10.000đ <span>/ món</span></p>
+
                 <div class="product-actions-group">
-                  <button type="button" class="btn-add-cart-card" onclick="addToCart('ui-quan-ao')">+ Thêm giỏ</button>
+                  <button type="button" class="btn-add-cart-card" onclick="addToCart('ui-quan-ao')">
+                    + Thêm giỏ
+                  </button>
                   <a class="product-link" href="service-detail.html?id=ui-quan-ao">Chi tiết →</a>
                 </div>
               </div>
@@ -176,18 +222,29 @@
           <!-- Dịch vụ 4 -->
           <article class="product-card">
             <a class="product-image-link" href="service-detail.html?id=ve-sinh-giay">
-              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Đôi giày thể thao" loading="lazy">
+              <img
+                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
+                alt="Đôi giày thể thao"
+                loading="lazy"
+              >
               <span class="product-ribbon">Chăm sóc giày</span>
             </a>
+
             <div class="product-info">
               <span class="product-category">Chăm sóc giày</span>
               <h3>Vệ sinh giày thể thao</h3>
               <p class="product-shop"><strong>Tiệm cung cấp:</strong> Tiệm minh họa B</p>
-              <p class="product-description">Chăm sóc giày để giữ vẻ ngoài sạch sẽ, gọn gàng.</p>
+              <p class="product-description">
+                Chăm sóc giày để giữ vẻ ngoài sạch sẽ, gọn gàng.
+              </p>
+
               <div class="product-bottom">
                 <p class="product-price">40.000đ <span>/ đôi</span></p>
+
                 <div class="product-actions-group">
-                  <button type="button" class="btn-add-cart-card" onclick="addToCart('ve-sinh-giay')">+ Thêm giỏ</button>
+                  <button type="button" class="btn-add-cart-card" onclick="addToCart('ve-sinh-giay')">
+                    + Thêm giỏ
+                  </button>
                   <a class="product-link" href="service-detail.html?id=ve-sinh-giay">Chi tiết →</a>
                 </div>
               </div>
@@ -209,8 +266,8 @@
           <p>Lựa chọn dịch vụ phù hợp với nhu cầu của bạn.</p>
         </div>
 
+        <!-- JavaScript sẽ tạo các thẻ dịch vụ tại đây -->
         <div class="products-grid" id="products-list">
-          <!-- JavaScript render danh sách tự động nếu có -->
         </div>
 
         <p class="products-note" id="products-empty" hidden>
@@ -238,12 +295,19 @@
         <div class="products-grid products-grid-featured">
           <article class="product-card">
             <a class="product-image-link" href="shops.html">
-              <img src="images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg" alt="Quần áo sạch trong giỏ giặt" loading="lazy">
+              <img
+                src="images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg"
+                alt="Quần áo sạch trong giỏ giặt"
+                loading="lazy"
+              >
             </a>
+
             <div class="product-info">
               <span class="product-category">Combo theo kg</span>
               <h3>Combo giặt 10 kg</h3>
-              <p class="product-description">Mua trước 10 kg và trừ dần theo khối lượng sử dụng.</p>
+              <p class="product-description">
+                Mua trước 10 kg và trừ dần theo khối lượng sử dụng.
+              </p>
               <div class="product-bottom">
                 <p class="product-price">Giá theo tiệm</p>
                 <a class="product-link" href="shops.html">Tìm tiệm áp dụng →</a>
@@ -253,12 +317,19 @@
 
           <article class="product-card">
             <a class="product-image-link" href="shops.html">
-              <img src="https://images.unsplash.com/photo-1489274495757-95c7c837b101?auto=format&fit=crop&w=700&q=80" alt="Combo giặt sấy kết hợp ủi đồ" loading="lazy">
+              <img
+                src="https://images.unsplash.com/photo-1489274495757-95c7c837b101?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
+                alt="Combo giặt sấy kết hợp ủi đồ"
+                loading="lazy"
+              >
             </a>
+
             <div class="product-info">
               <span class="product-category">Combo dịch vụ</span>
               <h3>Giặt sấy + ủi</h3>
-              <p class="product-description">Kết hợp làm sạch, sấy khô và ủi trang phục.</p>
+              <p class="product-description">
+                Kết hợp làm sạch, sấy khô và ủi trang phục.
+              </p>
               <div class="product-bottom">
                 <p class="product-price">Giá theo tiệm</p>
                 <a class="product-link" href="shops.html">Tìm tiệm áp dụng →</a>
@@ -268,12 +339,19 @@
 
           <article class="product-card">
             <a class="product-image-link" href="shops.html">
-              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=700&q=80" alt="Chăn ga trên giường" loading="lazy">
+              <img
+                src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
+                alt="Chăn ga trên giường"
+                loading="lazy"
+              >
             </a>
+
             <div class="product-info">
               <span class="product-category">Combo chăm sóc</span>
               <h3>Giặt hấp + chăn mền</h3>
-              <p class="product-description">Kết hợp chăm sóc trang phục và đồ dùng giường ngủ.</p>
+              <p class="product-description">
+                Kết hợp chăm sóc trang phục và đồ dùng giường ngủ.
+              </p>
               <div class="product-bottom">
                 <p class="product-price">Giá theo tiệm</p>
                 <a class="product-link" href="shops.html">Tìm tiệm áp dụng →</a>
@@ -301,7 +379,9 @@
             <div class="product-info">
               <span class="product-category">Theo tháng</span>
               <h3>Gói giặt theo tháng</h3>
-              <p class="product-description">Chọn hạn mức kg theo tháng phù hợp với nhu cầu của bạn.</p>
+              <p class="product-description">
+                Chọn hạn mức kg theo tháng phù hợp với nhu cầu của bạn.
+              </p>
               <div class="product-bottom">
                 <p class="product-price">Theo giá gói</p>
                 <a class="product-link" href="shops.html">Tìm hiểu thêm →</a>
@@ -314,7 +394,9 @@
             <div class="product-info">
               <span class="product-category">Theo lượt</span>
               <h3>Gói 5 / 10 / 15 lần</h3>
-              <p class="product-description">Gói sử dụng nhiều lượt với hạn dùng theo điều kiện công bố.</p>
+              <p class="product-description">
+                Gói sử dụng nhiều lượt với hạn dùng theo điều kiện công bố.
+              </p>
               <div class="product-bottom">
                 <p class="product-price">Theo giá gói</p>
                 <a class="product-link" href="shops.html">Tìm hiểu thêm →</a>
@@ -327,7 +409,9 @@
             <div class="product-info">
               <span class="product-category">Dành cho gia đình</span>
               <h3>Gói chia sẻ 2–4 người</h3>
-              <p class="product-description">Gói dùng chung cho các thành viên theo điều kiện sử dụng.</p>
+              <p class="product-description">
+                Gói dùng chung cho các thành viên theo điều kiện sử dụng.
+              </p>
               <div class="product-bottom">
                 <p class="product-price">Theo giá gói</p>
                 <a class="product-link" href="shops.html">Tìm hiểu thêm →</a>
@@ -335,6 +419,7 @@
             </div>
           </article>
         </div>
+
         <p class="products-note">
           Các gói thành viên trên là nội dung minh họa giao diện.
           Điều kiện, hạn mức và giá cần được xác nhận với tiệm đối tác.
@@ -363,15 +448,17 @@
         <strong>WASHUP</strong>
         <p>Nền tảng kết nối khách hàng và các tiệm giặt ủi.</p>
       </div>
-      <p class="footer-note">Giao diện minh họa cho bài tập HTML5, CSS3 &amp; JavaScript · Buổi 3</p>
+      <p class="footer-note">
+        Giao diện minh họa cho bài tập HTML5, CSS3 &amp; JavaScript · Buổi 3
+      </p>
     </div>
   </footer>
 
-  <!-- SCRIPT -->
-  <script src="js/products.js"></script>
-  <script src="js/common.js"></script>
-  <script src="js/catalog.js"></script>
-  <script src="js/catalog-filters.js"></script>
-  <script src="js/cart.js"></script>
+  <!-- JAVASCRIPT -->
+  <script src="js/products.js" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/catalog.js" defer></script>
+  <script src="js/catalog-filters.js" defer></script>
+  <script src="js/cart.js" defer></script>
 </body>
 </html>
