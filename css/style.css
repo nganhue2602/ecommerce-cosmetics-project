@@ -448,6 +448,37 @@ transform: none;
     margin-top: 10px;
     max-width: none;
   }
+   .header-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    column-gap: 8px;
+    align-items: center;
+  }
+
+  .header-inner > .brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .header-inner > .header-cta {
+    grid-column: 2;
+    grid-row: 1;
+    margin-left: 0;
+  }
+
+  .header-inner > .nav-cart {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    margin-left: 0;
+  }
+
+  .header-inner > .main-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    position: static;
+    transform: none;
+  }
 }
 
 /* Điều chỉnh bổ sung khi vùng hiển thị không vượt quá 480px */
