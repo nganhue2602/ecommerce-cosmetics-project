@@ -1,16 +1,21 @@
-// 1. LẤY MẢNG GIỎ HÀNG TỪ LOCALSTORAGE
+// 1. LẤY MẢNG GIỎ HÀNG TỪ LOCALSTORAGE (ĐỌC TẤT CẢ CÁC KHÓA CÓ THỂ CÓ)
 function getCart() {
   try {
-    return JSON.parse(localStorage.getItem('cart')) || JSON.parse(localStorage.getItem('washupCart')) || [];
+    const rawData = localStorage.getItem('cart') || 
+                    localStorage.getItem('washupCart') || 
+                    localStorage.getItem('washup_cart');
+    return rawData ? JSON.parse(rawData) : [];
   } catch (e) {
     return [];
   }
 }
 
-// 2. LƯU GIỎ HÀNG VÀO LOCALSTORAGE
+// 2. LƯU ĐỒNG BỘ VÀO TẤT CẢ CÁC KHÓA LOCALSTORAGE
 function saveCart(cart) {
-  localStorage.setItem('cart', JSON.stringify(cart));
-  localStorage.setItem('washupCart', JSON.stringify(cart));
+  const json = JSON.stringify(cart);
+  localStorage.setItem('cart', json);
+  localStorage.setItem('washupCart', json);
+  localStorage.setItem('washup_cart', json);
 }
 
 // 3. CẬP NHẬT BADGE TRÊN HEADER
@@ -21,67 +26,7 @@ function updateCartBadge() {
   if (badge) badge.innerText = totalCount;
 }
 
-// 4. CHỨC NĂNG THÊM SẢN PHẨM VÀO GIỎ HÀNG
-function addToCart(productId) {
-  let cart = getCart();
-  
-  // Lấy mảng products từ window
-  const allProducts = window.products || (typeof products !== 'undefined' ? products : []);
-  const product = allProducts.find(p => p.id === productId);
-
-  if (!product) {
-    alert("Không tìm thấy sản phẩm!");
-    return;
-  }
-
-  const existingItem = cart.find(item => item.id === productId);
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.push({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.image,
-      quantity: 1
-    });
-  }
-
-  saveCart(cart);
-  updateCartBadge();
-  
-  // Nút render lại giỏ ngay nếu đang đứng ở cart.html
-  if (document.getElementById('cart-items')) {
-    renderCart();
-  }
-
-  alert(`Đã thêm "${product.name}" vào giỏ hàng!`);
-}
-
-// 5. THAY ĐỔI SỐ LƯỢNG (TĂNG/GIẢM)
-function changeQuantity(index, delta) {
-  let cart = getCart();
-  if (cart[index]) {
-    cart[index].quantity += delta;
-    if (cart[index].quantity <= 0) {
-      cart.splice(index, 1);
-    }
-    saveCart(cart);
-    renderCart();
-  }
-}
-
-// 6. XÓA SẢN PHẨM KHỎI GIỎ
-function removeItem(index) {
-  let cart = getCart();
-  if (cart[index]) {
-    cart.splice(index, 1);
-    saveCart(cart);
-    renderCart();
-  }
-}
-
-// 7. RENDER BẢNG GIỎ HÀNG TẠI CART.HTML
+// 4. RENDER BẢNG GIỎ HÀNG
 function renderCart() {
   const cartContainer = document.getElementById('cart-items');
   const totalPriceElement = document.getElementById('total-price');
@@ -90,11 +35,11 @@ function renderCart() {
 
   updateCartBadge();
 
-  if (!cartContainer) return; // Nếu không ở cart.html thì bỏ qua
+  if (!cartContainer) return; // Nếu không ở cart.html thì dừng
 
   const cart = getCart();
 
-  // Xử lý giỏ hàng RỖNG
+  // TRẠNG THÁI GIỎ HÀNG RỖNG
   if (cart.length === 0) {
     if (cartWrapper) cartWrapper.style.display = 'none';
     if (emptyCartMsg) emptyCartMsg.style.display = 'block';
@@ -102,7 +47,7 @@ function renderCart() {
     return;
   }
 
-  // Xử lý CÓ HÀNG
+  // TRẠNG THÁI CÓ HÀNG
   if (cartWrapper) cartWrapper.style.display = 'block';
   if (emptyCartMsg) emptyCartMsg.style.display = 'none';
 
@@ -133,7 +78,7 @@ function renderCart() {
       </td>
     `;
 
-    // Gán sự kiện trực tiếp bằng JS
+    // Gán sự kiện trực tiếp bằng JS (không lo lỗi onclick HTML)
     tr.querySelector('.btn-minus').onclick = function() { changeQuantity(index, -1); };
     tr.querySelector('.btn-plus').onclick = function() { changeQuantity(index, 1); };
     tr.querySelector('.btn-remove').onclick = function() { removeItem(index); };
@@ -146,8 +91,66 @@ function renderCart() {
   }
 }
 
-// Gán lên scope toàn cục
+// 5. THAY ĐỔI SỐ LƯỢNG (TĂNG/GIẢM)
+function changeQuantity(index, delta) {
+  let cart = getCart();
+  if (cart[index]) {
+    cart[index].quantity += delta;
+    if (cart[index].quantity <= 0) {
+      cart.splice(index, 1);
+    }
+    saveCart(cart);
+    renderCart();
+  }
+}
+
+// 6. XÓA SẢN PHẨM KHỎI GIỎ
+function removeItem(index) {
+  let cart = getCart();
+  if (cart[index]) {
+    cart.splice(index, 1);
+    saveCart(cart);
+    renderCart();
+  }
+}
+
+// 7. THÊM SẢN PHẨM MỚI VÀO GIỎ (DÙNG CHO TRANG PRODUCTS / DETAIL)
+function addToCart(productId) {
+  let cart = getCart();
+  const allProducts = window.products || (typeof products !== 'undefined' ? products : []);
+  const product = allProducts.find(p => p.id === productId);
+
+  if (!product) {
+    alert("Sản phẩm không tồn tại!");
+    return;
+  }
+
+  const existing = cart.find(p => p.id === productId);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      quantity: 1
+    });
+  }
+
+  saveCart(cart);
+  updateCartBadge();
+  
+  if (document.getElementById('cart-items')) {
+    renderCart();
+  }
+
+  alert(`Đã thêm "${product.name}" vào giỏ hàng!`);
+}
+
+// Gán hàm vào window scope
 window.addToCart = addToCart;
+window.renderCart = renderCart;
 
 // TỰ ĐỘNG CHẠY KHI TẢI TRANG
 document.addEventListener('DOMContentLoaded', renderCart);
