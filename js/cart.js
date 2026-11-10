@@ -1,11 +1,12 @@
 
-// 1. ĐỌC DỮ LIỆU GIỎ HÀNG
-function getCart() {
+// Khóa lưu trữ thống nhất cho toàn bộ website
+const CART_KEY = 'washup_Cart';
+
+// 1. ĐỌC DỮ LIỆU GIỎ HÀNG (loadCart)
+function loadCart() {
   try {
-    const raw = localStorage.getItem('washupCart');
-
+    const raw = localStorage.getItem(CART_KEY);
     if (!raw) return [];
-
     const parsed = JSON.parse(raw);
     return Array.isArray(parsed) ? parsed : [];
   } catch (error) {
@@ -14,10 +15,15 @@ function getCart() {
   }
 }
 
-// 2. LƯU DỮ LIỆU GIỎ HÀNG
+// Alias hỗ trợ tương thích với các hàm getCart() cũ
+function getCart() {
+  return loadCart();
+}
+
+// 2. LƯU DỮ LIỆU GIỎ HÀNG (saveCart)
 function saveCart(cart) {
   try {
-    localStorage.setItem('washupCart', JSON.stringify(cart));
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
   } catch (error) {
     console.error('Lỗi lưu giỏ hàng:', error);
     alert('Không thể lưu giỏ hàng. Vui lòng thử lại!');
@@ -263,209 +269,14 @@ window.removeItem = removeItem;
 window.changeQuantity = changeQuantity;
 window.updateCartBadge = updateCartBadge;
 
-// 9. TỰ ĐỘNG CẬP NHẬT KHI TẢI TRANG
+// 9. TỰ ĐỘNG KHÔI PHỤC KHI TẢI TRANG HOẶC THAY ĐỔI TAB
 document.addEventListener('DOMContentLoaded', function() {
   renderCart();
 });
-// Khóa lưu trữ thống nhất cho toàn bộ dự án
-const CART_KEY = 'washupcart';
 
-// ----------------------------------------------------
-// 1. CÁC HÀM XỬ LÝ LOCALSTORAGE (loadCart, saveCart)
-// ----------------------------------------------------
-
-// Đọc mảng giỏ hàng từ localStorage (Khôi phục dữ liệu / Xử lý chưa có dữ liệu)
-function loadCart() {
-    const data = localStorage.getItem(CART_KEY);
-    try {
-        return data ? JSON.parse(data) : [];
-    } catch (error) {
-        console.error('Lỗi khi đọc dữ liệu giỏ hàng từ localStorage:', error);
-        return [];
-    }
-}
-
-// Alias hỗ trợ tương thích với các hàm getCart() sẵn có
-function getCart() {
-    return loadCart();
-}
-
-// Lưu mảng giỏ hàng vào localStorage dưới dạng chuỗi JSON
-function saveCart(cart) {
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
-}
-
-// ----------------------------------------------------
-// 2. CÁC HÀM THAO TÁC GIỎ HÀNG VÀ TỰ ĐỘNG LƯU
-// ----------------------------------------------------
-
-// Thêm sản phẩm vào giỏ hàng
-function addToCart(productInput, quantity = 1) {
-    let productToAdd = null;
-
-    if (typeof productInput === 'object' && productInput !== null) {
-        productToAdd = productInput;
-    } else if (typeof products !== 'undefined' && Array.isArray(products)) {
-        productToAdd = products.find(p => String(p.id) === String(productInput));
-    }
-
-    if (!productToAdd) {
-        alert('Không tìm thấy thông tin sản phẩm!');
-        return;
-    }
-
-    const cart = loadCart();
-    // Ép kiểu String để so sánh an toàn ID giữa dạng số và dạng chuỗi
-    const existingIndex = cart.findIndex(item => String(item.id) === String(productToAdd.id));
-    const qty = parseInt(quantity, 10) || 1;
-
-    if (existingIndex > -1) {
-        cart[existingIndex].quantity += qty;
-    } else {
-        cart.push({
-            id: productToAdd.id,
-            name: productToAdd.name,
-            price: productToAdd.price,
-            image: productToAdd.image || 'images/default.jpg',
-            quantity: qty
-        });
-    }
-
-    saveCart(cart); // Lưu vào localStorage sau khi thêm
-    updateCartBadge();
-    alert(`Đã thêm "${productToAdd.name}" vào giỏ hàng!`);
-}
-
-// Thay đổi số lượng sản phẩm từ ô nhập input
-function updateQuantity(productId, newQty) {
-    let cart = loadCart();
-    const qty = parseInt(newQty, 10);
-
-    if (isNaN(qty) || qty <= 0) {
-        cart = cart.filter(item => String(item.id) !== String(productId));
-    } else {
-        const item = cart.find(item => String(item.id) === String(productId));
-        if (item) item.quantity = qty;
-    }
-
-    saveCart(cart); // Lưu vào localStorage sau khi sửa
-    renderCartPage();
-    updateCartBadge();
-}
-
-// Tăng / giảm số lượng nhanh bằng nút (+/-)
-function changeQuantity(productId, delta) {
-    const cart = loadCart();
-    const item = cart.find(item => String(item.id) === String(productId));
-    if (item) {
-        updateQuantity(productId, item.quantity + delta);
-    }
-}
-
-// Xóa 1 sản phẩm khỏi giỏ hàng
-function removeFromCart(productId) {
-    let cart = loadCart();
-    cart = cart.filter(item => String(item.id) !== String(productId));
-    saveCart(cart); // Lưu vào localStorage sau khi xóa
-    renderCartPage();
-    updateCartBadge();
-}
-
-// Xóa toàn bộ giỏ hàng
-function clearCart() {
-    localStorage.removeItem(CART_KEY); // Xóa dữ liệu trong localStorage
-    renderCartPage();
-    updateCartBadge();
-}
-
-// ----------------------------------------------------
-// 3. TÍNH TOÁN VÀ CẬP NHẬT GIAO DIỆN
-// ----------------------------------------------------
-
-// Tính tổng số lượng món hàng từ dữ liệu khôi phục
-function getTotalCount() {
-    const cart = loadCart();
-    return cart.reduce((total, item) => total + (parseInt(item.quantity, 10) || 0), 0);
-}
-
-// Tính tổng tiền giỏ hàng từ dữ liệu khôi phục
-function getTotalPrice() {
-    const cart = loadCart();
-    return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-}
-
-// Cập nhật Badge số lượng hiển thị trên Header (.cart-badge)
-function updateCartBadge() {
-    const badgeElements = document.querySelectorAll('.cart-badge');
-    const totalCount = getTotalCount();
-    badgeElements.forEach(badge => {
-        badge.textContent = totalCount;
-    });
-}
-
-// Render danh sách sản phẩm tại trang cart.html
-function renderCartPage() {
-    const cartItemsContainer = document.querySelector('#cart-items');
-    const totalPriceEl = document.querySelector('#cart-total');
-    const emptyMsgEl = document.querySelector('#cart-empty');
-    const cartTableArea = document.querySelector('#cart-table-area');
-
-    if (!cartItemsContainer) return; // Dừng hàm nếu không nằm ở trang cart.html
-
-    const cart = loadCart();
-
-    // Xử lý giao diện khi giỏ hàng rỗng hoặc chưa có dữ liệu
-    if (cart.length === 0) {
-        if (cartTableArea) cartTableArea.style.display = 'none';
-        if (emptyMsgEl) emptyMsgEl.style.display = 'block';
-        if (totalPriceEl) totalPriceEl.textContent = '0 VNĐ';
-        return;
-    }
-
-    if (cartTableArea) cartTableArea.style.display = 'block';
-    if (emptyMsgEl) emptyMsgEl.style.display = 'none';
-
-    cartItemsContainer.innerHTML = cart.map(item => `
-        <tr>
-            <td style="display: flex; align-items: center; gap: 10px;">
-                <img src="${item.image}" alt="${item.name}" width="50" height="50" style="object-fit:cover; border-radius: 4px;">
-                <span>${item.name}</span>
-            </td>
-            <td>${item.price.toLocaleString('vi-VN')} VNĐ</td>
-            <td>
-                <div style="display: inline-flex; align-items: center; gap: 4px;">
-                    <button type="button" onclick="changeQuantity('${item.id}', -1)">-</button>
-                    <input type="number" min="1" value="${item.quantity}" 
-                           onchange="updateQuantity('${item.id}', this.value)" style="width: 50px; text-align: center;">
-                    <button type="button" onclick="changeQuantity('${item.id}', 1)">+</button>
-                </div>
-            </td>
-            <td>${(item.price * item.quantity).toLocaleString('vi-VN')} VNĐ</td>
-            <td>
-                <button type="button" onclick="removeFromCart('${item.id}')" class="btn-danger">Xóa</button>
-            </td>
-        </tr>
-    `).join('');
-
-    if (totalPriceEl) {
-        totalPriceEl.textContent = getTotalPrice().toLocaleString('vi-VN') + ' VNĐ';
-    }
-}
-
-// ----------------------------------------------------
-// 4. SỰ KIỆN TỰ ĐỘNG KHÔI PHỤC VÀ ĐỒNG BỘ
-// ----------------------------------------------------
-
-// Tự động khôi phục dữ liệu khi vừa tải xong trang
-document.addEventListener('DOMContentLoaded', () => {
-    updateCartBadge();
-    renderCartPage();
-});
-
-// Đồng bộ dữ liệu giỏ hàng lập tức nếu mở nhiều tab cùng lúc
-window.addEventListener('storage', (event) => {
-    if (event.key === CART_KEY) {
-        updateCartBadge();
-        renderCartPage();
-    }
+// Đồng bộ dữ liệu giỏ hàng lập tức nếu mở nhiều tab trình duyệt cùng lúc
+window.addEventListener('storage', function(e) {
+  if (e.key === CART_KEY) {
+    renderCart();
+  }
 });
