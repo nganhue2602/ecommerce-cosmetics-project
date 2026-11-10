@@ -1,9 +1,10 @@
-// Khóa lưu trữ thống nhất cho toàn bộ hệ thống
+// ====================================================
+// DỰ ÁN WASHUP - TỆP XỬ LÝ GIỎ HÀNG THỐNG NHẤT (js/cart.js)
+// ====================================================
+
 const CART_KEY = 'washupCart';
 
-// ----------------------------------------------------
-// 1. ĐỌC DỮ LIỆU GIỎ HÀNG (loadCart / getCart)
-// ----------------------------------------------------
+// 1. ĐỌC DỮ LIỆU GIỎ HÀNG
 function loadCart() {
   try {
     const raw = localStorage.getItem(CART_KEY);
@@ -11,90 +12,67 @@ function loadCart() {
     const parsed = JSON.parse(raw);
     return Array.isArray(parsed) ? parsed : [];
   } catch (error) {
-    console.error('Lỗi đọc giỏ hàng từ localStorage:', error);
+    console.error('Lỗi đọc giỏ hàng:', error);
     return [];
   }
 }
 
-// Alias tương thích cho các file HTML/JS cũ gọi getCart()
 function getCart() {
   return loadCart();
 }
 
-// ----------------------------------------------------
-// 2. LƯU DỮ LIỆU GIỎ HÀNG (saveCart)
-// ----------------------------------------------------
+// 2. LƯU DỮ LIỆU GIỎ HÀNG
 function saveCart(cart) {
   try {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
   } catch (error) {
-    console.error('Lỗi lưu giỏ hàng vào localStorage:', error);
+    console.error('Lỗi lưu giỏ hàng:', error);
     alert('Không thể lưu giỏ hàng. Vui lòng thử lại!');
   }
 }
 
-// ----------------------------------------------------
-// 3. CẬP NHẬT SỐ LƯỢNG TRÊN HEADER (updateCartBadge)
-// ----------------------------------------------------
+// 3. CẬP NHẬT SỐ LƯỢNG TRÊN HEADER (Sửa triệt để lỗi số 0)
 function updateCartBadge() {
   const cart = loadCart();
-  const totalCount = cart.reduce((sum, item) => {
-    return sum + (parseInt(item.quantity, 10) || 1);
-  }, 0);
+  const totalCount = cart.reduce((sum, item) => sum + (parseInt(item.quantity, 10) || 1), 0);
 
-  // Quét tất cả các thẻ có khả năng chứa con số giỏ hàng trên Header
-  const badgeSelectors = [
-    '#cart-badge',
-    '.cart-badge',
-    '.cart-count',
-    '#cart-count',
-    'a[href*="cart.html"] span',
-    'a[href*="cart"] span',
-    '.cart-icon span'
-  ];
+  // Quét toàn bộ các vị trí thẻ hiển thị số trên Header
+  const badges = document.querySelectorAll(
+    '#cart-badge, .cart-badge, .cart-count, #cart-count, a[href*="cart"] span, .header-action span, header a span'
+  );
 
-  const badges = document.querySelectorAll(badgeSelectors.join(', '));
   badges.forEach(badge => {
     badge.textContent = totalCount;
   });
 }
 
-// ----------------------------------------------------
-// 4. HIỂN THỊ GIỎ HÀNG & TÍNH TỔNG TIỀN (renderCart)
-// ----------------------------------------------------
+// 4. HIỂN THỊ GIỎ HÀNG (Cố định 6 cột - Chống xô lệch chữ)
 function renderCart() {
   const cartContainer = document.querySelector('#cart-items');
   const totalPriceElements = document.querySelectorAll('#total-price, #cart-total, .cart-total-price');
   const emptyCartMsg = document.querySelector('#empty-cart-message, #cart-empty');
   const cartWrapper = document.querySelector('#cart-content-wrapper, #cart-table-area, #cart-table');
 
-  // Luôn luôn cập nhật lại số giỏ hàng trên Header trước
   updateCartBadge();
 
-  // Nếu không ở trang giỏ hàng (không tìm thấy #cart-items) thì dừng hàm
   if (!cartContainer) return;
 
   const cart = loadCart();
 
-  // Trường hợp giỏ hàng trống
   if (cart.length === 0) {
     if (cartWrapper) cartWrapper.style.display = 'none';
     if (emptyCartMsg) emptyCartMsg.style.display = 'block';
-    totalPriceElements.forEach(el => {
-      el.textContent = '0 ₫';
-    });
+    totalPriceElements.forEach(el => el.textContent = '0 ₫');
     cartContainer.replaceChildren();
     return;
   }
 
-  // Trường hợp giỏ hàng có sản phẩm
   if (cartWrapper) cartWrapper.style.display = 'block';
   if (emptyCartMsg) emptyCartMsg.style.display = 'none';
 
   let totalMoney = 0;
 
-  // Render chính xác 6 cột <td> khớp 100% với 6 tiêu đề <th> của giao diện:
-  // Cột 1: Hình ảnh | Cột 2: Tên dịch vụ | Cột 3: Đơn giá | Cột 4: Số lượng | Cột 5: Thành tiền | Cột 6: Thao tác
+  // Render 6 cột chuẩn tỷ lệ % để không bị chồng chéo
   cartContainer.innerHTML = cart.map((item, index) => {
     const price = Number(item.price) || 0;
     const quantity = Math.max(1, parseInt(item.quantity, 10) || 1);
@@ -106,41 +84,38 @@ function renderCart() {
 
     return `
       <tr>
-        <td style="text-align: center; padding: 12px; vertical-align: middle;">
-          <img src="${imageSrc}" alt="${name}" style="width: 55px; height: 55px; object-fit: cover; border-radius: 6px;">
+        <td style="width: 10%; text-align: center; padding: 12px; vertical-align: middle;">
+          <img src="${imageSrc}" alt="${name}" style="width: 55px; height: 55px; object-fit: cover; border-radius: 6px; display: block; margin: 0 auto;">
         </td>
-        <td style="padding: 12px; vertical-align: middle;">
-          <strong>${name}</strong>
+        <td style="width: 30%; padding: 12px; vertical-align: middle; text-align: left;">
+          <strong style="display: block; font-size: 15px; color: #333;">${name}</strong>
         </td>
-        <td style="padding: 12px; vertical-align: middle; white-space: nowrap;">
+        <td style="width: 15%; padding: 12px; vertical-align: middle; text-align: center; white-space: nowrap;">
           ${price.toLocaleString('vi-VN')} VNĐ
         </td>
-        <td style="padding: 12px; vertical-align: middle;">
-          <div style="display: inline-flex; align-items: center; gap: 6px;">
-            <button type="button" onclick="changeQuantity(${index}, -1)" style="padding: 2px 8px; cursor: pointer;">-</button>
-            <input type="number" min="1" value="${quantity}" onchange="updateQuantityInput(${index}, this.value)" style="width: 45px; text-align: center; padding: 2px;">
-            <button type="button" onclick="changeQuantity(${index}, 1)" style="padding: 2px 8px; cursor: pointer;">+</button>
+        <td style="width: 18%; padding: 12px; vertical-align: middle; text-align: center;">
+          <div style="display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+            <button type="button" onclick="changeQuantity(${index}, -1)" style="width: 28px; height: 28px; cursor: pointer; border: 1px solid #ccc; background: #fff; border-radius: 4px;">-</button>
+            <span style="min-width: 24px; font-weight: bold; text-align: center;">${quantity}</span>
+            <button type="button" onclick="changeQuantity(${index}, 1)" style="width: 28px; height: 28px; cursor: pointer; border: 1px solid #ccc; background: #fff; border-radius: 4px;">+</button>
           </div>
         </td>
-        <td style="padding: 12px; vertical-align: middle; font-weight: bold; white-space: nowrap;">
+        <td style="width: 15%; padding: 12px; vertical-align: middle; text-align: center; font-weight: bold; white-space: nowrap; color: #0056b3;">
           ${subtotal.toLocaleString('vi-VN')} VNĐ
         </td>
-        <td style="padding: 12px; vertical-align: middle;">
-          <button type="button" onclick="removeItem(${index})" style="cursor: pointer; padding: 4px 10px; background-color: #dc3545; color: white; border: none; border-radius: 4px;">Xóa</button>
+        <td style="width: 12%; padding: 12px; vertical-align: middle; text-align: center;">
+          <button type="button" onclick="removeItem(${index})" style="cursor: pointer; padding: 6px 12px; background-color: #dc3545; color: white; border: none; border-radius: 4px; font-size: 13px;">Xóa</button>
         </td>
       </tr>
     `;
   }).join('');
 
-  // Gán tổng tiền tính toán lại từ localStorage lên tất cả phần tử tổng cộng
   totalPriceElements.forEach(el => {
     el.textContent = totalMoney.toLocaleString('vi-VN') + ' ₫';
   });
 }
 
-// ----------------------------------------------------
-// 5. CẬP NHẬT SỐ LƯỢNG (changeQuantity & updateQuantityInput)
-// ----------------------------------------------------
+// 5. THAY ĐỔI SỐ LƯỢNG
 function changeQuantity(index, delta) {
   const cart = loadCart();
   if (!cart[index]) return;
@@ -158,24 +133,7 @@ function changeQuantity(index, delta) {
   renderCart();
 }
 
-function updateQuantityInput(index, value) {
-  const cart = loadCart();
-  if (!cart[index]) return;
-
-  const newQty = parseInt(value, 10);
-  if (isNaN(newQty) || newQty <= 0) {
-    cart.splice(index, 1);
-  } else {
-    cart[index].quantity = newQty;
-  }
-
-  saveCart(cart);
-  renderCart();
-}
-
-// ----------------------------------------------------
-// 6. XÓA MÓN HÀNG KHỎI GIỎ HÀNG (removeItem)
-// ----------------------------------------------------
+// 6. XÓA SẢN PHẨM KHỎI GIỎ HÀNG
 function removeItem(index) {
   const cart = loadCart();
   if (!cart[index]) return;
@@ -185,9 +143,7 @@ function removeItem(index) {
   renderCart();
 }
 
-// ----------------------------------------------------
-// 7. THÊM SẢN PHẨM VÀO GIỎ HÀNG (addToCart)
-// ----------------------------------------------------
+// 7. THÊM SẢN PHẨM VÀO GIỎ HÀNG
 function addToCart(productId) {
   const cart = loadCart();
   const allProducts = window.products || [];
@@ -221,9 +177,7 @@ function addToCart(productId) {
   alert('Đã thêm "' + product.name + '" vào giỏ hàng!');
 }
 
-// ----------------------------------------------------
-// 8. CHIA SẺ CÁC HÀM TOÀN CỤC (Global Scope)
-// ----------------------------------------------------
+// 8. CHIA SẺ HÀM TOÀN CỤC
 window.loadCart = loadCart;
 window.getCart = getCart;
 window.saveCart = saveCart;
@@ -231,17 +185,13 @@ window.addToCart = addToCart;
 window.renderCart = renderCart;
 window.removeItem = removeItem;
 window.changeQuantity = changeQuantity;
-window.updateQuantityInput = updateQuantityInput;
 window.updateCartBadge = updateCartBadge;
 
-// ----------------------------------------------------
-// 9. TỰ ĐỘNG KHÔI PHỤC VÀ ĐỒNG BỘ DỮ LIỆU
-// ----------------------------------------------------
+// 9. TỰ ĐỘNG KHÔI PHỤC VÀ ĐỒNG BỘ
 document.addEventListener('DOMContentLoaded', () => {
   renderCart();
 });
 
-// Đồng bộ giỏ hàng lập tức khi người dùng thao tác ở tab khác
 window.addEventListener('storage', (e) => {
   if (e.key === CART_KEY) {
     renderCart();
