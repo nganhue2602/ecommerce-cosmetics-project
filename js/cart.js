@@ -1,5 +1,4 @@
 // ====================================================
-// CHUẨN BƯỚC 5: HỆ THỐNG GIỎ HÀNG DỰ ÁN WASHUP (js/cart.js)
 // Khóa lưu trữ LocalStorage thống nhất: washupCart
 // ====================================================
 
