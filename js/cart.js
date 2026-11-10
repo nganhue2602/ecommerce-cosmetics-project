@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
   renderCart();
 });
 // Khóa lưu trữ thống nhất cho toàn bộ dự án
-const CART_KEY = 'washup_cart';
+const CART_KEY = 'washupcart';
 
 // ----------------------------------------------------
 // 1. CÁC HÀM XỬ LÝ LOCALSTORAGE (loadCart, saveCart)
