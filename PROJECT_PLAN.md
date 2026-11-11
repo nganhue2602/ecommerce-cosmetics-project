@@ -255,6 +255,73 @@ Các thay đổi quan trọng về phạm vi, công nghệ, quyền hạn, quy t
 
 Không tự giảm mô hình từ nhiều tiệm xuống một tiệm để xử lý khó khăn kỹ thuật. Nếu cần giảm khối lượng công việc, nhóm điều chỉnh mức độ triển khai từng chức năng nhưng vẫn giữ bản chất WASHUP là nền tảng trung gian.
 
+## Kế hoạch triển khai – Bài tập nhóm Buổi 3
+
+### 1. Mục tiêu
+
+Buổi 3 tập trung tích hợp JavaScript vào website WASHUP trên cơ sở giao diện đã hoàn thiện ở các buổi trước.
+
+Các chức năng chính gồm:
+
+- Chuẩn hóa dữ liệu dịch vụ bằng JavaScript.
+- Hiển thị danh sách dịch vụ từ dữ liệu.
+- Tìm kiếm, lọc và sắp xếp dịch vụ.
+- Hiển thị chi tiết dịch vụ theo mã trên URL.
+- Xây dựng và hoàn thiện chức năng giỏ hàng.
+- Lưu và khôi phục trạng thái giỏ bằng localStorage.
+- Tích hợp, kiểm thử và tối ưu giao diện.
+- Hoàn thiện GitHub, README, báo cáo và nội dung trình bày.
+
+### 2. Phân công công việc
+
+| Mã Issue | Thành viên phụ trách | Nhiệm vụ chính | Trạng thái |
+|---|---|---|---|
+| B3-01 | Ngân Huệ | Phân công nhiệm vụ, lập kế hoạch và thống nhất quy ước tích hợp | Hoàn thành |
+| B3-02 | Anh Thư | Chuẩn hóa dữ liệu 8 dịch vụ và hiển thị danh sách bằng JavaScript | Hoàn thành |
+| B3-03 | Thảo Nguyên | Tích hợp tìm kiếm, lọc và sắp xếp dịch vụ | Hoàn thành |
+| B3-04 | Quỳnh Như | Tích hợp trang chi tiết dịch vụ và đồng bộ mã ID | Hoàn thành |
+| B3-05 | Thùy Duyên | Xây dựng và hoàn thiện chức năng giỏ hàng | Hoàn thành |
+| B3-06 | Hà My | Tích hợp localStorage để lưu và khôi phục trạng thái giỏ | Hoàn thành |
+| B3-07 | Yến Trân | Tích hợp, kiểm thử và tối ưu giao diện toàn website | Đang rà soát |
+| B3-08 | Kim Thư | Quản lý GitHub, hoàn thiện README, báo cáo và trình bày | Đang hoàn thiện |
+| B3-09 | Cả nhóm | Chuẩn bị câu hỏi kiểm tra khi trình bày | Đang chuẩn bị |
+
+### 3. Quy ước tích hợp
+
+- Trang danh sách dịch vụ chính: `products.html`.
+- Trang chi tiết: `service-detail.html?id=[id]`.
+- Dữ liệu dịch vụ cơ bản được quản lý trong `js/products.js`.
+- Mỗi dịch vụ sử dụng một mã `id` thống nhất giữa các chức năng.
+- Mã Giặt rèm cửa: `rem-cua`.
+- Mã Giặt thú bông: `thu-bong`.
+- Khóa lưu trữ giỏ hàng: `washupCart`.
+- Giá dịch vụ được lưu dưới dạng Number.
+- Các chức năng dùng chung được ưu tiên tái sử dụng thay vì khai báo nhiều phiên bản khác nhau.
+
+### 4. Quy trình phối hợp trên GitHub
+
+Nhóm sử dụng GitHub Issues để quản lý các nhiệm vụ từ B3-01 đến B3-09.
+
+Quy trình thực hiện:
+
+Issue → Phát triển/điều chỉnh mã → Commit → Kiểm tra → Tích hợp → Kiểm thử → Close Issue
+
+Khi cần phát triển một chức năng có phạm vi thay đổi lớn, thành viên có thể sử dụng branch riêng trước khi tích hợp vào `main`.
+
+Các thay đổi trên những tệp dùng chung cần được đối chiếu với phiên bản hiện tại trước khi cập nhật để hạn chế ghi đè phần việc của thành viên khác.
+
+### 5. Kiểm thử và nghiệm thu
+
+Nhóm chỉ đánh dấu một nhiệm vụ hoàn thành sau khi:
+
+- Mã nguồn đã được cập nhật.
+- Chức năng được kiểm tra thực tế.
+- Không phát sinh lỗi ảnh hưởng đến chức năng liên quan.
+- Có minh chứng phù hợp khi cần.
+- Kết quả được đối chiếu với yêu cầu của bài tập.
+
+Các lỗi phát hiện trong quá trình tích hợp được chuyển lại cho thành viên phụ trách và kiểm tra lại sau khi chỉnh sửa.
+
 ---
 
 ## 5. Tài liệu liên quan
