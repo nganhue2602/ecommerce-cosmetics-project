@@ -1,4 +1,4 @@
-// Định dạng giá tiền Việt Nam
+// Định dạng giá tiền theo đơn vị Việt Nam đồng
 function formatCurrency(price) {
   return new Intl.NumberFormat("vi-VN", {
     style: "currency",
@@ -6,9 +6,15 @@ function formatCurrency(price) {
   }).format(price);
 }
 
-// Tìm dịch vụ theo ID
+// Tìm dịch vụ theo mã ID
 function getProductById(id) {
-  return products.find(function(product) {
+  const productList = window.products || [];
+
+  return productList.find(function(product) {
     return product.id === id;
-  });
+  }) || null;
 }
+
+// Chia sẻ các hàm dùng chung để những tệp JavaScript khác có thể sử dụng
+window.formatCurrency = formatCurrency;
+window.getProductById = getProductById;
