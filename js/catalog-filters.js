@@ -43,7 +43,9 @@
     });
   }
 
-  // Sap xep dich vu theo gia
+  // Sap xep dich vu theo gia tang dan hoac giam dan.
+// Tao ban sao cua danh sach truoc khi sort
+// de khong thay doi mang products goc.
   function sortByPrice(list, order) {
     const result = [...list];
 
