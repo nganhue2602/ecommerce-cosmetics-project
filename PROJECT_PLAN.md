@@ -323,6 +323,24 @@ Nhóm chỉ đánh dấu một nhiệm vụ hoàn thành sau khi:
 Các lỗi phát hiện trong quá trình tích hợp được chuyển lại cho thành viên phụ trách và kiểm tra lại sau khi chỉnh sửa.
 
 ---
+### Quy trình rà soát và tích hợp bằng branch cá nhân
+
+Trong giai đoạn rà soát và hoàn thiện báo cáo, nhóm tổ chức lại quy trình GitHub theo 8 branch cá nhân. Mỗi thành viên thực hiện chỉnh sửa đúng phạm vi đã phụ trách, sau đó tạo Pull Request để nhóm trưởng kiểm tra trước khi tích hợp vào `main`.
+
+| Thành viên | Branch | Phạm vi rà soát |
+|---|---|---|
+| Ngân Huệ | `ngan-hue/integration` | Kế hoạch, phân công và điều phối tích hợp |
+| Anh Thư | `anh-thu/product-data` | Dữ liệu dịch vụ và hàm dùng chung |
+| Thảo Nguyên | `thao-nguyen/catalog-filter` | Tìm kiếm, lọc và sắp xếp |
+| Quỳnh Như | `quynh-nhu/service-detail` | Trang chi tiết và mã ID |
+| Thùy Duyên | `thuy-duyen/cart` | Giao diện và nghiệp vụ giỏ hàng |
+| Hà My | `ha-my/storage` | Lưu và khôi phục giỏ bằng localStorage |
+| Yến Trân | `yen-tran/testing` | Kiểm thử tích hợp và responsive |
+| Kim Thư | `kim-thu/docs-readme` | README và tài liệu hoàn thiện |
+
+Quy trình chung: `Branch cá nhân → chỉnh sửa → tự kiểm tra → Commit → Pull Request → Review → Merge vào main → cập nhật Issue`.
+
+Các branch được tích hợp theo thứ tự phụ thuộc. Đặc biệt, phần nghiệp vụ giỏ hàng của Thùy Duyên được merge trước phần localStorage của Hà My do hai phần cùng liên quan đến `js/cart.js`. Yến Trân thực hiện kiểm thử sau khi các chức năng chính đã được tích hợp; Kim Thư cập nhật README trên phiên bản gần cuối để tài liệu phản ánh đúng mã nguồn.
 
 ## 5. Tài liệu liên quan
 
