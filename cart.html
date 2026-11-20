@@ -63,76 +63,74 @@
 </head>
 <body>
 
- 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="container header-inner">
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
 
-    <!-- Logo -->
-    <a class="brand" href="index.html" aria-label="WASHUP – Về trang chủ">
-      <img
-        src="images/washup-logo-wordmark.png"
-        width="176"
-        height="52"
-        alt="WASHUP"
-      />
-    </a>
+      <!-- Logo -->
+      <a class="brand" href="index.html" aria-label="WASHUP – Về trang chủ">
+        <img
+          src="images/washup-logo-wordmark.png"
+          width="176"
+          height="52"
+          alt="WASHUP"
+        />
+      </a>
 
-    <!-- Menu điều hướng chính -->
-    <nav class="main-nav" aria-label="Điều hướng chính">
-      <a href="index.html">Trang chủ</a>
-      <a href="shops.html">Tiệm giặt</a>
-      <a href="products.html">Dịch vụ</a>
-      <a href="about.html">Giới thiệu</a>
-    </nav>
+      <!-- Menu điều hướng chính -->
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="index.html">Trang chủ</a>
+        <a href="shops.html">Tiệm giặt</a>
+        <a href="products.html">Dịch vụ</a>
+        <a href="about.html">Giới thiệu</a>
+      </nav>
 
-    <!-- Nút tìm tiệm giặt -->
-    <a class="header-cta" href="shops.html">
-      Tìm tiệm giặt
-      <span aria-hidden="true">↗</span>
-    </a>
+      <!-- Nút tìm tiệm giặt -->
+      <a class="header-cta" href="shops.html">
+        Tìm tiệm giặt
+        <span aria-hidden="true">↗</span>
+      </a>
 
-    <!-- Biểu tượng giỏ hàng -->
-    <a
-      href="cart.html"
-      class="nav-cart"
-      aria-label="Giỏ hàng"
-      title="Giỏ hàng"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+      <!-- Biểu tượng giỏ hàng -->
+      <a
+        href="cart.html"
+        class="nav-cart"
+        aria-label="Giỏ hàng"
+        title="Giỏ hàng"
       >
-        <circle cx="9" cy="21" r="1"></circle>
-        <circle cx="20" cy="21" r="1"></circle>
-        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-      </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
 
-      <span id="cart-badge">0</span>
-    </a>
+        <span id="cart-badge">0</span>
+      </a>
 
-  </div>
-</header>
-
+    </div>
+  </header>
 
   <!-- NỘI DUNG GIỎ HÀNG -->
   <main class="cart-container">
     <h2>Giỏ hàng của bạn</h2>
 
-    <!-- THÔNG BÁO GIỎ HÀNG RỖNG (HÌNH 5.5) -->
+    <!-- HIỂN THỊ TRẠNG THÁI GIỎ HÀNG TRỐNG (EMPTY STATE) KHI CHƯA CÓ DỊCH VỤ -->
     <div id="empty-cart-message" class="empty-box" style="display: none;">
       <p style="font-size: 18px; color: #64748b; margin-bottom: 15px;">Giỏ hàng của bạn hiện đang rỗng!</p>
       <a href="products.html" style="display: inline-block; padding: 10px 20px; background-color: #0645ad; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">Tiếp tục xem dịch vụ</a>
     </div>
 
-    <!-- KHUNG BẢNG GIỎ HÀNG (KHI CÓ HÀNG) -->
+    <!-- KHUNG BẢNG GIỎ HÀNG (HIỂN THỊ KHI CÓ DỊCH VỤ) -->
     <div id="cart-content-wrapper">
       <table id="cart-table" class="cart-table">
         <thead>
@@ -146,11 +144,11 @@
           </tr>
         </thead>
         <tbody id="cart-items">
-          <!-- JS Render các sản phẩm tại đây -->
+          <!-- Danh sách dịch vụ trong giỏ được render động từ js/cart.js -->
         </tbody>
       </table>
 
-      <!-- TỔNG TIỀN -->
+      <!-- KHU VỰC HIỂN THỊ TỔNG TIỀN THANH TOÁN -->
       <div style="margin-top: 25px; text-align: right; font-size: 20px; font-weight: bold;">
         <span>Tổng cộng: </span>
         <span id="total-price" style="color: #0645ad;">0 ₫</span>
@@ -158,6 +156,7 @@
     </div>
   </main>
 
+  <!-- Nhúng dữ liệu dịch vụ dùng chung và logic xử lý nghiệp vụ giỏ hàng -->
   <script src="js/products.js"></script>
   <script src="js/cart.js"></script>
 </body>
