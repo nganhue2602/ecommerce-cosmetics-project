@@ -18,3 +18,14 @@ Thumbs.db
 # Local dependencies
 /vendor/
 /node_modules/
+# ASP.NET Core
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+
+# SQLite database
+*.db
+*.db-shm
+*.db-wal
