@@ -1,8 +1,274 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Trang chủ";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- BANNER -->
+<section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+
+        <div class="hero-copy">
+
+            <span class="eyebrow">
+                <span class="eyebrow-dot" aria-hidden="true"></span>
+                Nền tảng kết nối tiệm giặt
+            </span>
+
+            <h1 id="hero-title">
+                Giặt ủi nhẹ tênh,<br />
+                <span>chọn tiệm thật dễ.</span>
+            </h1>
+
+            <p>
+                WASHUP giúp bạn khám phá nhiều tiệm giặt,
+                tham khảo dịch vụ và lựa chọn nơi phù hợp
+                trên cùng một nền tảng.
+            </p>
+
+            <div class="hero-actions">
+
+                <a class="btn btn-primary" href="/shops.html">
+                    Khám phá tiệm giặt
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+                <a class="btn btn-secondary" href="/products.html">
+                    Xem các dịch vụ
+                </a>
+
+            </div>
+
+            <p class="hero-note">
+                Nhiều tiệm giặt · Một nơi để khám phá
+            </p>
+
+        </div>
+
+        <div class="hero-visual"
+             aria-label="Hình minh họa thương hiệu WASHUP">
+
+            <div class="hero-blob" aria-hidden="true"></div>
+
+            <img class="hero-logo"
+                 src="~/images/washup-logo-full.png"
+                 width="800"
+                 height="580"
+                 alt="Logo WASHUP với móc áo và bọt xà phòng" />
+
+            <div class="float-label float-top">
+                Xem nhiều tiệm giặt
+                <span aria-hidden="true">✦</span>
+            </div>
+
+            <div class="float-label float-bottom">
+                <span aria-hidden="true">✧</span>
+                Dịch vụ trong tầm tay
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- HUONG DAN KHAM PHA -->
+<section class="intro-nav" aria-labelledby="intro-heading">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-kicker">
+                    BẮT ĐẦU CÙNG WASHUP
+                </span>
+
+                <h2 id="intro-heading">
+                    Bạn muốn khám phá gì hôm nay?
+                </h2>
+            </div>
+
+            <p>
+                Chọn một mục để tiếp tục tìm hiểu về nền tảng.
+            </p>
+
+        </div>
+
+        <div class="quick-grid">
+
+            <a class="quick-card" href="/shops.html">
+
+                <span class="quick-icon" aria-hidden="true">⌂</span>
+
+                <span class="quick-title">
+                    Các tiệm giặt
+                </span>
+
+                <span class="quick-description">
+                    Khám phá tiệm đối tác trên WASHUP.
+                </span>
+
+                <span class="quick-arrow" aria-hidden="true">↗</span>
+
+            </a>
+
+            <a class="quick-card" href="/products.html">
+
+                <span class="quick-icon" aria-hidden="true">✦</span>
+
+                <span class="quick-title">
+                    Các dịch vụ
+                </span>
+
+                <span class="quick-description">
+                    Tìm hiểu những loại dịch vụ giặt ủi.
+                </span>
+
+                <span class="quick-arrow" aria-hidden="true">↗</span>
+
+            </a>
+
+            <a class="quick-card" href="/about.html">
+
+                <span class="quick-icon" aria-hidden="true">♡</span>
+
+                <span class="quick-title">
+                    Về WASHUP
+                </span>
+
+                <span class="quick-description">
+                    Khám phá ý tưởng kết nối của tụi mình.
+                </span>
+
+                <span class="quick-arrow" aria-hidden="true">↗</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DICH VU NOI BAT -->
+<section class="products-section home-featured"
+         aria-labelledby="home-featured-title">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-kicker">WASHUP PICKS</span>
+
+                <h2 id="home-featured-title">
+                    Dịch vụ nổi bật
+                </h2>
+            </div>
+
+            <p>
+                Khám phá những dịch vụ giặt ủi
+                phù hợp với nhu cầu hằng ngày.
+            </p>
+
+        </div>
+
+        <div class="products-grid home-featured-grid">
+
+            <!-- DICH VU 1 -->
+            <article class="product-card">
+
+                <a class="product-image-link"
+                   href="/service-detail.html?id=giat-say">
+
+                    <img src="~/images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg"
+                         alt="Hình minh họa giặt sấy quần áo"
+                         loading="lazy" />
+
+                </a>
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        Giặt thường
+                    </span>
+
+                    <h3>Giặt sấy quần áo</h3>
+
+                    <p class="product-shop">
+                        <strong>Tiệm cung cấp:</strong>
+                        Tiệm minh họa A
+                    </p>
+
+                    <p class="product-description">
+                        Giặt sấy quần áo hằng ngày,
+                        thuận tiện cho lịch trình bận rộn.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <p class="product-price">
+                            15.000đ <span>/ kg</span>
+                        </p>
+
+                        <a class="product-link"
+                           href="/service-detail.html?id=giat-say">
+                            Xem chi tiết →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- DICH VU 2 -->
+            <article class="product-card">
+
+                <a class="product-image-link"
+                   href="/service-detail.html?id=chan-men">
+
+                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
+                         alt="Hình minh họa giặt chăn mền"
+                         loading="lazy" />
+
+                </a>
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        Đồ gia dụng
+                    </span>
+
+                    <h3>Giặt chăn mền</h3>
+
+                    <p class="product-shop">
+                        <strong>Tiệm cung cấp:</strong>
+                        Tiệm minh họa C
+                    </p>
+
+                    <p class="product-description">
+                        Dịch vụ làm sạch chăn mền
+                        và đồ dùng giường ngủ.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <p class="product-price">
+                            60.000đ <span>/ món</span>
+                        </p>
+
+                        <a class="product-link"
+                           href="/service-detail.html?id=chan-men">
+                            Xem chi tiết →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
