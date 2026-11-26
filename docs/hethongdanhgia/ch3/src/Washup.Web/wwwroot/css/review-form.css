@@ -1,0 +1,249 @@
+/* =========================================
+   WASHUP - CUSTOMER REVIEW FORM
+   Task: CD26-08
+   ========================================= */
+
+/* 1. Khung biểu mẫu đánh giá */
+.review-form-section {
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
+    margin: 32px auto;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* 2. Tiêu đề và mô tả */
+.review-form-section h2 {
+    margin: 0 0 10px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #173b57;
+}
+
+.review-description {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+/* 3. Các trường nhập liệu */
+.review-field {
+    margin-bottom: 22px;
+}
+
+.review-field label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #243b53;
+}
+
+/* 4. Khu vực chấm sao */
+.rating-stars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.rating-star {
+    padding: 4px;
+    border: none;
+    background: transparent;
+    color: #cbd5e1;
+    font-size: 38px;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.rating-star.active {
+    color: #f5b301;
+}
+
+.rating-star:hover {
+    color: #f5b301;
+    transform: scale(1.12);
+}
+
+.rating-star:focus-visible {
+    outline: 2px solid #1683b8;
+    border-radius: 6px;
+}
+
+.rating-text {
+    margin: 8px 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* 5. Ô nhập nội dung nhận xét */
+.review-field textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 120px;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #243b53;
+    font: inherit;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+.review-field textarea:focus {
+    outline: 2px solid #1683b8;
+    outline-offset: 1px;
+}
+
+.character-count {
+    margin-top: 6px;
+    text-align: right;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* 6. Khu vực đính kèm hình ảnh */
+.review-field input[type="file"] {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+    background: #f8fafc;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.review-image-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.review-image-preview img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+/* 7. Thông báo lỗi */
+.review-error {
+    display: block;
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.review-error:empty {
+    display: none;
+}
+
+/* 8. Nút gửi đánh giá */
+.review-submit {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #1683b8;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.review-submit:hover {
+    background: #11688f;
+}
+
+.review-submit:focus-visible {
+    outline: 2px solid #173b57;
+    outline-offset: 3px;
+}
+
+.review-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* 9. Thông báo trạng thái */
+.review-message {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.review-message:empty {
+    display: none;
+}
+
+.review-message.success {
+    color: #15803d;
+}
+
+.review-message.error {
+    color: #dc2626;
+}
+
+.review-note {
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #64748b;
+    text-align: center;
+}
+
+/* 10. Responsive trên máy tính bảng */
+@media (max-width: 768px) {
+    .review-form-section {
+        padding: 22px;
+        margin: 24px auto;
+    }
+}
+
+/* 11. Responsive trên điện thoại */
+@media (max-width: 576px) {
+    .review-form-section {
+        margin: 20px auto;
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .review-form-section h2 {
+        font-size: 22px;
+    }
+
+    .rating-stars {
+        gap: 4px;
+    }
+
+    .rating-star {
+        font-size: 32px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .review-field textarea {
+        font-size: 16px;
+    }
+
+    .review-image-preview img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .review-submit {
+        font-size: 15px;
+    }
+}
