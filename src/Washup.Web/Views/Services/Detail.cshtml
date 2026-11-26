@@ -69,14 +69,16 @@
         <!-- THỐNG KÊ ĐÁNH GIÁ -->
         <div class="review-summary">
             <h3>Điểm đánh giá trung bình</h3>
-            <div class="review-score">4.5 / 5</div>
+            <div class="review-score" id="review-average">
+    4.5 / 5
+</div>
 <div class="review-stars-average"
      role="img"
      aria-label="Điểm trung bình 4,5 trên 5 sao">
     <span class="stars-base" aria-hidden="true">★★★★★</span>
     <span class="stars-fill" aria-hidden="true">★★★★★</span>
 </div>
-            <p>2 lượt đánh giá minh họa</p>
+            <p id="review-count">2 lượt đánh giá minh họa</p>
         </div>
 
         <!-- DANH SÁCH NHẬN XÉT -->
@@ -100,7 +102,7 @@
 </div>
 
 
-            <article class="review-card" data-rating="5">
+            <article class="review-card" data-rating="5" data-status="Approved">
                 <strong>Khách hàng A (minh họa)</strong>
                 <p class="review-stars">★★★★★</p>
                 <p>
@@ -109,7 +111,7 @@
                 </p>
             </article>
 
-           <article class="review-card" data-rating="4">
+           <article class="review-card" data-rating="4" data-status="Approved">
                 <strong>Khách hàng B (minh họa)</strong>
                 <p class="review-stars">★★★★☆</p>
                 <p>
@@ -117,6 +119,16 @@
                     với nhu cầu.
                 </p>
             </article>
+<!-- Đánh giá đang chờ duyệt: dữ liệu kiểm thử -->
+<article class="review-card"
+         data-rating="2"
+         data-status="Pending">
+    <strong>Khách hàng C (minh họa)</strong>
+    <p class="review-stars">★★☆☆☆</p>
+    <p>
+        Thời gian xử lý lâu hơn mong đợi.
+    </p>
+</article>
         </div>
 
         <p class="products-note">
@@ -220,6 +232,37 @@
             reviewList.appendChild(emptyMessage);
 
             // Hàm lọc nhận xét theo số sao
+
+            // Tính điểm trung bình chỉ từ đánh giá Approved
+            function updateReviewSummary() {
+                const approvedReviews = [...reviews].filter(function (review) {
+                    return review.dataset.status === "Approved";
+                });
+
+                const averageElement = document.getElementById("review-average");
+                const countElement = document.getElementById("review-count");
+                const starsFill = document.querySelector(".review-stars-average .stars-fill");
+
+                const count = approvedReviews.length;
+
+                const totalStars = approvedReviews.reduce(function (sum, review) {
+                    return sum + Number(review.dataset.rating);
+                }, 0);
+
+                const average = count > 0 ? totalStars / count : 0;
+
+                if (averageElement) {
+                    averageElement.textContent = average.toFixed(1) + " / 5";
+                }
+
+                if (countElement) {
+                    countElement.textContent = count + " lượt đánh giá minh họa";
+                }
+
+                if (starsFill) {
+                    starsFill.style.width = (average / 5 * 100) + "%";
+                }
+            }
             function filterReviews() {
                 const selectedRating = ratingFilter.value;
                 let visibleCount = 0;
@@ -227,9 +270,13 @@
                 reviews.forEach(function (review) {
                     const rating = review.dataset.rating;
 
-                    const isMatch =
-                        selectedRating === "all" ||
-                        rating === selectedRating;
+                    
+const isApproved = review.dataset.status === "Approved";
+
+const isMatch = isApproved &&
+    (selectedRating === "all" ||
+     rating === selectedRating);
+
 
                     review.style.display = isMatch ? "" : "none";
 
@@ -244,8 +291,11 @@
             // Chạy khi người dùng chọn mức sao
             ratingFilter.addEventListener("change", filterReviews);
 
-            // Hiển thị trạng thái ban đầu
-            filterReviews();
+            // Tính thống kê từ đánh giá đã duyệt
+updateReviewSummary();
+
+// Hiển thị danh sách theo bộ lọc
+filterReviews();
         });
     </script>
 }
