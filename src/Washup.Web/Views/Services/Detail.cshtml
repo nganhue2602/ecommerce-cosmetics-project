@@ -70,7 +70,12 @@
         <div class="review-summary">
             <h3>Điểm đánh giá trung bình</h3>
             <div class="review-score">4.5 / 5</div>
-            <div class="review-stars">★★★★★</div>
+<div class="review-stars-average"
+     role="img"
+     aria-label="Điểm trung bình 4,5 trên 5 sao">
+    <span class="stars-base" aria-hidden="true">★★★★★</span>
+    <span class="stars-fill" aria-hidden="true">★★★★★</span>
+</div>
             <p>2 lượt đánh giá minh họa</p>
         </div>
 
@@ -123,8 +128,30 @@
 
     </div>
 </section>
-
 <style>
+.review-stars-average {
+    position: relative;
+    display: table;
+    margin: 12px auto;
+    font-size: 26px;
+    letter-spacing: 3px;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+.review-stars-average .stars-base {
+    color: #d7deeb;
+}
+
+.review-stars-average .stars-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 90%;
+    overflow: hidden;
+    color: #f2ae38;
+    white-space: nowrap;
+}
     .review-summary {
         background: #eef3ff;
         border-radius: 18px;
