@@ -2,12 +2,18 @@
 
 | Thông tin | Chi tiết |
 |---|---|
-| Tên dự án | WASHUP - Nền tảng thương mại điện tử kết nối khách hàng và các tiệm giặt ủi|
+| Tên dự án | WASHUP – Nền tảng thương mại điện tử kết nối khách hàng và các tiệm giặt ủi |
 | Nhóm thực hiện | Nhóm 6 |
 | Số thành viên | 8 |
-| Thời gian thực hiện | 8 tuần |
+| Thời gian thực hiện toàn đồ án | 8 tuần |
+| Giai đoạn hiện tại | Hoàn thiện phiên bản MVP |
+| Thời gian hoàn thiện MVP | 23/11/2026 – 27/11/2026 |
+| Deadline nội bộ | 22:00 ngày 27/11/2026 |
+| Deadline nộp | Trước ngày 28/11/2026 |
 | Mô hình hoạt động | Nền tảng trung gian kết nối nhiều tiệm giặt với khách hàng |
-| Công cụ quản lý | GitHub và GitHub Issues |
+| Stack chính | ASP.NET Core MVC, EF Core Code First, SQLite, ASP.NET Core Identity, Razor và Bootstrap 5 |
+| Công cụ quản lý | GitHub, GitHub Issues, Branch và Pull Request |
+| Phạm vi thanh toán | COD và thanh toán mô phỏng là bắt buộc; payOS thật chỉ triển khai khi đủ credentials và webhook |
 
 WASHUP được phát triển theo mô hình sàn thương mại điện tử dịch vụ, đóng vai trò trung gian kết nối khách hàng với các tiệm giặt.
 
@@ -35,13 +41,13 @@ Phân công các nhiệm vụ khởi tạo trong Chương 1 được trình bày
 | Vai trò | Trách nhiệm chính | Sản phẩm hoặc kết quả phụ trách | Người phụ trách |
 |---|---|---|---|
 | **Quản lý dự án / Trưởng nhóm** | Điều phối công việc, theo dõi tiến độ, quản lý GitHub Issues và tổng hợp các vấn đề cần nhóm quyết định. | Kế hoạch dự án, bảng phân công, cập nhật tiến độ và danh sách vấn đề cần xử lý. | Ngân Huệ |
-| **Phân tích nghiệp vụ (BA)** | Làm rõ nhu cầu khách hàng và tiệm giặt; xác định phạm vi, quyền hạn, quy trình và tiêu chí nghiệm thu. | REQUIREMENTS.md, quy tắc nghiệp vụ và nội dung điều chỉnh yêu cầu. | Chưa phân công |
-| **Thiết kế giao diện (UI/UX)** | Thiết kế bố cục và luồng thao tác cho khách hàng, chủ tiệm và quản trị viên. | Thiết kế giao diện, điều hướng và tài nguyên giao diện. | Chưa phân công |
-| **Phát triển Frontend** | Xây dựng giao diện bằng HTML5, CSS3, JavaScript và Bootstrap 5; phối hợp kết nối với Backend. | Các trang khách hàng, khu vực chủ tiệm và trang quản trị nền tảng. | Chưa phân công |
-| **Phát triển Backend** | Xây dựng xử lý tài khoản, phân quyền, gian hàng, dịch vụ, đặt đơn, tính phí và thanh toán theo phạm vi đã chốt. | Các chức năng xử lý nghiệp vụ và kiểm tra quyền truy cập. | Chưa phân công |
-| **Thiết kế và quản lý cơ sở dữ liệu** | Thiết kế dữ liệu liên kết khách hàng, chủ tiệm, gian hàng, dịch vụ, đơn hàng và giao dịch; phối hợp với Backend. | Mô hình dữ liệu, cấu trúc cơ sở dữ liệu và dữ liệu thử nghiệm. | Chưa phân công |
-| **Kiểm thử (QA/Tester)** | Xây dựng trường hợp kiểm thử, kiểm tra chức năng và phân quyền giữa các tiệm; ghi nhận và kiểm tra lại lỗi. | Kế hoạch kiểm thử, kết quả kiểm tra và danh sách lỗi. | Chưa phân công |
-| **Tích hợp và tài liệu** | Phối hợp kết nối các phần của hệ thống, kiểm tra luồng hoạt động và cập nhật tài liệu hướng dẫn. | Phiên bản tích hợp, tài liệu sử dụng theo vai trò và nội dung hỗ trợ báo cáo. | Chưa phân công |
+| **Phân tích nghiệp vụ (BA)** | Làm rõ nhu cầu khách hàng và tiệm giặt; xác định phạm vi, quyền hạn, quy trình và tiêu chí nghiệm thu. | REQUIREMENTS.md, quy tắc nghiệp vụ và nội dung điều chỉnh yêu cầu. | Ngân Huệ |
+| **Thiết kế giao diện (UI/UX)** | Thiết kế bố cục và luồng thao tác cho khách hàng, chủ tiệm và quản trị viên. | Thiết kế giao diện, điều hướng và tài nguyên giao diện. | Quỳnh Như, Kim Thư |
+| **Phát triển Frontend** | Xây dựng giao diện bằng HTML5, CSS3, JavaScript và Bootstrap 5; phối hợp kết nối với Backend. | Các trang khách hàng, khu vực chủ tiệm và trang quản trị nền tảng. | 	Thảo Nguyên, Quỳnh Như, Kim Thư |
+| **Phát triển Backend** | Xây dựng xử lý tài khoản, phân quyền, gian hàng, dịch vụ, đặt đơn, tính phí và thanh toán theo phạm vi đã chốt. | Các chức năng xử lý nghiệp vụ và kiểm tra quyền truy cập. | Thùy Duyên, Hà My, Ngân Huệ |
+| **Thiết kế và quản lý cơ sở dữ liệu** | Thiết kế dữ liệu liên kết khách hàng, chủ tiệm, gian hàng, dịch vụ, đơn hàng và giao dịch; phối hợp với Backend. | Mô hình dữ liệu, cấu trúc cơ sở dữ liệu và dữ liệu thử nghiệm. | Anh Thư |
+| **Kiểm thử (QA/Tester)** | Xây dựng trường hợp kiểm thử, kiểm tra chức năng và phân quyền giữa các tiệm; ghi nhận và kiểm tra lại lỗi. | Kế hoạch kiểm thử, kết quả kiểm tra và danh sách lỗi. | Yến Trân |
+| **Tích hợp và tài liệu** | Phối hợp kết nối các phần của hệ thống, kiểm tra luồng hoạt động và cập nhật tài liệu hướng dẫn. | Phiên bản tích hợp, tài liệu sử dụng theo vai trò và nội dung hỗ trợ báo cáo. | Ngân Huệ, Kim Thư |
 
 Phân công các công việc khởi tạo đã thực hiện được giữ riêng tại mục 3.1.
 
@@ -71,7 +77,7 @@ Dự án WASHUP được thực hiện trong 8 tuần.
 | **1. Khảo sát và xác định yêu cầu** | Phân tích nhu cầu của khách hàng và tiệm giặt; xác định vai trò trung gian của WASHUP; khảo sát website tham khảo; phân tích, phản biện và thống nhất phạm vi MVP. | Bộ tài liệu yêu cầu phản ánh đúng mô hình nhiều tiệm, quyền của từng nhóm người dùng và các chức năng được lựa chọn. |
 | **2. Thiết kế giao diện** | Thiết kế khu vực khách hàng để tìm kiếm, xem, so sánh tiệm và đặt dịch vụ; khu vực chủ tiệm để quản lý gian hàng, dịch vụ, đơn hàng; khu vực Admin để xét duyệt và giám sát nền tảng. | Bộ thiết kế giao diện và luồng thao tác cho khách hàng, chủ tiệm và Admin. |
 | **3. Xây dựng Frontend** | Sử dụng HTML5, CSS3, JavaScript và Bootstrap 5 để xây dựng giao diện; hiển thị thông tin tiệm cung cấp dịch vụ và các chức năng tương ứng với từng vai trò. | Giao diện thể hiện được nhiều tiệm, có thể thao tác trên máy tính và điện thoại. |
-| **4. Phát triển Backend và cơ sở dữ liệu** | Sử dụng PHP và MySQL để xây dựng tài khoản, phân quyền, đăng ký và duyệt gian hàng, quản lý dịch vụ và lịch phục vụ theo tiệm; phát triển đặt đơn, tính phí, voucher, thanh toán và quản lý đơn hàng. | Các chức năng nghiệp vụ và dữ liệu xác định rõ tiệm cung cấp dịch vụ, khách đặt đơn và quyền quản lý tương ứng. |
+| **4. Phát triển Backend và cơ sở dữ liệu** | Sử dụng ASP.NET Core MVC, EF Core Code First, SQLite và ASP.NET Core Identity để xây dựng tài khoản, phân quyền, đăng ký và duyệt tiệm, quản lý dịch vụ, giỏ hàng nhiều tiệm, đặt đơn, tính phí, thanh toán và quản lý đơn hàng. | Các chức năng nghiệp vụ và dữ liệu xác định rõ tiệm cung cấp dịch vụ, khách hàng đặt đơn và quyền quản lý tương ứng. |
 | **5. Tích hợp và kiểm thử** | Kết nối các phần của hệ thống; kiểm thử luồng khách chọn tiệm, đặt dịch vụ, tiệm tiếp nhận và xử lý, khách theo dõi; kiểm tra phân quyền giữa các tiệm và quyền giám sát của Admin. | Các quy trình chính hoạt động theo yêu cầu; lỗi được ghi nhận và xử lý; dữ liệu riêng của các tiệm được phân quyền đúng. |
 | **6. Triển khai và hoàn thiện** | Chuẩn bị bản thử nghiệm với nhiều tiệm và tài khoản theo từng vai trò; hoàn thiện chức năng đã chốt, tài liệu sử dụng và báo cáo. | Phiên bản MVP thể hiện đúng mô hình marketplace và bộ tài liệu đồng bộ. |
 
@@ -93,23 +99,50 @@ Bảng dưới đây là phương án phân bổ công việc theo tuần.
 | **Tuần 8** | Hoàn thiện bản thử nghiệm, kiểm tra lại các chức năng, chuẩn bị dữ liệu minh họa nhiều tiệm và hoàn thiện tài liệu báo cáo. | Website MVP và tài liệu phục vụ đánh giá. |
 
 
-### 2.3. Các nội dung cần chốt trước khi triển khai
+### 2.3. Kế hoạch hoàn thiện MVP từ 23/11 đến 27/11/2026
 
-Mô hình kết nối nhiều tiệm giặt ủi với khách hàng là định hướng chung của WASHUP.
+Nhóm tổ chức giai đoạn hoàn thiện MVP trong 5 ngày.
 
-**Bảng 2.3. Các quyết định ảnh hưởng đến phạm vi và kế hoạch**
+| Ngày | Công việc trọng tâm | Kết quả bắt buộc cuối ngày |
+|---|---|---|
+| 23/11 | Khóa phạm vi; tạo solution ASP.NET Core MVC; chốt ERD, vai trò và Test Matrix | Project ASP.NET build được; ERD, role và tiêu chí kiểm thử được thống nhất |
+| 24/11 | Hoàn thiện Database, Migration, SeedData và Identity; bắt đầu các chức năng chính | Migration và seed chạy; đăng nhập được ba role; Catalog, Detail, Cart và Seller có phiên bản đầu |
+| 25/11 | Hoàn thiện các chức năng chính; Checkout; tạo đơn tổng và tách đơn theo tiệm | Checkout tạo được Order tổng và ShopOrder; COD và thanh toán mô phỏng hoạt động |
+| 26/11 | Tích hợp, sửa lỗi, rà phân quyền, responsive và tài liệu | Feature Freeze lúc 18:00; build và test chạy; không còn lỗi chặn luồng chính |
+| 27/11 | Regression, README, báo cáo, demo, tag và backup | Các chức năng P0 đạt; tag v1.0-mvp và bộ nộp hoàn tất trước 22:00 |
 
-| Nội dung | Yêu cầu làm rõ |
-|---|---|
-| **Giỏ hàng và đơn hàng** | File ý tưởng có đề xuất giỏ đa tiệm và tự động tách đơn. Nhóm cần chốt việc triển khai trong MVP hay giới hạn mỗi lần đặt tại một tiệm. Cả hai phương án đều phải duy trì nền tảng có nhiều tiệm để khách lựa chọn. |
-| **Tìm kiếm theo vị trí** | Ý tưởng có tìm tiệm trong bán kính 5 km. Cần xác định cách lấy vị trí, tính khoảng cách và xử lý khi không có thông tin vị trí của khách hàng. |
-| **Lịch và năng lực phục vụ** | Xác định cách mỗi tiệm thiết lập khung giờ, giới hạn nhận đơn và xử lý khi khung giờ không còn khả dụng. |
-| **Giá và khối lượng thực tế** | Thống nhất cách tính chi phí dự kiến, cách tiệm cập nhật khối lượng thực tế và việc khách xác nhận khoản điều chỉnh. |
-| **Thanh toán** | Chốt phương thức thanh toán, cổng thử nghiệm, cách liên kết giao dịch với đơn hàng và xử lý thanh toán thất bại, hủy hoặc hoàn tiền. |
-| **Giao nhận** | Chốt phần giao nhận được mô phỏng và phần tích hợp thực tế. Ý tưởng kết nối Grab/Be cần được kiểm tra điều kiện tích hợp trước khi đưa vào cam kết triển khai. |
-| **Voucher** | Xác định mã áp dụng toàn nền tảng hay theo tiệm, điều kiện sử dụng và cách phân bổ giảm giá khi có nhiều đơn thành phần. |
-| **Hoa hồng và đối soát** | Phân biệt việc tính toán, ghi nhận khoản phải trả cho tiệm với việc tự động chuyển tiền thực tế; thống nhất phạm vi triển khai và quy tắc tính. |
-| **Đánh giá và khiếu nại** | Xác định điều kiện đánh giá, quyền phản hồi của tiệm, quy trình Admin xử lý khiếu nại và ghi nhận kết quả. |
+#### Phạm vi ưu tiên
+
+**P0 – Bắt buộc hoàn thành:**
+
+- Đăng ký, đăng nhập và phân quyền Customer, Seller, Admin.
+- Cơ sở dữ liệu cho tiệm, dịch vụ, người dùng và đơn hàng.
+- Danh sách và chi tiết tiệm, dịch vụ.
+- Tìm kiếm, lọc và sắp xếp.
+- Giỏ hàng nhiều tiệm.
+- Checkout và validation.
+- Tạo đơn tổng và tách đơn theo từng tiệm.
+- Thanh toán COD và thanh toán mô phỏng.
+- Seller quản lý tiệm, dịch vụ và đơn thuộc tiệm mình.
+- Admin duyệt tiệm, xem đơn hàng và chỉ số cơ bản.
+- Kiểm thử chức năng, phân quyền và responsive.
+- README, báo cáo và hướng dẫn chạy.
+
+**P1 – Chỉ thực hiện khi P0 đã ổn định:**
+
+- Tích hợp payOS VietQR thật.
+- So sánh tối đa ba dịch vụ.
+- Đánh giá 1–5 sao.
+- Biểu đồ Canvas.
+- Tối ưu SEO và hiệu năng nâng cao.
+
+**P2 – Không đưa vào deadline hiện tại:**
+
+- React, SCSS và jQuery.
+- Mini service PHP/XAMPP.
+- QR theo dõi từng công đoạn.
+- Chia tiền tự động cho từng tiệm.
+- Hoàn tiền thật và ứng dụng di động.
 
 ---
 
@@ -138,20 +171,22 @@ Mô hình kết nối nhiều tiệm giặt ủi với khách hàng là định 
 
 Các đầu việc PT01–PT10 được cập nhật để thể hiện việc phát triển nền tảng nhiều tiệm.
 
-**Bảng 3.2. Danh sách công việc phát triển dự kiến**
+**Bảng 3.2. Danh sách công việc phát triển đã phân công**
 
-| Mã | Công việc | Kết quả cần đạt | Thời gian dự kiến | Người phụ trách | Trạng thái |
+| Mã | Công việc | Kết quả cần đạt | Thời gian thực hiện | Người phụ trách | Trạng thái hiện tại |
 |---|---|---|---|---|---|
-| **PT01** | Thiết kế giao diện cho khách hàng, chủ tiệm và Admin | Bản thiết kế tìm kiếm, so sánh và chi tiết tiệm, đặt dịch vụ, quản lý gian hàng, quản lý đơn và xét duyệt đối tác. | Tuần 2 | Chưa phân công | Chưa bắt đầu  |
-| **PT02** | Xây dựng Frontend cho nền tảng nhiều tiệm | Các giao diện hiển thị thông tin của nhiều tiệm, dịch vụ thuộc từng tiệm và chức năng tương ứng với từng vai trò. | Tuần 3–4 | Chưa phân công | Chưa bắt đầu |
-| **PT03** | Thiết kế cơ sở dữ liệu marketplace | Mô hình liên kết tài khoản, gian hàng, dịch vụ, lịch phục vụ, đơn hàng và giao dịch; dữ liệu xác định được tiệm sở hữu hoặc phụ trách. | Tuần 2–4 | Chưa phân công | Chưa bắt đầu |
-| **PT04** | Phát triển tài khoản, gian hàng và quản lý dịch vụ | Phân quyền khách hàng, chủ tiệm và Admin; đăng ký, xét duyệt gian hàng; chủ tiệm quản lý thông tin và dịch vụ của mình. | Tuần 4–5 | Chưa phân công | Chưa bắt đầu theo bản kế hoạch gốc |
-| **PT05** | Phát triển quy trình đặt dịch vụ theo tiệm | Khách chọn tiệm, dịch vụ, khối lượng, lịch và địa chỉ; hệ thống tạo đơn đúng tiệm. Giỏ đa tiệm và tách đơn được thực hiện nếu nhóm chốt trong MVP. | Tuần 5 | Chưa phân công | Chưa bắt đầu |
-| **PT06** | Phát triển tính phí, voucher và phí giao nhận theo tiệm | Tính đúng giá và phí của tiệm được chọn; áp dụng voucher đúng phạm vi; lưu chi phí của đơn; xử lý điều chỉnh khối lượng theo quy tắc đã thống nhất. | Tuần 5–6 | Chưa phân công | Chưa bắt đầu |
-| **PT07** | Tích hợp thanh toán và xử lý kết quả giao dịch | Xác minh giao dịch thử nghiệm, liên kết kết quả với đúng đơn hàng và ghi nhận trạng thái thanh toán theo quy tắc đã chốt. | Nghiên cứu từ đầu dự án; tích hợp dự kiến tuần 6 | Chưa phân công | Chưa bắt đầu |
-| **PT08** | Phát triển quản lý đơn hàng và dashboard theo vai trò | Chủ tiệm tiếp nhận, từ chối và cập nhật đơn của mình; khách theo dõi đơn; Admin giám sát toàn sàn. Thống kê của tiệm và nền tảng được tách biệt. | Tuần 5–6 | Chưa phân công | Chưa bắt đầu |
-| **PT09** | Tích hợp và kiểm thử mô hình nhiều tiệm | Kiểm tra quy trình đặt đơn, dữ liệu, giá và phí theo tiệm, thanh toán, phân quyền; kiểm thử tách đơn nếu chức năng này thuộc MVP. | Kiểm tra từng phần trong quá trình phát triển; kiểm thử tổng thể tuần 7 | Chưa phân công | Chưa bắt đầu |
-| **PT10** | Triển khai và hoàn thiện bản thử nghiệm marketplace | Website thử nghiệm có nhiều tiệm, tài khoản theo vai trò, dữ liệu minh họa và tài liệu hướng dẫn tương ứng. | Tuần 8 | Chưa phân công | Chưa bắt đầu |
+| **PT01** | Thiết kế giao diện cho Customer, Seller và Admin | Hoàn thiện flow và wireframe cho trang công khai, trang chi tiết, checkout, tài khoản khách hàng, khu vực quản lý tiệm và khu vực Admin. | **23/11** | **Quỳnh Như:** Customer. **Kim Thư:** Seller/Admin. **Ngân Huệ:** rà soát và chốt luồng. | Đã có giao diện công khai cơ bản; đang bổ sung thiết kế cho ba nhóm người dùng |
+| **PT02** | Xây dựng Frontend cho nền tảng nhiều tiệm | Chuyển giao diện hiện có sang Razor Views; hiển thị dữ liệu từ database; xây dựng giao diện theo đúng quyền Customer, Seller và Admin; bảo đảm responsive. | **24–26/11** | **Thảo Nguyên:** trang công khai và catalog. **Quỳnh Như:** Customer. **Kim Thư:** Seller. **Ngân Huệ:** Admin và tích hợp. | Đã có bản HTML, CSS và JavaScript; chưa chuyển hoàn toàn sang ASP.NET Core MVC |
+| **PT03** | Thiết kế cơ sở dữ liệu marketplace | Xây dựng Models, `ApplicationDbContext`, quan hệ giữa User, Shop, Service, Order, ShopOrder, OrderItem, Payment và Review; tạo Migration và SeedData cho 8–10 tiệm. | **23–24/11** | **Anh Thư** | Chưa bắt đầu |
+| **PT04** | Phát triển tài khoản, phân quyền, gian hàng và quản lý dịch vụ | Đăng ký, đăng nhập, đăng xuất; phân quyền Customer, Seller và Admin; Seller đăng ký và quản lý tiệm, dịch vụ của mình; Admin duyệt hoặc từ chối tiệm. | **23–25/11** | **Hà My:** Identity, role và bảo mật. **Kim Thư:** Seller quản lý tiệm, dịch vụ. **Ngân Huệ:** Admin duyệt tiệm. | Chưa bắt đầu |
+| **PT05** | Phát triển giỏ hàng nhiều tiệm, checkout và quy trình đặt dịch vụ | Khách thêm dịch vụ từ nhiều tiệm; nhập thông tin giao nhận; hệ thống tạo một đơn tổng và các đơn thành phần theo từng tiệm; Seller chỉ nhận đơn thuộc tiệm mình. | **24–25/11** | **Thùy Duyên:** giỏ hàng và tạo, tách đơn. **Quỳnh Như:** form checkout và luồng Customer. | Đã có giỏ hàng Frontend; chưa có checkout, Order và tách đơn phía Backend |
+| **PT06** | Phát triển tính phí, voucher và phí giao nhận | Server lấy giá từ database, tính thành tiền, phí giao nhận và tổng tiền; kiểm tra voucher; không sử dụng giá do trình duyệt gửi lên làm nguồn chính. | **24–25/11** | **Thùy Duyên**; **Anh Thư** phối hợp rà dữ liệu và công thức. | Chưa bắt đầu |
+| **PT07** | Tích hợp phương thức thanh toán | Hỗ trợ COD và thanh toán mô phỏng; tạo bản ghi Payment, lưu phương thức và trạng thái. PayOS VietQR thật chỉ triển khai nếu có đủ credentials và public webhook trước thời điểm Go/No-Go. | **25–26/11** | **Thùy Duyên:** luồng thanh toán. **Ngân Huệ:** tích hợp, kiểm tra và quyết định Go/No-Go payOS. | Chưa bắt đầu |
+| **PT08** | Phát triển quản lý đơn hàng và dashboard theo vai trò | Customer xem lịch sử và trạng thái đơn; Seller tiếp nhận và cập nhật đơn của tiệm mình; Admin xem toàn bộ đơn và các KPI cơ bản của nền tảng. | **25–26/11** | **Quỳnh Như:** Customer theo dõi đơn. **Kim Thư:** Seller xử lý đơn. **Ngân Huệ:** Admin và dashboard. | Chưa bắt đầu |
+| **PT09** | Tích hợp và kiểm thử mô hình nhiều tiệm | Kiểm thử đăng nhập, phân quyền, catalog, giỏ nhiều tiệm, checkout, tách đơn, payment, Seller, Admin, Console và responsive tại 1366 px, 768 px và 390 px. | **23–27/11**, thực hiện song song; regression cuối ngày **27/11** | **Yến Trân:** phụ trách chính. **Ngân Huệ:** điều phối tích hợp. **Tất cả thành viên phụ trách:** sửa lỗi phần mình. | Đang lập Test Matrix; chưa kiểm thử hệ thống Backend mới |
+| **PT10** | Triển khai và hoàn thiện bản thử nghiệm marketplace | Website chạy được từ hướng dẫn README; có Migration, SeedData, tài khoản mẫu, bản backup, ảnh minh chứng, báo cáo, demo và tag `v1.0-mvp`. | **27/11**, hoàn tất trước **22:00** | **Ngân Huệ:** release và báo cáo. **Kim Thư:** README và tài liệu. **Yến Trân:** xác nhận kiểm thử. **Anh Thư:** fresh setup. | Chưa bắt đầu |
+
+*Nguồn: Nhóm tác giả cập nhật theo kế hoạch hoàn thiện MVP từ ngày 23/11 đến ngày 27/11/2026.*
 
 **Bảng 3.3. Đầu việc bổ sung từ danh sách ý tưởng, cần nhóm xác nhận phạm vi**
 
@@ -341,6 +376,35 @@ Trong giai đoạn rà soát và hoàn thiện báo cáo, nhóm tổ chức lạ
 Quy trình chung: `Branch cá nhân → chỉnh sửa → tự kiểm tra → Commit → Pull Request → Review → Merge vào main → cập nhật Issue`.
 
 Các branch được tích hợp theo thứ tự phụ thuộc. Đặc biệt, phần nghiệp vụ giỏ hàng của Thùy Duyên được merge trước phần localStorage của Hà My do hai phần cùng liên quan đến `js/cart.js`. Yến Trân thực hiện kiểm thử sau khi các chức năng chính đã được tích hợp; Kim Thư cập nhật README trên phiên bản gần cuối để tài liệu phản ánh đúng mã nguồn.
+
+## Quy trình làm việc trong giai đoạn hoàn thiện
+
+Mỗi thành viên làm việc trên branch cá nhân đã được phân công:
+
+| Thành viên | Branch |
+|---|---|
+| Ngân Huệ | `ngan-hue/integration` |
+| Anh Thư | `anh-thu/product-data` |
+| Thảo Nguyên | `thao-nguyen/catalog-filter` |
+| Quỳnh Như | `quynh-nhu/service-detail` |
+| Thùy Duyên | `thuy-duyen/cart` |
+| Hà My | `ha-my/storage` |
+| Yến Trân | `yen-tran/testing` |
+| Kim Thư | `kim-thu/docs-readme` |
+
+Quy trình chung:
+
+`Cập nhật branch từ main → Phát triển → Tự kiểm tra → Commit → Pull Request → Review → Merge vào main → Kiểm thử lại`
+
+Không thành viên nào chỉnh sửa trực tiếp trên `main`. Những tệp dùng chung như `Program.cs`, `ApplicationDbContext`, `_Layout.cshtml` và các model đơn hàng phải được kiểm tra trước khi merge.
+
+Thứ tự tích hợp chính:
+
+1. Foundation ASP.NET Core MVC.
+2. Database và Identity.
+3. Catalog, Customer, Cart/Order, Seller và Admin.
+4. Tích hợp, phân quyền và responsive.
+5. Regression, README, báo cáo và release.
 
 ## 5. Tài liệu liên quan
 

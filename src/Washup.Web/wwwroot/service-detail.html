@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Thông tin chi tiết các dịch vụ giặt ủi trên nền tảng WASHUP." />
+  <title>Chi tiết dịch vụ | WASHUP</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="images/washup-logo-full.png">
+
+  <style>
+    /* HEADER VÀ GIỎ HÀNG DROPDOWN */
+    .header-inner {
+      position: relative;
+    }
+    
+    .header-cart-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-left: 12px;
+    }
+
+    .header-cart {
+      position: relative;
+      width: 46px;
+      height: 46px;
+      border: 1px solid #e5eaf3;
+      border-radius: 50%;
+      background: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .header-cart:hover {
+      background: #eaf1ff;
+      transform: translateY(-2px);
+    }
+
+    .cart-icon {
+      font-size: 21px;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 5px;
+      border-radius: 20px;
+      background: #e53935;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* KHUNG GIỎ HÀNG XỔ XUỐNG */
+    .cart-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 14px);
+      right: 0;
+      z-index: 1000;
+      width: 360px;
+      max-width: calc(100vw - 30px);
+      max-height: 420px;
+      overflow-y: auto;
+      padding: 20px;
+      background: #fff;
+      border: 1px solid #e5eaf3;
+      border-radius: 16px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    .cart-dropdown.active {
+      display: block;
+    }
+
+    .cart-dropdown h3 {
+      margin: 0 0 16px;
+      color: #14213d;
+    }
+
+    .cart-empty {
+      padding: 20px 10px;
+      text-align: center;
+      color: #64748b;
+      background: #f8fafc;
+      border-radius: 10px;
+      line-height: 1.6;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid #e5eaf3;
+    }
+
+    .cart-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cart-item-info h3 {
+      margin: 0 0 5px;
+      font-size: 14px;
+    }
+
+    .cart-item-info p {
+      margin: 0;
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .cart-item-price {
+      color: #0645ad;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .cart-remove-btn {
+      padding: 6px 9px;
+      border: none;
+      border-radius: 6px;
+      background: #fff0f0;
+      color: #dc3545;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+
+    .cart-remove-btn:hover {
+      background: #dc3545;
+      color: #fff;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: 15px;
+      border-top: 1px solid #e5eaf3;
+    }
+
+    .cart-total strong {
+      color: #0645ad;
+      font-size: 18px;
+    }
+
+    .cart-view-link {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      padding: 10px;
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    /* NHÓM NÚT CHỨC NĂNG */
+    .service-detail-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .service-detail-actions button {
+      cursor: pointer;
+      font-family: inherit;
+      appearance: none;
+    }
+
+    /* CHI TIẾT DỊCH VỤ */
+    .service-detail-section {
+      padding: 64px 0;
+    }
+
+    .service-detail-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .service-detail-image {
+      overflow: hidden;
+      border-radius: 24px;
+      background: #f3f5fa;
+    }
+
+    .service-detail-image img {
+      display: block;
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+    }
+
+    .service-detail-content {
+      min-width: 0;
+    }
+
+    .service-detail-content h2 {
+      margin: 12px 0;
+      font-size: 32px;
+      line-height: 1.3;
+    }
+
+    #service-category.section-kicker {
+      display: inline-block;
+      font-size: 22px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1px;
+    }
+
+    .service-detail-content > p {
+      color: #64748b;
+      line-height: 1.8;
+    }
+
+    .service-detail-price {
+      margin: 24px 0;
+      padding: 22px 24px;
+      border-radius: 16px;
+      background: #f0f5ff;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-detail-price span {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .service-detail-price strong {
+      color: #0645ad;
+      font-size: 28px;
+    }
+
+    .service-detail-info {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .service-detail-info > div {
+      padding: 16px 18px;
+      border: 1px solid #e5eaf3;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .service-detail-info span {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .service-detail-info strong {
+      color: #14213d;
+      line-height: 1.6;
+    }
+
+    .service-detail-note {
+      padding: 18px 20px;
+      margin-bottom: 24px;
+      border-left: 4px solid #2459c5;
+      border-radius: 8px;
+      background: #f7f9fd;
+    }
+
+    .service-detail-note p {
+      margin: 8px 0 0;
+      color: #64748b;
+      line-height: 1.7;
+    }
+
+    /* QUY TRÌNH SỬ DỤNG DỊCH VỤ */
+    .service-process-section {
+      padding: 64px 0;
+      background: #f6f8fc;
+    }
+
+    .service-process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .service-process-card {
+      padding: 28px;
+      border: 1px solid #e5eaf3;
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .service-process-card > span {
+      display: inline-flex;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: #eaf1ff;
+      color: #0645ad;
+      font-weight: 700;
+    }
+
+    .service-process-card h3 {
+      margin: 18px 0 10px;
+    }
+
+    .service-process-card p {
+      color: #64748b;
+      line-height: 1.7;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .service-detail-section {
+        padding: 40px 0;
+      }
+
+      .service-detail-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .service-detail-image img {
+        height: 320px;
+      }
+
+      .service-detail-content h2 {
+        font-size: 26px;
+      }
+
+      #service-category.section-kicker {
+        font-size: 19px !important;
+      }
+
+      .service-process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cart-dropdown {
+        right: -5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">
+    Bỏ qua menu để đến nội dung
+  </a>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+
+    <!-- Logo -->
+    <a class="brand" href="index.html" aria-label="WASHUP – Về trang chủ">
+      <img
+        src="images/washup-logo-wordmark.png"
+        width="176"
+        height="52"
+        alt="WASHUP"
+      />
+    </a>
+
+    <!-- Menu điều hướng chính -->
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <a href="index.html">Trang chủ</a>
+      <a href="shops.html">Tiệm giặt</a>
+      <a href="products.html" aria-current="page">Dịch vụ</a>
+      <a href="about.html">Giới thiệu</a>
+    </nav>
+
+    <!-- Nút tìm tiệm giặt -->
+    <a class="header-cta" href="shops.html">
+      Tìm tiệm giặt
+      <span aria-hidden="true">↗</span>
+    </a>
+
+    <!-- Biểu tượng giỏ hàng -->
+    <a
+      href="cart.html"
+      class="nav-cart"
+      aria-label="Giỏ hàng"
+      title="Giỏ hàng"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+      </svg>
+
+      <span id="cart-badge">0</span>
+    </a>
+
+  </div>
+</header>
+
+  <main id="main-content">
+
+    <!-- BANNER CHI TIẾT DỊCH VỤ -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-kicker">
+          WASHUP · CHI TIẾT DỊCH VỤ
+        </span>
+
+        <h1 id="service-title">Giặt sấy quần áo</h1>
+
+        <p id="service-description">
+          Giải pháp tiện lợi cho quần áo sử dụng hằng ngày.
+        </p>
+
+        <a class="btn btn-secondary" href="products.html">
+          Quay lại danh sách dịch vụ
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- THÔNG TIN CHI TIẾT DỊCH VỤ -->
+    <section class="service-detail-section">
+      <div class="container service-detail-layout">
+
+        <div class="service-detail-image">
+          <img
+            id="service-image"
+            src="images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg"
+            alt="Dịch vụ giặt sấy quần áo"
+          />
+        </div>
+
+        <div class="service-detail-content">
+
+          <span class="section-kicker" id="service-category">
+            GIẶT THƯỜNG
+          </span>
+
+          <h2 id="service-name">
+            Giặt sấy quần áo
+          </h2>
+
+          <p id="service-full-description">
+            Quần áo được giặt sạch và sấy khô, giúp tiết kiệm thời gian
+            và công sức cho khách hàng.
+          </p>
+
+          <div class="service-detail-price">
+            <span>Giá tham khảo</span>
+            <strong id="service-price">15.000đ / kg</strong>
+          </div>
+
+          <div class="service-detail-info">
+            <div>
+              <span>⏱ Thời gian xử lý</span>
+              <strong id="service-time">24 – 48 giờ</strong>
+            </div>
+
+            <div>
+              <span>📦 Đơn vị tính</span>
+              <strong id="service-unit">Theo kg</strong>
+            </div>
+
+            <div>
+              <span>✦ Phù hợp với</span>
+              <strong id="service-suitable">
+                Quần áo mặc hằng ngày, đồ sinh hoạt cá nhân.
+              </strong>
+            </div>
+          </div>
+
+          <div class="service-detail-note">
+            <strong>Lưu ý dịch vụ</strong>
+            <p id="service-note">
+              Nên phân loại quần áo theo màu sắc và chất liệu trước khi giặt.
+            </p>
+          </div>
+
+          <!-- NHÓM NÚT CHỨC NĂNG -->
+          <div class="service-detail-actions">
+            <button
+              class="btn btn-primary"
+              type="button"
+              id="add-to-cart"
+              style="padding: 12px 24px; font-weight: bold;"
+            >
+              + Thêm vào giỏ hàng
+            </button>
+
+            <a class="btn btn-secondary" href="shops.html">
+              Tìm tiệm cung cấp dịch vụ →
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- QUY TRÌNH SỬ DỤNG DỊCH VỤ -->
+    <section class="service-process-section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">HOW IT WORKS</span>
+            <h2>Quy trình sử dụng dịch vụ</h2>
+          </div>
+
+          <p>
+            Đặt dịch vụ thông qua các tiệm giặt đối tác trên WASHUP.
+          </p>
+        </div>
+
+        <div class="service-process-grid">
+          <div class="service-process-card">
+            <span>01</span>
+            <h3>Chọn dịch vụ</h3>
+            <p>
+              Lựa chọn loại dịch vụ phù hợp với nhu cầu giặt ủi.
+            </p>
+          </div>
+
+          <div class="service-process-card">
+            <span>02</span>
+            <h3>Tìm tiệm giặt</h3>
+            <p>
+              Tham khảo tiệm đối tác, giá và thời gian xử lý.
+            </p>
+          </div>
+
+          <div class="service-process-card">
+            <span>03</span>
+            <h3>Liên hệ đặt dịch vụ</h3>
+            <p>
+              Chọn tiệm phù hợp và tiến hành đặt dịch vụ.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>WASHUP</strong>
+        <p>Nền tảng kết nối khách hàng và các tiệm giặt ủi.</p>
+      </div>
+
+      <p class="footer-note">
+        Giao diện minh họa cho bài tập HTML5 &amp; CSS3 · Buổi 3
+      </p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT XỬ LÝ -->
+  <script>
+    // DỮ LIỆU CÁC DỊCH VỤ
+    const services = {
+      "giat-say": {
+        name: "Giặt sấy quần áo",
+        category: "GIẶT THƯỜNG",
+        description: "Giải pháp tiện lợi cho quần áo sử dụng hằng ngày.",
+        fullDescription: "Quần áo được giặt sạch và sấy khô, giúp tiết kiệm thời gian và công sức cho khách hàng.",
+        price: "15.000đ / kg",
+        time: "24 – 48 giờ",
+        unit: "Theo kg",
+        suitable: "Quần áo mặc hằng ngày, đồ sinh hoạt cá nhân.",
+        note: "Nên phân loại quần áo theo màu sắc và chất liệu trước khi giặt.",
+        image: "images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg"
+      },
+
+      "giat-hap": {
+        name: "Giặt hấp quần áo",
+        category: "CHĂM SÓC CHUYÊN BIỆT",
+        description: "Dành cho một số trang phục cần phương pháp chăm sóc riêng.",
+        fullDescription: "Dịch vụ giặt hấp hỗ trợ làm sạch và chăm sóc các loại trang phục phù hợp với phương pháp giặt chuyên biệt.",
+        price: "50.000đ / món",
+        time: "24 – 48 giờ",
+        unit: "Theo món",
+        suitable: "Vest, áo khoác và một số trang phục cần chăm sóc riêng.",
+        note: "Cần kiểm tra nhãn hướng dẫn giặt trên trang phục trước khi sử dụng.",
+        image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=900&q=85"
+      },
+
+      "chan-men": {
+        name: "Giặt chăn mền",
+        category: "ĐỒ GIA DỤNG",
+        description: "Chăm sóc chăn mền và đồ dùng giường ngủ.",
+        fullDescription: "Dịch vụ làm sạch chăn mền, hỗ trợ loại bỏ bụi bẩn và giữ đồ dùng giường ngủ sạch sẽ.",
+        price: "60.000đ / món",
+        time: "24 – 48 giờ",
+        unit: "Theo món",
+        suitable: "Chăn, mền và một số đồ dùng giường ngủ.",
+        note: "Nên thông báo chất liệu và kích thước chăn mền khi gửi giặt.",
+        image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=85"
+      },
+
+      "ve-sinh-giay": {
+        name: "Vệ sinh giày thể thao",
+        category: "CHĂM SÓC GIÀY",
+        description: "Giữ giày sạch sẽ với dịch vụ chăm sóc phù hợp.",
+        fullDescription: "Giày được vệ sinh theo chất liệu và tình trạng thực tế nhằm giữ vẻ ngoài sạch sẽ, gọn gàng.",
+        price: "40.000đ / đôi",
+        time: "2 – 3 ngày",
+        unit: "Theo đôi",
+        suitable: "Giày thể thao và một số loại giày thông dụng.",
+        note: "Nên kiểm tra chất liệu giày và tình trạng hư hỏng trước khi gửi.",
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85"
+      },
+
+      "rem-cua": {
+        name: "Giặt rèm cửa",
+        category: "ĐỒ GIA DỤNG",
+        description: "Vệ sinh rèm theo chất liệu và hướng dẫn chăm sóc.",
+        fullDescription: "Dịch vụ hỗ trợ làm sạch rèm cửa, giúp loại bỏ bụi bẩn tích tụ trong quá trình sử dụng.",
+        price: "35.000đ / kg",
+        time: "2 – 3 ngày",
+        unit: "Theo kg",
+        suitable: "Rèm cửa gia đình và văn phòng.",
+        note: "Nên kiểm tra chất liệu và hướng dẫn vệ sinh của rèm trước khi giặt.",
+        image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=85"
+      },
+
+      "thu-bong": {
+        name: "Giặt thú bông",
+        category: "ĐỒ DÙNG CÁ NHÂN",
+        description: "Làm sạch thú bông với cách chăm sóc phù hợp.",
+        fullDescription: "Dịch vụ vệ sinh thú bông, hỗ trợ làm sạch bụi bẩn và giữ sản phẩm mềm mại.",
+        price: "30.000đ / món",
+        time: "24 – 48 giờ",
+        unit: "Theo món",
+        suitable: "Thú bông, gấu bông và đồ chơi bằng vải.",
+        note: "Cần thông báo nếu thú bông có pin, bộ phận điện tử hoặc chi tiết dễ hư hỏng.",
+        image: "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=900&q=85"
+      },
+
+      "giat-nhanh": {
+        name: "Giặt nhanh",
+        category: "TIẾT KIỆM THỜI GIAN",
+        description: "Dành cho nhu cầu cần xử lý quần áo trong thời gian ngắn.",
+        fullDescription: "Dịch vụ giặt nhanh dành cho khách hàng cần làm sạch quần áo trong thời gian ngắn hơn thông thường.",
+        price: "25.000đ / kg",
+        time: "Trong ngày hoặc theo tiệm",
+        unit: "Theo kg",
+        suitable: "Quần áo cần sử dụng sớm và phù hợp với quy trình giặt nhanh.",
+        note: "Thời gian hoàn thành tùy thuộc vào khối lượng đồ và khả năng tiếp nhận của tiệm.",
+        image: "https://images.unsplash.com/photo-1521656693074-0ef32e80a5d5?auto=format&fit=crop&w=900&q=85"
+      },
+
+      "ui-quan-ao": {
+        name: "Ủi quần áo",
+        category: "HOÀN THIỆN TRANG PHỤC",
+        description: "Giúp trang phục phẳng phiu và sẵn sàng sử dụng.",
+        fullDescription: "Dịch vụ ủi giúp trang phục gọn gàng, giảm nếp nhăn và thuận tiện hơn khi sử dụng.",
+        price: "10.000đ / món",
+        time: "Trong ngày hoặc 24 giờ",
+        unit: "Theo món",
+        suitable: "Áo sơ mi, quần tây và trang phục thông dụng.",
+        note: "Cần lưu ý chất liệu vải để lựa chọn nhiệt độ ủi phù hợp.",
+        image: "https://images.unsplash.com/photo-1489274495757-95c7c837b101?auto=format&fit=crop&w=900&q=85"
+      }
+    };
+
+    // LẤY MÃ DỊCH VỤ TỪ URL (?id=... HOẶC #...)
+    const params = new URLSearchParams(window.location.search);
+    const hashServiceId = window.location.hash.substring(1);
+    const serviceId = params.get("id") || hashServiceId || "giat-say";
+    const service = services[serviceId];
+
+    // CHUYỂN GIÁ CHỮ THÀNH SỐ
+    function getPriceNumber(priceText) {
+      return Number(String(priceText).replace(/[^\d]/g, ""));
+    }
+
+    // ĐỊNH DẠNG TIỀN VNĐ
+    function formatMoney(amount) {
+      return amount.toLocaleString("vi-VN") + "đ";
+    }
+
+   // LẤY GIỎ HÀNG TỪ LOCALSTORAGE
+function getCart() {
+  try {
+    return JSON.parse(localStorage.getItem("washupCart")) || [];
+  } catch (error) {
+    return [];
+  }
+}
+
+// LƯU GIỎ HÀNG
+function saveCart(cart) {
+  localStorage.setItem("washupCart", JSON.stringify(cart));
+}
+
+    // RENDER GIỎ HÀNG NỘI BỘ VÀ BADGE
+    function renderCart() {
+      const cart = getCart();
+      const cartItems = document.getElementById("cart-items");
+      const cartCount = document.getElementById("cart-count");
+      const cartBadge = document.getElementById("cart-badge");
+      const cartTotal = document.getElementById("cart-total");
+
+      const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+      const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+
+      if (cartCount) cartCount.textContent = totalQuantity;
+      if (cartBadge) cartBadge.textContent = totalQuantity;
+      if (cartTotal) cartTotal.textContent = formatMoney(totalPrice);
+
+      if (!cartItems) return;
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = `<div class="cart-empty">Giỏ hàng hiện đang trống.</div>`;
+        return;
+      }
+
+      cartItems.innerHTML = cart.map((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        return `
+          <div class="cart-item">
+            <div class="cart-item-info">
+              <h3>${item.name}</h3>
+              <p>${item.priceText || formatMoney(item.price)} × ${item.quantity}</p>
+            </div>
+            <strong class="cart-item-price">${formatMoney(itemTotal)}</strong>
+            <button class="cart-remove-btn" type="button" onclick="removeCartItem(${index})">Xóa</button>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // XÓA ITEM KHỎI GIỎ
+    function removeCartItem(index) {
+      const cart = getCart();
+      cart.splice(index, 1);
+      saveCart(cart);
+      renderCart();
+    }
+
+    // ĐÓNG MỞ DROPDOWN
+    const cartToggle = document.getElementById("cart-toggle");
+    const cartDropdown = document.getElementById("cart-dropdown");
+
+    if (cartToggle && cartDropdown) {
+      cartToggle.addEventListener("click", function () {
+        cartDropdown.classList.toggle("active");
+      });
+
+      document.addEventListener("click", function (event) {
+        const cartWrapper = document.querySelector(".header-cart-wrapper");
+        if (cartWrapper && !cartWrapper.contains(event.target)) {
+          cartDropdown.classList.remove("active");
+        }
+      });
+    }
+
+    // HIỂN THỊ DỮ LIỆU CHI TIẾT
+    if (!service) {
+      document.querySelector(".service-detail-section").innerHTML = `
+        <div class="container" style="text-align: center; padding: 60px 0;">
+          <h2>Không tìm thấy dịch vụ!</h2>
+          <p>Dịch vụ không tồn tại hoặc mã dịch vụ không hợp lệ.</p>
+          <a class="btn btn-secondary" href="products.html">Quay lại danh sách dịch vụ</a>
+        </div>
+      `;
+      if (document.querySelector(".page-hero")) document.querySelector(".page-hero").style.display = "none";
+      if (document.querySelector(".service-process-section")) document.querySelector(".service-process-section").style.display = "none";
+    } else {
+      document.getElementById("service-title").textContent = service.name;
+      document.getElementById("service-description").textContent = service.description;
+      document.getElementById("service-category").textContent = service.category;
+      document.getElementById("service-name").textContent = service.name;
+      document.getElementById("service-full-description").textContent = service.fullDescription;
+      document.getElementById("service-price").textContent = service.price;
+      document.getElementById("service-time").textContent = service.time;
+      document.getElementById("service-unit").textContent = service.unit;
+      document.getElementById("service-suitable").textContent = service.suitable;
+      document.getElementById("service-note").textContent = service.note;
+
+      const serviceImage = document.getElementById("service-image");
+      serviceImage.src = service.image;
+      serviceImage.alt = service.name;
+
+      document.title = service.name + " | WASHUP";
+
+      // NÚT THÊM VÀO GIỎ
+      const addToCartButton = document.getElementById("add-to-cart");
+      if (addToCartButton) {
+        addToCartButton.addEventListener("click", function () {
+          const cart = getCart();
+          const existingItem = cart.find(item => item.id === serviceId);
+
+          if (existingItem) {
+            existingItem.quantity += 1;
+          } else {
+            cart.push({
+              id: serviceId,
+              name: service.name,
+              price: getPriceNumber(service.price),
+              priceText: service.price,
+              image: service.image,
+              unit: service.unit,
+              quantity: 1
+            });
+          }
+
+          saveCart(cart);
+          renderCart();
+          alert("Đã thêm " + service.name + " vào giỏ hàng!");
+        });
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", renderCart);
+  </script>
+</body>
+</html>
