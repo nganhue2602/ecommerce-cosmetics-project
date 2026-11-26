@@ -1,0 +1,42 @@
+@* Partial KPI Cards theo dõi trạng thái đánh giá & báo cáo vi phạm (Mục 4.5 - CD27-32) *@
+@{
+    var pendingCount = ViewBag.PendingCount ?? 3;
+    var approvedCount = ViewBag.ApprovedCount ?? 12;
+    var rejectedCount = ViewBag.RejectedCount ?? 2;
+    var hiddenCount = ViewBag.HiddenCount ?? 1;
+    var openReportsCount = ViewBag.OpenReportsCount ?? 2;
+}
+
+<section class="admin-kpi-grid" aria-label="Thống kê trạng thái đánh giá và báo cáo">
+    <article class="kpi-card kpi-pending" data-kpi-status="Pending">
+        <div class="kpi-label">Chờ duyệt (Pending)</div>
+        <div class="kpi-value">@pendingCount</div>
+        <div class="kpi-note">Cần kiểm duyệt trước khi công khai</div>
+    </article>
+
+    <article class="kpi-card kpi-approved" data-kpi-status="Approved">
+        <div class="kpi-label">Đã duyệt (Approved)</div>
+        <div class="kpi-value">@approvedCount</div>
+        <div class="kpi-note">Hiển thị trên trang dịch vụ</div>
+    </article>
+
+    <article class="kpi-card kpi-rejected" data-kpi-status="Rejected">
+        <div class="kpi-label">Từ chối (Rejected)</div>
+        <div class="kpi-value">@rejectedCount</div>
+        <div class="kpi-note">Không đạt quy chuẩn nội dung</div>
+    </article>
+
+    <article class="kpi-card kpi-hidden" data-kpi-status="Hidden">
+        <div class="kpi-label">Đã ẩn (Hidden)</div>
+        <div class="kpi-value">@hiddenCount</div>
+        <div class="kpi-note">Tạm ẩn sau khi xử lý báo cáo</div>
+    </article>
+
+    <article class="kpi-card kpi-reports" data-kpi-status="Reports">
+        <div class="kpi-label">Báo cáo chưa xử lý</div>
+        <div class="kpi-value">@openReportsCount</div>
+        <div class="kpi-note">
+            <a href="/AdminReviews/Reports" class="kpi-link">Xem hàng đợi báo cáo →</a>
+        </div>
+    </article>
+</section>

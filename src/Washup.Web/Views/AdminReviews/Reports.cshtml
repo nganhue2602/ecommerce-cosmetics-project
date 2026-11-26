@@ -1,0 +1,192 @@
+@{
+    ViewData["Title"] = "Xử lý Báo cáo Vi phạm & Phản hồi";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/admin-reviews.css" asp-append-version="true" />
+}
+
+<section class="admin-reviews-page">
+    <div class="container">
+        <div class="admin-page-header">
+            <div>
+                <span class="admin-eyebrow">Phân hệ Quản trị (Admin)</span>
+                <h1 class="admin-page-title">Xử lý báo cáo vi phạm &amp; phản hồi</h1>
+                <p class="admin-page-subtitle">
+                    Tiếp nhận báo cáo từ người dùng, quyết định giữ hoặc ẩn đánh giá vi phạm và gửi phản hồi chính thức từ quản trị viên.
+                </p>
+            </div>
+
+            <nav class="admin-tabs" aria-label="Điều hướng khu vực quản trị đánh giá">
+                <a href="/AdminReviews/Index" class="admin-tab">Hàng đợi đánh giá</a>
+                <a href="/AdminReviews/Reports" class="admin-tab is-active" aria-current="page">Báo cáo vi phạm</a>
+            </nav>
+        </div>
+
+        @* KPI trạng thái chung *@
+        @await Html.PartialAsync("_StatusKpiCards")
+
+        @* Bộ lọc trạng thái báo cáo *@
+        <div class="admin-toolbar">
+            <div class="filter-pills" role="group" aria-label="Lọc trạng thái báo cáo">
+                <button type="button" class="filter-pill is-active" data-report-filter="All">Tất cả báo cáo</button>
+                <button type="button" class="filter-pill" data-report-filter="Open">Chờ xử lý (Open)</button>
+                <button type="button" class="filter-pill" data-report-filter="Resolved">Đã giải quyết (Resolved)</button>
+            </div>
+            <a href="/AdminReviews/Index" class="btn-admin btn-outline-admin">← Quay lại hàng đợi kiểm duyệt</a>
+        </div>
+
+        <div class="reports-list">
+            @* Báo cáo #RP-14 - Chờ xử lý *@
+            <article class="report-card" data-report-status="Open">
+                <div class="report-card-head">
+                    <div>
+                        <strong>Báo cáo #RP-14</strong>
+                        <span class="cell-meta" style="margin-left:8px;">Người gửi: Lê Minh Khoa • 26/11/2026 14:45</span>
+                    </div>
+                    <span class="status-badge badge-open">Chờ xử lý (Open)</span>
+                </div>
+
+                <div class="report-grid">
+                    <div>
+                        <div><strong>Lý do báo cáo:</strong> Nghi ngờ nhận xét sai sự thật / cạnh tranh không lành mạnh</div>
+                        <div class="report-quote">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                                <strong>Đánh giá #RV-097 • Dịch vụ Giặt hấp (Tiệm Giặt Sạch Q.1)</strong>
+                                <span class="rating-stars">★☆☆☆☆</span>
+                            </div>
+                            <p style="margin:0; font-size:13.5px;">
+                                "Tiệm làm mất đồ và không chịu trách nhiệm, mọi người nên qua tiệm X đối diện."
+                            </p>
+                        </div>
+
+                        <div class="action-group" style="margin-top:14px;">
+                            <form method="post" action="/AdminReviews/ResolveReport" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="reportId" value="14" />
+                                <input type="hidden" name="decision" value="Keep" />
+                                <button type="submit" class="btn-admin btn-approve">Giữ đánh giá (Keep)</button>
+                            </form>
+
+                            <form method="post" action="/AdminReviews/ResolveReport" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="reportId" value="14" />
+                                <input type="hidden" name="decision" value="Hide" />
+                                <button type="submit" class="btn-admin btn-reject">Ẩn đánh giá (Hide)</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="admin-reply-box">
+                        <form method="post" action="/AdminReviews/Reply">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="reviewId" value="97" />
+                            <label for="reply-text-97">Phản hồi chính thức của Admin cho đánh giá #RV-097</label>
+                            <textarea id="reply-text-97"
+                                      name="replyContent"
+                                      class="admin-textarea"
+                                      placeholder="Nhập nội dung phản hồi công khai dưới đánh giá..."></textarea>
+                            <button type="submit" class="btn-admin btn-primary-admin">Gửi phản hồi Admin</button>
+                        </form>
+                    </div>
+                </div>
+            </article>
+
+            @* Báo cáo #RP-13 - Chờ xử lý *@
+            <article class="report-card" data-report-status="Open">
+                <div class="report-card-head">
+                    <div>
+                        <strong>Báo cáo #RP-13</strong>
+                        <span class="cell-meta" style="margin-left:8px;">Người gửi: Trần Thu Hà • 26/11/2026 10:15</span>
+                    </div>
+                    <span class="status-badge badge-open">Chờ xử lý (Open)</span>
+                </div>
+
+                <div class="report-grid">
+                    <div>
+                        <div><strong>Lý do báo cáo:</strong> Hình ảnh không liên quan đến dịch vụ giặt ủi</div>
+                        <div class="report-quote">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                                <strong>Đánh giá #RV-095 • Dịch vụ Giặt sấy (Tiệm Tốc Độ Q.3)</strong>
+                                <span class="rating-stars">★★★☆☆</span>
+                            </div>
+                            <p style="margin:0; font-size:13.5px;">
+                                "Giặt ổn nhưng ảnh tải lên nhầm ảnh khác."
+                            </p>
+                        </div>
+
+                        <div class="action-group" style="margin-top:14px;">
+                            <form method="post" action="/AdminReviews/ResolveReport" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="reportId" value="13" />
+                                <input type="hidden" name="decision" value="Keep" />
+                                <button type="submit" class="btn-admin btn-approve">Giữ đánh giá (Keep)</button>
+                            </form>
+
+                            <form method="post" action="/AdminReviews/ResolveReport" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="reportId" value="13" />
+                                <input type="hidden" name="decision" value="Hide" />
+                                <button type="submit" class="btn-admin btn-reject">Ẩn đánh giá (Hide)</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="admin-reply-box">
+                        <form method="post" action="/AdminReviews/Reply">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="reviewId" value="95" />
+                            <label for="reply-text-95">Phản hồi chính thức của Admin cho đánh giá #RV-095</label>
+                            <textarea id="reply-text-95"
+                                      name="replyContent"
+                                      class="admin-textarea"
+                                      placeholder="Nhập nội dung phản hồi công khai dưới đánh giá..."></textarea>
+                            <button type="submit" class="btn-admin btn-primary-admin">Gửi phản hồi Admin</button>
+                        </form>
+                    </div>
+                </div>
+            </article>
+
+            @* Báo cáo #RP-11 - Đã giải quyết *@
+            <article class="report-card" data-report-status="Resolved">
+                <div class="report-card-head">
+                    <div>
+                        <strong>Báo cáo #RP-11</strong>
+                        <span class="cell-meta" style="margin-left:8px;">Người gửi: Nguyễn Bảo Ngọc • 24/11/2026 11:30</span>
+                    </div>
+                    <span class="status-badge badge-resolved">Đã ẩn đánh giá (Resolved)</span>
+                </div>
+
+                <div class="report-grid">
+                    <div>
+                        <div><strong>Lý do báo cáo:</strong> Ngôn từ thiếu chuẩn mực</div>
+                        <div class="report-quote">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                                <strong>Đánh giá #RV-099 • Dịch vụ Giặt sấy (Tiệm Tốc Độ Q.3)</strong>
+                                <span class="rating-stars">★☆☆☆☆</span>
+                            </div>
+                            <p style="margin:0; font-size:13.5px;">
+                                "Đánh giá đã chuyển sang trạng thái Hidden sau khi xác minh vi phạm."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="admin-reply-box">
+                        <div style="font-size:12.5px; font-weight:700; color:var(--navy); margin-bottom:6px;">
+                            Phản hồi đã lưu của Admin
+                        </div>
+                        <p style="margin:0; font-size:13.5px; color:var(--text);">
+                            WASHUP đã tiếp nhận phản ánh và ẩn nội dung vi phạm quy tắc cộng đồng. Cảm ơn bạn đã đóng góp!
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<div id="admin-toast" class="admin-toast" role="status" aria-live="polite"></div>
+
+@section Scripts {
+    <script src="~/js/admin-reviews.js" asp-append-version="true"></script>
+}

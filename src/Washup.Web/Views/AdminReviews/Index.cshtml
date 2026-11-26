@@ -1,0 +1,287 @@
+@{
+    ViewData["Title"] = "Quản lý & Kiểm duyệt Đánh giá";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/admin-reviews.css" asp-append-version="true" />
+}
+
+<section class="admin-reviews-page">
+    <div class="container">
+        <div class="admin-page-header">
+            <div>
+                <span class="admin-eyebrow">Phân hệ Quản trị (Admin)</span>
+                <h1 class="admin-page-title">Kiểm duyệt đánh giá &amp; nhận xét</h1>
+                <p class="admin-page-subtitle">
+                    Theo dõi số lượng theo trạng thái, lọc danh sách chờ duyệt, xem ảnh đính kèm và xử lý duyệt hoặc từ chối đánh giá.
+                </p>
+            </div>
+
+            <nav class="admin-tabs" aria-label="Điều hướng khu vực quản trị đánh giá">
+                <a href="/AdminReviews/Index" class="admin-tab is-active" aria-current="page">Hàng đợi đánh giá</a>
+                <a href="/AdminReviews/Reports" class="admin-tab">Báo cáo vi phạm</a>
+            </nav>
+        </div>
+
+        @* Mục 4.5: Partial KPI theo dõi trạng thái Pending / Approved / Rejected / Hidden & Reports *@
+        @await Html.PartialAsync("_StatusKpiCards")
+
+        @* Thanh công cụ lọc trạng thái, dịch vụ và tìm kiếm *@
+        <div class="admin-toolbar">
+            <div class="filter-pills" role="group" aria-label="Lọc theo trạng thái đánh giá">
+                <button type="button" class="filter-pill is-active" data-status-filter="All">Tất cả</button>
+                <button type="button" class="filter-pill" data-status-filter="Pending">Chờ duyệt (Pending)</button>
+                <button type="button" class="filter-pill" data-status-filter="Approved">Đã duyệt (Approved)</button>
+                <button type="button" class="filter-pill" data-status-filter="Rejected">Từ chối (Rejected)</button>
+                <button type="button" class="filter-pill" data-status-filter="Hidden">Đã ẩn (Hidden)</button>
+            </div>
+
+            <div class="toolbar-search">
+                <select id="review-service-filter" class="admin-select" aria-label="Lọc theo dịch vụ">
+                    <option value="All">Tất cả dịch vụ</option>
+                    <option value="giat-say">Giặt sấy (giat-say)</option>
+                    <option value="giat-hap">Giặt hấp (giat-hap)</option>
+                    <option value="ve-sinh-giay">Vệ sinh giày (ve-sinh-giay)</option>
+                    <option value="giat-nhanh">Giặt nhanh (giat-nhanh)</option>
+                </select>
+                <input id="review-search-input"
+                       type="search"
+                       class="admin-input"
+                       placeholder="Tìm khách hàng, tiệm, nội dung..."
+                       aria-label="Tìm kiếm đánh giá" />
+            </div>
+        </div>
+
+        @* Bảng danh sách đánh giá *@
+        <div class="admin-panel">
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Mã</th>
+                            <th>Khách hàng &amp; Đơn hàng</th>
+                            <th>Dịch vụ / Tiệm</th>
+                            <th>Số sao</th>
+                            <th>Nội dung nhận xét &amp; Ảnh</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác kiểm duyệt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-review-status="Pending" data-service-id="giat-say">
+                            <td><strong>#RV-104</strong><div class="cell-meta">26/11 14:20</div></td>
+                            <td>
+                                <strong>Nguyễn Minh Anh</strong>
+                                <div class="cell-meta">Đơn #ORD-2088 • Đã hoàn thành</div>
+                            </td>
+                            <td>
+                                <strong>Giặt sấy</strong>
+                                <div class="cell-meta">Tiệm Giặt Sạch Q.1</div>
+                            </td>
+                            <td>
+                                <span class="rating-stars" aria-label="5 trên 5 sao">★★★★★</span>
+                                <div class="cell-meta">5 / 5 sao</div>
+                            </td>
+                            <td>
+                                <div class="review-comment-text">
+                                    Quần áo giao đúng giờ, thơm dịu và gấp gọn gàng. Sẽ đặt lại tuần sau.
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <button type="button"
+                                            class="review-thumb-btn"
+                                            data-preview-img="/images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg"
+                                            data-preview-caption="Ảnh đính kèm từ khách Nguyễn Minh Anh (#RV-104)">
+                                        Xem ảnh (1)
+                                    </button>
+                                </div>
+                            </td>
+                            <td><span class="status-badge badge-pending">Pending</span></td>
+                            <td>
+                                <div class="action-group">
+                                    <form method="post" action="/AdminReviews/Approve" style="display:inline;">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="reviewId" value="104" />
+                                        <button type="submit" class="btn-admin btn-approve">Duyệt</button>
+                                    </form>
+                                    <button type="button"
+                                            class="btn-admin btn-reject"
+                                            data-open-reject="104"
+                                            data-customer="Nguyễn Minh Anh">
+                                        Từ chối
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr data-review-status="Pending" data-service-id="ve-sinh-giay">
+                            <td><strong>#RV-103</strong><div class="cell-meta">26/11 11:05</div></td>
+                            <td>
+                                <strong>Trần Quốc Bảo</strong>
+                                <div class="cell-meta">Đơn #ORD-2081 • Đã hoàn thành</div>
+                            </td>
+                            <td>
+                                <strong>Vệ sinh giày</strong>
+                                <div class="cell-meta">Tiệm Sạch Đẹp Bình Thạnh</div>
+                            </td>
+                            <td>
+                                <span class="rating-stars" aria-label="2 trên 5 sao">★★☆☆☆</span>
+                                <div class="cell-meta">2 / 5 sao</div>
+                            </td>
+                            <td>
+                                <div class="review-comment-text">
+                                    Giao trễ hơn khung giờ hẹn 40 phút, đế giày còn hơi ẩm khi nhận.
+                                </div>
+                            </td>
+                            <td><span class="status-badge badge-pending">Pending</span></td>
+                            <td>
+                                <div class="action-group">
+                                    <form method="post" action="/AdminReviews/Approve" style="display:inline;">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="reviewId" value="103" />
+                                        <button type="submit" class="btn-admin btn-approve">Duyệt</button>
+                                    </form>
+                                    <button type="button"
+                                            class="btn-admin btn-reject"
+                                            data-open-reject="103"
+                                            data-customer="Trần Quốc Bảo">
+                                        Từ chối
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr data-review-status="Approved" data-service-id="giat-hap">
+                            <td><strong>#RV-102</strong><div class="cell-meta">25/11 19:40</div></td>
+                            <td>
+                                <strong>Lê Thảo Vy</strong>
+                                <div class="cell-meta">Đơn #ORD-2065 • Đã hoàn thành</div>
+                            </td>
+                            <td>
+                                <strong>Giặt hấp</strong>
+                                <div class="cell-meta">Tiệm Giặt Sạch Q.1</div>
+                            </td>
+                            <td>
+                                <span class="rating-stars" aria-label="4 trên 5 sao">★★★★☆</span>
+                                <div class="cell-meta">4 / 5 sao</div>
+                            </td>
+                            <td>
+                                <div class="review-comment-text">
+                                    Áo vest phẳng đẹp, giữ form tốt. Đóng gói cẩn thận.
+                                </div>
+                            </td>
+                            <td><span class="status-badge badge-approved">Approved</span></td>
+                            <td>
+                                <div class="action-group">
+                                    <button type="button"
+                                            class="btn-admin btn-hide"
+                                            data-open-reject="102"
+                                            data-customer="Lê Thảo Vy">
+                                        Ẩn / Gỡ
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr data-review-status="Rejected" data-service-id="giat-nhanh">
+                            <td><strong>#RV-101</strong><div class="cell-meta">25/11 16:12</div></td>
+                            <td>
+                                <strong>Phạm Hoàng Nam</strong>
+                                <div class="cell-meta">Đơn #ORD-2050 • Đã hoàn thành</div>
+                            </td>
+                            <td>
+                                <strong>Giặt nhanh</strong>
+                                <div class="cell-meta">Tiệm Tốc Độ Q.3</div>
+                            </td>
+                            <td>
+                                <span class="rating-stars" aria-label="1 trên 5 sao">★☆☆☆☆</span>
+                                <div class="cell-meta">1 / 5 sao</div>
+                            </td>
+                            <td>
+                                <div class="review-comment-text">
+                                    Quảng cáo bán hàng kèm số điện thoại cá nhân không liên quan dịch vụ.
+                                </div>
+                                <div class="cell-meta">Lý do từ chối: Chứa nội dung quảng cáo/spam.</div>
+                            </td>
+                            <td><span class="status-badge badge-rejected">Rejected</span></td>
+                            <td>
+                                <span class="cell-meta">Đã xử lý bởi Admin</span>
+                            </td>
+                        </tr>
+
+                        <tr data-review-status="Hidden" data-service-id="giat-say">
+                            <td><strong>#RV-099</strong><div class="cell-meta">24/11 09:30</div></td>
+                            <td>
+                                <strong>Võ Tấn Phát</strong>
+                                <div class="cell-meta">Đơn #ORD-2031 • Đã hoàn thành</div>
+                            </td>
+                            <td>
+                                <strong>Giặt sấy</strong>
+                                <div class="cell-meta">Tiệm Tốc Độ Q.3</div>
+                            </td>
+                            <td>
+                                <span class="rating-stars" aria-label="1 trên 5 sao">★☆☆☆☆</span>
+                                <div class="cell-meta">1 / 5 sao</div>
+                            </td>
+                            <td>
+                                <div class="review-comment-text">
+                                    Nhận xét có ngôn từ thiếu chuẩn mực sau báo cáo vi phạm #RP-11.
+                                </div>
+                                <div class="cell-meta">Lý do ẩn: Vi phạm quy tắc cộng đồng.</div>
+                            </td>
+                            <td><span class="status-badge badge-hidden">Hidden</span></td>
+                            <td>
+                                <span class="cell-meta">Đã ẩn theo báo cáo</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+@* Modal xem trước hình ảnh đính kèm *@
+<div id="image-preview-modal" class="admin-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="image-modal-title">
+    <div class="admin-modal">
+        <div class="admin-modal-header">
+            <h2 id="image-modal-title" class="admin-modal-title">Xem ảnh đánh giá</h2>
+            <button type="button" class="admin-modal-close" data-close-modal="image-preview-modal" aria-label="Đóng">×</button>
+        </div>
+        <img id="modal-preview-img" src="" alt="Hình ảnh đính kèm đánh giá" style="width:100%; border-radius:10px; max-height:360px; object-fit:cover;" />
+        <p id="modal-preview-caption" class="cell-meta" style="margin-top:10px; font-size:13px;"></p>
+    </div>
+</div>
+
+@* Modal nhập lý do từ chối / ẩn đánh giá *@
+<div id="reject-reason-modal" class="admin-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="reject-modal-title">
+    <div class="admin-modal">
+        <div class="admin-modal-header">
+            <h2 id="reject-modal-title" class="admin-modal-title">Từ chối / Ẩn đánh giá</h2>
+            <button type="button" class="admin-modal-close" data-close-modal="reject-reason-modal" aria-label="Đóng">×</button>
+        </div>
+        <p id="reject-review-label" class="cell-meta" style="font-size:13.5px; margin-bottom:12px;"></p>
+        <form id="reject-reason-form" method="post" action="/AdminReviews/Reject">
+            @Html.AntiForgeryToken()
+            <input type="hidden" id="reject-review-id" name="reviewId" value="" />
+            <label for="reject-reason-text" style="display:block; font-weight:700; font-size:13px; margin-bottom:6px;">
+                Lý do từ chối (bắt buộc để lưu nhật ký kiểm duyệt):
+            </label>
+            <textarea id="reject-reason-text"
+                      name="reason"
+                      class="admin-textarea"
+                      style="width:100%; min-height:90px; margin-bottom:14px;"
+                      placeholder="Ví dụ: Nội dung chứa thông tin quảng cáo hoặc ngôn từ không phù hợp..."
+                      required></textarea>
+            <div class="action-group" style="justify-content:flex-end;">
+                <button type="button" class="btn-admin btn-outline-admin" data-close-modal="reject-reason-modal">Hủy</button>
+                <button type="submit" class="btn-admin btn-reject">Xác nhận từ chối</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="admin-toast" class="admin-toast" role="status" aria-live="polite"></div>
+
+@section Scripts {
+    <script src="~/js/admin-reviews.js" asp-append-version="true"></script>
+}
