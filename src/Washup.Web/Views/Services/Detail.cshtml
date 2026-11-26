@@ -1,0 +1,225 @@
+
+@{
+    ViewData["Title"] = "Chi tiết dịch vụ";
+}
+
+<section class="products-section">
+    <div class="container">
+
+        <a href="/products.html" class="product-link">
+            ← Quay lại danh sách dịch vụ
+        </a>
+
+        <div class="section-heading">
+            <div>
+                <span class="section-kicker">
+                    WASHUP · CHI TIẾT DỊCH VỤ
+                </span>
+                <h1>Giặt sấy quần áo</h1>
+            </div>
+        </div>
+
+        <article class="product-card">
+            <div class="product-image-link">
+                <img src="~/images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg"
+                     alt="Dịch vụ giặt sấy quần áo" />
+            </div>
+
+            <div class="product-info">
+                <span class="product-category">
+                    Giặt thường
+                </span>
+
+                <h2>Giặt sấy quần áo</h2>
+
+                <p class="product-shop">
+                    <strong>Tiệm cung cấp:</strong>
+                    Tiệm minh họa A
+                </p>
+
+                <p class="product-description">
+                    Dịch vụ giặt sạch và sấy khô quần áo
+                    hằng ngày, giúp khách hàng tiết kiệm
+                    thời gian.
+                </p>
+
+                <p class="product-price">
+                    15.000đ <span>/ kg</span>
+                </p>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- KHU VỰC ĐÁNH GIÁ DỊCH VỤ -->
+<section class="products-section" id="service-reviews">
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-kicker">
+                    WASHUP REVIEWS
+                </span>
+                <h2>Đánh giá từ khách hàng</h2>
+            </div>
+            <p>Tham khảo trải nghiệm sử dụng dịch vụ.</p>
+        </div>
+
+        <!-- THỐNG KÊ ĐÁNH GIÁ -->
+        <div class="review-summary">
+            <h3>Điểm đánh giá trung bình</h3>
+            <div class="review-score">4.5 / 5</div>
+            <div class="review-stars">★★★★★</div>
+            <p>2 lượt đánh giá minh họa</p>
+        </div>
+
+        <!-- DANH SÁCH NHẬN XÉT -->
+        <div class="review-list">
+            <h3>Nhận xét khách hàng</h3>
+
+<!-- BỘ LỌC ĐÁNH GIÁ -->
+<div class="review-filter">
+    <label for="rating-filter">
+        Lọc nhận xét theo số sao:
+    </label>
+
+    <select id="rating-filter" class="catalog-select">
+        <option value="all">Tất cả đánh giá</option>
+        <option value="5">5 sao ★★★★★</option>
+        <option value="4">4 sao ★★★★☆</option>
+        <option value="3">3 sao ★★★☆☆</option>
+        <option value="2">2 sao ★★☆☆☆</option>
+        <option value="1">1 sao ★☆☆☆☆</option>
+    </select>
+</div>
+
+
+            <article class="review-card" data-rating="5">
+                <strong>Khách hàng A (minh họa)</strong>
+                <p class="review-stars">★★★★★</p>
+                <p>
+                    Quần áo được giặt sạch, dịch vụ tiện lợi
+                    và dễ sử dụng.
+                </p>
+            </article>
+
+           <article class="review-card" data-rating="4">
+                <strong>Khách hàng B (minh họa)</strong>
+                <p class="review-stars">★★★★☆</p>
+                <p>
+                    Dịch vụ khá tốt, thời gian xử lý phù hợp
+                    với nhu cầu.
+                </p>
+            </article>
+        </div>
+
+        <p class="products-note">
+            Lưu ý: Điểm số và nhận xét trên chỉ là dữ liệu
+            minh họa giao diện, chưa kết nối cơ sở dữ liệu.
+            Phiên bản hoàn thiện chỉ hiển thị đánh giá
+            có trạng thái Approved.
+        </p>
+
+    </div>
+</section>
+
+<style>
+    .review-summary {
+        background: #eef3ff;
+        border-radius: 18px;
+        padding: 28px;
+        margin-bottom: 28px;
+        text-align: center;
+    }
+
+    .review-score {
+        font-size: 36px;
+        font-weight: 800;
+        color: #071a3d;
+        margin: 12px 0;
+    }
+
+    .review-stars {
+        color: #f2ae38;
+        font-size: 22px;
+        letter-spacing: 3px;
+    }
+
+    .review-list {
+        display: grid;
+        gap: 18px;
+        margin-bottom: 20px;
+    }
+
+    .review-card {
+        background: #fff;
+        border: 1px solid #dbe5f6;
+        border-radius: 16px;
+        padding: 22px;
+    }
+
+    .review-card p {
+        margin: 10px 0 0;
+    }
+
+/* Ẩn nhận xét không khớp bộ lọc */
+#service-reviews .review-card[hidden],
+#service-reviews .products-note[hidden] {
+    display: none !important;
+}
+</style>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Lấy ô lọc số sao
+            const ratingFilter = document.getElementById("rating-filter");
+
+            // Lấy tất cả nhận xét
+            const reviews = document.querySelectorAll(".review-card[data-rating]");
+
+            const reviewList = document.querySelector(".review-list");
+
+            if (!ratingFilter || !reviewList) return;
+
+            // Thông báo khi không có nhận xét phù hợp
+            const emptyMessage = document.createElement("p");
+            emptyMessage.className = "products-note";
+            emptyMessage.textContent = "Không có đánh giá phù hợp.";
+            emptyMessage.setAttribute("role", "status");
+            emptyMessage.style.display = "none";
+            reviewList.appendChild(emptyMessage);
+
+            // Hàm lọc nhận xét theo số sao
+            function filterReviews() {
+                const selectedRating = ratingFilter.value;
+                let visibleCount = 0;
+
+                reviews.forEach(function (review) {
+                    const rating = review.dataset.rating;
+
+                    const isMatch =
+                        selectedRating === "all" ||
+                        rating === selectedRating;
+
+                    review.style.display = isMatch ? "" : "none";
+
+                    if (isMatch) {
+                        visibleCount++;
+                    }
+                });
+
+                emptyMessage.style.display = visibleCount > 0 ? "none" : "block";
+            }
+
+            // Chạy khi người dùng chọn mức sao
+            ratingFilter.addEventListener("change", filterReviews);
+
+            // Hiển thị trạng thái ban đầu
+            filterReviews();
+        });
+    </script>
+}
+
