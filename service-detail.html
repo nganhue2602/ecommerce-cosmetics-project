@@ -710,20 +710,19 @@
       return amount.toLocaleString("vi-VN") + "đ";
     }
 
-    // LẤY GIỎ HÀNG TỪ LOCALSTORAGE
-    function getCart() {
-      try {
-        return JSON.parse(localStorage.getItem("cart")) || JSON.parse(localStorage.getItem("washupCart")) || [];
-      } catch (error) {
-        return [];
-      }
-    }
+   // LẤY GIỎ HÀNG TỪ LOCALSTORAGE
+function getCart() {
+  try {
+    return JSON.parse(localStorage.getItem("washupCart")) || [];
+  } catch (error) {
+    return [];
+  }
+}
 
-    // LƯU GIỎ HÀNG ĐỒNG BỘ CẢ 2 KEY
-    function saveCart(cart) {
-      localStorage.setItem("cart", JSON.stringify(cart));
-      localStorage.setItem("washupCart", JSON.stringify(cart));
-    }
+// LƯU GIỎ HÀNG
+function saveCart(cart) {
+  localStorage.setItem("washupCart", JSON.stringify(cart));
+}
 
     // RENDER GIỎ HÀNG NỘI BỘ VÀ BADGE
     function renderCart() {

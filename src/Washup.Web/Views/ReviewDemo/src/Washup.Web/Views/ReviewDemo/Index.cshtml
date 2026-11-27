@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Demo đánh giá dịch vụ";
+}
+
+<div class="container py-4">
+
+    <h1>WASHUP - Đánh giá dịch vụ</h1>
+
+    <p>
+        Trang kiểm thử chức năng đánh giá dành cho khách hàng.
+    </p>
+
+    <div class="review-form-section">
+        <h3>Thông tin dịch vụ minh họa</h3>
+
+        <p><strong>Dịch vụ:</strong> Giặt sấy quần áo</p>
+
+        <p><strong>Tiệm giặt:</strong> Tiệm minh họa A</p>
+
+        <p><strong>Trạng thái giả định:</strong> Đã hoàn thành</p>
+    </div>
+
+    @await Html.PartialAsync("_ReviewForm")
+
+</div>
