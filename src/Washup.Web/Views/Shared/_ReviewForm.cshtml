@@ -1,0 +1,126 @@
+@* CD26-08 - Customer Review Form - WASHUP *@
+
+<link rel="stylesheet" href="~/css/review-form.css" />
+
+<section class="review-form-section">
+
+    <h2>Đánh giá dịch vụ</h2>
+
+    <p class="review-description">
+        Hãy chia sẻ trải nghiệm của bạn khi sử dụng dịch vụ trên WASHUP.
+    </p>
+
+    <form id="reviewForm"
+          method="post"
+          enctype="multipart/form-data"
+          novalidate>
+
+        @Html.AntiForgeryToken()
+
+        <!-- Khu vực chấm sao -->
+        <div class="review-field">
+
+            <label>Mức độ hài lòng *</label>
+
+            <div class="rating-stars"
+                 role="group"
+                 aria-label="Chọn số sao đánh giá">
+
+                <button type="button" class="rating-star"
+                        data-rating="1" aria-label="1 sao"
+                        aria-pressed="false">★</button>
+
+                <button type="button" class="rating-star"
+                        data-rating="2" aria-label="2 sao"
+                        aria-pressed="false">★</button>
+
+                <button type="button" class="rating-star"
+                        data-rating="3" aria-label="3 sao"
+                        aria-pressed="false">★</button>
+
+                <button type="button" class="rating-star"
+                        data-rating="4" aria-label="4 sao"
+                        aria-pressed="false">★</button>
+
+                <button type="button" class="rating-star"
+                        data-rating="5" aria-label="5 sao"
+                        aria-pressed="false">★</button>
+
+            </div>
+
+            <input type="hidden"
+                   id="reviewRating"
+                   name="Rating"
+                   value="0" />
+
+            <p id="ratingText" class="rating-text">
+                Vui lòng chọn số sao
+            </p>
+
+            <span id="ratingError"
+                  class="review-error"
+                  aria-live="polite"></span>
+
+        </div>
+
+        <!-- Khu vực nhập nhận xét -->
+        <div class="review-field">
+
+            <label for="reviewComment">
+                Nhận xét của bạn *
+            </label>
+
+            <textarea id="reviewComment"
+                      name="Comment"
+                      rows="5"
+                      maxlength="1000"
+                      placeholder="Chia sẻ trải nghiệm của bạn về chất lượng dịch vụ..."
+                      required></textarea>
+
+            <p class="character-count">
+                <span id="reviewCharCount">0</span>/1000 ký tự
+            </p>
+
+            <span id="commentError"
+                  class="review-error"
+                  aria-live="polite"></span>
+
+        </div>
+
+        <!-- Khu vực đính kèm hình ảnh -->
+        <div class="review-field">
+
+            <label for="reviewImages">
+                Hình ảnh đính kèm (không bắt buộc)
+            </label>
+
+            <input type="file"
+                   id="reviewImages"
+                   name="Images"
+                   accept="image/jpeg,image/png,image/webp"
+                   multiple />
+
+            <div id="reviewImagePreview"
+                 class="review-image-preview"></div>
+
+        </div>
+
+        <!-- Nút gửi đánh giá -->
+        <button type="submit" class="review-submit">
+            Gửi đánh giá
+        </button>
+
+        <!-- Thông báo kết quả -->
+        <p id="reviewMessage"
+           class="review-message"
+           role="status"></p>
+
+        <p class="review-note">
+            Đánh giá sẽ được hiển thị sau khi được quản trị viên phê duyệt.
+        </p>
+
+    </form>
+
+</section>
+
+<script src="~/js/review-form.js" defer></script>
