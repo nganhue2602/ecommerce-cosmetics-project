@@ -87,23 +87,71 @@
 
         </div>
 
-        <!-- Khu vực đính kèm hình ảnh -->
-        <div class="review-field">
+       
+<!-- CD27-24 - Khu vực đính kèm và xem trước hình ảnh -->
+<div class="review-field review-upload-field">
 
-            <label for="reviewImages">
-                Hình ảnh đính kèm (không bắt buộc)
-            </label>
+    <label for="reviewImages">
+        Hình ảnh đính kèm (không bắt buộc)
+    </label>
 
-            <input type="file"
-                   id="reviewImages"
-                   name="Images"
-                   accept="image/jpeg,image/png,image/webp"
-                   multiple />
+    <p class="review-upload-description">
+        Chia sẻ hình ảnh thực tế để giúp khách hàng khác
+        hiểu rõ hơn về chất lượng dịch vụ.
+    </p>
 
-            <div id="reviewImagePreview"
-                 class="review-image-preview"></div>
+    <label for="reviewImages" class="review-upload-box">
+        <span class="review-upload-icon">＋</span>
 
-        </div>
+        <strong>Thêm hình ảnh đánh giá</strong>
+
+        <span>Nhấn để chọn ảnh từ thiết bị</span>
+
+        <small>
+            JPG, PNG, WEBP · Tối đa 5 ảnh · 5 MB/ảnh
+        </small>
+    </label>
+
+    <input type="file"
+           id="reviewImages"
+           name="Images"
+           class="review-file-input"
+           accept="image/jpeg,image/png,image/webp"
+           multiple />
+
+    <div class="review-upload-toolbar">
+
+        <span id="reviewImageCount"
+              class="review-image-count"
+              aria-live="polite">
+            Đã chọn 0/5 ảnh
+        </span>
+
+        <button type="button"
+                id="clearReviewImages"
+                class="review-clear-images"
+                hidden>
+            Xóa tất cả
+        </button>
+
+    </div>
+
+    <div id="reviewImagePreview"
+         class="review-image-preview"
+         aria-label="Hình ảnh xem trước">
+    </div>
+
+    <span id="reviewImageError"
+          class="review-error"
+          aria-live="polite">
+    </span>
+
+    <p id="reviewUploadStatus"
+       class="review-upload-status"
+       role="status">
+    </p>
+
+</div>
 
         <!-- Nút gửi đánh giá -->
         <button type="submit" class="review-submit">
