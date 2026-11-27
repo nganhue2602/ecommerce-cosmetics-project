@@ -1,0 +1,246 @@
+@{
+    ViewData["Title"] = "Phân tích đánh giá";
+}
+
+<section class="rv-dashboard" aria-labelledby="rv-title">
+    <div class="container rv-wrap">
+
+        <!-- HERO: Kế thừa header và footer từ _Layout.cshtml -->
+        <header class="rv-hero">
+            <div class="rv-hero-copy">
+                <span class="rv-eyebrow"><span class="rv-pulse"></span> WASHUP / REVIEW ANALYTICS</span>
+                <h1 id="rv-title">Lắng nghe trải nghiệm.<br /><em>Hiểu rõ chất lượng.</em></h1>
+                <p>Tổng quan mức độ hài lòng, phân bố số sao và trạng thái đánh giá của dịch vụ giặt ủi.</p>
+                <span class="rv-hero-caption">BẢN DEMO · 3 ĐÁNH GIÁ MINH HỌA · CHƯA KẾT NỐI DATABASE</span>
+            </div>
+            <div class="rv-hero-visual" aria-label="Điểm đánh giá trung bình minh họa là 4,5 trên 5">
+                <span class="rv-hero-visual-label">CUSTOMER SATISFACTION</span>
+                <div class="rv-hero-score">4.5<span>/5</span></div>
+                <div class="rv-hero-stars" aria-hidden="true"><span class="rv-hero-stars-base">★★★★★</span><span class="rv-hero-stars-fill">★★★★★</span></div>
+                <span class="rv-hero-visual-foot">2 đánh giá đã duyệt</span>
+            </div>
+        </header>
+
+        <div class="rv-section-heading">
+            <div>
+                <span class="rv-section-kicker">01 / TỔNG QUAN</span>
+                <h2>Chỉ số nổi bật</h2>
+            </div>
+            <p>Dữ liệu mẫu của một kịch bản kiểm thử</p>
+        </div>
+
+        <div class="rv-stats">
+            <article class="rv-stat">
+                <div class="rv-stat-top"><span>Tổng số đánh giá</span><span class="rv-stat-mark">01</span></div>
+                <strong>03</strong>
+                <p>Tất cả trạng thái</p>
+            </article>
+            <article class="rv-stat">
+                <div class="rv-stat-top"><span>Đã duyệt</span><span class="rv-stat-mark rv-stat-mark--green">✓</span></div>
+                <strong>02</strong>
+                <p>Trạng thái Approved</p>
+            </article>
+            <article class="rv-stat">
+                <div class="rv-stat-top"><span>Chờ duyệt</span><span class="rv-stat-mark rv-stat-mark--orange">◷</span></div>
+                <strong>01</strong>
+                <p>Trạng thái Pending</p>
+            </article>
+            <article class="rv-stat rv-stat--accent">
+                <div class="rv-stat-top"><span>Điểm trung bình</span><span class="rv-stat-mark rv-stat-mark--white">★</span></div>
+                <strong>4.5 <small>/ 5</small></strong>
+                <p>Chỉ tính đánh giá Approved</p>
+            </article>
+        </div>
+
+        <div class="rv-section-heading rv-section-heading--spaced">
+            <div>
+                <span class="rv-section-kicker">02 / CHẤT LƯỢNG DỊCH VỤ</span>
+                <h2>Phân tích đánh giá</h2>
+            </div>
+            <p>Tổng hợp kết quả của dữ liệu mẫu</p>
+        </div>
+
+        <div class="rv-insight-grid">
+            <section class="rv-panel" aria-labelledby="rv-distribution-title">
+                <div class="rv-panel-heading">
+                    <div><span class="rv-panel-kicker">RATING BREAKDOWN</span><h3 id="rv-distribution-title">Phân bố số sao</h3></div>
+                    <span class="rv-panel-meta">2 đã duyệt</span>
+                </div>
+                <p class="rv-panel-description">Chỉ tính những đánh giá có trạng thái Approved.</p>
+
+                <div class="rv-bars" aria-label="5 sao: 1, 4 sao: 1, 3 sao: 0, 2 sao: 0, 1 sao: 0">
+                    <div class="rv-bar-row"><span>5 ★</span><div class="rv-bar-track"><div class="rv-bar-fill" style="width:50%"></div></div><strong>1</strong></div>
+                    <div class="rv-bar-row"><span>4 ★</span><div class="rv-bar-track"><div class="rv-bar-fill" style="width:50%"></div></div><strong>1</strong></div>
+                    <div class="rv-bar-row"><span>3 ★</span><div class="rv-bar-track"><div class="rv-bar-fill" style="width:0%"></div></div><strong>0</strong></div>
+                    <div class="rv-bar-row"><span>2 ★</span><div class="rv-bar-track"><div class="rv-bar-fill" style="width:0%"></div></div><strong>0</strong></div>
+                    <div class="rv-bar-row"><span>1 ★</span><div class="rv-bar-track"><div class="rv-bar-fill" style="width:0%"></div></div><strong>0</strong></div>
+                </div>
+
+                <div class="rv-panel-footer"><span class="rv-mini-dot"></span> Điểm trung bình trên 2 đánh giá đã duyệt: <strong>4.5/5</strong></div>
+            </section>
+
+            <section class="rv-panel" aria-labelledby="rv-status-title">
+                <div class="rv-panel-heading">
+                    <div><span class="rv-panel-kicker">MODERATION STATUS</span><h3 id="rv-status-title">Trạng thái đánh giá</h3></div>
+                </div>
+                <p class="rv-panel-description">Phân loại toàn bộ 3 đánh giá minh họa.</p>
+
+                <div class="rv-status-layout">
+                    <div class="rv-donut" role="img" aria-label="Đã duyệt 2 trên 3, tương đương 66,7 phần trăm; chờ duyệt 1 trên 3, tương đương 33,3 phần trăm">
+                        <div class="rv-donut-center"><strong>67%</strong><span>đã duyệt</span></div>
+                    </div>
+                    <div class="rv-legend">
+                        <div><span class="rv-legend-dot rv-legend-dot--approved"></span><span>Approved</span><strong>02</strong></div>
+                        <div><span class="rv-legend-dot rv-legend-dot--pending"></span><span>Pending</span><strong>01</strong></div>
+                        <div><span class="rv-legend-dot rv-legend-dot--rejected"></span><span>Rejected</span><strong>00</strong></div>
+                    </div>
+                </div>
+                <div class="rv-panel-footer">Đánh giá Pending không xuất hiện ở trang công khai.</div>
+            </section>
+        </div>
+
+        <div class="rv-bottom-grid">
+            <section class="rv-panel" aria-labelledby="rv-service-title">
+                <div class="rv-panel-heading"><div><span class="rv-panel-kicker">SERVICE SNAPSHOT</span><h3 id="rv-service-title">Dịch vụ minh họa</h3></div></div>
+                <div class="rv-service-card">
+                    <div class="rv-service-monogram" aria-hidden="true">W</div>
+                    <div class="rv-service-name"><strong>Giặt sấy quần áo</strong><span>Tiệm minh họa A</span></div>
+                    <div class="rv-service-rating"><strong>4.5</strong><span>/ 5 sao</span></div>
+                </div>
+                <p class="rv-muted">2 đánh giá Approved được sử dụng trong kịch bản thử nghiệm; chưa phải thống kê thực tế của tiệm.</p>
+            </section>
+
+            <section class="rv-panel" aria-labelledby="rv-activity-title">
+                <div class="rv-panel-heading"><div><span class="rv-panel-kicker">SAMPLE RECORDS</span><h3 id="rv-activity-title">Dữ liệu kiểm thử</h3></div></div>
+                <div class="rv-activity-list">
+                    <div class="rv-activity-row"><span class="rv-avatar">A</span><div><strong>Khách hàng A</strong><small>Đánh giá 5 sao</small></div><span class="rv-status-pill rv-status-pill--approved">Approved</span></div>
+                    <div class="rv-activity-row"><span class="rv-avatar">B</span><div><strong>Khách hàng B</strong><small>Đánh giá 4 sao</small></div><span class="rv-status-pill rv-status-pill--approved">Approved</span></div>
+                    <div class="rv-activity-row"><span class="rv-avatar">C</span><div><strong>Khách hàng C</strong><small>Đánh giá 2 sao</small></div><span class="rv-status-pill rv-status-pill--pending">Pending</span></div>
+                </div>
+            </section>
+        </div>
+
+        <p class="rv-note"><strong>Lưu ý:</strong> Tất cả số liệu trên là dữ liệu minh họa được thiết lập cố định để kiểm tra giao diện. Dashboard hiện chưa kết nối database hay phân hệ kiểm duyệt của nhóm; việc lọc dữ liệu Approved ở backend sẽ được tích hợp sau.</p>
+    </div>
+</section>
+
+@section Styles {
+    <style>
+        .rv-dashboard { --rv-navy:#071a3d; --rv-blue:#315de7; --rv-muted:#66758b; --rv-line:#e4eaf5; background:#f7f9fd; padding:34px 0 72px; color:var(--rv-navy); }
+        .rv-dashboard *, .rv-dashboard *::before, .rv-dashboard *::after { box-sizing:border-box; }
+        .rv-wrap { max-width:1180px; }
+        .rv-hero { position:relative; isolation:isolate; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(230px,.72fr); align-items:center; gap:32px; min-height:280px; padding:42px 50px; border-radius:26px; overflow:hidden; background:linear-gradient(125deg,#071a3d 8%,#0b3275 62%,#214fbe 130%); color:#fff; box-shadow:0 20px 45px rgba(7,26,61,.13); }
+        .rv-hero::before { content:""; position:absolute; z-index:-1; width:400px; height:400px; border:1px solid rgba(255,255,255,.12); border-radius:50%; right:-105px; top:-155px; box-shadow:0 0 0 65px rgba(255,255,255,.035),0 0 0 135px rgba(255,255,255,.025); }
+        .rv-eyebrow { display:inline-flex; align-items:center; gap:9px; color:#b6ceff; font-size:11px; font-weight:800; letter-spacing:2px; }
+        .rv-pulse { width:7px; height:7px; border-radius:50%; background:#9fceff; box-shadow:0 0 0 4px rgba(159,206,255,.12); }
+        .rv-hero h1 { margin:17px 0 13px; color:#fff; font-size:clamp(27px,3.2vw,43px); line-height:1.17; letter-spacing:-1.3px; font-weight:800; }
+        .rv-hero h1 em { font-style:normal; color:#b8d6ff; }
+        .rv-hero-copy>p { max-width:570px; margin:0 0 20px; color:#d6e3fa; line-height:1.7; font-size:14px; }
+        .rv-hero-caption { font-size:10px; letter-spacing:1px; color:#9eb9e2; font-weight:700; }
+        .rv-hero-visual { justify-self:end; width:100%; max-width:270px; padding:24px; border:1px solid rgba(255,255,255,.22); border-radius:20px; background:rgba(255,255,255,.09); backdrop-filter:blur(8px); text-align:center; }
+        .rv-hero-visual-label { display:block; color:#c7d9fb; font-size:10px; font-weight:800; letter-spacing:1.3px; }
+        .rv-hero-score { margin:12px 0 1px; font-size:clamp(48px,6vw,68px); letter-spacing:-4px; line-height:1.1; font-weight:800; }
+        .rv-hero-score span { margin-left:5px; font-size:20px; font-weight:500; letter-spacing:0; color:#bcd0f3; }
+        .rv-hero-stars { position:relative; display:table; margin:0 auto; font-size:21px; line-height:1.2; letter-spacing:3px; white-space:nowrap; }
+        .rv-hero-stars-base { color:rgba(255,255,255,.35); }
+        .rv-hero-stars-fill { position:absolute; left:0; top:0; width:90%; overflow:hidden; color:#ffd27d; white-space:nowrap; }
+        .rv-hero-visual-foot { display:block; color:#d7e3f7; font-size:12px; margin-top:10px; }
+        .rv-section-heading { margin:34px 0 18px; display:flex; align-items:end; justify-content:space-between; gap:18px; }
+        .rv-section-heading--spaced { margin-top:42px; }
+        .rv-section-kicker,.rv-panel-kicker { color:#5273af; font-size:10px; font-weight:800; letter-spacing:1.7px; }
+        .rv-section-heading h2 { font-size:24px; margin:7px 0 0; color:var(--rv-navy); letter-spacing:-.4px; }
+        .rv-section-heading>p { margin:0 0 3px; color:var(--rv-muted); font-size:13px; }
+        .rv-stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:15px; }
+        .rv-stat { min-width:0; padding:23px 23px 20px; background:#fff; border:1px solid var(--rv-line); border-radius:19px; box-shadow:0 9px 25px rgba(9,37,78,.035); transition:transform .18s,box-shadow .18s; }
+        .rv-stat:hover { transform:translateY(-3px); box-shadow:0 15px 32px rgba(9,37,78,.085); }
+        .rv-stat-top { display:flex; align-items:center; justify-content:space-between; gap:8px; color:#66758b; font-size:12px; font-weight:700; }
+        .rv-stat-mark { display:grid; place-items:center; flex-shrink:0; width:31px; height:31px; border-radius:10px; background:#eaf0ff; color:#315de7; font-size:14px; font-weight:800; }
+        .rv-stat-mark--green { background:#e7f7ef; color:#20845c; }
+        .rv-stat-mark--orange { background:#fff2e4; color:#b56e28; }
+        .rv-stat strong { display:block; margin:15px 0 6px; font-size:37px; line-height:1; letter-spacing:-1px; color:var(--rv-navy); }
+        .rv-stat small { font-size:17px; font-weight:500; }
+        .rv-stat p { margin:0; color:#8190a5; font-size:11px; }
+        .rv-stat--accent { background:#315de7; border-color:#315de7; }
+        .rv-stat--accent .rv-stat-top,.rv-stat--accent strong,.rv-stat--accent p { color:#fff; }
+        .rv-stat--accent p { color:#d8e3ff; }
+        .rv-stat-mark--white { background:rgba(255,255,255,.2); color:#fff; }
+        .rv-insight-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:18px; }
+        .rv-bottom-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px; }
+        .rv-panel { min-width:0; padding:27px 29px; background:#fff; border:1px solid var(--rv-line); border-radius:20px; box-shadow:0 8px 25px rgba(9,37,78,.03); }
+        .rv-panel-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+        .rv-panel-heading h3 { font-size:19px; margin:7px 0 0; letter-spacing:-.35px; color:var(--rv-navy); }
+        .rv-panel-meta { white-space:nowrap; border-radius:100px; background:#edf2ff; color:#3456ae; padding:6px 10px; font-size:11px; font-weight:700; }
+        .rv-panel-description { color:var(--rv-muted); margin:9px 0 27px; font-size:13px; }
+        .rv-bars { display:grid; gap:17px; margin:24px 0 26px; }
+        .rv-bar-row { display:grid; grid-template-columns:38px minmax(0,1fr) 22px; align-items:center; gap:13px; font-size:12px; }
+        .rv-bar-row>span { color:#42516c; font-weight:700; }
+        .rv-bar-row>strong { font-size:12px; text-align:right; }
+        .rv-bar-track { background:#edf1f8; height:11px; border-radius:99px; overflow:hidden; }
+        .rv-bar-fill { height:100%; border-radius:99px; background:linear-gradient(90deg,#3769eb,#84b0fc); }
+        .rv-panel-footer { border-top:1px solid #eef1f7; padding-top:17px; color:#677791; font-size:12px; line-height:1.6; }
+        .rv-mini-dot { display:inline-block; width:7px; height:7px; margin-right:5px; border-radius:50%; background:#3f70ee; }
+        .rv-status-layout { display:grid; grid-template-columns:minmax(140px,1fr) minmax(120px,1fr); align-items:center; gap:16px; padding:1px 0 23px; }
+        .rv-donut { width:min(100%,186px); aspect-ratio:1; margin:0 auto; border-radius:50%; display:grid; place-items:center; background:conic-gradient(#3769eb 0 66.667%,#ffba85 66.667% 100%); }
+        .rv-donut-center { width:70%; aspect-ratio:1; border-radius:50%; display:flex; flex-direction:column; justify-content:center; align-items:center; background:#fff; }
+        .rv-donut-center strong { color:var(--rv-navy); font-size:29px; letter-spacing:-1px; }
+        .rv-donut-center span { font-size:11px; color:#758299; }
+        .rv-legend { display:grid; gap:17px; }
+        .rv-legend>div { display:grid; grid-template-columns:10px minmax(0,1fr) 26px; align-items:center; gap:9px; font-size:12px; }
+        .rv-legend>div>span:nth-child(2) { color:#6a778c; }
+        .rv-legend strong { text-align:right; font-size:13px; }
+        .rv-legend-dot { display:block; height:9px; width:9px; border-radius:50%; }
+        .rv-legend-dot--approved { background:#3769eb; }
+        .rv-legend-dot--pending { background:#ffba85; }
+        .rv-legend-dot--rejected { background:#cdd5e1; }
+        .rv-service-card { display:flex; align-items:center; gap:15px; margin:24px 0 18px; padding:18px; border:1px solid #e9edf5; background:#f8faff; border-radius:15px; }
+        .rv-service-monogram { display:grid; place-items:center; width:52px; height:52px; border-radius:14px; background:#0c2c65; color:#fff; font-size:23px; font-weight:800; flex-shrink:0; }
+        .rv-service-name { min-width:0; display:flex; flex-direction:column; gap:5px; flex:1; }
+        .rv-service-name strong { font-size:14px; }
+        .rv-service-name span { color:var(--rv-muted); font-size:12px; }
+        .rv-service-rating { display:flex; flex-direction:column; align-items:flex-end; gap:2px; }
+        .rv-service-rating strong { font-size:25px; }
+        .rv-service-rating span { color:#7f8ba3; font-size:11px; letter-spacing:0; }
+        .rv-muted { font-size:12px; line-height:1.65; color:#7d8ba0; margin:0; }
+        .rv-activity-list { margin-top:12px; }
+        .rv-activity-row { display:flex; align-items:center; gap:12px; padding:13px 0; border-bottom:1px solid #edf1f7; }
+        .rv-activity-row:last-child { border-bottom:0; padding-bottom:0; }
+        .rv-avatar { flex-shrink:0; display:grid; place-items:center; width:36px; height:36px; border-radius:12px; background:#eaf0ff; color:#315de7; font-weight:800; font-size:13px; }
+        .rv-activity-row>div { flex:1; min-width:0; display:flex; flex-direction:column; gap:3px; }
+        .rv-activity-row>div strong { color:var(--rv-navy); font-size:12px; }
+        .rv-activity-row>div small { color:#7d8ba0; font-size:11px; }
+        .rv-status-pill { border-radius:50px; padding:6px 9px; font-size:10px; font-weight:700; white-space:nowrap; }
+        .rv-status-pill--approved { background:#e9f8ef; color:#23805b; }
+        .rv-status-pill--pending { background:#fff1e3; color:#ac672d; }
+        .rv-note { margin:20px 0 0; padding:15px 18px; border-left:3px solid #4d79ed; border-radius:0 12px 12px 0; color:#65758d; background:#edf3ff; font-size:12px; line-height:1.7; }
+        .rv-note strong { color:#17386e; }
+        @@media (max-width:960px) {
+            .rv-hero { grid-template-columns:1fr; padding:35px; }
+            .rv-hero-visual { justify-self:start; max-width:260px; }
+            .rv-stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+            .rv-insight-grid,.rv-bottom-grid { grid-template-columns:1fr; }
+        }
+        @@media (max-width:600px) {
+            .rv-dashboard { padding:18px 0 46px; }
+            .rv-hero { padding:27px 22px; border-radius:19px; gap:25px; }
+            .rv-hero h1 { font-size:28px; letter-spacing:-.75px; }
+            .rv-hero-caption { line-height:1.6; }
+            .rv-hero-visual { padding:15px; }
+            .rv-section-heading { align-items:flex-start; flex-direction:column; gap:5px; margin-top:29px; }
+            .rv-section-heading h2 { font-size:21px; }
+            .rv-stats { gap:10px; }
+            .rv-stat { padding:15px; border-radius:14px; }
+            .rv-stat-top { font-size:11px; }
+            .rv-stat strong { font-size:30px; }
+            .rv-stat p { font-size:10px; }
+            .rv-panel { padding:21px 17px; border-radius:16px; }
+            .rv-panel-heading h3 { font-size:17px; }
+            .rv-status-layout { grid-template-columns:1fr; }
+            .rv-donut { width:160px; }
+            .rv-legend { max-width:230px; width:100%; margin:0 auto; }
+            .rv-service-card { gap:10px; padding:13px; }
+            .rv-service-monogram { width:42px; height:42px; }
+            .rv-service-rating strong { font-size:21px; }
+        }
+        @@media (prefers-reduced-motion:reduce) { .rv-stat { transition:none; } }
+    </style>
+}
