@@ -1,0 +1,77 @@
+@* CD27-22: danh sách đánh giá công khai. Dữ liệu thử nghiệm, chưa kết nối DB. *@
+@{
+    var sampleReviews = new[] {
+        new { Name = "Khách hàng A", Rating = 5, Status = "Approved", Date = "2026-11-26", DateLabel = "26/11/2026", Verified = true, Comment = "Quần áo được giặt sạch, dịch vụ tiện lợi và dễ sử dụng." },
+        new { Name = "Khách hàng B", Rating = 4, Status = "Approved", Date = "2026-11-25", DateLabel = "25/11/2026", Verified = true, Comment = "Dịch vụ khá tốt, thời gian xử lý phù hợp với nhu cầu." },
+        new { Name = "Khách hàng C", Rating = 2, Status = "Pending", Date = "2026-11-27", DateLabel = "27/11/2026", Verified = true, Comment = "Thời gian xử lý lâu hơn mong đợi." }
+    };
+    var approvedReviews = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Where(sampleReviews, r => r.Status == "Approved"));
+    var count = approvedReviews.Length;
+    var average = count > 0 ? System.Linq.Enumerable.Average(approvedReviews, r => r.Rating) : 0.0;
+    var displayAverage = average.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture);
+    var starWidth = (average / 5 * 100).ToString("0.##", System.Globalization.CultureInfo.InvariantCulture) + "%";
+}
+<section class="products-section" id="service-reviews">
+    <div class="container">
+        <div class="section-heading">
+            <div>
+                <span class="section-kicker">WASHUP REVIEWS</span>
+                <h2>Đánh giá từ khách hàng</h2>
+            </div>
+            <p>Tham khảo trải nghiệm sử dụng dịch vụ.</p>
+        </div>
+
+        <div class="review-summary">
+            <h3>Điểm đánh giá trung bình</h3>
+            <div class="review-score" id="review-average">@(count > 0 ? displayAverage + " / 5" : "Chưa có đánh giá")</div>
+            <div class="review-stars-average" role="img" aria-label="@(count > 0 ? "Điểm trung bình " + displayAverage + " trên 5 sao" : "Chưa có đánh giá")">
+                <span class="stars-base" aria-hidden="true">★★★★★</span>
+                <span class="stars-fill" style="width:@starWidth" aria-hidden="true">★★★★★</span>
+            </div>
+            <p id="review-count">@count lượt đánh giá minh họa</p>
+        </div>
+
+        <h3>Nhận xét khách hàng</h3>
+        <div class="washup-review-controls">
+            <div class="washup-review-control">
+                <label for="rating-filter">Lọc theo số sao</label>
+                <select id="rating-filter" class="catalog-select">
+                    <option value="all">Tất cả đánh giá</option>
+                    <option value="5">5 sao ★★★★★</option>
+                    <option value="4">4 sao ★★★★☆</option>
+                    <option value="3">3 sao ★★★☆☆</option>
+                    <option value="2">2 sao ★★☆☆☆</option>
+                    <option value="1">1 sao ★☆☆☆☆</option>
+                </select>
+            </div>
+            <div class="washup-review-control">
+                <label for="review-sort">Sắp xếp nhận xét</label>
+                <select id="review-sort" class="catalog-select">
+                    <option value="newest">Mới nhất</option>
+                    <option value="oldest">Cũ nhất</option>
+                    <option value="highest">Số sao cao nhất</option>
+                    <option value="lowest">Số sao thấp nhất</option>
+                </select>
+            </div>
+        </div>
+        <div class="review-list" id="public-review-list">
+            @foreach (var review in approvedReviews)
+            {
+                <article class="review-card" data-rating="@review.Rating" data-status="@review.Status" data-date="@review.Date">
+                    <div class="washup-review-heading">
+                        <strong>@review.Name (minh họa)</strong>
+                        <time datetime="@review.Date">@review.DateLabel</time>
+                    </div>
+                    @if (review.Verified)
+                    {
+                        <span class="washup-review-verified">✓ Đã sử dụng dịch vụ (minh họa)</span>
+                    }
+                    <p class="review-stars" aria-label="@review.Rating trên 5 sao">@(new string('★', review.Rating) + new string('☆', 5 - review.Rating))</p>
+                    <p>@review.Comment</p>
+                </article>
+            }
+        </div>
+        <p id="review-empty" class="products-note" role="status" hidden="@(count > 0 ? "hidden" : null)">Không có đánh giá phù hợp.</p>
+        <p class="products-note">Lưu ý: Điểm số, ngày gửi, nhận xét và nhãn xác minh là dữ liệu minh họa. Razor chỉ render các bản ghi Approved trong bộ mẫu; chưa kết nối cơ sở dữ liệu hoặc xác minh đơn hàng thực tế.</p>
+    </div>
+</section>
