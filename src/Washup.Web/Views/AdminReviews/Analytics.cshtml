@@ -1,0 +1,62 @@
+@{
+    ViewData["Title"] = "Phân tích đánh giá";
+}
+
+<section class="rv-dashboard" id="review-analytics" aria-labelledby="rv-title">
+    <div class="container rv-wrap">
+        <header class="rv-hero">
+            <div class="rv-hero-copy">
+                <span class="rv-eyebrow"><span class="rv-pulse"></span> WASHUP / REVIEW ANALYTICS</span>
+                <h1 id="rv-title">Lắng nghe trải nghiệm.<br /><em>Hiểu rõ chất lượng.</em></h1>
+                <p>Theo dõi mức độ hài lòng, xu hướng phản hồi và chất lượng từng dịch vụ giặt ủi.</p>
+                <span class="rv-hero-caption" id="rv-source">BẢN DEMO · DỮ LIỆU MINH HỌA · CHƯA KẾT NỐI API</span>
+            </div>
+            <div class="rv-hero-visual">
+                <span class="rv-hero-visual-label">CUSTOMER SATISFACTION</span>
+                <div class="rv-hero-score"><b id="rv-hero-average">—</b><span>/5</span></div>
+                <div class="rv-hero-stars" role="img" id="rv-hero-stars" aria-label="Chưa có điểm đánh giá"><span class="rv-hero-stars-base" aria-hidden="true">★★★★★</span><span class="rv-hero-stars-fill" id="rv-stars-fill" aria-hidden="true" style="width:0%">★★★★★</span></div>
+                <span class="rv-hero-visual-foot" id="rv-hero-count">Đang chuẩn bị dữ liệu</span>
+            </div>
+        </header>
+
+        <div class="rv-section-heading"><div><span class="rv-section-kicker">01 / PHẠM VI PHÂN TÍCH</span><h2>Bộ lọc thống kê</h2></div><p>Áp dụng đồng thời cho toàn bộ chỉ số</p></div>
+        <form id="rv-filters" class="rv-panel rv-filters">
+            <div class="rv-field"><label for="rv-shop">Tiệm giặt</label><select id="rv-shop"><option value="">Tất cả tiệm</option></select></div>
+            <div class="rv-field"><label for="rv-service">Dịch vụ</label><select id="rv-service"><option value="">Tất cả dịch vụ</option></select></div>
+            <div class="rv-field"><label for="rv-from">Từ ngày</label><input type="date" id="rv-from" /></div>
+            <div class="rv-field"><label for="rv-to">Đến ngày</label><input type="date" id="rv-to" /></div>
+            <div class="rv-filter-actions"><button type="submit" class="rv-button">Áp dụng</button><button type="button" class="rv-button rv-button-secondary" id="rv-reset">Đặt lại</button></div>
+            <p class="rv-filter-message" id="rv-filter-message" role="status">Ngày được tính bao gồm cả hai mốc đã chọn.</p>
+        </form>
+        <p id="rv-alert" class="rv-note" role="status" hidden></p>
+
+        <div class="rv-section-heading"><div><span class="rv-section-kicker">02 / TỔNG QUAN</span><h2>Chỉ số nổi bật</h2></div><p id="rv-scope">Toàn bộ dữ liệu minh họa</p></div>
+        <div class="rv-stats">
+            <article class="rv-stat"><div class="rv-stat-top"><span>Đánh giá đã duyệt</span><span class="rv-stat-mark rv-stat-mark--green">✓</span></div><strong id="rv-count">—</strong><p>Chỉ tính Approved</p></article>
+            <article class="rv-stat rv-stat--accent"><div class="rv-stat-top"><span>Điểm trung bình</span><span class="rv-stat-mark rv-stat-mark--white">★</span></div><strong id="rv-average">—</strong><p>Thang điểm 1–5</p></article>
+            <article class="rv-stat"><div class="rv-stat-top"><span>Đánh giá thấp</span><span class="rv-stat-mark rv-stat-mark--orange">!</span></div><strong id="rv-low">—</strong><p>Approved · 1–2 sao</p></article>
+            <article class="rv-stat"><div class="rv-stat-top"><span>Dịch vụ có đánh giá</span><span class="rv-stat-mark">04</span></div><strong id="rv-service-count">—</strong><p>Có ít nhất 1 Approved</p></article>
+        </div>
+
+        <div class="rv-section-heading"><div><span class="rv-section-kicker">03 / CHẤT LƯỢNG DỊCH VỤ</span><h2>Phân tích đánh giá</h2></div><p>Chỉ sử dụng đánh giá Approved</p></div>
+        <div class="rv-insight-grid">
+            <section class="rv-panel"><div class="rv-panel-heading"><div><span class="rv-panel-kicker">RATING BREAKDOWN</span><h3>Phân bố số sao</h3></div><span class="rv-panel-meta" id="rv-distribution-count">—</span></div><p class="rv-panel-description">Số lượt và tỷ lệ trên tổng đánh giá đã duyệt trong phạm vi lọc.</p><div id="rv-distribution" class="rv-bars"></div></section>
+            <section class="rv-panel"><div class="rv-panel-heading"><div><span class="rv-panel-kicker">RATING TREND</span><h3>Xu hướng theo thời gian</h3></div></div><p class="rv-panel-description">Điểm trung bình theo ngày gửi đánh giá; ngày không có Approved không được gán điểm 0.</p><div id="rv-trend" class="rv-trend"></div></section>
+        </div>
+        <div class="rv-bottom-grid">
+            <section class="rv-panel"><div class="rv-panel-heading"><div><span class="rv-panel-kicker">SERVICE RANKING</span><h3>Xếp hạng dịch vụ</h3></div></div><p class="rv-panel-description">Theo điểm trung bình giảm dần; nếu bằng điểm, ưu tiên nhiều lượt đánh giá hơn.</p><div id="rv-ranking" class="rv-ranking"></div></section>
+            <section class="rv-panel"><div class="rv-panel-heading"><div><span class="rv-panel-kicker">LOW RATING WATCH</span><h3>Dịch vụ có đánh giá thấp</h3></div></div><p class="rv-panel-description">Xếp theo số lượt 1–2 sao đã duyệt, kèm tỷ lệ trên tổng lượt của từng dịch vụ. Không tự đặt ngưỡng cảnh báo.</p><div id="rv-low-ranking" class="rv-ranking"></div></section>
+        </div>
+        <div class="rv-section-heading"><div><span class="rv-section-kicker">04 / KIỂM DUYỆT · THAM KHẢO</span><h2>Trạng thái bản ghi</h2></div><p>Thống kê vận hành riêng, không tính vào điểm chất lượng</p></div>
+        <section class="rv-panel"><div class="rv-status-layout"><div class="rv-donut" id="rv-donut" role="img" aria-label="Trạng thái kiểm duyệt"><div class="rv-donut-center"><strong id="rv-approved-percent">—</strong><span>đã duyệt</span></div></div><div id="rv-status-legend" class="rv-legend"></div></div><p id="rv-status-total" class="rv-panel-footer"></p></section>
+        <p class="rv-note"><strong>Lưu ý:</strong> Đây là giao diện demo với dữ liệu giả lập; chưa lấy dữ liệu API hoặc xác thực quyền Admin. Khi tích hợp, API của nhóm phải trả đúng phạm vi và kiểm soát quyền truy cập ở máy chủ. Các chỉ số chất lượng luôn loại trừ Pending, Rejected và Hidden.</p>
+        <noscript><p class="rv-note">Cần bật JavaScript để xem các thống kê và sử dụng bộ lọc.</p></noscript>
+    </div>
+</section>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/review-analytics.css" asp-append-version="true" />
+}
+@section Scripts {
+    <script src="~/js/review-analytics.js" asp-append-version="true" defer></script>
+}

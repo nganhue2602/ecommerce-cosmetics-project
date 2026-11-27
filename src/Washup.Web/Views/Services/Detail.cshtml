@@ -1,0 +1,42 @@
+@{
+    ViewData["Title"] = "Chi tiết dịch vụ";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/review-list.css" asp-append-version="true" />
+}
+
+<section class="products-section">
+    <div class="container">
+        <a href="/products.html" class="product-link">← Quay lại danh sách dịch vụ</a>
+        <div class="section-heading">
+            <div>
+                <span class="section-kicker">WASHUP · CHI TIẾT DỊCH VỤ</span>
+                <h1>Giặt sấy quần áo</h1>
+            </div>
+        </div>
+        <article class="product-card">
+            <div class="product-image-link">
+                <img src="~/images/dich-vu-giat-say-chuyen-nghiep-cua-chung-toi.jpg" alt="Dịch vụ giặt sấy quần áo" />
+            </div>
+            <div class="product-info">
+                <span class="product-category">Giặt thường</span>
+                <h2>Giặt sấy quần áo</h2>
+                <p class="product-shop"><strong>Tiệm cung cấp:</strong> Tiệm minh họa A</p>
+                <p class="product-description">Dịch vụ giặt sạch và sấy khô quần áo hằng ngày, giúp khách hàng tiết kiệm thời gian.</p>
+                <p class="product-price">15.000đ <span>/ kg</span></p>
+            </div>
+        </article>
+    </div>
+</section>
+
+@await Html.PartialAsync("_ReviewList")
+
+<!-- FORM GỬI ĐÁNH GIÁ - QUỲNH NHƯ: giữ nguyên partial của nhóm -->
+<div class="container">
+    @await Html.PartialAsync("_ReviewForm")
+</div>
+
+@section Scripts {
+    <script src="~/js/review-list.js" asp-append-version="true" defer></script>
+}
